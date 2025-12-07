@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --color-primary: #1B2E4A;
+  --color-accent: #4DBFD9;
+  --color-dark: #2F3B45;
+  --color-light: #D6D6D6;
+}
+
+body {
+  @apply bg-white text-dark font-sans;
+}

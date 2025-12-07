@@ -1,0 +1,27 @@
+{
+    "host": "ftp.webcats.mx",
+    "username": "webcatsv3@webcats.mx",
+    "password": "Tw#ui=Ej5geO)rtvb34",
+    "protocol": "sftp",
+    "port": 21,
+  
+    "remotePath": "/public_html/",
+    "uploadOnSave": false,
+  
+    "syncMode": "update",
+  
+    "watcher": {
+      "files": "dist/**",
+      "autoUpload": true,
+      "autoDelete": true
+    },
+  
+    "ignore": [
+      "**/.vscode",
+      "**/.git",
+      "**/node_modules",
+      "**/src",
+      "**/public"
+    ]
+  }
+  
