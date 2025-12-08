@@ -24,14 +24,20 @@ jobs:
       - name: 🛠️ Build de producción
         run: npm run build
 
-      - name: 📤 Deploy vía FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4
+      - name: 🟦 Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist
-          server-dir: /public_html/
+        node-version: '20'
+
+
+      - name: 📤 Deploy vía FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
           protocol: ftp
           port: 21
-          timeout: 60000
+          local-dir: ./dist
+          server-dir: ${{ secrets.FTP_DIR }}
+          log-level: verbose
