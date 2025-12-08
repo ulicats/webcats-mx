@@ -16,23 +16,22 @@ jobs:
       - name: 🟦 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
 
-      - name: 📥 Install dependencies
+      - name: 📥 Instalar dependencias
         run: npm install
 
-      - name: 🛠️ Build project
+      - name: 🛠️ Build de producción
         run: npm run build
 
       - name: 📤 Deploy vía FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-        server: ${{ secrets.FTP_HOST }}
-        username: ${{ secrets.FTP_USER }}
-        password: ${{ secrets.FTP_PASS }}
-        protocol: ftp
-        port: 21
-        local-dir: ./dist/
-        server-dir: ${{ secrets.FTP_DIR }}
-        log-level: minimal
-
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          protocol: ftp
+          port: 21
+          local-dir: ./dist/
+          server-dir: ${{ secrets.FTP_DIR }}
+          log-level: minimal
