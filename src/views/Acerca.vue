@@ -91,11 +91,14 @@ export default {
 /* ============================= */
 
 .container-fluid {
-  max-width: 1600px;
+  max-width: 100%;
   margin: 0 auto;
-  padding-left: 90px;
-  padding-right: 90px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
+
 
 .about-page {
   padding: 50px 20px;
@@ -108,6 +111,8 @@ export default {
   align-items: start;
   max-width: 1350px;
   margin: 0 auto;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* ============================= */
@@ -172,9 +177,9 @@ export default {
 
 .role-block {
   margin-bottom: 40px;
-  opacity: 0;
-  animation: fadeUp 1.4s ease-out forwards;
+  animation: fadeUp 1s ease-out;
 }
+
 
 .role-title {
   font-size: 1.6rem;
@@ -261,14 +266,18 @@ export default {
   }
 
   .container-fluid {
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   .about-layout {
     grid-template-columns: 1fr;
     gap: 20px;
     margin-top: -20px;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .profile-card {
@@ -317,8 +326,8 @@ export default {
 /* ============================= */
 
 @keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(25px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% { transform: translateY(25px); opacity: 0.01; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes shadowPulse {

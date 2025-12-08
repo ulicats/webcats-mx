@@ -183,38 +183,38 @@ export default {
 ================================ */
 @media (max-width: 800px) {
 
-  .hamburger {
-    display: flex;
-  }
-
-  /* Oculta menú normal */
-  .nav-links {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    height: 100vh;
-    width: 68%;
-    padding: 80px 30px;
-    background: white;
-    flex-direction: column;
-    gap: 22px;
-    box-shadow: -4px 0 18px rgba(0,0,0,0.15);
-    transition: right 0.35s ease;
-    z-index: 1500;
-  }
-
-  .nav-links.open {
-    right: 0;
-  }
-
-  /* Ajustes de logo */
-  .logo-img {
-    width: 32px;
-  }
-
-  .logo {
-    font-size: 1.3rem;
-    gap: 4px;
-  }
+.hamburger {
+  display: flex;
 }
+
+.nav-links {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 68%;
+  padding: 80px 30px;
+  background: white;
+  flex-direction: column;
+  gap: 22px;
+  box-shadow: -4px 0 18px rgba(0,0,0,0.15);
+  transition: transform 0.35s ease;
+  transform: translateX(100%); /* menú oculto sin romper layout */
+  z-index: 1500;
+}
+
+.nav-links.open {
+  transform: translateX(0); /* menú visible */
+}
+
+.logo-img {
+  width: 32px;
+}
+
+.logo {
+  font-size: 1.3rem;
+  gap: 4px;
+}
+}
+
 </style>

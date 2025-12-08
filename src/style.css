@@ -13,9 +13,20 @@
   --color-light: #D6D6D6;
 }
 
+
+html, body {
+  overflow-x: hidden;
+  overflow-y: auto !important;
+}
+
+
 /* Estilo global del body */
 body {
   @apply bg-white text-dark font-sans;
+  position: relative;
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /* Animaciones personalizadas */

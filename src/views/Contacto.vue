@@ -154,5 +154,13 @@
       font-weight: 600;
       text-align: center;
     }
+
+    @media (max-width: 900px) {
+  .contact-container {
+    margin: 20px auto !important;
+    padding: 20px !important;
+    }
+  }
+
     </style>
     
