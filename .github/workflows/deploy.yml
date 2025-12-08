@@ -1,0 +1,42 @@
+name: 🚀 Deploy Webcats.mx
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repo
+        uses: actions/checkout@v3
+
+      - name: 🟦 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🔨 Build project
+        run: npm run build
+
+      - name: 📤 Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          local-dir: ./dist
+          server-dir: ${{ secrets.FTP_DIR }}
+          protocol: ftp
+          log-level: minimal
+          exclude: |
+            **/.git*
+            **/.github*
+            **/node_modules*
+            **/src*
+            **/vite.config.js

@@ -1,27 +1,20 @@
 {
+    "name": "Webcats FTP Upload",
     "host": "ftp.webcats.mx",
-    "username": "webcatsv3@webcats.mx",
-    "password": "Tw#ui=Ej5geO)rtvb34",
-    "protocol": "sftp",
     "port": 21,
-  
+    "protocol": "ftp",
+    "username": "webcatsv3@webcats.mx",
+    "password": "w#ui=Ej5geO)rtvb34",
     "remotePath": "/public_html/",
-    "uploadOnSave": false,
-  
-    "syncMode": "update",
-  
-    "watcher": {
-      "files": "dist/**",
-      "autoUpload": true,
-      "autoDelete": true
-    },
-  
+    "uploadOnSave": true,
     "ignore": [
       "**/.vscode",
       "**/.git",
+      "**/.gitignore",
       "**/node_modules",
       "**/src",
-      "**/public"
+      "**/package.json",
+      "**/package-lock.json"
     ]
   }
   

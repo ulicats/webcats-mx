@@ -1,222 +1,298 @@
 <template>
-  <div class="modal-overlay" @click.self="close">
+  <div class="modal-overlay" @click.self="closeModal">
+    <div class="modal-card">
 
-    <div class="modal-content">
+      <!-- Botón anterior -->
+      <button
+        class="nav-btn nav-prev"
+        type="button"
+        @click.stop="prevProject"
+      >
+        ‹
+      </button>
 
-      <!-- FLECHAS AFUERA DE LA MODAL Y CENTRADAS -->
-      <button class="arrow left" @click.stop="$emit('prev')">‹</button>
-      <button class="arrow right" @click.stop="$emit('next')">›</button>
+      <!-- Botón siguiente -->
+      <button
+        class="nav-btn nav-next"
+        type="button"
+        @click.stop="nextProject"
+      >
+        ›
+      </button>
 
-      <!-- IMAGEN -->
-      <div class="image-wrapper">
-        <transition name="netflix" mode="out-in">
-          <img :src="project.image" :key="project.image" class="modal-img" />
-        </transition>
-      </div>
+      <!-- Contenido scrollable dentro de la tarjeta -->
+      <div class="modal-scroll">
+        <img
+          :src="project.image"
+          :alt="project.title"
+          class="modal-image"
+        />
 
-      <!-- TEXTO -->
-      <div class="info-wrapper">
+        <h2 class="modal-title">
+          {{ project.title }}
+        </h2>
 
-          <h2 class="modal-title">{{ project.title }}</h2>
-          <p class="modal-category">{{ project.category }}</p>
+        <p class="modal-category">
+          {{ project.category }}
+        </p>
 
-          <blockquote class="modal-description">
-            {{ project.description }}
-          </blockquote>
+        <p class="modal-description">
+          {{ project.description }}
+        </p>
 
-          <div class="buttons">
-            <button @click="openURL(project.url)">Ver Proyecto</button>
-            <button @click="close">Cerrar</button>
-          </div>
+        <ul v-if="project.features && project.features.length" class="features-list">
+          <li v-for="(item, i) in project.features" :key="i">
+            {{ item }}
+          </li>
+        </ul>
 
+        <div class="modal-actions">
+          <a
+            v-if="project.url"
+            :href="project.url"
+            target="_blank"
+            rel="noopener"
+            class="btn primary"
+          >
+            Ver Proyecto
+          </a>
+
+          <button
+            type="button"
+            class="btn secondary"
+            @click="closeModal"
+          >
+            Cerrar
+          </button>
         </div>
-
-
+      </div>
     </div>
-
   </div>
 </template>
 
 <script setup>
+import { onMounted, onBeforeUnmount } from "vue";
+
 const props = defineProps({
-  project: Object
-})
+  project: {
+    type: Object,
+    required: true,
+  },
+  index: {
+    type: Number,
+    required: true,
+  },
+  items: {
+    type: Array,
+    required: true,
+  },
+});
 
-const emit = defineEmits(["close", "next", "prev"])
+const emit = defineEmits(["close", "next", "prev"]);
 
-function close() {
-  emit("close")
-}
+const closeModal = () => emit("close");
+const nextProject = () => emit("next");
+const prevProject = () => emit("prev");
 
-function openURL(url) {
-  window.open(url, "_blank")
-}
+// Bloquear scroll del body mientras el modal está abierto
+let previousOverflow = "";
+
+onMounted(() => {
+  previousOverflow = document.body.style.overflow || "";
+  document.body.style.overflow = "hidden";
+});
+
+onBeforeUnmount(() => {
+  document.body.style.overflow = previousOverflow;
+});
 </script>
 
 <style scoped>
-/* ------------------- */
-/* OVERLAY */
-/* ------------------- */
+/* Fondo oscuro */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.55);
+  background: rgba(15, 23, 42, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  padding: 16px;
+  z-index: 999;
 }
 
-/* ------------------- */
-/* CONTENEDOR MODAL */
-/* ------------------- */
-.modal-content {
-  width: 900px;
-  max-width: 95%;
-  background: white;
-  border-radius: 18px;
-  overflow: visible; /* 🔥🔥 PARA QUE LAS FLECHAS NO SE RECORTEN */
+/* Tarjeta principal del modal */
+.modal-card {
   position: relative;
-  animation: modalPop .35s ease;
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.35);
+  width: 100%;
+  max-width: 960px;
+  max-height: 90vh;      /* 👈 no se sale de la pantalla */
+  overflow: hidden;      /* el scroll está dentro */
+  display: flex;
 }
 
-/* ------------------------------ */
-/*      TITULOS PREMIUM           */
-/* ------------------------------ */
-.modal-title {
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin: 0 0 8px 0;
-  color: #111827; /* gris oscuro elegante */
+/* Contenido interno con scroll propio */
+.modal-scroll {
+  width: 100%;
+  padding: 22px 24px 24px;
+  overflow-y: auto;
 }
 
-.modal-category {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #374151;
+/* Imagen */
+.modal-image {
+  width: 100%;
+  max-height: 260px;
+  border-radius: 18px;
+  object-fit: cover;
   margin-bottom: 18px;
 }
 
-/* ------------------------------ */
-/*      DESCRIPCIÓN TIPO CITA     */
-/* ------------------------------ */
+/* Texto */
+.modal-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+.modal-category {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 .modal-description {
-  border-left: 4px solid #d1d5db; /* Gris clarito elegante */
-  padding-left: 14px;
-  margin-left: 4px;
-  color: #4b5563;
-  font-size: 1rem;
-  line-height: 1.55;
-  margin-bottom: 24px;
+  font-size: 0.98rem;
+  line-height: 1.55rem;
+  color: #374151;
+  margin-bottom: 14px;
 }
 
-
-/* ------------------- */
-/* IMAGEN */
-/* ------------------- */
-.image-wrapper {
-  height: 360px;
-  overflow: hidden;
+.features-list {
+  margin: 10px 0 18px;
+  padding-left: 18px;
+  font-size: 0.95rem;
+  color: #374151;
 }
 
-.modal-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.features-list li {
+  margin-bottom: 4px;
 }
-/* ------------------- */
-/* FLECHAS — PERFECT 😎 */
-/* ------------------- */
-.arrow {
-  position: absolute;
-  top: 50%; /* Centro exacto de la modal */
-  transform: translateY(-50%);
 
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+/* Botones */
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.btn {
   border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 0.96rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
 
+.btn.primary {
   background: #1d4ed8;
-  color: white;
-  font-size: 32px;
-  cursor: pointer;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  box-shadow: 0 6px 22px rgba(0,0,0,0.25);
-
-  transition: transform .25s ease, background .25s ease;
-  z-index: 99999;
+  color: #ffffff;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
 }
 
-/* HOVER: crece suave sin moverse */
-.arrow:hover {
-  transform: translateY(-50%) scale(1.18); /* 🔥 Crece pero NO se desplaza */
-  background: #0f2fa8;
+.btn.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.55);
 }
 
-/* POSICIÓN EXACTA DONDE MARCASTE */
-.arrow.left {
-  left: -35px;
+.btn.secondary {
+  background: #e5e7eb;
+  color: #111827;
 }
 
-.arrow.right {
-  right: -35px;
+.btn.secondary:hover {
+  background: #d1d5db;
 }
 
-/* ------------------- */
-/* TEXTO */
-/* ------------------- */
-.info-wrapper {
-  padding: 25px;
-}
-
-.category {
-  font-weight: bold;
-  opacity: .7;
-}
-
-.buttons {
-  margin-top: 20px;
-  display: flex;
-  gap: 15px;
-}
-
-.buttons button {
-  padding: 10px 22px;
-  border-radius: 10px;
-  background: #2563eb;
+/* Botones de navegación izquierda / derecha */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
   border: none;
-  color: white;
+  background: #0f172a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: .2s;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.45);
+  font-size: 1.4rem;
+  z-index: 2;
 }
 
-.buttons button:hover {
-  background: #1e3a8a;
+.nav-prev {
+  left: 10px;
 }
 
-/* ------------------- */
-/* TRANSICIÓN NETFLIX */
-/* ------------------- */
-.netflix-enter-active,
-.netflix-leave-active {
-  transition: opacity .35s ease;
+.nav-next {
+  right: 10px;
 }
 
-.netflix-enter-from,
-.netflix-leave-to {
-  opacity: 0;
-}
+/* ========================= */
+/*   RESPONSIVE              */
+/* ========================= */
 
-/* ------------------- */
-/* ANIMACIÓN DE APERTURA */
-/* ------------------- */
-@keyframes modalPop {
-  from { transform: scale(.85); opacity: 0; }
-  to   { transform: scale(1); opacity: 1; }
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 12px;
+  }
+
+  .modal-card {
+    max-width: 100%;
+    border-radius: 18px;
+  }
+
+  .modal-scroll {
+    padding: 18px 16px 20px;
+  }
+
+  .modal-image {
+    max-height: 210px;
+  }
+
+  .modal-title {
+    font-size: 1.4rem;
+  }
+
+  .modal-description {
+    font-size: 0.95rem;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 1.2rem;
+  }
 }
 </style>
