@@ -13,24 +13,18 @@ jobs:
       - name: 📦 Checkout repo
         uses: actions/checkout@v3
 
-      - name: 🟦 Setup Node.js (Node 20 para Vite 7)
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: 📥 Instalar dependencias
-        run: npm install
-
-      - name: 🛠️ Build de producción
-        run: npm run build
-
       - name: 🟦 Setup Node.js
         uses: actions/setup-node@v4
         with:
-        node-version: '20'
+          node-version: '20'
 
+      - name: 📥 Install dependencies
+        run: npm install
 
-      - name: 📤 Deploy vía FTP
+      - name: 🛠️ Build project
+        run: npm run build
+
+      - name: 📤 Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.0
         with:
           server: ${{ secrets.FTP_HOST }}
