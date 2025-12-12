@@ -32,13 +32,13 @@
           href="/contacto"
           class="px-8 py-4 bg-[#7bc6ff] text-black font-semibold rounded-xl shadow-lg hover:bg-[#a0d8ff] transition-all"
         >
-          Cotizar mi proyecto 🚀
+          Cotizar mi proyecto 
         </a>
         <a
           href="/portafolio"
           class="px-8 py-4 bg-[#2a2a2a] border border-gray-600 text-white font-semibold rounded-xl hover:bg-[#3a3a3a] transition-all"
         >
-          Ver portafolio 📁
+          Ver portafolio 
         </a>
       </div>
     </div>
@@ -247,7 +247,7 @@
           <circle cx="685.3" cy="381.9" r="4"
                 class="connector-dot"
                 :class="{ 'connector-dot--active': animateSub }" />
-                
+
           <!-- Puntos ● (igual que tenías) -->
           <!-- ... me los salto para no hacer esto kilométrico, pero son los mismos círculos ... -->
         </svg>
