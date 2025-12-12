@@ -24,12 +24,19 @@ jobs:
       - name: 🛠️ Build de producción
         run: npm run build
 
-      - name: 📤 Deploy vía SFTP
-        uses: appleboy/scp-action@v0.1.7
+      - name: 📤 Deploy vía FTP (HostGator compatible)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          host: ${{ secrets.FTP_HOST }}
+          server: ${{ secrets.FTP_HOST }}   # usa IP si puedes
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
-          port: 22
-          source: "dist/*"
-          target: ${{ secrets.FTP_DIR }}
+          protocol: ftps
+          port: 21
+          passive: true
+          local-dir: ./dist/
+          server-dir: ${{ secrets.FTP_DIR }}
+          timeout: 600000
+          exclude: |
+            **/.git*
+            **/node_modules/**
+            **/.github/**

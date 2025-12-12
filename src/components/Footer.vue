@@ -41,11 +41,23 @@
         <li>📧 contacto@webcats.mx</li>
         <li>🌐 www.webcats.mx</li>
       </ul>
-      <div class="footer-socials"> 
-        <a href="https://www.facebook.com/share/17qv8Fxw5f/" target="_blank">🌐</a> 
-        <a href="https://www.linkedin.com/in/ulises-webcatsmx" target="_blank">💼</a> 
-        <a href="https://www.instagram.com/webcats.mx" target="_blank">📸</a> 
+      
+      <div class="footer-socials">
+        <a href="https://github.com/webcats-mx" target="_blank" class="social-icon github">
+          <img src="/src/assets/icons/social/github.svg" alt="GitHub">
+        </a>
+        <a href="https://facebook.com/..." target="_blank" class="social-icon facebook">
+          <img src="/src/assets/icons/social/facebook.svg" alt="Facebook">
+        </a>
+        <a href="https://linkedin.com/..." target="_blank" class="social-icon linkedin">
+          <img src="/src/assets/icons/social/linkedin.svg" alt="LinkedIn">
+        </a>
+        <a href="https://instagram.com/webcats.mx" target="_blank" class="social-icon instagram">
+          <img src="/src/assets/icons/social/instagram.svg" alt="Instagram">
+        </a>
       </div>
+
+
     </div>
   </div>
 
@@ -54,6 +66,14 @@
   </div>
 </footer>
 </template>
+
+<script setup>
+  import githubIcon from "@/assets/icons/social/github.svg"
+  import facebookIcon from "@/assets/icons/social/facebook.svg"
+  import linkedinIcon from "@/assets/icons/social/linkedin.svg"
+  import instagramIcon from "@/assets/icons/social/instagram.svg"
+
+</script>
 
 <style scoped>
 .footer {
@@ -87,7 +107,7 @@
 .footer-section .footer-title {
   font-size: 16px;
   margin-bottom: 15px;
-  color: #bfbfff; /* tono morado/azul elegante */
+  color: #61b0b5; /* tono morado/azul elegante */
   font-weight: bold;
 }
 
@@ -110,23 +130,43 @@
 
 .footer-links li:hover a,
 .footer-links li:hover {
-  color: #a788ff; /* hover morado */
+  color: #61b0b5; /* hover morado */
 }
 
 /* Redes */
 .footer-socials {
-  margin-top: 10px;
+  display: flex;
+  gap: 14px;
+  margin-top: 14px;
 }
 
-.footer-socials a {
-  font-size: 22px;
-  margin-right: 12px;
-  color: #ccc;
-  transition: color 0.2s ease;
+.social-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
-.footer-socials a:hover {
-  color: #a788ff;
+.social-icon img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  background: rgba(123,198,255,0.15);
+  box-shadow: 0 0 15px rgba(123,198,255,0.35);
+}
+
+.social-icon:hover img {
+  opacity: 1;
 }
 
 /* Parte inferior */
