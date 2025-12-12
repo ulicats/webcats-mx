@@ -43,16 +43,16 @@
       </ul>
       
       <div class="footer-socials">
-        <a href="https://github.com/webcats-mx" target="_blank" class="social-icon github">
+        <a href="https://github.com/ulicats" target="_blank" class="social-icon github">
           <img src="/src/assets/icons/social/github.svg" alt="GitHub">
         </a>
-        <a href="https://facebook.com/..." target="_blank" class="social-icon facebook">
+        <a href="https://www.facebook.com/share/17BABn62M9/" target="_blank" class="social-icon facebook">
           <img src="/src/assets/icons/social/facebook.svg" alt="Facebook">
         </a>
-        <a href="https://linkedin.com/..." target="_blank" class="social-icon linkedin">
+        <a href="https://www.linkedin.com/in/ulises-webcatsmx/" target="_blank" class="social-icon linkedin">
           <img src="/src/assets/icons/social/linkedin.svg" alt="LinkedIn">
         </a>
-        <a href="https://instagram.com/webcats.mx" target="_blank" class="social-icon instagram">
+        <a href="https://www.instagram.com/webcats.mx" target="_blank" class="social-icon instagram">
           <img src="/src/assets/icons/social/instagram.svg" alt="Instagram">
         </a>
       </div>
