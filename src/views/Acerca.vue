@@ -36,9 +36,9 @@
             </p>
 
             <ul class="skills-inline">
-              <li>🛠️ PHP · MySQL · Laravel</li>
-              <li>🖥️ Vue.js · Front-end moderno</li>
-              <li>🔐 Buenas prácticas · Seguridad web</li>
+              <li> > PHP · MySQL · Laravel</li>
+              <li> > Vue.js · Front-end moderno</li>
+              <li> > Buenas prácticas · Seguridad web</li>
             </ul>
           </div>
 
@@ -50,9 +50,9 @@
             </p>
 
             <ul class="skills-inline">
-              <li>🐧 Linux · WHM/cPanel</li>
-              <li>📡 DNS · MX · SPF · DKIM · DMARC</li>
-              <li>🔐 Hardening · Malware Removal</li>
+              <li> > Linux · WHM/cPanel</li>
+              <li> > DNS · MX · SPF · DKIM · DMARC</li>
+              <li> > Hardening · Malware Removal</li>
             </ul>
           </div>
 
@@ -64,9 +64,9 @@
             </p>
 
             <ul class="skills-inline">
-              <li>🐳 Docker</li>
-              <li>⚡ CI/CD · Pipelines</li>
-              <li>🔧 Git · Control de versiones</li>
+              <li> > Docker</li>
+              <li> > CI/CD · Pipelines</li>
+              <li> > Git · Control de versiones</li>
             </ul>
           </div>
 
@@ -83,7 +83,6 @@ export default {
   name: "Acerca",
 };
 </script>
-
 <style scoped>
 
 /* ============================= */
@@ -98,7 +97,6 @@ export default {
   box-sizing: border-box;
   overflow-x: hidden;
 }
-
 
 .about-page {
   padding: 50px 20px;
@@ -147,7 +145,7 @@ export default {
   height: 240px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 10%; /* cabeza completa */
+  object-position: center 10%;
   margin-bottom: 25px;
   box-shadow: 0px 8px 30px rgba(0,0,0,0.22);
 }
@@ -179,7 +177,6 @@ export default {
   margin-bottom: 40px;
   animation: fadeUp 1s ease-out;
 }
-
 
 .role-title {
   font-size: 1.6rem;
@@ -315,9 +312,50 @@ export default {
     font-size: 0.9rem;
   }
 
-  /* Restauramos bordes también en móvil */
   .animated-line::before {
     display: block !important;
+  }
+}
+
+/* ============================= */
+/*   FIX RESPONSIVE DEL ÁRBOL    */
+/* ============================= */
+
+/* 🔥 1. OCULTAR EL ÁRBOL DESKTOP EN MÓVIL */
+@media (max-width: 900px) {
+  :deep(.tree-desktop-wrapper)  {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+}
+
+/* 🔥 2. ACOMODAR NODOS DE VUE EN MÓVIL (VERTICAL Y CENTRADOS) */
+@media (max-width: 768px) {
+
+  .vue-node-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .vue-node-wrapper .child-node {
+    position: static !important;
+    display: flex !important;
+    margin: 0 auto;
+  }
+
+  /* Si había conectores mediante SVG, se ocultan en móvil */
+  .vue-node-wrapper svg {
+    display: none !important;
   }
 }
 
@@ -334,5 +372,6 @@ export default {
   0% { box-shadow: 0px 18px 45px rgba(0,0,0,0.08); }
   100% { box-shadow: 0px 24px 65px rgba(0,0,0,0.15); }
 }
+
 
 </style>

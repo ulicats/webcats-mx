@@ -22,6 +22,18 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+
+/* FIX RESPONSIVE PARA EL ÁRBOL */
+@media (max-width: 900px) {
+  .tree-desktop-wrapper {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+}
 
 </style>
