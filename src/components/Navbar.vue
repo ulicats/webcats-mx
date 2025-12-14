@@ -4,7 +4,7 @@
 
       <!-- Logo -->
       <router-link to="/" class="logo">
-        <img src="/src/assets/logo.png" alt="Logo Webcats" class="logo-img" />
+        <img src="/src/assets/logo/LOGOPRINCIPAL_WEBCATS.svg" alt="Logo Webcats" class="logo-img" />
         Webcats<span class="dot-mx" :class="{ scrolled: scrolled }">.mx</span>
       </router-link>
 

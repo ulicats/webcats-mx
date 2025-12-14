@@ -1,48 +1,50 @@
 <template>
   <!-- HERO / BANNER PRINCIPAL -->
-  <section
-    class="relative min-h-screen flex flex-col justify-center items-center text-center px-6 bg-[#0d0d0f] text-white overflow-hidden"
-  >
-    <div class="absolute inset-0 w-full h-full opacity-20">
-      <transition-group name="fade">
-        <img
-          v-for="(img, index) in sliderImages"
-          :key="index"
-          v-if="index === currentSlide"
-          :src="img"
-          class="absolute inset-0 w-full h-full object-cover"
-        />
-      </transition-group>
-      <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/90"></div>
-    </div>
-
-    <div class="relative z-10 max-w-3xl">
-      <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-        Desarrollo Web Profesional <br />
-        <span class="text-[#7bc6ff]">Webcats.mx</span>
-      </h1>
-
-      <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-        Soluciones web modernas, seguras y rápidas. Hosting, paneles admin,
-        DevOps, servidores, seguridad web y desarrollo a la medida.
-      </p>
-
-      <div class="flex gap-4 justify-center">
-        <a
-          href="/contacto"
-          class="px-8 py-4 bg-[#7bc6ff] text-black font-semibold rounded-xl shadow-lg hover:bg-[#a0d8ff] transition-all"
-        >
-          Cotizar mi proyecto 
-        </a>
-        <a
-          href="/portafolio"
-          class="px-8 py-4 bg-[#2a2a2a] border border-gray-600 text-white font-semibold rounded-xl hover:bg-[#3a3a3a] transition-all"
-        >
-          Ver portafolio 
-        </a>
+  <Transition name="hero" appear>
+    <section
+      class="relative min-h-screen flex flex-col justify-center items-center text-center px-6 bg-[#0d0d0f] text-white overflow-hidden"
+    >
+      <div class="absolute inset-0 w-full h-full opacity-20">
+        <transition-group name="fade">
+          <img
+            v-for="(img, index) in sliderImages"
+            :key="index"
+            v-if="index === currentSlide"
+            :src="img"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+        </transition-group>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/90"></div>
       </div>
-    </div>
-  </section>
+
+      <div class="relative z-10 max-w-3xl">
+        <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+          Desarrollo Web Profesional <br />
+          <span class="text-[#7bc6ff]">Webcats.mx</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10">
+          Soluciones web modernas, seguras y rápidas. Hosting, paneles admin,
+          DevOps, servidores, seguridad web y desarrollo a la medida.
+        </p>
+
+        <div class="flex gap-4 justify-center">
+          <a
+            href="/contacto"
+            class="px-8 py-4 bg-[#7bc6ff] text-black font-semibold rounded-xl shadow-lg hover:bg-[#a0d8ff] transition-all"
+          >
+            Cotizar mi proyecto 
+          </a>
+          <a
+            href="/portafolio"
+            class="px-8 py-4 bg-[#2a2a2a] border border-gray-600 text-white font-semibold rounded-xl hover:bg-[#3a3a3a] transition-all"
+          >
+            Ver portafolio 
+          </a>
+        </div>
+      </div>
+    </section>
+  </Transition>
 
   <!-- SERVICIOS -->
   <section class="bg-white py-10 px-6">
@@ -507,6 +509,35 @@ function startAnimation() {
 </script>
 
 <style>
+
+/* ========================================================= */
+/*                    HERO ENTRANCE                          */
+/* ========================================================= */
+
+.hero-enter-active {
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.hero-enter-from {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.hero-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Home.vue */
+
+.hero-content {
+  min-height: 100vh;
+}
+
+
+
+
+
 /* ========================================================= */
 /*                       FADE SLIDER                         */
 /* ========================================================= */

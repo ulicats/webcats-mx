@@ -4,7 +4,7 @@
 
     <!-- Logo + descripción -->
     <div class="footer-section footer-brand">
-      <img src="/src/assets/logo.png" alt="Webcats.mx" class="footer-logo" />
+      <img src="/src/assets/logo/LOGOPRINCIPAL_WEBCATS.svg" alt="Webcats.mx" class="footer-logo" />
       <p class="footer-text">
         Desarrollo Web · Administración de Servidores · SysAdmin & DevOps Jr
       </p>
@@ -15,9 +15,9 @@
       <h3 class="footer-title">Navegación</h3>
       <ul class="footer-links">
         <li><router-link to="/">Inicio</router-link></li>
-        <li><router-link to="/empresa">Empresa</router-link></li>
+        <li><router-link to="/acerca">Acerca</router-link></li>
         <li><router-link to="/servicios">Servicios</router-link></li>
-        <li><router-link to="/proyectos">Proyectos</router-link></li>
+        <li><router-link to="/portafolio">Proyectos</router-link></li>
         <li><router-link to="/contacto">Contacto</router-link></li>
       </ul>
     </div>
@@ -93,7 +93,7 @@
 
 /* Logo */
 .footer-logo {
-  width: 140px;
+  width: 200px;
   margin-bottom: 15px;
 }
 

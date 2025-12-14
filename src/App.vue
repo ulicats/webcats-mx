@@ -2,28 +2,34 @@
   <div id="app">
     <Navbar />
 
+    <PageLoader v-if="loading" />
+
     <main class="main-content">
-      <router-view />
+      <router-view v-if="!loading" />
     </main>
 
-    <Footer />
+    <!-- ⛔ EL FOOTER NO EXISTE HASTA QUE TERMINE EL LOADER -->
+    <Footer v-if="!loading" />
   </div>
 </template>
 
-<script>
-import Navbar from "./components/Navbar.vue";
-import Footer from "./components/Footer.vue";
+<script setup>
+import { ref, onMounted } from "vue"
+import Navbar from "./components/Navbar.vue"
+import Footer from "./components/Footer.vue"
+import PageLoader from "./components/PageLoader.vue"
 
-export default {
-  components: {
-    Navbar,
-    Footer   
-  }
-};
+const loading = ref(true)
+
+onMounted(() => {
+  setTimeout(() => {
+    loading.value = false
+  }, 5200)
+})
 </script>
 
-<style>
 
+<style>
 /* FIX RESPONSIVE PARA EL ÁRBOL */
 @media (max-width: 900px) {
   .tree-desktop-wrapper {
@@ -34,6 +40,23 @@ export default {
     padding: 0 !important;
     overflow: hidden !important;
   }
+}
+
+/* ===================== */
+/* ESCENARIO PRINCIPAL  */
+/* ===================== */
+
+.stage {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* IMPORTANTÍSIMO */
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
 </style>
