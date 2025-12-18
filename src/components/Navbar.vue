@@ -1,14 +1,15 @@
 <template>
-  <nav class="navbar" :class="{ scrolled: scrolled }">
+  <nav class="navbar">
     <div class="container nav-content">
 
-      <!-- Logo -->
-      <router-link to="/" class="logo">
-        <img src="/src/assets/logo/LOGOPRINCIPAL_WEBCATS.svg" alt="Logo Webcats" class="logo-img" />
-        Webcats<span class="dot-mx" :class="{ scrolled: scrolled }">.mx</span>
+     <router-link to="/" class="logo terminal-logo">
+        <img src="/src/assets/logos/LOGOPRINCIPAL_WEBCATS.svg" class="logo-img" />
+        webcats<span class="dot-mx">.mx</span>
       </router-link>
 
-      <!-- HAMBURGER BUTTON (mobile) -->
+
+
+      <!-- Hamburger -->
       <button class="hamburger" @click="toggleMenu" :class="{ open: menuOpen }">
         <span></span>
         <span></span>
@@ -27,6 +28,7 @@
     </div>
   </nav>
 </template>
+
 
 <script>
 import { ref, onMounted, onBeforeUnmount } from "vue";
@@ -66,155 +68,151 @@ export default {
 </script>
 
 <style scoped>
-/* NAVBAR GENERAL */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap');
+
+/* ===============================
+   NAVBAR BASE – VS CODE STYLE
+================================ */
 .navbar {
   width: 100%;
-  padding: 18px 0;
-  background: white;
-  box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
+  background: #0d0d0f;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'JetBrains Mono', monospace;
 }
 
-/* Navbar cuando hay scroll */
-.navbar.scrolled {
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(8px);
-  box-shadow: 0px 4px 14px rgba(0,0,0,0.08);
-}
-
-/* CONTENIDO */
+/* ===============================
+   CONTENIDO
+================================ */
 .nav-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 28px;
+  height: 44px;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 22px;
+  padding: 0 20px;
 }
 
-/* LOGO */
+/* ===============================
+   LOGO (PROMPT STYLE)
+================================ */
+.logo {
+  color: #22c55e;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  margin-right: 18px;
+}
+
 .logo {
   display: flex;
   align-items: center;
-  gap: 6px; /* espacio entre icono y texto */
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: black;
+  gap: 8px;
+  color: #22c55e;
+  font-weight: 600;
+  font-size: 14px;
   text-decoration: none;
 }
 
+/* Logo pequeño, tipo badge */
 .logo-img {
-  width: 40px;
-  height: auto;
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  filter: brightness(1.1);
 }
 
-/* ".mx" pegado */
+.terminal-logo {
+  position: relative;
+  padding-left: 12px;
+}
+
+
 .dot-mx {
-  margin-left: -2px;
-  color: #ff3e00;
-  transition: color 0.35s ease, transform 0.35s ease;
+  color: #22d3ee;
 }
 
-.dot-mx.scrolled {
-  color: #007ACC;
-  transform: translateY(-2px);
-}
-
-/* LINKS */
+/* ===============================
+   LINKS (TABS)
+================================ */
 .nav-links {
   display: flex;
-  gap: 25px;
+  gap: 24px;
   list-style: none;
-  transition: right 0.35s ease;
 }
 
 .nav-links a {
-  color: #444;
+  color: #9ca3af;
   text-decoration: none;
-  font-weight: 500;
-  transition: 0.2s ease;
+  font-size: 13px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid transparent;
+  transition: color .2s ease, border-color .2s ease;
 }
 
 .nav-links a:hover {
-  color: #000;
+  color: #e5e7eb;
 }
 
-/* ================================
-   HAMBURGER BUTTON
+/* Active (router-link) */
+.router-link-active {
+  color: #22d3ee;
+  border-bottom: 2px solid #22d3ee;
+}
+
+/* ===============================
+   HAMBURGER (CONSOLE STYLE)
 ================================ */
 .hamburger {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 6px;
-  z-index: 2000;
+  margin-left: auto;
 }
 
 .hamburger span {
-  width: 28px;
-  height: 3px;
-  background: #222;
-  border-radius: 4px;
-  transition: 0.3s ease;
+  width: 22px;
+  height: 2px;
+  background: #9ca3af;
+  transition: .3s ease;
 }
 
-/* Morph animation */
-.hamburger.open span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-.hamburger.open span:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.open span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
-
-/* ================================
-   MOBILE MENU SLIDE PANEL
+/* ===============================
+   MOBILE MENU
 ================================ */
 @media (max-width: 800px) {
 
-.hamburger {
-  display: flex;
-}
+  .hamburger {
+    display: flex;
+  }
 
-.nav-links {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 68%;
-  padding: 80px 30px;
-  background: white;
-  flex-direction: column;
-  gap: 22px;
-  box-shadow: -4px 0 18px rgba(0,0,0,0.15);
-  transition: transform 0.35s ease;
-  transform: translateX(100%); /* menú oculto sin romper layout */
-  z-index: 1500;
-}
+  .nav-links {
+    position: fixed;
+    top: 44px;
+    right: 0;
+    height: calc(100vh - 44px);
+    width: 70%;
+    background: #020617;
+    flex-direction: column;
+    padding: 24px;
+    gap: 20px;
+    transform: translateX(100%);
+    transition: transform .3s ease;
+  }
 
-.nav-links.open {
-  transform: translateX(0); /* menú visible */
-}
+  .nav-links.open {
+    transform: translateX(0);
+  }
 
-.logo-img {
-  width: 32px;
-}
-
-.logo {
-  font-size: 1.3rem;
-  gap: 4px;
-}
 }
 
 </style>

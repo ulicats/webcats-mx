@@ -2,14 +2,14 @@
   <div v-if="visible" class="loader">
     <div class="logo-wrapper">
       <img
-        src="@/assets/logo/LOGOPRINCIPAL_WEBCATS.svg"
+        src="@/assets/logos/LOGOPRINCIPAL_WEBCATS.svg"
         alt="Webcats Loader"
         class="logo"
       />
       <div class="ring"></div>
     </div>
 
-    <p class="text">&gt; compilando experiencia…</p>
+    <p class="text">&gt; Bienvenido a Webcats.mx</p>
   </div>
 </template>
 
@@ -22,7 +22,7 @@ const visible = ref(true);
 onMounted(() => {
   setTimeout(() => {
     visible.value = false;
-  }, 5000); // duración del telón
+  }, 3000); // duración del telón
 });
 </script>
 
@@ -39,7 +39,7 @@ onMounted(() => {
   justify-content: center;
 
   animation: fadeOut 0.8s ease forwards;
-  animation-delay: 4.6s;
+  animation-delay: 3.6s;
 }
 
 .logo-wrapper {

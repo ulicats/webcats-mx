@@ -2,6 +2,8 @@
   <div id="app">
     <Navbar />
 
+    <div class="global-trunk" />
+
     <PageLoader v-if="loading" />
 
     <main class="main-content">
@@ -52,11 +54,39 @@ onMounted(() => {
   overflow: hidden;
 }
 
+.global-trunk {
+  position: absolute;
+  left: 105px;              /* alinea con logo */
+  top: 40px;               /* debajo del Navbar */
+  width: 4px;
+  height: calc(100vh - 64px);
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.85),
+    rgba(255,255,255,0.15)
+  );
+  z-index: 5;
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .global-trunk {
+    left: 40px;          /* alineado al logo en mobile */
+    top: 56px;           /* justo debajo del header */
+    width: 4px;
+    opacity: 0.25;
+    height: calc(100vh - 56px);
+  }
+}
+
+
+
 /* IMPORTANTÍSIMO */
 html,
 body {
   margin: 0;
   padding: 0;
+  background:rgb(0, 0, 0);
 }
 
 </style>

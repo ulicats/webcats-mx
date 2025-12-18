@@ -2,8 +2,11 @@
   <!-- HERO / BANNER PRINCIPAL -->
   <Transition name="hero" appear>
     <section
-      class="relative min-h-screen flex flex-col justify-center items-center text-center px-6 bg-[#0d0d0f] text-white overflow-hidden"
-    >
+        :class="[
+          'relative min-h-screen flex flex-col justify-center items-center text-center px-6 bg-[#0d0d0f] text-white overflow-hidden',
+          { 'hero-animate': heroAnimate }
+        ]"
+          >
       <div class="absolute inset-0 w-full h-full opacity-20">
         <transition-group name="fade">
           <img
@@ -17,37 +20,51 @@
         <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/90"></div>
       </div>
 
-      <div class="relative z-10 max-w-3xl">
-        <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-          Desarrollo Web Profesional <br />
-          <span class="text-[#7bc6ff]">Webcats.mx</span>
-        </h1>
+      <div class="relative z-10 max-w-4xl text-left">     
+          <div class="hero-tree">
+            <div class="hero-content">
 
-        <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-          Soluciones web modernas, seguras y rápidas. Hosting, paneles admin,
-          DevOps, servidores, seguridad web y desarrollo a la medida.
-        </p>
+              <!-- RAÍZ -->
+              <div class="hero-line hero-root-line">
+                <span class="hero-brand">Webcats.mx/</span>
+              </div>
 
-        <div class="flex gap-4 justify-center">
-          <a
-            href="/contacto"
-            class="px-8 py-4 bg-[#7bc6ff] text-black font-semibold rounded-xl shadow-lg hover:bg-[#a0d8ff] transition-all"
-          >
-            Cotizar mi proyecto 
-          </a>
-          <a
-            href="/portafolio"
-            class="px-8 py-4 bg-[#2a2a2a] border border-gray-600 text-white font-semibold rounded-xl hover:bg-[#3a3a3a] transition-all"
-          >
-            Ver portafolio 
-          </a>
-        </div>
-      </div>
+              <!-- RAMA 1 -->
+              <div class="hero-line hero-title .prompt">
+                <span class="branch">├─</span>
+                <span class="hero-title-text">Desarrollo Web Profesional</span>
+              </div>
+           
+              <!-- SUBRAMA DESCRIPCIÓN -->
+              <div class="hero-line hero-title .prompt">
+                <span class="branch">├─</span>
+                <span class="hero-desc-text">
+                  Soluciones web modernas, seguras y rápidas. Hosting, paneles admin,
+                  DevOps, servidores, seguridad web y desarrollo a la medida.
+                </span>
+              </div>
+
+              <!-- SUBRAMA ACCIONES -->
+              <div class="hero-line">
+                <span class="branch hero-title .prompt">└─</span>
+                <div class="hero-actions">
+                  <a href="/contacto" class="cmd-btn primary">
+                    &gt; cotizar --proyecto
+                  </a>
+                  <a href="/portafolio" class="cmd-btn muted">
+                    &gt; ver --portafolio
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+       </div>
+
     </section>
   </Transition>
 
   <!-- SERVICIOS -->
-  <section class="bg-white py-10 px-6">
+  <section class="py-10 px-6">
     <h2 class="text-4xl font-bold text-center text-gray-900 mb-4">
       Servicios Webcats.mx
     </h2>
@@ -57,7 +74,7 @@
     </p>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-      <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+      <div class="rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden">
         <div class="relative">
           <img :src="desarrollo" class="w-full h-52 object-cover" />
           <span class="absolute top-3 left-3 bg-[#ff8c00] text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
@@ -71,7 +88,7 @@
         </div>
       </div>
 
-      <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+      <div class="rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden">
         <div class="relative">
           <img :src="servidores" class="w-full h-52 object-cover" />
           <span class="absolute top-3 left-3 bg-[#0078ff] text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
@@ -85,7 +102,7 @@
         </div>
       </div>
 
-      <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+      <div class="rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden">
         <div class="relative">
           <img :src="devops" class="w-full h-52 object-cover" />
           <span class="absolute top-3 left-3 bg-[#6a00ff] text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
@@ -101,12 +118,46 @@
     </div>
   </section>
 
+<!-- ============================ -->
+<!--     CLIENT LOGO RUNWAY       -->
+<!-- ============================ -->
+<section class="bg-[#0d0d0f] py-14 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <p class="text-center text-gray-400 text-sm mb-8 tracking-wide">
+      Sitios web desarrollados
+    </p>
+
+    <div class="logo-runway">
+      <div class="logo-track">
+        <img
+          v-for="(logo, i) in clientLogos"
+          :key="`logo-a-${i}`"
+          :src="logo"
+          class="logo-item"
+          alt="Cliente Webcats"
+        />
+        <!-- duplicado para loop infinito -->
+        <img
+          v-for="(logo, i) in clientLogos"
+          :key="`logo-b-${i}`"
+          :src="logo"
+          class="logo-item"
+          alt="Cliente Webcats"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
   <!-- ============================ -->
   <!--       TECH STACK TREE        -->
   <!-- ============================ -->
 
   <section
-    class="relative w-full bg-white text-black py-5 overflow-hidden"
+    class="relative w-full text-black py-5 overflow-hidden"
     ref="techStackRef"
   >
     <div class="relative z-10 max-w-5xl mx-auto text-center mb-20 px-4">
@@ -423,12 +474,43 @@ import { ref, onMounted } from "vue"
 import desarrollo from "@/assets/webcats/desarrollo-web.webp"
 import servidores from "@/assets/webcats/servidores.webp"
 import devops from "@/assets/webcats/devops.webp"
+import logoLimalum from "@/assets/logos/logo-limalum.png"
+import logoErik from "@/assets/logos/logo_erik.png"
+import logoBear from "@/assets/logos/bear_mono.png"
+import logoCasillas from "@/assets/logos/logo_casillas.png"
+import logoDerma from "@/assets/logos/logo_derma.png"
+import logoGeo from "@/assets/logos/logo_geo.png"
+import logoNiticolor from "@/assets/logos/niticolor_mono.png"
+import logoWlc from "@/assets/logos/wlc_mono.png"
+import logoArce from "@/assets/logos/logo_arce.png"
+
+const clientLogos = [
+  logoLimalum,
+  logoErik,
+  logoBear,
+  logoCasillas,
+  logoDerma,
+  logoGeo,
+  logoNiticolor,
+  logoWlc,
+  logoArce
+  
+]
+
 
 const sliderImages = [
   "/assets/slider/servers.jpg",
   "/assets/slider/code.jpg",
   "/assets/slider/devops.jpg",
 ]
+
+const heroAnimate = ref(false)
+
+onMounted(() => {
+  setTimeout(() => {
+    heroAnimate.value = true
+  }, 300)
+})
 
 const currentSlide = ref(0)
 
@@ -437,7 +519,7 @@ onMounted(() => {
     setInterval(() => {
       currentSlide.value =
         (currentSlide.value + 1) % sliderImages.length
-    }, 4000)
+    }, 2000)
   }
 })
 
@@ -528,14 +610,210 @@ function startAnimation() {
   transform: translateY(0);
 }
 
-/* Home.vue */
+.hero-tree {
+    position: relative;
+}
 
-.hero-content {
-  min-height: 100vh;
+.hero-root-line {
+  position: relative;
+  padding-left: 24px; /* acerca Webcats.mx a la root */
+}
+
+/* línea horizontal desde la root (logo) */
+.hero-root-line::before {
+  content: "";
+  position: absolute;
+  left: -140px;              /* longitud de la línea */
+  top: 50%;
+  width: 90px;              /* tamaño exacto de la conexión */
+  height: 4px;
+  background: rgba(255,255,255,0.9);
 }
 
 
 
+@keyframes growTrunk {
+  to {
+    transform: scaleY(1);
+  }
+}
+
+
+/* Home.vue */
+
+
+/* ================================
+   HERO – TERMINAL STYLE
+================================ */
+
+.hero-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: #e5e7eb;
+}
+
+/* > prompt */
+.hero-title .prompt {
+  color: #22c55e; /* verde terminal */
+  margin-right: 8px;
+}
+
+/* comando / título */
+.hero-title .cmd {
+  display: inline-block;
+  color: #7bc6ff; /* azul VS Code */
+  font-weight: 800;
+}
+
+/* descripción tipo output */
+.hero-desc {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: #d1d5db;
+  max-width: 680px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* flecha verde */
+.hero-desc .arrow {
+  color: #22c55e;
+  margin-right: 6px;
+}
+
+/* ================================
+   HERO TREE STRUCTURE
+================================ */
+
+.hero-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 10px;
+  opacity:0;
+}
+
+
+/* símbolos */
+.branch {
+  color: #ffffff;
+  
+}
+
+.folder {
+  color: #7bc6ff;
+  font-weight: 700;
+}
+
+
+.hero-animate .hero-actions {
+  animation: showLine .4s ease forwards;
+  animation-delay: 3s;
+  opacity: 0;
+}
+
+
+.hero-animate .hero-line:nth-child(1) {
+  animation: showLine .4s ease forwards;
+  animation-delay: 1.5s;
+}
+
+.hero-animate .hero-line:nth-child(2) {
+  animation: showLine .4s ease forwards;
+  animation-delay: 1.8s;
+}
+
+.hero-animate .hero-line:nth-child(3) {
+  animation: showLine .4s ease forwards;
+  animation-delay: 2.1s;
+}
+
+.hero-animate .hero-line:nth-child(4) {
+  animation: showLine .4s ease forwards;
+  animation-delay: 2.4s;
+}
+
+.hero-animate .hero-line:nth-child(5) {
+  animation: showLine .4s ease forwards;
+  animation-delay: 2.7s;
+}
+
+@keyframes showLine {
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes growTrunk {
+  to {
+    transform: scaleY(1);
+  }
+}
+
+
+
+
+/* textos */
+.hero-title-text {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #22c55e;
+}
+
+.hero-brand {
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
+  font-weight: 900;
+  color: #7bc6ff;
+  margin-left:-57px;
+}
+
+/* descripción */
+.hero-desc-text {
+  font-size: 17px;
+  color: #d1d5db;
+  max-width: 680px;
+  line-height: 1.7;
+}
+
+/* acciones */
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.cmd-btn {
+  font-family: 'JetBrains Mono', monospace;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.cmd-btn.primary {
+  background: #008330;
+  color: #fff;
+}
+
+.cmd-btn.primary:hover {
+  background: #a0d8ff;
+}
+
+.cmd-btn.muted {
+  background: #2a2a2a;
+  border: 1px solid #555;
+  color: #fff;
+}
+
+.cmd-btn.muted:hover {
+  background: #3a3a3a;
+}
 
 
 /* ========================================================= */
@@ -796,6 +1074,48 @@ function startAnimation() {
 }
 
 /* ========================================================= */
+/*                CLIENT LOGO RUNWAY                         */
+/* ========================================================= */
+
+.logo-runway {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.logo-track {
+  display: flex;
+  align-items: center;
+  gap: 120px;
+  width: max-content;
+  animation: runwayScroll 45s linear infinite;
+  padding:20px 0;
+}
+
+.logo-item {
+  height: 100px;
+  opacity: 0.7;
+  filter: grayscale(100%) brightness(1.1);
+}
+
+
+.logo-item:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+
+@keyframes runwayScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* ========================================================= */
 /*                 OCULTAR DESKTOP EN MOBILE                 */
 /* ========================================================= */
 
@@ -807,4 +1127,102 @@ function startAnimation() {
     margin-top: 10px;
   }
 }
+
+@media (max-width: 480px) {
+  .linea-root {
+    opacity: 0.25;
+    width: 2px;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;   /* antes se veía ~1.7–1.8 */
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    max-width: 94%;
+    margin-bottom: 14px;
+  }
+
+   .hero-content {
+    padding-left: 50px; 
+  }
+
+  .hero-tree {
+    max-width: 100%;
+  }
+
+  .hero-description {
+    max-width: 95%;
+  }
+
+  .hero-buttons button {
+  white-space: nowrap;
+}
+
+
+  .hero-path {
+    font-size: 1.25rem;
+    margin-bottom:6px;
+  }
+
+  .hero-description {
+  line-height: 1.6;
+  max-width: 90%;
+}
+
+.btn-secondary {
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.hero-buttons button {
+    font-family: monospace;
+    letter-spacing: 0.3px;
+  }
+
+  .hero-brand {
+    margin-left: -28px;
+  }
+
+  .hero-root-line::before {
+    left: -28px;
+    width: 20px;
+    height: 3px;
+    opacity: 0.6;
+  }
+
+  .cmd-btn{
+    font-size:0.7rem;
+  }
+
+  .hero-title-text{
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+ 
+
+  .hero-desc-text{
+    font-size:14px;
+  }
+
+}
+
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 1.4rem;
+  }
+
+  .hero-path {
+    font-size: 1.15rem;
+  }
+
+  .hero-buttons button {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+
 </style>
