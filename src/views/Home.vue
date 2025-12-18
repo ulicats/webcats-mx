@@ -20,7 +20,10 @@
         <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/90"></div>
       </div>
 
-      <div class="relative z-10 max-w-4xl text-left">     
+      <div class="relative z-10 max-w-4xl text-left"> 
+        
+        <div class="hero-trunk"></div>
+        
           <div class="hero-tree">
             <div class="hero-content">
 
@@ -64,17 +67,17 @@
   </Transition>
 
   <!-- SERVICIOS -->
-  <section class="py-10 px-6">
-    <h2 class="text-4xl font-bold text-center text-gray-900 mb-4">
+  <section class="py-20 px-6 bg-[#0d0d0f]">
+    <h2 class="text-4xl font-bold text-center text-white mb-4">
       Servicios Webcats.mx
     </h2>
 
-    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+    <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">
       Soluciones completas de diseño web, servidores, administración, seguridad y optimización.
     </p>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-      <div class="rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+      <div class="rounded-2xl bg-[#18181b] border border-white/5 shadow-lg hover:shadow-xl transition-all overflow-hidden">
         <div class="relative">
           <img :src="desarrollo" class="w-full h-52 object-cover" />
           <span class="absolute top-3 left-3 bg-[#ff8c00] text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
@@ -82,13 +85,13 @@
           </span>
         </div>
         <div class="p-6">
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Desarrollo Web Profesional</h3>
-          <p class="text-gray-600 mb-5 text-sm">Sitios modernos, rápidos y optimizados.</p>
-          <a href="/servicios" class="text-primary font-semibold hover:underline">Leer más >></a>
+          <h3 class="text-xl font-bold text-white mb-3">Desarrollo Web Profesional</h3>
+          <p class="mb-5 text-sm service-desc">Sitios modernos, rápidos y optimizados.</p>
+          <a href="/servicios" class="font-semibold hover:underline service-link">Leer más >></a>
         </div>
       </div>
 
-      <div class="rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+      <div class="rounded-2xl bg-[#18181b] border border-white/5 shadow-lg hover:shadow-xl transition-all overflow-hidden">
         <div class="relative">
           <img :src="servidores" class="w-full h-52 object-cover" />
           <span class="absolute top-3 left-3 bg-[#0078ff] text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
@@ -96,13 +99,13 @@
           </span>
         </div>
         <div class="p-6">
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Administración de Servidores</h3>
-          <p class="text-gray-600 mb-5 text-sm">WHM/cPanel, DNS, SSL, mantenimiento profesional.</p>
-          <a href="/servicios" class="text-primary font-semibold hover:underline">Leer más >></a>
+          <h3 class="text-xl font-bold text-white mb-3">Administración de Servidores</h3>
+          <p class="mb-5 text-sm service-desc">WHM/cPanel, DNS, SSL, mantenimiento profesional.</p>
+          <a href="/servicios" class="font-semibold hover:underline service-link">Leer más >></a>
         </div>
       </div>
 
-      <div class="rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+      <div class="rounded-2xl bg-[#18181b] border border-white/5 shadow-lg hover:shadow-xl transition-all overflow-hidden">
         <div class="relative">
           <img :src="devops" class="w-full h-52 object-cover" />
           <span class="absolute top-3 left-3 bg-[#6a00ff] text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
@@ -110,9 +113,9 @@
           </span>
         </div>
         <div class="p-6">
-          <h3 class="text-xl font-bold text-gray-900 mb-3">DevOps Jr & Automatización</h3>
-          <p class="text-gray-600 mb-5 text-sm">Pipelines, Git, despliegues controlados, CI/CD.</p>
-          <a href="/servicios" class="text-primary font-semibold hover:underline">Leer más >></a>
+          <h3 class="text-xl font-bold text-white mb-3">DevOps Jr & Automatización</h3>
+          <p class="mb-5 text-sm service-desc">Pipelines, Git, despliegues controlados, CI/CD.</p>
+          <a href="/servicios" class="font-semibold hover:underline service-link">Leer más >></a>
         </div>
       </div>
     </div>
@@ -124,7 +127,7 @@
 <section class="bg-[#0d0d0f] py-14 overflow-hidden">
   <div class="max-w-6xl mx-auto px-6">
 
-    <p class="text-center text-gray-400 text-sm mb-8 tracking-wide">
+    <p class="text-center text-sm mb-8 tracking-wide">
       Sitios web desarrollados
     </p>
 
@@ -162,7 +165,7 @@
   >
     <div class="relative z-10 max-w-5xl mx-auto text-center mb-20 px-4">
       <h2 class="text-4xl font-bold mb-3">Mi Tech Stack</h2>
-      <p class="text-gray-600">
+      <p class="text-white">
         Pipeline completo desde GitHub hasta el despliegue final.
       </p>
     </div>
@@ -509,7 +512,7 @@ const heroAnimate = ref(false)
 onMounted(() => {
   setTimeout(() => {
     heroAnimate.value = true
-  }, 300)
+  }, 200)
 })
 
 const currentSlide = ref(0)
@@ -519,7 +522,7 @@ onMounted(() => {
     setInterval(() => {
       currentSlide.value =
         (currentSlide.value + 1) % sliderImages.length
-    }, 2000)
+    }, 1000)
   }
 })
 
@@ -697,6 +700,27 @@ function startAnimation() {
   opacity:0;
 }
 
+/* ============================= */
+/*        HERO TRUNK             */
+/* ============================= */
+
+.hero-trunk {
+  position: absolute;
+  left: -140px;           /* ajusta alineación con Webcats.mx */
+  top: -120px;
+  width: 4px;
+  height: calc(100% + 120px);
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.9),
+    rgba(255,255,255,0.2)
+  );
+  border-radius: 4px;
+  opacity: 0.9;
+  pointer-events:none;
+}
+
+
 
 /* símbolos */
 .branch {
@@ -814,6 +838,30 @@ function startAnimation() {
 .cmd-btn.muted:hover {
   background: #3a3a3a;
 }
+
+/* ========================================================= */
+/*                       SECCION SERVICIOS                   */
+/* ========================================================= */
+
+.service-desc {
+  color: #22c55e; /* verde consola */
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.service-link {
+  color: #facc15; /* amarillo consola */
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.service-link:hover {
+  color: #fde047; /* un poquito más vivo */
+}
+
+
 
 
 /* ========================================================= */
@@ -1071,6 +1119,13 @@ function startAnimation() {
     top: -48px;
     transform: rotate(-115deg);
   }
+
+    .hero-trunk {
+    left: -28px;
+    width: 3px;
+    opacity: 0.6;
+  }
+
 }
 
 /* ========================================================= */
@@ -1112,6 +1167,9 @@ function startAnimation() {
   to {
     transform: translateX(-50%);
   }
+
+  
+
 }
 
 
@@ -1132,6 +1190,14 @@ function startAnimation() {
   .linea-root {
     opacity: 0.25;
     width: 2px;
+  }
+
+  .global-trunk {
+    left: 40px;          /* alineado al logo en mobile */
+    top: 56px;           /* justo debajo del header */
+    width: 4px;
+    opacity: 0.25;
+    height: calc(100vh - 56px);
   }
 
   .hero-title {

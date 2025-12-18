@@ -1,61 +1,67 @@
-/* Tipografías globales */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap');
+/* Tipografías */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Colores raíz de Webcats */
+/* ============================= */
+/*   VARIABLES ROOT – CONSOLA    */
+/* ============================= */
+
 :root {
-  --color-primary: #1B2E4A;
-  --color-accent: #4DBFD9;
-  --color-dark: #2F3B45;
-  --color-light: #D6D6D6;
+  /* Fondos */
+  --bg-main: #0d0d0f;
+  --bg-card: #141417;
+  --bg-card-alt: #18181b;
+
+  /* Textos */
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --text-white: #ffffff;
+
+  /* Terminal semantics */
+  --terminal-green: #22c55e;   /* output / success */
+  --terminal-blue:  #7bc6ff;   /* command / link */
+  --terminal-yellow:#facc15;   /* warning / highlight */
+
+  /* Bordes */
+  --border-soft: rgba(255,255,255,0.06);
 }
 
+/* ============================= */
+/*        GLOBAL RESET           */
+/* ============================= */
 
 html, body {
-  overflow-x: hidden;
-  overflow-y: auto !important;
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
   min-height: 100vh;
-    background: radial-gradient(
-    ellipse at top,
-    #111827 0%,
-    #0d0d0f 60%
-  );
-  color: #e5e7eb;
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'JetBrains Mono', monospace;
+  overflow-x: hidden;
 }
 
 #app {
   min-height: 100vh;
-  background-color: inherit;
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
+  background: inherit;
 }
 
+/* ============================= */
+/*        UTILIDADES             */
+/* ============================= */
 
-
-/* Estilo global del body */
-body {
-  @apply bg-white text-dark font-sans;
-  position: relative;
-  overflow-x: hidden !important;
-  width: 100%;
-  max-width: 100vw;
-}
-
-/* Animaciones personalizadas */
 @layer utilities {
   @keyframes fade-up {
-    0% {
+    from {
       opacity: 0;
       transform: translateY(20px);
     }
-    100% {
+    to {
       opacity: 1;
       transform: translateY(0);
     }

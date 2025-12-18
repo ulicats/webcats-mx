@@ -8,6 +8,10 @@
         <div class="left-photo">
           <div class="profile-card">
 
+        <div class="terminal-bar">
+          <span></span><span></span><span></span>
+        </div>
+
             <img
               src="/src/assets/acerca/ulicats.jpeg"
               alt="Ulises Guzmán"
@@ -26,10 +30,8 @@
         <!-- ESPECIALIDADES -->
         <div class="right-content">
 
-          <h2 class="specialization-title">Me especializo en:</h2>
-
           <div class="role-block animated-line">
-            <h3 class="role-title">🖥️ Desarrollador Web</h3>
+            <h3 class="role-title">Desarrollador Web</h3>
             <p class="role-text">
               Construyo aplicaciones funcionales y estables usando PHP, MySQL, Laravel y Vue.js.
               Desarrollo con mentalidad full-stack, enfocado en seguridad, rendimiento y producción real.
@@ -43,9 +45,9 @@
           </div>
 
           <div class="role-block animated-line">
-            <h3 class="role-title">⚙️ SysAdmin</h3>
+            <h3 class="role-title">SysAdmin</h3>
             <p class="role-text">
-              Más de 7 años administrando servidores Linux en WHM/cPanel: hosting, DNS, correo empresarial,
+              Más de 8 años administrando servidores Linux en WHM/cPanel: hosting, DNS, correo empresarial,
               certificados SSL, seguridad y respuesta a incidentes.
             </p>
 
@@ -57,7 +59,7 @@
           </div>
 
           <div class="role-block animated-line">
-            <h3 class="role-title">🐳 DevOps Jr</h3>
+            <h3 class="role-title">DevOps Jr</h3>
             <p class="role-text">
               Automatización, CI/CD y contenedores para conectar desarrollo e infraestructura
               y lograr despliegues rápidos, confiables y escalables.
@@ -123,8 +125,9 @@ export default {
 }
 
 .profile-card {
-  margin-top: 40px;
-  background: #fff;
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  color: var(--text-main);
   padding: 40px 40px;
   border-radius: 26px;
   box-shadow: 0px 18px 45px rgba(0,0,0,0.10);
@@ -141,42 +144,47 @@ export default {
 }
 
 .profile-photo {
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
+  width: 100%;
+  height: 480px;
+  border-radius: 14px;
   object-fit: cover;
-  object-position: center 10%;
-  margin-bottom: 25px;
-  box-shadow: 0px 8px 30px rgba(0,0,0,0.22);
+  object-position: center top;
+  margin-bottom: 18px;
+  background: #000;
 }
 
 .profile-name {
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-white);
   margin: 10px 0 6px 0;
 }
 
 .profile-roles {
-  color: #555;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  color: var(--terminal-green);
   margin-bottom: 15px;
+  text-align:center;
 }
 
 /* ============================= */
 /*   TEXTO DERECHA DESKTOP       */
 /* ============================= */
 
-.specialization-title {
-  font-size: 2rem;
-  font-weight: 800;
-  margin-bottom: 25px;
-  color: #111;
+.role-block {
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.28);
+  border-radius: 14px;
+  margin-bottom: 36px;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.03);
 }
 
-.role-block {
-  margin-bottom: 40px;
-  animation: fadeUp 1s ease-out;
+.role-block:hover {
+  border-color: rgba(255,255,255,0.22);
 }
+
 
 .role-title {
   font-size: 1.6rem;
@@ -185,12 +193,29 @@ export default {
   display: flex;
   align-items: center;
   gap: 10px;
+  color: var(--terminal-white);
 }
+
+.animated-line::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 18px;
+  width: 15px;
+  height: calc(100% - 45px);
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.9),
+    rgba(255,255,255,0.25)
+  );
+  border-radius: 4px;
+}
+
 
 .role-text {
   font-size: 1.05rem;
   line-height: 1.55rem;
-  color: #444;
+  color: var(--terminal-green);
 }
 
 /* ============================= */
@@ -206,7 +231,7 @@ export default {
 .skills-inline li {
   font-size: 1rem;
   margin-bottom: 6px;
-  color: #333;
+  color: var(--terminal-yellow);
   transition: 0.2s ease;
 }
 
@@ -284,8 +309,8 @@ export default {
   }
 
   .profile-photo {
-    width: 180px;
-    height: 180px;
+    width: 250px;
+    height: 380px;
     object-position: center 15%;
   }
 
@@ -310,11 +335,27 @@ export default {
 
   .skills-inline li {
     font-size: 0.9rem;
+    color: var(--terminal-yellow);
   }
 
   .animated-line::before {
     display: block !important;
   }
+
+.terminal-bar {
+  display: flex;
+  gap: 6px;
+  align-self: flex-start;
+  margin-bottom: 14px;
+}
+
+.terminal-bar span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #444;
+}
+
 }
 
 /* ============================= */

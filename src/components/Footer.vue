@@ -80,7 +80,7 @@
   background: #0e0e0e;
   padding: 60px 20px 25px;
   color: #ddd;
-  border-top: 1px solid #222;
+  border-top: 2px solid #939393;
 }
 
 .footer-container {
@@ -107,7 +107,7 @@
 .footer-section .footer-title {
   font-size: 16px;
   margin-bottom: 15px;
-  color: #61b0b5; /* tono morado/azul elegante */
+  color: #7bc6ff; 
   font-weight: bold;
 }
 
@@ -130,7 +130,7 @@
 
 .footer-links li:hover a,
 .footer-links li:hover {
-  color: #61b0b5; /* hover morado */
+  color: var(--terminal-yellow); /* hover morado */
 }
 
 /* Redes */
@@ -176,6 +176,6 @@
   padding-top: 20px;
   font-size: 13px;
   color: #777;
-  border-top: 1px solid #222;
+  border-top: 1px solid #fff;
 }
 </style>
