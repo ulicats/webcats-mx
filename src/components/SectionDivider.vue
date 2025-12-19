@@ -31,7 +31,6 @@ onMounted(() => {
 <style scoped>
 .divider-wrapper {
   position: relative;
-  height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,6 +74,6 @@ onMounted(() => {
 
 .animate .line-top,
 .animate .line-bottom {
-  height: 110px;
+  height: 300px;
 }
 </style>

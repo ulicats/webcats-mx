@@ -1121,9 +1121,9 @@ function startAnimation() {
   }
 
     .hero-trunk {
-    left: -28px;
+    left: 20px;
     width: 3px;
-    opacity: 0.6;
+    opacity: 1;
   }
 
 }
