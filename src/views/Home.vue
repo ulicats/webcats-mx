@@ -487,7 +487,7 @@
 
       <p class="text-lg leading-relaxed text-gray-300 mb-4">
         Soy <strong>Ulises Guzmán</strong>, SysAdmin y Desarrollador Web con más de
-        <strong>7 años de experiencia</strong> creando y manteniendo
+        <strong>8 años de experiencia</strong> creando y manteniendo
         infraestructuras web reales en producción.
       </p>
 
@@ -561,7 +561,7 @@ const heroAnimate = ref(false)
 onMounted(() => {
   setTimeout(() => {
     heroAnimate.value = true
-  }, 200)
+  }, 100)
 })
 
 const currentSlide = ref(0)
@@ -571,7 +571,7 @@ onMounted(() => {
     setInterval(() => {
       currentSlide.value =
         (currentSlide.value + 1) % sliderImages.length
-    }, 1000)
+    }, 500)
   }
 })
 

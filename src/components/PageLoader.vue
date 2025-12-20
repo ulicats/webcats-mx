@@ -22,7 +22,7 @@ const visible = ref(true);
 onMounted(() => {
   setTimeout(() => {
     visible.value = false;
-  }, 3000); // duración del telón
+  }, 2500); // duración del telón
 });
 </script>
 
