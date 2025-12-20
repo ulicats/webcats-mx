@@ -31,7 +31,12 @@
         <div class="right-content">
 
           <div class="role-block animated-line">
-            <h3 class="role-title">Desarrollador Web</h3>
+            <h3 class="role-title html-tag">
+              <span class="tag-bracket">&lt;</span>
+              <span class="tag-name">Web Developer</span>
+              <span class="tag-slash">/</span>
+              <span class="tag-bracket">&gt;</span>
+            </h3>
             <p class="role-text">
               Construyo aplicaciones funcionales y estables usando PHP, MySQL, Laravel y Vue.js.
               Desarrollo con mentalidad full-stack, enfocado en seguridad, rendimiento y producción real.
@@ -45,7 +50,12 @@
           </div>
 
           <div class="role-block animated-line">
-            <h3 class="role-title">SysAdmin</h3>
+            <h3 class="role-title html-tag">
+              <span class="tag-bracket">&lt;</span>
+              <span class="tag-name">SysAdmin</span>
+              <span class="tag-slash">/</span>
+              <span class="tag-bracket">&gt;</span>
+            </h3>
             <p class="role-text">
               Más de 8 años administrando servidores Linux en WHM/cPanel: hosting, DNS, correo empresarial,
               certificados SSL, seguridad y respuesta a incidentes.
@@ -59,7 +69,12 @@
           </div>
 
           <div class="role-block animated-line">
-            <h3 class="role-title">DevOps Jr</h3>
+            <h3 class="role-title html-tag">
+              <span class="tag-bracket">&lt;</span>
+              <span class="tag-name">DevOps Jr</span>
+              <span class="tag-slash">/</span>
+              <span class="tag-bracket">&gt;</span>
+            </h3>
             <p class="role-text">
               Automatización, CI/CD y contenedores para conectar desarrollo e infraestructura
               y lograr despliegues rápidos, confiables y escalables.
@@ -174,8 +189,9 @@ export default {
 .role-block {
   border: 1px solid rgba(255,255,255,0.14);
   background: rgba(0,0,0,0.28);
-  border-radius: 14px;
-  margin-bottom: 36px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  padding: 10px 10px; 
 
   box-shadow:
     inset 0 0 0 1px rgba(255,255,255,0.03);
@@ -217,6 +233,44 @@ export default {
   line-height: 1.55rem;
   color: var(--terminal-green);
 }
+
+
+/* ============================= */
+/*   Titulos Html                */
+/* ============================= */
+
+.html-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.6rem;
+  font-weight: 600;
+
+  background: rgba(0,0,0,0.35);
+  padding: 6px 12px;
+  border-radius: 6px;
+
+  margin-bottom: 18px;
+}
+
+/* < y > */
+.tag-bracket {
+  color: #d4d4d4; /* VS Code punctuation */
+}
+
+/* nombre del tag */
+.tag-name {
+  color: #4FC1FF; /* VS Code tag name */
+}
+
+/* / */
+.tag-slash {
+  color: #d4d4d4;
+}
+
+
 
 /* ============================= */
 /*   LISTAS DE SKILLS            */

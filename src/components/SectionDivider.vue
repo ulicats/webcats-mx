@@ -29,11 +29,12 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.divider-wrapper {
+  .divider-wrapper {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 320px; /* desktop */
 }
 
 /* Punto central */
@@ -48,16 +49,16 @@ onMounted(() => {
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* Línea base */
+/* Línea base (DESKTOP = vertical) */
 .line {
   position: absolute;
   width: 2px;
-  background: #c7d2fe;
   height: 0;
-  transition: height 0.9s ease;
+  background: #c7d2fe;
+  transition: height 0.9s ease, width 0.9s ease;
 }
 
-/* Dirección */
+/* Dirección vertical */
 .line-top {
   bottom: 50%;
 }
@@ -66,7 +67,7 @@ onMounted(() => {
   top: 50%;
 }
 
-/* Animación activada */
+/* Animación */
 .animate .dot {
   opacity: 1;
   transform: scale(1);
@@ -76,4 +77,45 @@ onMounted(() => {
 .animate .line-bottom {
   height: 300px;
 }
+
+/* ===================================== */
+/*           RESPONSIVE (MOBILE)          */
+/* ===================================== */
+
+@media (max-width: 768px) {
+
+  .divider-wrapper {
+    min-height: unset;
+    width: 100%;
+    height: 40px;
+  }
+
+  /* Línea horizontal */
+  .line {
+    height: 2px;
+    width: 0;
+  }
+
+  .line-top {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+
+  .line-bottom {
+    right: 50%;
+    top: 50%;
+    left: auto;
+    transform: translateY(-50%);
+  }
+
+  /* Animación horizontal */
+  .animate .line-top,
+  .animate .line-bottom {
+    width: 45%;
+    height: 2px;
+  }
+}
+
 </style>

@@ -1,6 +1,9 @@
 <template>
   <div class="modal-overlay" @click.self="closeModal">
-    <div class="modal-card">
+    <div class="modal-card"
+      @touchstart="onTouchStart"
+      @touchend="onTouchEnd"
+    >
 
       <!-- Botón anterior -->
       <button
@@ -71,7 +74,7 @@
 </template>
 
 <script setup>
-import { onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 
 const props = defineProps({
   project: {
@@ -94,7 +97,39 @@ const closeModal = () => emit("close");
 const nextProject = () => emit("next");
 const prevProject = () => emit("prev");
 
-// Bloquear scroll del body mientras el modal está abierto
+/* ========================= */
+/*        TOUCH SWIPE        */
+/* ========================= */
+
+const touchStartX = ref(0);
+const touchEndX = ref(0);
+
+function onTouchStart(e) {
+  touchStartX.value = e.changedTouches[0].screenX;
+}
+
+function onTouchEnd(e) {
+  touchEndX.value = e.changedTouches[0].screenX;
+  handleSwipe();
+}
+
+function handleSwipe() {
+  const distance = touchStartX.value - touchEndX.value;
+
+  // umbral mínimo para evitar falsos swipes
+  if (Math.abs(distance) < 50) return;
+
+  if (distance > 0) {
+    nextProject(); // swipe izquierda
+  } else {
+    prevProject(); // swipe derecha
+  }
+}
+
+/* ========================= */
+/*   BLOQUEO DE SCROLL BODY  */
+/* ========================= */
+
 let previousOverflow = "";
 
 onMounted(() => {
@@ -120,24 +155,33 @@ onBeforeUnmount(() => {
   z-index: 999;
 }
 
-/* Tarjeta principal del modal */
 .modal-card {
   position: relative;
-  background: #ffffff;
+  background: var(--bg-card);
   border-radius: 22px;
-  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.35);
+
+  /* BORDE TERMINAL */
+  border: 1px solid rgba(255, 255, 255, 0.85);
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.15),
+    0 24px 80px rgba(0, 0, 0, 0.6),
+    0 24px 80px rgba(0,0,0,0.7);
+
   width: 100%;
   max-width: 960px;
-  max-height: 90vh;      /* 👈 no se sale de la pantalla */
-  overflow: hidden;      /* el scroll está dentro */
+  max-height: 90vh;
+  overflow: hidden;
   display: flex;
 }
+
 
 /* Contenido interno con scroll propio */
 .modal-scroll {
   width: 100%;
   padding: 22px 24px 24px;
   overflow-y: auto;
+  touch-action: pan-y;
 }
 
 /* Imagen */
@@ -154,22 +198,24 @@ onBeforeUnmount(() => {
   font-size: 1.6rem;
   font-weight: 800;
   margin-bottom: 6px;
-  color: #111827;
+  color: var(--text-white);
+  text-align: center;
 }
 
 .modal-category {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #6b7280;
+  color: var(--terminal-blue);
   margin-bottom: 12px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  text-align: center;
 }
 
 .modal-description {
   font-size: 0.98rem;
   line-height: 1.55rem;
-  color: #374151;
+  color: var(--terminal-green);
   margin-bottom: 14px;
 }
 

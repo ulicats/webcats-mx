@@ -199,11 +199,22 @@ async function enviarFormulario() {
 </script>
 
 <style scoped>
+/* ===================================================== */
+/*                CONTACT SECTION                        */
+/* ===================================================== */
 
 .contact-section {
   max-width: 1100px;
   margin: 60px auto;
   padding: 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.contact-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .contact-grid {
@@ -217,13 +228,6 @@ async function enviarFormulario() {
   font-size: 2.4rem;
   font-weight: 700;
 }
-
-.contact-form.disabled {
-  pointer-events: none;
-  opacity: 0.4;
-  filter: grayscale(0.2);
-}
-
 
 .subtitle {
   margin: 15px 0 25px;
@@ -239,10 +243,20 @@ async function enviarFormulario() {
   margin-bottom: 10px;
 }
 
+/* ===================================================== */
+/*                FORM TERMINAL STYLE                    */
+/* ===================================================== */
+
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 22px;
+}
+
+.contact-form.disabled {
+  pointer-events: none;
+  opacity: 0.4;
+  filter: grayscale(0.2);
 }
 
 .field label {
@@ -251,27 +265,47 @@ async function enviarFormulario() {
   display: block;
 }
 
+/* Inputs tipo consola */
 .field input,
 .field textarea {
   width: 100%;
-  padding: 14px;
+  padding: 14px 16px;
   border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+
+  background: #0b0b0d;
+  color: #ffffff;
+
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+
+  border: 1px solid rgba(255,255,255,0.18);
+  outline: none;
+
+  caret-color: #22c55e;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
 
-.field input,
-.field textarea {
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(255,255,255,0.35);
 }
 
 .field input:focus,
 .field textarea:focus {
-  outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  background: #000000;
+  border-color: #22c55e;
+  box-shadow:
+    0 0 0 1px rgba(34,197,94,0.4),
+    0 0 20px rgba(34,197,94,0.25);
 }
 
+/* ===================================================== */
+/*                SUBMIT BUTTON                          */
+/* ===================================================== */
 
 .btn-submit {
   background: #2563eb;
@@ -295,63 +329,14 @@ async function enviarFormulario() {
   cursor: not-allowed;
 }
 
+/* ===================================================== */
+/*                WHATSAPP EXTRA                         */
+/* ===================================================== */
 
-.respuesta {
-  text-align: center;
-  font-weight: 600;
-}
-
-.success {
-  color: #16a34a;
-}
-
-.error {
-  color: #dc2626;
-}
-
-.whatsapp-box {
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid #e5e7eb;
-  text-align: center;
-}
-
-.whatsapp-text {
-  margin-bottom: 12px;
-  font-weight: 500;
-}
-
-.btn-whatsapp {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 14px 18px;
-  border-radius: 10px;
-  background: #25d366;
-  color: #fff;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.btn-whatsapp:hover {
-  background: #1ebe5d;
-}
-
-.schedule {
-  margin-top: 12px;
-  font-size: 0.95rem;
-  opacity: 0.8;
-}
-
-.honeypot {
-  display: none;
-}
 .contact-extra {
   margin-top: 35px;
   padding-top: 25px;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid rgba(255,255,255,0.15);
   max-width: 420px;
 }
 
@@ -383,112 +368,79 @@ async function enviarFormulario() {
   opacity: 0.75;
 }
 
-/* Success animation */
-.success-enter-active {
-  transition: all 0.4s ease;
-}
-.success-leave-active {
-  transition: all 0.3s ease;
+.honeypot {
+  display: none;
 }
 
-.success-enter-from {
-  opacity: 0;
-  transform: translateY(10px) scale(0.95);
-}
-
-.success-enter-to {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.success-leave-from {
-  opacity: 1;
-}
-
-.success-leave-to {
-  opacity: 0;
-  transform: translateY(-5px);
-}
-
-/* Viewport entrance animation */
-.contact-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.contact-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* === SUCCESS MODAL === */
+/* ===================================================== */
+/*                SUCCESS MODAL – TERMINAL               */
+/* ===================================================== */
 
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(2px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
 }
 
-.modal-card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  background: white;
-  border-radius: 16px;
-  padding: 32px 36px;
-  max-width: 420px;
-  width: calc(100% - 40px);
-
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
-  text-align: center;
-}
-
-.modal-card {
-  animation: modal-pop 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
 .modal-box {
-  background: #fff;
+  background: #050505;
   padding: 32px 28px;
-  border-radius: 16px;
-  max-width: 420px;
+  border-radius: 14px;
+  max-width: 440px;
   width: 90%;
   text-align: center;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+
+  border: 1px solid rgba(255,255,255,0.45);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.25),
+    0 25px 60px rgba(0,0,0,0.85);
+
+  font-family: 'JetBrains Mono', monospace;
+  text-align: left;
 }
 
+/* Icon success */
 .modal-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 16px;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 32px;
+
   border-radius: 50%;
-  background: #16a34a;
-  color: #fff;
-  font-size: 2rem;
+  border: 2px solid #22c55e;
+
+  color: #22c55e;
+  font-size: 1.6rem;
   font-weight: 700;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  box-shadow: 0 0 12px rgba(34,197,94,0.4);
 }
 
+/* Texto modal */
 .modal-box h3 {
-  font-size: 1.4rem;
+  color: #ffffff;
+  font-size: 1.35rem;
   margin-bottom: 10px;
 }
 
 .modal-box p {
-  opacity: 0.85;
-  line-height: 1.5;
+  color: #facc15;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-/* Modal animation */
+/* ===================================================== */
+/*                MODAL ANIMATIONS                       */
+/* ===================================================== */
+
 .modal-enter-active,
 .modal-leave-active {
   transition: opacity 0.35s ease;
@@ -529,22 +481,14 @@ async function enviarFormulario() {
   }
 }
 
-@keyframes modal-pop {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -48%) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-
+/* ===================================================== */
+/*                RESPONSIVE                             */
+/* ===================================================== */
 
 @media (max-width: 900px) {
   .contact-grid {
     grid-template-columns: 1fr;
   }
 }
+
 </style>

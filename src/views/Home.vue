@@ -3,10 +3,14 @@
   <Transition name="hero" appear>
     <section
         :class="[
-          'relative min-h-screen flex flex-col justify-center items-center text-center px-6 bg-[#0d0d0f] text-white overflow-hidden',
+          'relative min-h-screen flex flex-col justify-center hero-console items-center text-center px-6 bg-[#0d0d0f] text-white overflow-hidden',
           { 'hero-animate': heroAnimate }
         ]"
           >
+
+          <!-- 🔲 ESQUINAS TIPO TERMINAL -->
+
+
       <div class="absolute inset-0 w-full h-full opacity-20">
         <transition-group name="fade">
           <img
@@ -67,7 +71,7 @@
   </Transition>
 
   <!-- SERVICIOS -->
-  <section class="py-20 px-6 bg-[#0d0d0f]">
+  <section class="py-10 px-6 bg-[#0d0d0f]">
     <h2 class="text-4xl font-bold text-center text-white mb-4">
       Servicios Webcats.mx
     </h2>
@@ -164,7 +168,7 @@
     ref="techStackRef"
   >
     <div class="relative z-10 max-w-5xl mx-auto text-center mb-20 px-4">
-      <h2 class="text-4xl font-bold mb-3">Mi Tech Stack</h2>
+      <h2 class="text-4xl font-bold mb-3 text-white">Mi Tech Stack</h2>
       <p class="text-white">
         Pipeline completo desde GitHub hasta el despliegue final.
       </p>
@@ -346,97 +350,127 @@
       </div>
     </div>
 
-    <!-- ========== MOBILE / RESPONSIVE ========== -->
-    <div class="tree-mobile md:hidden flex flex-col items-center gap-3 px-8 max-w-xs mx-auto">
-
-      <!-- GitHub -->
-      <div class="mobile-node">
-        <div class="tech-node mobile-main" :class="{ active: show.github }">
-          <img src="/src/assets/icons/git/github.png" />
-        </div>
-      </div>
-
-      <div class="mobile-connector" :class="{ 'mobile-connector--active': show.github && show.vite }"></div>
-
-      <!-- Vite -->
-      <div class="mobile-node">
-        <div class="tech-node mobile-main" :class="{ active: show.vite }">
-          <img src="/src/assets/icons/frameworks/vite.png" />
-        </div>
-      </div>
-
-      <div class="mobile-connector" :class="{ 'mobile-connector--active': show.vite && show.vue }"></div>
-
-        <!-- Vite -->
-      <div class="mobile-node">
-        <div class="tech-node mobile-main" :class="{ active: show.vite }">
-          <img src="/src/assets/icons/frameworks/vue.png" />
-        </div>
-
-        <!-- Vue + subnodos -->
-      <div class="relative vue-mobile-wrapper">
-  
-          <!-- HTML -->
-          <div class="tech-node subnode mobile-sub vue-sub vue-sub--html"
-              :class="{ 'vue-sub--visible': show.html }">
-            <img src="/src/assets/icons/frameworks/html.png" />
-          </div>
-
-          <!-- JS -->
-          <div class="tech-node subnode mobile-sub vue-sub vue-sub--js"
-              :class="{ 'vue-sub--visible': show.js }">
-            <img src="/src/assets/icons/frameworks/js.png" />
-          </div>
-
-          <!-- Tailwind -->
-          <div class="tech-node subnode mobile-sub vue-sub vue-sub--tailwind"
-              :class="{ 'vue-sub--visible': show.tailwind }">
-            <img src="/src/assets/icons/frameworks/tailwind.png" />
-          </div>
-
-        <!-- LINEAS DESDE VUE HACIA SUBNODOS -->
-        <span class="vue-line vue-line-html" :class="{ 'vue-lines-active': show.html }"></span>
-        <span class="vue-line vue-line-js" :class="{ 'vue-lines-active': show.js }"></span>
-        <span class="vue-line vue-line-tailwind" :class="{ 'vue-lines-active': show.tailwind }"></span>
-      </div>
-
-      </div>
-
-      
-
-      <!-- Conector Vue → Laravel -->
-      <div class="mobile-connector" :class="{ 'mobile-connector--active': show.vue && show.laravel }"></div>
-
-      <!-- Laravel -->
-      <div class="mobile-node">
-        <div class="tech-node mobile-main" :class="{ active: show.laravel }">
-          <img src="/src/assets/icons/frameworks/laravel.png" />
-        </div>
-      </div>
-
-      <div class="mobile-connector" :class="{ 'mobile-connector--active': show.laravel && show.whm }"></div>
-
-      <!-- WHM -->
-      <div class="mobile-node">
-        <div class="tech-node mobile-main" :class="{ active: show.whm }">
-          <img src="/src/assets/icons/servers/whm.png" />
-        </div>
-      </div>
-
-      <div class="mobile-connector" :class="{ 'mobile-connector--active': show.whm && show.cpanel }"></div>
-
-      <!-- cPanel -->
-      <div class="mobile-node">
-        <div class="tech-node mobile-main" :class="{ active: show.cpanel }">
-          <img src="/src/assets/icons/servers/cpanel.png" />
-        </div>
-      </div>
+<!-- ========== MOBILE / RESPONSIVE TECH TREE ========== -->
+<div
+  class="tree-mobile md:hidden flex flex-col items-center gap-3 px-8 max-w-xs mx-auto"
+>
+  <!-- GitHub -->
+  <div class="mobile-node">
+    <div class="tech-node mobile-main" :class="{ active: show.github }">
+      <img src="/src/assets/icons/git/github.png" />
     </div>
+  </div>
+
+  <div
+    class="mobile-connector"
+    :class="{ 'mobile-connector--active': show.github && show.vite }"
+  ></div>
+
+  <!-- Vite -->
+  <div class="mobile-node">
+    <div class="tech-node mobile-main" :class="{ active: show.vite }">
+      <img src="/src/assets/icons/frameworks/vite.png" />
+    </div>
+  </div>
+
+  <div
+    class="mobile-connector"
+    :class="{ 'mobile-connector--active': show.vite && show.vue }"
+  ></div>
+
+  <!-- Vue + Subnodos -->
+  <div class="mobile-node">
+    <div class="tech-node mobile-main" :class="{ active: show.vue }">
+      <img src="/src/assets/icons/frameworks/vue.png" />
+    </div>
+
+    <div class="relative vue-mobile-wrapper">
+      <!-- HTML -->
+      <div
+        class="tech-node subnode mobile-sub vue-sub vue-sub--html"
+        :class="{ 'vue-sub--visible': show.html }"
+      >
+        <img src="/src/assets/icons/frameworks/html.png" />
+      </div>
+
+      <!-- JS -->
+      <div
+        class="tech-node subnode mobile-sub vue-sub vue-sub--js"
+        :class="{ 'vue-sub--visible': show.js }"
+      >
+        <img src="/src/assets/icons/frameworks/js.png" />
+      </div>
+
+      <!-- Tailwind -->
+      <div
+        class="tech-node subnode mobile-sub vue-sub vue-sub--tailwind"
+        :class="{ 'vue-sub--visible': show.tailwind }"
+      >
+        <img src="/src/assets/icons/frameworks/tailwind.png" />
+      </div>
+
+      <!-- Líneas -->
+      <span
+        class="vue-line vue-line-html"
+        :class="{ 'vue-lines-active': show.html }"
+      ></span>
+
+      <span
+        class="vue-line vue-line-js"
+        :class="{ 'vue-lines-active': show.js }"
+      ></span>
+
+      <span
+        class="vue-line vue-line-tailwind"
+        :class="{ 'vue-lines-active': show.tailwind }"
+      ></span>
+    </div>
+  </div>
+
+  <!-- Vue → Laravel -->
+  <div
+    class="mobile-connector"
+    :class="{ 'mobile-connector--active': show.vue && show.laravel }"
+  ></div>
+
+  <!-- Laravel -->
+  <div class="mobile-node">
+    <div class="tech-node mobile-main" :class="{ active: show.laravel }">
+      <img src="/src/assets/icons/frameworks/laravel.png" />
+    </div>
+  </div>
+
+  <div
+    class="mobile-connector"
+    :class="{ 'mobile-connector--active': show.laravel && show.whm }"
+  ></div>
+
+  <!-- WHM -->
+  <div class="mobile-node">
+    <div class="tech-node mobile-main" :class="{ active: show.whm }">
+      <img src="/src/assets/icons/servers/whm.png" />
+    </div>
+  </div>
+
+  <div
+    class="mobile-connector"
+    :class="{ 'mobile-connector--active': show.whm && show.cpanel }"
+  ></div>
+
+  <!-- cPanel -->
+  <div class="mobile-node">
+    <div class="tech-node mobile-main" :class="{ active: show.cpanel }">
+      <img src="/src/assets/icons/servers/cpanel.png" />
+    </div>
+  </div>
+</div>
+
+
   </section>
 
   <!-- SECCIÓN QUIÉN SOY -->
   <section
-    class="relative w-full min-h-[70vh] text-white py-24 px-6 overflow-hidden"
+    class="relative w-full min-h-[70vh] text-white py-10 px-6 overflow-hidden"
     ref="quienSoyRef"
   >
     <div class="absolute inset-0 bg-cover bg-left opacity-40"
@@ -449,15 +483,17 @@
         quienSoyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       ]"
     >
-      <h2 class="text-4xl font-bold mb-6">¿Quién soy?</h2>
+      <h2 class="text-4xl font-bold mb-6">Acerca de mí</h2>
 
-      <p class="text-lg leading-relaxed text-gray-300 mb-6">
-        <strong>Hola, soy Ulises Guzmán</strong>, SysAdmin y Desarrollador Web con más de
-        <strong>7 años de experiencia</strong> con servidores Linux, WHM/cPanel, PHP, MySQL, DNS y SMTP.
+      <p class="text-lg leading-relaxed text-gray-300 mb-4">
+        Soy <strong>Ulises Guzmán</strong>, SysAdmin y Desarrollador Web con más de
+        <strong>7 años de experiencia</strong> creando y manteniendo
+        infraestructuras web reales en producción.
       </p>
 
       <p class="text-lg leading-relaxed text-gray-300 mb-6">
-        Fundé <strong>Webcats.mx</strong> para crear sitios rápidos, seguros y listos para producción.
+        Fundé <strong>Webcats.mx</strong> para ofrecer soluciones completas, desde el código hasta el despliegue y la automatización 
+        creando sitios rápidos, a la medida, seguros y listos para producción.
       </p>
 
       <p class="text-lg leading-relaxed text-gray-300 mb-6">
@@ -467,6 +503,19 @@
       <p class="text-lg leading-relaxed text-gray-300">
         Si buscas alguien que domine el código y los servidores, <strong>aquí estoy</strong>.
       </p>
+      <div class="mt-10">
+        <a
+            href="/acerca"
+            class="inline-flex items-center gap-2 font-mono text-sm font-semibold
+                  text-green-400 border border-green-400/40
+                  px-6 py-3 rounded-xl
+                  hover:bg-green-400/10 hover:border-green-400
+                  transition-all duration-300"
+              >
+            &gt; leer --mas
+        </a>
+</div>
+
     </div>
   </section>
 </template>
@@ -594,9 +643,27 @@ function startAnimation() {
 </script>
 
 <style>
+/* ========================================================= */
+/*                     HERO CONSOLE                          */
+/* ========================================================= */
+
+.hero-console {
+  position: relative;
+  padding: 80px 60px;
+}
+
+.hero-console::after {
+  content: '';
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.35);
+}
 
 /* ========================================================= */
-/*                    HERO ENTRANCE                          */
+/*                     HERO ENTRANCE                         */
 /* ========================================================= */
 
 .hero-enter-active {
@@ -613,100 +680,46 @@ function startAnimation() {
   transform: translateY(0);
 }
 
+/* ========================================================= */
+/*                     HERO TREE                             */
+/* ========================================================= */
+
 .hero-tree {
-    position: relative;
+  position: relative;
 }
 
 .hero-root-line {
   position: relative;
-  padding-left: 24px; /* acerca Webcats.mx a la root */
+  padding-left: 24px;
 }
 
-/* línea horizontal desde la root (logo) */
 .hero-root-line::before {
   content: "";
   position: absolute;
-  left: -140px;              /* longitud de la línea */
+  left: -140px;
   top: 50%;
-  width: 90px;              /* tamaño exacto de la conexión */
+  width: 90px;
   height: 4px;
   background: rgba(255,255,255,0.9);
 }
 
-
-
-@keyframes growTrunk {
-  to {
-    transform: scaleY(1);
-  }
-}
-
-
-/* Home.vue */
-
-
-/* ================================
-   HERO – TERMINAL STYLE
-================================ */
-
-.hero-title {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 24px;
-  color: #e5e7eb;
-}
-
-/* > prompt */
-.hero-title .prompt {
-  color: #22c55e; /* verde terminal */
-  margin-right: 8px;
-}
-
-/* comando / título */
-.hero-title .cmd {
-  display: inline-block;
-  color: #7bc6ff; /* azul VS Code */
-  font-weight: 800;
-}
-
-/* descripción tipo output */
-.hero-desc {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
-  color: #d1d5db;
-  max-width: 680px;
-  line-height: 1.7;
-  margin-bottom: 40px;
-}
-
-/* flecha verde */
-.hero-desc .arrow {
-  color: #22c55e;
-  margin-right: 6px;
-}
-
-/* ================================
-   HERO TREE STRUCTURE
-================================ */
-
+/* líneas */
 .hero-line {
   display: flex;
   align-items: flex-start;
   gap: 10px;
   font-family: 'JetBrains Mono', monospace;
   margin-bottom: 10px;
-  opacity:0;
+  opacity: 0;
 }
 
-/* ============================= */
-/*        HERO TRUNK             */
-/* ============================= */
+/* ========================================================= */
+/*                     HERO TRUNK                            */
+/* ========================================================= */
 
 .hero-trunk {
   position: absolute;
-  left: -140px;           /* ajusta alineación con Webcats.mx */
+  left: -140px;
   top: -120px;
   width: 4px;
   height: calc(100% + 120px);
@@ -716,87 +729,26 @@ function startAnimation() {
     rgba(255,255,255,0.2)
   );
   border-radius: 4px;
-  opacity: 0.9;
-  pointer-events:none;
+  pointer-events: none;
 }
 
+/* ========================================================= */
+/*                     HERO TEXT                             */
+/* ========================================================= */
 
-
-/* símbolos */
-.branch {
-  color: #ffffff;
-  
-}
-
-.folder {
+.hero-brand {
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
+  font-weight: 900;
   color: #7bc6ff;
-  font-weight: 700;
+  margin-left: -57px;
 }
 
-
-.hero-animate .hero-actions {
-  animation: showLine .4s ease forwards;
-  animation-delay: 3s;
-  opacity: 0;
-}
-
-
-.hero-animate .hero-line:nth-child(1) {
-  animation: showLine .4s ease forwards;
-  animation-delay: 1.5s;
-}
-
-.hero-animate .hero-line:nth-child(2) {
-  animation: showLine .4s ease forwards;
-  animation-delay: 1.8s;
-}
-
-.hero-animate .hero-line:nth-child(3) {
-  animation: showLine .4s ease forwards;
-  animation-delay: 2.1s;
-}
-
-.hero-animate .hero-line:nth-child(4) {
-  animation: showLine .4s ease forwards;
-  animation-delay: 2.4s;
-}
-
-.hero-animate .hero-line:nth-child(5) {
-  animation: showLine .4s ease forwards;
-  animation-delay: 2.7s;
-}
-
-@keyframes showLine {
-  to {
-    opacity: 1;
-  }
-}
-
-
-@keyframes growTrunk {
-  to {
-    transform: scaleY(1);
-  }
-}
-
-
-
-
-/* textos */
 .hero-title-text {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   color: #22c55e;
 }
 
-.hero-brand {
-  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
-  font-weight: 900;
-  color: #7bc6ff;
-  margin-left:-57px;
-}
-
-/* descripción */
 .hero-desc-text {
   font-size: 17px;
   color: #d1d5db;
@@ -804,7 +756,14 @@ function startAnimation() {
   line-height: 1.7;
 }
 
-/* acciones */
+.branch {
+  color: #ffffff;
+}
+
+/* ========================================================= */
+/*                     HERO ACTIONS                          */
+/* ========================================================= */
+
 .hero-actions {
   display: flex;
   gap: 16px;
@@ -840,44 +799,142 @@ function startAnimation() {
 }
 
 /* ========================================================= */
-/*                       SECCION SERVICIOS                   */
+/*                     HERO ANIMATION                        */
+/* ========================================================= */
+
+.hero-animate .hero-line {
+  animation: showLine .4s ease forwards;
+}
+
+.hero-animate .hero-line:nth-child(1) { animation-delay: 1.5s; }
+.hero-animate .hero-line:nth-child(2) { animation-delay: 1.8s; }
+.hero-animate .hero-line:nth-child(3) { animation-delay: 2.1s; }
+.hero-animate .hero-line:nth-child(4) { animation-delay: 2.4s; }
+.hero-animate .hero-line:nth-child(5) { animation-delay: 2.7s; }
+
+.hero-animate .hero-actions {
+  animation: showLine .4s ease forwards;
+  animation-delay: 3s;
+  opacity: 0;
+}
+
+@keyframes showLine {
+  to { opacity: 1; }
+}
+
+/* ========================================================= */
+/*                     SERVICES                              */
 /* ========================================================= */
 
 .service-desc {
-  color: #22c55e; /* verde consola */
+  color: #22c55e;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.95rem;
   line-height: 1.6;
 }
 
 .service-link {
-  color: #facc15; /* amarillo consola */
+  color: #facc15;
   font-family: 'JetBrains Mono', monospace;
   font-weight: 600;
   text-decoration: none;
 }
 
 .service-link:hover {
-  color: #fde047; /* un poquito más vivo */
+  color: #fde047;
+}
+/* ========================================================= */
+/*        SERVICE CARDS – TERMINAL FULL BORDER               */
+/* ========================================================= */
+
+section > div.grid > div.rounded-2xl {
+  position: relative;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  background: linear-gradient(
+    180deg,
+    rgba(20, 20, 24, 0.95),
+    rgba(12, 12, 15, 0.95)
+  );
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.05),
+    0 18px 50px rgba(0,0,0,0.65);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Overlay tipo consola (muy sutil) */
+section > div.grid > div.rounded-2xl::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.06),
+    transparent 40%
+  );
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* HOVER: encender card */
+section > div.grid > div.rounded-2xl:hover {
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.2),
+    0 0 22px rgba(255,255,255,0.18),
+    0 26px 65px rgba(0,0,0,0.75);
+  transform: translateY(-4px);
+}
+
+/* Hover refuerza overlay */
+section > div.grid > div.rounded-2xl:hover::before {
+  opacity: 0.7;
+}
+
+
+/* ========================================================= */
+/*                     LOGO RUNWAY                           */
+/* ========================================================= */
+
+.logo-runway {
+  width: 100%;
+  overflow: hidden;
+}
+
+.logo-track {
+  display: flex;
+  align-items: center;
+  gap: 120px;
+  width: max-content;
+  animation: runwayScroll 45s linear infinite;
+  padding: 20px 0;
+}
+
+.logo-item {
+  max-width: 160px;
+  height: 70px;
+  object-fit: contain;
+  opacity: 0.7;
+  filter: grayscale(100%) brightness(1.1);
+}
+
+.logo-item:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+@keyframes runwayScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 
 
-
 /* ========================================================= */
-/*                       FADE SLIDER                         */
-/* ========================================================= */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 1.5s ease;
-}
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-/* ========================================================= */
-/*                     DESKTOP TECH TREE                     */
+/*                     TECH STACK                            */
 /* ========================================================= */
 
 .tech-node {
@@ -907,12 +964,6 @@ function startAnimation() {
   object-fit: contain;
 }
 
-/* Subnodos desktop */
-.tech-node.subnode {
-  width: 70px;
-  height: 70px;
-}
-
 /* Posiciones desktop */
 .node-github { left: 150px; top: 300px; }
 .node-vite { left: 350px; top: 300px; }
@@ -921,43 +972,66 @@ function startAnimation() {
 .node-whm { left: 1000px; top: 300px; }
 .node-cpanel { left: 1150px; top: 300px; }
 
-/* Subnodos Vue desktop */
+/* Subnodos */
 .node-html { left: 600px; top: 150px; }
 .node-js { left: 725px; top: 235px; }
 .node-tailwind { left: 725px; top: 420px; }
 
-/* Líneas animadas */
-.draw {
-  stroke-dasharray: 200;
-  stroke-dashoffset: 200;
-  animation: drawLine 1.3s ease forwards;
-}
-@keyframes drawLine {
-  to { stroke-dashoffset: 0; }
+.tech-node.node-vue {
+  width: 120px;
+  height: 120px;
+  border-width: 5px;
 }
 
-/* Puntos conectores ● */
-.connector-dot {
-  fill: #9ac7e8;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-.connector-dot--active {
-  opacity: 1;
+.tech-node.node-vue img {
+  width: 65%;
+  height: 65%;
 }
 
-/* Wrapper desktop */
+
+/* Wrapper */
 .tree-desktop-wrapper {
   height: 505px;
   overflow: hidden;
   margin-top: -130px;
 }
 
+.tree-desktop {
+  transform: translateX(-60px);
+}
+
 /* ========================================================= */
-/*                   MOBILE TREE (BASE)                      */
+/*     FIX DEFINITIVO – DOTS DEL TECH TREE (DESKTOP)         */
 /* ========================================================= */
 
-/* Solo los nodos principales en la columna usan este override */
+/* Asegura que el SVG esté visible encima del fondo */
+.tree-desktop svg {
+  z-index: 2;
+}
+
+/* Los nodos encima del SVG */
+.tech-node {
+  z-index: 3;
+}
+
+/* DOTS SVG (circle) */
+.connector-dot {
+  fill: #9ac7e8;            /* 🔥 ESTO ES LO QUE FALTABA */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* DOTS activos */
+.connector-dot--active {
+  opacity: 1;
+}
+
+
+
+/* ========================================================= */
+/* MOBILE TREE (BASE) */
+/* ========================================================= */
+
 .tree-mobile .mobile-node > .tech-node {
   position: relative;
   left: 0;
@@ -976,7 +1050,7 @@ function startAnimation() {
   height: 100px;
 }
 
-/* Conectores verticales entre nodos principales */
+/* Conectores verticales */
 .mobile-connector {
   width: 2px;
   height: 45px;
@@ -987,6 +1061,7 @@ function startAnimation() {
   transform-origin: top;
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
+
 .mobile-connector::before,
 .mobile-connector::after {
   content: "";
@@ -998,20 +1073,22 @@ function startAnimation() {
   left: 50%;
   transform: translateX(-50%);
 }
-.mobile-connector::before { top: -4px; }
-.mobile-connector::after { bottom: -4px; }
+
+.mobile-connector::before {
+  top: -4px;
+}
+
+.mobile-connector::after {
+  bottom: -4px;
+}
+
 .mobile-connector--active {
   background: #9ac7e8;
   opacity: 1;
   transform: scaleY(1);
 }
 
-/* ========================================================= */
-/*       SUBÁRBOL DE VUE – RESPONSIVE (MOBILE)               */
-/* ========================================================= */
-
 @media (max-width: 900px) {
-
   .tree-mobile {
     display: flex;
     flex-direction: column;
@@ -1021,24 +1098,17 @@ function startAnimation() {
     padding-bottom: 40px;
   }
 
-  /* Contenedor general de Vue + subnodos */
   .vue-mobile-wrapper {
-    position:relative;
-    width: 260px;  
+    position: relative;
+    width: 260px;
     margin: 0 auto;
   }
 
-    
-    .vue-mobile-wrapper .tech-node.mobile-main {
-        z-index:2;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-  .vue-main {
+  .vue-mobile-wrapper .tech-node.mobile-main {
+    z-index: 2;
     position: relative;
-    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .vue-sub {
@@ -1051,7 +1121,7 @@ function startAnimation() {
     opacity: 1;
   }
 
-  /* Posiciones de subnodos */
+  /* Posiciones subnodos */
   .vue-sub--html {
     left: 30px;
     top: -35px;
@@ -1067,15 +1137,14 @@ function startAnimation() {
     bottom: -15px;
   }
 
-  /* Líneas desde Vue hacia los subnodos */
+  /* Líneas */
   .vue-line {
     position: absolute;
     width: 2px;
     background: #9ac7e8;
-    top: 0;
     transform-origin: top;
-    transition: opacity .3s ease;
     transform: scaleY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   .vue-line::after {
@@ -1090,13 +1159,11 @@ function startAnimation() {
     border-radius: 9999px;
   }
 
-
   .vue-lines-active {
     opacity: 1;
     transform: scaleY(1);
   }
 
-  /* Línea hacia HTML */
   .vue-line-html {
     height: 30px;
     left: 35%;
@@ -1104,7 +1171,6 @@ function startAnimation() {
     transform: rotate(90deg);
   }
 
-  /* Línea hacia JS */
   .vue-line-js {
     height: 40px;
     left: 62%;
@@ -1112,141 +1178,23 @@ function startAnimation() {
     transform: rotate(-45deg);
   }
 
-   /* Línea hacia Tailwind */
   .vue-line-tailwind {
     height: 47px;
     left: 64%;
     top: -48px;
     transform: rotate(-115deg);
   }
-
-    .hero-trunk {
-    left: 20px;
-    width: 3px;
-    opacity: 1;
-  }
-
-}
-
-/* ========================================================= */
-/*                CLIENT LOGO RUNWAY                         */
-/* ========================================================= */
-
-.logo-runway {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.logo-track {
-  display: flex;
-  align-items: center;
-  gap: 120px;
-  width: max-content;
-  animation: runwayScroll 45s linear infinite;
-  padding:20px 0;
-}
-
-.logo-item {
-  height: 100px;
-  opacity: 0.7;
-  filter: grayscale(100%) brightness(1.1);
 }
 
 
-.logo-item:hover {
-  opacity: 1;
-  transform: translateY(-3px);
-}
-
-
-@keyframes runwayScroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-
-  
-
-}
-
-
-/* ========================================================= */
-/*                 OCULTAR DESKTOP EN MOBILE                 */
-/* ========================================================= */
-
-@media (max-width: 767px) {
-  .tree-desktop {
-    display: none !important;
-  }
-  .tree-mobile {
-    margin-top: 10px;
-  }
-}
 
 @media (max-width: 480px) {
-  .linea-root {
-    opacity: 0.25;
-    width: 2px;
+  .hero-console {
+    padding: 36px 16px;
   }
 
-  .global-trunk {
-    left: 40px;          /* alineado al logo en mobile */
-    top: 56px;           /* justo debajo del header */
-    width: 4px;
-    opacity: 0.25;
-    height: calc(100vh - 56px);
-  }
-
-  .hero-title {
-    font-size: 1.5rem;   /* antes se veía ~1.7–1.8 */
-    line-height: 1.2;
-    margin-bottom: 8px;
-  }
-
-  .hero-description {
-    font-size: 0.95rem;
-    line-height: 1.55;
-    max-width: 94%;
-    margin-bottom: 14px;
-  }
-
-   .hero-content {
-    padding-left: 50px; 
-  }
-
-  .hero-tree {
-    max-width: 100%;
-  }
-
-  .hero-description {
-    max-width: 95%;
-  }
-
-  .hero-buttons button {
-  white-space: nowrap;
-}
-
-
-  .hero-path {
-    font-size: 1.25rem;
-    margin-bottom:6px;
-  }
-
-  .hero-description {
-  line-height: 1.6;
-  max-width: 90%;
-}
-
-.btn-secondary {
-  border: 1px solid rgba(255,255,255,0.15);
-}
-
-.hero-buttons button {
-    font-family: monospace;
-    letter-spacing: 0.3px;
+  .hero-actions {
+    margin-top: 12px;
   }
 
   .hero-brand {
@@ -1260,35 +1208,16 @@ function startAnimation() {
     opacity: 0.6;
   }
 
-  .cmd-btn{
-    font-size:0.7rem;
+  .cmd-btn {
+    font-size: 0.7rem;
   }
 
-  .hero-title-text{
-    font-size: clamp(2rem, 4vw, 3rem);
-  }
- 
-
-  .hero-desc-text{
-    font-size:14px;
+  .hero-desc-text {
+    font-size: 14px;
   }
 
 }
 
-@media (max-width: 360px) {
-  .hero-title {
-    font-size: 1.4rem;
-  }
-
-  .hero-path {
-    font-size: 1.15rem;
-  }
-
-  .hero-buttons button {
-    padding: 10px 16px;
-    font-size: 0.85rem;
-  }
-}
 
 
 </style>
