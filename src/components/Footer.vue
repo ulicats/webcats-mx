@@ -38,7 +38,6 @@
     <div class="footer-section">
       <h3 class="footer-title">Contacto</h3>
       <ul class="footer-links">
-        <li>📧 contacto@webcats.mx</li>
         <li>🌐 www.webcats.mx</li>
       </ul>
       
