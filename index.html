@@ -37,13 +37,23 @@
     content="Desarrollo web, servidores y DevOps. Soluciones digitales de alto nivel."
   />
   <meta name="twitter:image" content="https://webcats.mx/webcats-og.png" />
+
+    <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E4MG83SNZP"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-E4MG83SNZP');
+      </script>
+
 </head>
 
 <body>
-  <!-- 🔥 ESTE DIV ES OBLIGATORIO -->
+  
   <div id="app"></div>
 
-  <!-- 🔥 ESTE SCRIPT ES OBLIGATORIO -->
   <script type="module" src="/src/main.js"></script>
 </body>
 </html>
