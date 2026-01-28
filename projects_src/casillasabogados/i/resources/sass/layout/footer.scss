@@ -1,0 +1,31 @@
+/*================== FOOTER ==================== */
+#footer{
+	display: flex;
+  align-items: center;
+	color:#ffffff;
+	width: 100%;
+	position: relative;
+	height: 200px;
+	background: rgba(0,37,77,1);
+
+	.appWhatsapp{
+				position:fixed;
+				right: 36px;
+				bottom: 21px;
+				width: 60px;
+				z-index: 1000;
+
+					img{
+				 		width: 100%;
+				 		height: auto;
+			 			}
+
+			}
+
+			.info p{
+				margin-bottom: inherit;
+			}
+
+
+}
+/*================== FOOTER ==================== */

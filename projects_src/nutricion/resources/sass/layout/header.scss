@@ -1,0 +1,50 @@
+/*================== HEADER ==================== */
+#header{
+	background-color: #fff;
+	height: 80px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
+	 .logo{
+        img{
+						width: 80px;
+            max-height: 100%;
+            max-width: 100%;
+            cursor: pointer;
+						text-align: center;
+        }
+    }
+
+		.redes{
+			font-size:25px;
+			text-align: center;
+			/* color: white; */
+
+
+			.bg-redes{
+				background: #28a745;
+				border-radius: 50px;
+				width: 35px;
+				margin: auto;
+			}
+
+		}
+
+		.facebook{
+			color:#fff;
+		}
+
+		.facebook:hover{
+			color:#1196f5;
+		}
+
+		.ins{
+				color:#fff;
+			}
+
+		.ins:hover{
+			color:#e74757;
+		}
+}
+/*================== HEADER ==================== */

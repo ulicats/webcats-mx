@@ -1,0 +1,108 @@
+#app{
+
+}
+
+body,html{
+	font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: normal;
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+
+.bg-redes{
+	background: #f46e2f;
+	width: 40px;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	display: flex;
+	font-size: 25px;
+	height: 40px;
+	padding: 3;
+	border-radius: 50px;
+
+	.facebook{
+
+	}
+
+	.facebook:hover{
+		color:#1196f5;
+	}
+
+	.ins{
+		
+		}
+
+	.ins:hover{
+		color:#e74757;
+	}
+
+	a{
+		color:#fff;
+		display: flex;
+	}
+
+}
+
+.bg-title{
+	background: #69303c;
+}
+
+
+.bg-img{
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 500px;
+	width: 100%;
+}
+
+.title{
+	margin-bottom: 30px;
+	color: #000;
+	font-weight: 600;
+
+	@media screen and (max-width: 480px){
+	font-size: 1.5rem;
+}
+
+	h2{
+
+	}
+}
+
+.pagina{
+	padding-top: 100px;
+}
+
+.placed-backg{
+	height: 50vh;
+  padding-top: 80px;
+}
+
+.seccion{
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+.tarjeta{
+	text-align: center;
+	padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 3px 3px 10px darkgrey;
+    width: 100%;
+    @include transition(400ms);
+    .image{
+    	margin-bottom: 3em;
+    	font-size: 1.2em;
+    	color: aqua;
+    }
+    &:hover{
+    	@include cp-property(transform,scale(1.05));
+    	opacity: 0.7;
+    }
+    .descript{
+    	color: $color--text;
+    }
+}

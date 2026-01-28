@@ -50,15 +50,16 @@
         </ul>
 
         <div class="modal-actions">
-          <a
-            v-if="project.url"
-            :href="project.url"
-            target="_blank"
-            rel="noopener"
-            class="btn primary"
-          >
-            Ver Proyecto
-          </a>
+        <a
+          :href="`/projects/${project.slug}/`"
+          target="_blank"
+          rel="noopener"
+          class="btn primary"
+        >
+          Ver Proyecto
+        </a>
+
+
 
           <button
             type="button"
@@ -74,7 +75,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 
 const props = defineProps({
   project: {
@@ -94,6 +95,17 @@ const props = defineProps({
 const emit = defineEmits(["close", "next", "prev"]);
 
 const closeModal = () => emit("close");
+const projectLink = computed(() => {
+  const url = props.project?.url?.trim?.() || "";
+
+  // Si aún tienes algunos proyectos con URL externa, respétala
+  if (/^https?:\/\//i.test(url)) return url;
+
+  // Si la URL vieja era subdominio tipo https://bear.webcats.mx/
+  // la ignoramos y usamos el path nuevo:
+  return `/projects/${props.project.slug}/`;
+});
+
 const nextProject = () => emit("next");
 const prevProject = () => emit("prev");
 

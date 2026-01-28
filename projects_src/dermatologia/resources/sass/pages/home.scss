@@ -1,0 +1,567 @@
+#home{
+	   overflow: hidden;
+
+		.section-banner{
+			height: 90vh;
+	    background-image: url(../images/home/banner.png);
+	    background-size: contain;
+	    background-position: right;
+	    background-repeat: no-repeat;
+
+			.bg-section{
+				height: 100%;
+				display: flex;
+    		justify-content: center;
+    		align-items: center;
+				background: #aab6e02e;
+
+
+								 @media screen and (max-width: 480px){
+
+									background: #fff;
+									 }
+
+			}
+
+		 .title{
+			 h1{
+				 color:#495565;
+				 font-size: 4rem;
+
+				 @media screen and (max-width: 480px){
+					text-align: center;
+					font-size: 3rem;
+					 }
+			 }
+
+			 }
+
+			 span{
+				 color:#cb0972;
+			 }
+
+			 h2{
+			   color: #495565;
+				 font-size: 1.5rem;
+				 font-family: 'Font Awesome 5 Brands';
+
+				 @media screen and (max-width: 480px){
+
+					font-size: 1.2rem;
+					 }
+
+			 }
+
+
+		 .boton{
+			 @media screen and (max-width: 480px){
+
+				text-align: center;
+				 }
+		 }
+
+
+		 @media screen and (max-width: 630px){
+			background: #fff;
+
+
+		 }
+
+		}
+
+		.section-servicios{
+			position: relative;
+	    bottom: 80px;
+			color:#fff;
+
+			.bg{
+				background: #745c6a;
+			}
+
+			.bg:nth-child(2n+1){
+				background:#71425d;
+			}
+
+		}
+
+		.section-medcosme{
+			background: aliceblue;
+
+			.list-group{
+				font-size: 1.2rem;
+			}
+
+			.title{
+				h2{
+					font-size:2.5rem;
+				}
+			}
+		}
+
+		.dermatologia{
+
+				background:cadetblue;
+
+				.title{
+					color:#fff;
+					@media screen and (max-width: 480px){
+
+					text-align: center;
+					 }
+
+					h2{
+						font-size:2.8rem;
+
+						@media screen and (max-width: 480px){
+
+						font-size:2.3rem;
+						 }
+
+					}
+
+					p{
+						font-size: 1.1rem;
+						font-weight: 400;
+
+						@media screen and (max-width: 480px){
+
+						font-size:0.9rem;
+						 }
+					}
+				}
+
+				.boton{
+					@media screen and (max-width: 480px){
+
+					text-align: center;
+					 }
+				}
+
+			.imagen{
+				img{
+					border-radius: 461px;
+					height: 535px;
+					border: 7px solid #fff;
+					width: 100%;
+
+					@media screen and (max-width: 480px){
+
+						height: 350px;
+
+					 }
+
+				}
+			}
+		}
+
+		.section-nosotros{
+
+
+		.img-nosotros{
+			background-image: url(../images/home/ale.jfif);
+			background-size: contain;
+			background-repeat: no-repeat;
+			height: 500px;
+			background-position: center;
+
+		}
+
+		}
+
+// == ==
+
+.testigos-section{
+
+	.title{
+		h2{
+			font-size:3.5rem;
+		}
+	}
+
+	.swiper {
+  width: 100%;
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    background-color: white;
+
+		.img-test{
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 100%;
+	    height: 600px;
+	    background-position: center;
+
+		}
+
+		@media screen and (max-width: 767px){
+			.img-test{
+				width: 250px;
+				height: 250px;
+			}
+
+		 }
+
+		 @media screen and (max-width: 991px){
+			 .img-test{
+				 width: 200px;
+				 height: 200px;
+			 }
+
+			}
+
+  }
+}
+
+	.swiper-button-prev{
+		background: #745c6a;
+    height: 60px;
+    width: 40px;
+    color: white;
+	}
+
+	.swiper-button-next{
+		background: #745c6a;
+		height: 60px;
+		width: 40px;
+		color: white;
+	}
+
+	/*@media screen and (max-width: 767px){
+
+		.swiper-button-prev{
+	    height: 40px;
+	    width: 40px;
+		}
+
+		.swiper-button-next{
+			height: 40px;
+			width: 40px;
+
+		}
+	} */
+
+	 @media screen and (max-width: 991px){
+
+		 .swiper-button-prev{
+			 height: 40px;
+			 width: 40px;
+		 }
+
+		 .swiper-button-next{
+			 height: 40px;
+			 width: 40px;
+
+		 }
+		}
+
+
+
+	.n-test{
+		font-size: .8rem;
+		color: coral;
+	}
+
+}
+
+
+// == How ==
+.how-section{
+	position: relative;
+	background-color: #745c6a;
+
+	.col-image{
+		flex: 0 0 637px;
+		max-width: 637px;
+		padding: 0;
+
+		img{
+			width: 100%;
+		}
+	}
+
+	.col-info{
+		align-self: center;
+
+		.box-title{
+			color:#fff;
+			width: 90%;
+			margin: 0 auto;
+
+			.sec-title{
+				margin-bottom: 16px;
+				font-size: 3.5rem;
+				font-weight: bold;
+				line-height: 1.15;
+				letter-spacing: 2px;
+
+				@media screen and (max-width: 480px){
+
+					margin-top: 70px;
+					text-align: center;
+					font-size: 2.2rem;
+				 }
+			}
+
+
+			p{
+				font-size: 1.25rem;
+				font-weight: 400;
+
+				@media screen and (max-width: 480px){
+
+				font-size: 1rem;
+				 }
+
+			}
+		}
+
+		.box-steps{
+			position: relative;
+			margin-top: 42px;
+
+			&:after{
+				content: "\f0da";
+				position: absolute;
+				top: 18px;
+				right: -3px;
+				height: 29px;
+				font-family: "Font Awesome 5 Pro";
+				font-size: 1.8rem;
+				font-weight: 700;
+				line-height: 1;
+				color: $red;
+				line-height: 1;
+			}
+
+			.col-step{
+				padding: 0;
+
+				.box-line{
+					position: relative;
+					text-align: center;
+					margin-bottom: 5px;
+
+					&:before{
+						content: " ";
+						position: absolute;
+						margin-top: -2px;
+						top: 50%;
+						left: 0;
+						width: 100%;
+						border-top: 1px solid $red;
+					}
+
+					&:after{
+						content: "\f312";
+						display: inline-block;
+						color: $red;
+						font-family: "Font Awesome 5 Pro";
+						font-size: 2.8rem;
+						font-weight: 800;
+					}
+				}
+
+				.box-text{
+					position: relative;
+					margin-top: 14px;
+					width: 70%;
+					min-width: 210px;
+					margin: 0 auto;
+					color: $red;
+					font-size: 1.00rem;
+					text-align: center;
+					line-height: 1.4;
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 1299px){
+		.col-image{
+			flex: 0 0 520px;
+			max-width: 520px;
+		}
+	}
+	@media screen and (max-width: 1199px){
+		.col-image{
+			flex: 0 0 42%;
+			max-width: 42%;
+		}
+
+		.col-info{
+			.box-steps{
+				.col-step{
+					.box-text{
+						padding: 0px 12px;
+						width: 100%;
+						min-width: inherit;
+					}
+				}
+			}
+		}
+	}
+	@media screen and (max-width: 991px){
+		.col-image{
+			flex: 0 0 100%;
+			max-width: 100%;
+			margin-bottom: 18px;
+		}
+
+		.col-info{
+			.box-title{
+				width: 100%;
+			}
+
+			.box-steps{
+				margin-top: 20px;
+			}
+		}
+	}
+	@media screen and (max-width: 575px){
+		.col-info{
+			.box-steps{
+				&:after{
+					display: none;
+				}
+
+				.col-step{
+					margin-bottom: 15px;
+
+					.box-text{
+						padding: 0 15px;
+					}
+				}
+			}
+		}
+	}
+}
+// == ==
+
+.section-scarlet{
+
+	.title{
+		h2{
+			color:#b36592;
+			font-size:4rem;
+			@media screen and (max-width: 480px){
+
+					text-align: center;
+					font-size: 3.8rem;
+
+				}
+		}
+	}
+
+	.placed-backg-3{
+		cursor: pointer;
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+		height: 70vh;
+
+}
+
+				.gallery-g-section{
+			.swiper-container {
+				background: #dedbd6;
+						}
+				}
+
+}
+
+
+		// == ==
+
+		.blog-section{
+	padding-top: 25px;
+	padding-bottom: 30px;
+	background-color: #d7d7d7;
+
+	.box-title{
+		margin-bottom: 20px;
+
+		.s-title{
+			color: #ffffff !important;
+			font-size: 3.5rem;
+		}
+	}
+
+	.box-info{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: coral;
+		text-align: center;
+
+		.title-galeria{
+			h2{
+				font-weight: bold;
+				font-size: 3rem;
+			}
+		}
+	}
+
+	.box-galeria{
+		color:chocolate;
+		font-size: 20px;
+	}
+
+	.box-gallery{
+		position: relative;
+		display: inline-block;
+		width: 100%;
+
+		.box2{
+			.title-blog{
+				font-size: 1.3rem;
+			}
+		}
+	}
+}
+
+// == instalaciones ==
+.instalaciones-section {
+	position: relative;
+	padding-top: 35px;
+	padding-bottom: 30px;
+	background-color: #efefef;
+
+	.box-articles {
+		position: relative;
+		display: block;
+
+		.swiper {
+			.swiper-wrapper {
+				.swiper-slide {
+					padding-bottom: 30px;
+				}
+			}
+
+			.swiper-pagination {
+				bottom: 2px;
+
+				.swiper-pagination-bullet {
+					width: 22px;
+					height: 6px;
+					border-radius: 0;
+					background-color: #82827e;
+					opacity: 1;
+				}
+
+				.swiper-pagination-bullet-active {
+					background-color: #1d1d1b;
+				}
+			}
+		}
+	}
+}
+// == ==
+
+
+
+}

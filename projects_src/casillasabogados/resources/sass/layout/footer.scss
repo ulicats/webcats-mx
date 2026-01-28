@@ -1,0 +1,76 @@
+/*================== FOOTER ==================== */
+#footer{
+	display: flex;
+  align-items: center;
+	color:#ffffff;
+	width: 100%;
+	position: relative;
+	height: 200px;
+	background: rgba(0,37,77,1);
+
+	@media only screen and (max-width : 767px) {
+					height: 350px !important;
+	}
+
+	.appWhatsapp{
+				position:fixed;
+				right: 36px;
+				bottom: 21px;
+				width: 60px;
+				z-index: 1000;
+
+					img{
+				 		width: 100%;
+				 		height: auto;
+			 			}
+
+			}
+
+			.info{
+				text-align: center;
+
+					p{
+						margin-bottom: inherit;
+						@media only screen and (min-width : 768px) and (max-width: 992px) {
+										font-size:11px !important;
+						}
+					}
+
+					h4{
+						@media only screen and (min-width : 768px) and (max-width: 992px) {
+										font-size:22px !important;
+					}
+			}
+
+		}
+
+
+.reboteIn:hover{
+  -webkit-animation:1s reboteIn 1;
+}
+
+@keyframes reboteIn {
+  20%{
+    opacity: 0;
+    -webkit-transform:scaleX(0.3)
+                      scaleY(0.3);
+  }
+  40%{
+    opacity: 1;
+    -webkit-transform:scaleX(1.2)
+                      scaleY(1.2);
+  }
+  60%{
+    -webkit-transform:scaleX(0.9)
+                      scaleY(0.9);
+  }
+  80%{
+    -webkit-trasnform:scaleX(1)
+                      scaleY(1);
+  }
+}
+
+
+
+}
+/*================== FOOTER ==================== */

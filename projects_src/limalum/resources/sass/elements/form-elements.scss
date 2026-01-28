@@ -1,0 +1,30 @@
+.custom-f-group-s2 {
+  >label ,>legend {
+    color: #575756;
+    font-size: 1.05rem;
+    padding-bottom: 3px;
+    letter-spacing: 2px;
+  }
+
+  >div {
+    .form-control {
+      padding: 0.6rem 0.75rem;
+      height: inherit;
+      color: #575756;
+      border: 1px solid #575756;
+      border-radius: 0;
+      resize: none;
+    }
+  }
+
+  .custom-file {
+    .custom-file-label {
+      border: 1px solid #575756;
+      border-radius: 0;
+
+      &:after {
+        content: "Buscar"
+      }
+    }
+  }
+}

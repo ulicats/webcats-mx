@@ -1,0 +1,76 @@
+/*================== FOOTER ==================== */
+#footer{
+    background: #1a2f42;
+    color: $color--text2;
+
+
+    .modal-title
+      {
+        color: #000;
+        font-size:2rem;
+        font-weight: bold;
+        text-align: center;
+      }
+
+    .logo{
+        width: 80px;
+        cursor: pointer;
+    }
+    .redes{
+        font-size: 1.4em;
+        .red{
+            @include transition(400ms);
+            cursor: pointer;
+            &:hover{
+                &.facebook{
+                    color: $color--facebook;
+                }
+                &.twitter{
+                    color: $color--twitter;
+                }
+                &.youtube{
+                    color: $color--youtube;
+                }
+            }
+        }
+    }
+
+    .links{
+      display: grid;
+        a{
+          color:#fff;
+        }
+    }
+
+    a{
+      color: #fff;
+    }
+
+    a:hover{
+      color:#ad933b;
+    }
+
+
+.appWhatsapp{
+	position:fixed;
+	right: 36px;
+	bottom:30px;
+	width: 60px;
+	z-index: 1000;
+}
+
+.appWhatsapp img{
+	width: 100%;
+	height: auto;
+}
+
+.web{
+	background: #000;
+	color:#fff;
+	p{
+		margin-bottom: auto;
+	}
+}
+
+}
+/*================== FOOTER ==================== */

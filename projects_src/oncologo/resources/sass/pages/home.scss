@@ -1,0 +1,557 @@
+#home{
+
+		.banner-section{
+
+			.box-title{
+				 padding-left: 65px;
+				 padding-top: 115px;
+				 h1{
+					 font-size: 3.5rem;
+					 color:#233475;
+				 }
+				 h2{
+					 font-size: 1rem;
+					 color:#c2c2c2;
+					 margin-bottom: 40px;
+					 font-weight: 800;
+				 }
+
+				 .btn-color{
+					 color:#fff;
+					 border-color: #2196F3;
+					 background-color: #233475;
+				 }
+				 .btn-color:hover{
+					background-color: #2196F3;
+				}
+
+				.tel{
+					p{
+						font-size: 1.5rem;
+    				color: #c2c2c2;
+					}
+				}
+			}
+
+			.bg-section{
+				background-image: url(../images/page/home/erik.png);
+		    height: 116vh;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    width: 100%;
+
+			}
+		}
+
+		.servicios{
+			.caja{
+				background: #233475;
+				height: 80px;
+			}
+
+			.box-servicios{
+				padding-left: 50px;
+
+				h2{
+				color:#233475;
+				}
+				h3{
+					font-size:1rem;
+					margin-bottom: 30px;
+				}
+			}
+
+			.bg-servicios-1{
+				background-image: url(../images/page/home/1.jpg);
+			}
+			.bg-servicios-2{
+				background-image: url(../images/page/home/2.jpg);
+			}
+			.bg-servicios-3{
+				background-image: url(../images/page/home/3.jpg);
+			}
+			.bg-servicios-4{
+				background-image: url(../images/page/home/4.jpg);
+			}
+
+		}
+
+		.erik-section{
+			background: #f2f2f2;
+
+			.box-title{
+
+				h2{
+					color: #233475;
+					font-weight: bold;
+					font-size: 2.6rem;
+				}
+
+				h3{
+					font-size: 1.5rem;
+				}
+
+
+			}
+
+			.erik-box{
+				background: #fff;
+
+				.img-erik{
+					background-image: url(../images/page/home/erik.png);
+					margin-top: -48px;
+				}
+
+				.descripcion{
+
+					h3{
+						font-weight: bold;
+    				color: #233475;
+					}
+
+					h4{
+						font-size: 1.4rem;
+				    color: #c2c2c2;
+				    margin-bottom: 40px;
+				    font-weight: 400;
+					}
+				}
+
+				.redes{
+					display: flex;
+					justify-content: space-between;
+					margin-top: 30px;
+					width: 30%;
+				}
+
+			}
+
+		.testimonios{
+
+			.stars{
+					font-size:30px;
+					color:#1FA6FF;
+					margin-bottom: 20px;
+			}
+
+			.desc-testimonios{
+
+			}
+		}
+
+
+
+
+		}
+
+		.faqs-section{
+
+			.title{
+				 margin-bottom: 60px;
+			}
+
+			.desc-faq{
+				h3{
+					font-size: 1.3rem;
+					color:#f46e2f;
+				}
+
+				p{
+					font-size:0.9rem;
+					color:#575756;
+					font-weight: 400px;
+					line-height: 28px;
+				}
+			}
+
+
+		}
+
+		//Mobile devices
+@media (min-width: 310px) and (max-width: 480px) {
+	.banner-section{
+
+		.box-title{
+			 padding-left: initial;
+			 text-align: center;
+
+			 h1{
+				 font-size: 2.3rem;
+				 color:#233475;
+			 }
+			 h2{
+				 font-size: 1rem;
+				 color:#c2c2c2;
+				 margin-bottom: 40px;
+				 font-weight: 800;
+			 }
+
+			 .btn-color{
+				 color:#fff;
+				 border-color: #2196F3;
+				 background-color: #233475;
+			 }
+			 .btn-color:hover{
+				background-color: #2196F3;
+			}
+
+			.tel{
+				p{
+					font-size: 1.5rem;
+					color: #c2c2c2;
+				}
+			}
+		}
+
+		.bg-section{
+		display: none;
+
+		}
+	}
+
+	.servicios{
+		.caja{
+			background: #233475;
+			height: 80px;
+		}
+
+		.bg-img{
+    background-size: contain;
+    height: 224px;
+		}
+
+		.box-servicios{
+			padding-left: initial;
+
+			h2{
+				text-align: center;
+				margin-bottom: 35px;
+			}
+			h3{
+
+			}
+		}
+
+
+	}
+
+	.erik-section{
+		background: #f2f2f2;
+
+		.box-title{
+
+			h2{
+
+				font-size: 2rem;
+			}
+
+			h3{
+				font-size: 1rem;
+			}
+
+
+		}
+
+		.erik-box{
+			background: #fff;
+
+			.img-erik{
+				height: 400px;
+	      margin-top: -100px;
+			}
+
+			.descripcion{
+				h3{
+					text-align: center;
+    			padding-top: 40px;
+					font-size: 1.5rem;
+				}
+
+				h4{
+					font-size: 1rem;
+				  text-align: center;
+
+				}
+			}
+
+			.redes{
+				margin-top: 25px;
+				width: 100%;
+			}
+
+		}
+
+	.testimonios{
+
+		.placed-backg{
+			height: 65vh;
+    	padding-top: 35px;
+		}
+
+		.stars{
+
+		}
+
+		.desc-testimonios{
+
+		}
+	}
+
+
+
+
+	}
+
+	.faqs-section{
+
+		.title{
+			 margin-bottom: 60px;
+		}
+
+		.desc-faq{
+			h3{
+				font-size: 1.3rem;
+				color:#f46e2f;
+			}
+
+			p{
+				font-size:0.9rem;
+				color:#575756;
+				font-weight: 400px;
+				line-height: 28px;
+			}
+		}
+
+
+	}
+
+}
+
+
+
+//  iPads, Tablets
+@media (min-width: 481px) and (max-width: 768px) {
+
+	.banner-section{
+
+		.box-title{
+				text-align: center;
+			 h1{
+					margin-bottom: 10px;
+					font-size:3rem;
+			 }
+			 h2{
+
+			 }
+
+			 ul{
+				 text-align: left;
+
+			 }
+
+			 .btn-color{
+				 color:#fff;
+				 border-color: #2196F3;
+				 background-color: #233475;
+			 }
+			 .btn-color:hover{
+				background-color: #2196F3;
+			}
+
+			.tel{
+				p{
+					font-size: 1.5rem;
+					color: #c2c2c2;
+				}
+			}
+		}
+
+		.bg-section{
+			display:none;
+
+		}
+	}
+
+	.servicios{
+		.caja{
+			background: #233475;
+			height: 80px;
+		}
+
+		.box-servicios{
+			padding-left: 50px;
+
+			h2{
+			color:#233475;
+			}
+			h3{
+				font-size:1rem;
+				margin-bottom: 30px;
+			}
+		}
+
+		.bg-servicios-1{
+			background-image: url(../images/page/home/1.jpg);
+		}
+		.bg-servicios-2{
+			background-image: url(../images/page/home/2.jpg);
+		}
+		.bg-servicios-3{
+			background-image: url(../images/page/home/3.jpg);
+		}
+		.bg-servicios-4{
+			background-image: url(../images/page/home/4.jpg);
+		}
+
+	}
+
+	.erik-section{
+		background: #f2f2f2;
+
+		.box-title{
+
+			h2{
+				color: #233475;
+				font-weight: bold;
+				font-size: 2.6rem;
+			}
+
+			h3{
+				font-size: 1.5rem;
+			}
+
+
+		}
+
+		.erik-box{
+			background: #fff;
+
+			.img-erik{
+				background-image: url(../images/page/home/erik.png);
+
+			}
+
+			.descripcion{
+
+				text-align: center;
+				padding-top: 50px;
+
+				h3{
+					font-weight: bold;
+					color: #233475;
+				}
+
+				h4{
+					font-size: 1.4rem;
+					color: #c2c2c2;
+					margin-bottom: 40px;
+					font-weight: 400;
+				}
+			}
+
+			.redes{
+				justify-content: space-evenly;
+				margin-top: 30px;
+				width: 100%;
+			}
+
+		}
+
+	.testimonios{
+
+		.placed-backg{
+			height: 60vh;
+			padding-top: 60px;
+		}
+
+		.stars{
+				font-size:30px;
+				color:#1FA6FF;
+				margin-bottom: 20px;
+		}
+
+		.desc-testimonios{
+
+		}
+	}
+
+
+
+
+	}
+
+	.faqs-section{
+
+		.title{
+		}
+
+		.desc-faq{
+			h3{
+				font-size: 1.3rem;
+				color:#f46e2f;
+			}
+
+			p{
+				font-size:0.9rem;
+				color:#575756;
+				font-weight: 400px;
+				line-height: 28px;
+			}
+		}
+
+
+	}
+
+}
+
+
+// --------------- //
+
+}
+
+/*
+.reveal.active {
+  opacity: 1;
+}
+.active.fade-bottom {
+  animation: fade-bottom 1s ease-in;
+}
+.active.fade-left {
+  animation: fade-left 1s ease-in;
+}
+.active.fade-right {
+  animation: fade-right 1s ease-in;
+}
+@keyframes fade-bottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-left {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-right {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+*/

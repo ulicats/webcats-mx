@@ -1,0 +1,337 @@
+#home{
+	@include cp-style(min-height,calc,unquote('(100vh - 140px)'));
+	//background-image: url(../images/page/home/fondo.avif);
+
+	.reveal{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 1s all ease;
+}
+
+.reveal.active{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
+			#sec1{
+		   position: relative;
+	     width: 100%;
+	    //height: 600px;
+	     background-image: url(../images/nutricion.jpg);
+	     min-height: 400px;
+	     //background-position: center;
+	     background-repeat: no-repeat;
+	     //background-size: cover;
+
+			 .texto-banner{
+				 padding-bottom: 75px;
+				 text-align: end;
+			 }
+
+			 h1{
+				 font-size: 4rem;
+				 font-weight: bold;
+			 }
+
+			 a{
+				  display:flex;
+				  align-items: center;
+				  justify-content: center;
+				  border-radius: 50px;
+			    background: #73bf4369;
+			    font-weight: bold;
+			    width: 180px;
+			    border: none;
+			    height: 50px;
+					font-weight: bold;
+    			color: #000;
+					margin-inline-start: auto;
+					text-decoration: none;
+			 }
+
+			 a:hover{
+				background: #73bf43;
+			 }
+
+
+			.salida{
+			  -webkit-animation:1s salida 1;
+			}
+
+			@keyframes salida {
+			  20%{
+			    opacity: 0;
+			    -webkit-transform:scaleX(0.3)
+			                      scaleY(0.3);
+			  }
+			  40%{
+			    -webkit-tranform:scaleX(0.6)
+			                     scaleY(0.6);
+			  }
+			  60%{
+			    -webkit-tranform:scaleX(0.9)
+			                     scaleY(0.9);
+			  }
+			}
+
+		}
+
+		.bg{
+			background: rgba(0, 37, 77, 0.65);
+		}
+
+		#sec2{
+			position: relative;
+			width: 100%;
+
+		.caja-img{
+			width: 224px;
+			height: 313px;
+			background-image: url(../images/karen.jpg);
+			background-repeat: no-repeat;
+			background-size: contain;
+
+		}
+
+		.bg-img{
+			background-image: url(../images/page/home/banner.avif);
+			background-repeat: no-repeat;
+			background-size: cover;
+    	height: 500px;
+		}
+
+		h1{
+			text-align:left;
+		}
+
+		}
+
+		#sec3{
+
+			.bg-img{
+				background-image: url(../images/nutriologa.jpg);
+				background-repeat: no-repeat;
+				background-size: cover;
+	    	height: 500px;
+			}
+
+			h1{
+				text-align: end;
+			}
+		}
+
+		#sec4{
+
+			background-image: url(../images/page/home/fondo4.avif);
+			background-repeat: no-repeat;
+			background-size: cover;
+
+			.bg{
+
+				background: black;
+				color: aliceblue;
+    		font-weight: bold;
+				background: #1a502699;
+			}
+		}
+
+		#sec5{
+
+			.swiper{
+				height: 360px;
+			}
+
+
+			.swiper-desktop{}
+		.swiper-mobile{
+			display: none;
+		}
+
+		@media screen and (max-width: 767px){
+.swiper-desktop{
+	display: none;
+}
+.swiper-mobile	{
+	display: block;
+}
+
+.placed-backg{
+		width: 100%;
+    margin: auto;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets{
+	bottom: -5px !important;
+}
+}
+		}
+
+
+//Mobile devices
+@media (min-width: 320px) and (max-width: 480px) {
+
+
+}
+
+
+
+
+//  iPads, Tablets
+@media screen and (max-width: 768px) {
+
+	#sec1{
+		background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../images/page/home/fondo8.avif);
+
+	 h1{
+		 color: #00711a;
+		 font-size: 2.2rem;
+		 font-weight: bold;
+	 }
+
+	 a{
+			margin: auto;
+	 }
+
+	 .texto-banner{
+		 text-align: center;
+		 padding-bottom:0px !important;
+		 padding-top: 50px;
+	 }
+
+}
+
+#sec2 .bg-img {
+	height: 425px !important;
+}
+
+#sec5{
+	.swiper-desktop{
+				display: none;
+			}
+			.swiper-mobile	{
+				display: block;
+			}
+}
+
+
+
+
+}
+
+
+//Small screens, laptops
+@media (min-width: 769px) and (max-width: 1024px) {
+
+	#sec1{
+
+	 h1{
+		 font-size: 2.8rem;
+		 font-weight: bold;
+	 }
+
+}
+
+}
+
+
+//Desktops, large screens
+@media (min-width: 1025px) and (max-width: 1200px) {
+
+
+
+#sec3{
+	.bg-img{
+		background-image: url(../images/nutricion2.JPG);
+		background-repeat: no-repeat;
+		background-size: cover;
+
+	}
+
+	.bg-img2{
+		background-image: url(../images/nutricion3.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+
+}
+
+
+}
+
+#sec6{
+	background: url(../images/page/home/fondo8.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+		.formulario{
+			width: 60%;
+			margin: auto;
+			background: #fff;
+		}
+
+		@media screen and (max-width: 767px){
+					.formulario{
+						width: 100%;
+					}
+			}
+	}
+
+#sec7{
+	background: #ffffe7;
+}
+
+}
+
+/*
+.reveal.active {
+  opacity: 1;
+}
+.active.fade-bottom {
+  animation: fade-bottom 1s ease-in;
+}
+.active.fade-left {
+  animation: fade-left 1s ease-in;
+}
+.active.fade-right {
+  animation: fade-right 1s ease-in;
+}
+@keyframes fade-bottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-left {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-right {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+*/
