@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-const phone = "523111234567";
+const phone = "523332341375";
 
 const message =
   "Hola, me interesa conocer la disponibilidad de Arce Cabañas Mazamitla.";

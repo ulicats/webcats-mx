@@ -134,7 +134,7 @@ export const portafolio = [
   {
     id: 9,
     title: 'Arce Cabañas Mazamitla',
-    url: "http://localhost:5174",
+    slug: "arce",
     client: 'Hospedaje turístico',
     category: 'Turismo',
     external:true,

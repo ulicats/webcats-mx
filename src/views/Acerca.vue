@@ -100,9 +100,9 @@
 
             <p class="role-text">
               Soy propietario de Webcats, un proyecto independiente enfocado
-              en crear sitios web originales para negocios, profesionales y
+              en crear sitios web para negocios, profesionales y
               proyectos personales. Me encargo de planear, diseñar, desarrollar
-              y publicar cada solución.
+              y publicarlo en internet.
             </p>
 
             <ul class="skills-inline">
