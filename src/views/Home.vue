@@ -104,7 +104,7 @@
         </div>
         <div class="p-6">
           <h3 class="text-xl font-bold text-white mb-3">Administración de Servidores</h3>
-          <p class="mb-5 text-sm service-desc">WHM/cPanel, DNS, SSL, mantenimiento profesional.</p>
+          <p class="mb-5 text-sm service-desc">WHM/cPanel, DNS, SSL, mantenimiento profesional, correo empresarial, sendgrid.</p>
           <a href="/servicios" class="font-semibold hover:underline service-link">Leer más >></a>
         </div>
       </div>
@@ -113,12 +113,12 @@
         <div class="relative">
           <img :src="devops" class="w-full h-52 object-cover" />
           <span class="absolute top-3 left-3 bg-[#6a00ff] text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
-            DEVOPS JR
+            SOPORTE WEB
           </span>
         </div>
         <div class="p-6">
-          <h3 class="text-xl font-bold text-white mb-3">DevOps Jr & Automatización</h3>
-          <p class="mb-5 text-sm service-desc">Pipelines, Git, despliegues controlados, CI/CD.</p>
+          <h3 class="text-xl font-bold text-white mb-3">Soporte y Mantenimiento Web</h3>
+          <p class="mb-5 text-sm service-desc">WordPress, Laravel, errores, actualizaciones, seguridad y mantenimiento.</p>
           <a href="/servicios" class="font-semibold hover:underline service-link">Leer más >></a>
         </div>
       </div>
@@ -487,21 +487,31 @@
 
       <p class="text-lg leading-relaxed text-gray-300 mb-4">
         Soy <strong>Ulises Guzmán</strong>, SysAdmin y Desarrollador Web con más de
-        <strong>8 años de experiencia</strong> creando y manteniendo
-        infraestructuras web reales en producción.
+        <strong>8 años de experiencia</strong> trabajando con sitios web,
+        servidores y entornos reales en producción.
       </p>
 
       <p class="text-lg leading-relaxed text-gray-300 mb-6">
-        Fundé <strong>Webcats.mx</strong> para ofrecer soluciones completas, desde el código hasta el despliegue y la automatización 
-        creando sitios rápidos, a la medida, seguros y listos para producción.
+        Fundé <strong>Webcats.mx</strong> para crear soluciones web modernas y a la medida,
+        enfocadas en desarrollar sitios
+        <strong>rápidos, responsivos, funcionales y preparados para producción</strong>.
       </p>
 
       <p class="text-lg leading-relaxed text-gray-300 mb-6">
-        Actualmente me especializo en <strong>DevOps Jr</strong> integrando Docker, CI/CD y automatización.
+        Mi experiencia como SysAdmin me permite complementar el desarrollo con conocimientos en
+        <strong>hosting, dominios, DNS, SSL, correo y servidores web</strong>,
+        además de resolución de problemas en entornos reales de producción.
+      </p>
+
+      <p class="text-lg leading-relaxed text-gray-300 mb-6">
+        Actualmente enfoco <strong>Webcats</strong> en el
+        <strong>desarrollo de sitios web y aplicaciones</strong>,
+        desde páginas corporativas y landing pages hasta proyectos personalizados.
       </p>
 
       <p class="text-lg leading-relaxed text-gray-300">
-        Si buscas alguien que domine el código y los servidores, <strong>aquí estoy</strong>.
+        Si buscas convertir una idea en un proyecto web
+        <strong>profesional, funcional y hecho a la medida</strong>, hablemos.
       </p>
       <div class="mt-10">
         <a
