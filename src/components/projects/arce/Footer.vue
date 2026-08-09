@@ -12,7 +12,7 @@
       </h2>
 
       <a
-        href="#"
+        href="#reservar"
         class="footer-button"
       >
         Consultar disponibilidad
@@ -23,14 +23,11 @@
     <div class="footer-bottom">
 
       <div class="footer-brand">
-        <div class="footer-brand__mark">
-          A
-        </div>
-
-        <div>
-          <strong>Arce</strong>
-          <span>Cabañas Mazamitla</span>
-        </div>
+        <img
+            src="../../../assets/projects/arce/logo/arce-logo.png"
+            alt="Arce Cabañas Mazamitla"
+            class="footer-logo"
+          />
       </div>
 
       <nav>
@@ -167,6 +164,19 @@ const year = new Date().getFullYear();
 .footer-copy {
   color: rgba(255, 255, 255, 0.4);
   font-size: 9px;
+}
+
+.footer-logo {
+  
+  width: 125px;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .footer-logo {
+    width: 105px;
+  }
 }
 
 @media (max-width: 850px) {

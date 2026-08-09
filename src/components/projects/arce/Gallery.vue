@@ -2,169 +2,234 @@
   <section id="galeria" class="gallery-section">
     <div class="gallery-container">
 
-      <header class="gallery-heading">
-        <p class="gallery-eyebrow">
-          Conoce el lugar
-        </p>
+      <div class="gallery-header">
+        <div>
+          <p class="gallery-eyebrow">
+            Conoce cada rincón
+          </p>
 
-        <h2>
-          Un refugio entre
-          <span>bosque y montaña</span>
-        </h2>
+          <h2>
+            Una experiencia
+            <span>entre el bosque</span>
+          </h2>
+        </div>
 
         <p class="gallery-description">
-          Descubre los espacios, interiores y paisajes que forman parte
-          de la experiencia en Arce Cabañas Mazamitla.
+          Descubre los espacios, detalles y vistas que hacen de
+          Arce Cabañas un lugar especial para descansar en Mazamitla.
         </p>
-      </header>
+      </div>
 
+
+      <!-- GALERÍA PRINCIPAL -->
       <div class="gallery-grid">
-
         <button
-          v-for="(image, index) in images"
-          :key="image.src"
-          class="gallery-item"
-          :class="{
-            'gallery-item--main': index === 0,
-            'gallery-item--last': index === images.length - 1
-          }"
+          v-for="(image, index) in visibleImages"
+          :key="image"
           type="button"
+          class="gallery-item"
+          :class="{ 'gallery-item--large': index === 0 }"
           @click="openGallery(index)"
         >
           <img
-            :src="image.src"
-            :alt="image.alt"
-            loading="lazy"
+            :src="image"
+            :alt="`Arce Cabañas Mazamitla - fotografía ${index + 1}`"
           />
 
-          <div class="gallery-item__overlay"></div>
-
-          <div
-            v-if="index === images.length - 1"
-            class="gallery-item__more"
-          >
-            <span>+</span>
-            Ver galería
+          <div class="gallery-item__overlay">
+            <span>Ver fotografía</span>
           </div>
         </button>
-
       </div>
-    </div>
 
-    <!-- LIGHTBOX -->
-    <Teleport to="body">
-      <div
-        v-if="lightboxOpen"
-        class="lightbox"
-        @click.self="closeGallery"
-      >
+
+      <!-- BOTÓN TODAS LAS FOTOS -->
+      <div class="gallery-actions">
         <button
-          class="lightbox__close"
           type="button"
-          aria-label="Cerrar galería"
-          @click="closeGallery"
+          class="gallery-button"
+          @click="openGallery(0)"
         >
-          ×
+          Ver todas las fotos
+          <span class="gallery-button__count">
+            {{ images.length }}
+          </span>
         </button>
+      </div>
 
-        <button
-          class="lightbox__arrow lightbox__arrow--left"
-          type="button"
-          aria-label="Imagen anterior"
-          @click="previousImage"
+
+      <!-- LIGHTBOX -->
+      <Teleport to="body">
+        <div
+          v-if="isOpen"
+          class="gallery-lightbox"
+          @click.self="closeGallery"
         >
-          ‹
-        </button>
+          <button
+            type="button"
+            class="gallery-lightbox__close"
+            aria-label="Cerrar galería"
+            @click="closeGallery"
+          >
+            ×
+          </button>
 
-        <div class="lightbox__content">
-          <img
-            :src="images[currentImage].src"
-            :alt="images[currentImage].alt"
-          />
 
-          <p>
-            {{ currentImage + 1 }} / {{ images.length }}
-          </p>
+          <button
+            type="button"
+            class="gallery-lightbox__nav gallery-lightbox__nav--prev"
+            aria-label="Fotografía anterior"
+            @click="previousImage"
+          >
+            ‹
+          </button>
+
+
+          <div class="gallery-lightbox__content">
+            <img
+              :src="images[currentImage]"
+              :alt="`Arce Cabañas Mazamitla - fotografía ${currentImage + 1}`"
+            />
+
+            <div class="gallery-lightbox__counter">
+              {{ currentImage + 1 }} / {{ images.length }}
+            </div>
+          </div>
+
+
+          <button
+            type="button"
+            class="gallery-lightbox__nav gallery-lightbox__nav--next"
+            aria-label="Siguiente fotografía"
+            @click="nextImage"
+          >
+            ›
+          </button>
         </div>
+      </Teleport>
 
-        <button
-          class="lightbox__arrow lightbox__arrow--right"
-          type="button"
-          aria-label="Imagen siguiente"
-          @click="nextImage"
-        >
-          ›
-        </button>
-      </div>
-    </Teleport>
+    </div>
   </section>
 </template>
 
+
 <script setup>
-import { onBeforeUnmount, onMounted, ref } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 
-import gallery1 from "../../../assets/projects/arce/gallery/gallery-1.jpg";
-import gallery2 from "../../../assets/projects/arce/gallery/gallery-2.jpg";
-import gallery3 from "../../../assets/projects/arce/gallery/gallery-3.jpg";
-import gallery4 from "../../../assets/projects/arce/gallery/gallery-4.jpg";
-import gallery5 from "../../../assets/projects/arce/gallery/gallery-5.jpg";
-import gallery6 from "../../../assets/projects/arce/gallery/gallery-6.jpg";
 
-const lightboxOpen = ref(false);
-const currentImage = ref(0);
+/*
+|--------------------------------------------------------------------------
+| Vite importa automáticamente TODAS las imágenes de esta carpeta.
+|--------------------------------------------------------------------------
+*/
 
-const images = [
-  { src: gallery1, alt: "Arce Cabañas Mazamitla" },
-  { src: gallery2, alt: "Interior de las cabañas" },
-  { src: gallery3, alt: "Hospedaje rodeado de bosque" },
-  { src: gallery4, alt: "Espacios de descanso" },
-  { src: gallery5, alt: "Entorno natural de Mazamitla" },
-  { src: gallery6, alt: "Experiencia en Arce Cabañas" },
-];
+const modules = import.meta.glob(
+  "../../../assets/projects/arce/gallery/*.{jpg,jpeg,png,webp}",
+  {
+    eager: true,
+    import: "default",
+  }
+);
 
-const openGallery = (index) => {
-  currentImage.value = index;
-  lightboxOpen.value = true;
-  document.body.style.overflow = "hidden";
-};
 
-const closeGallery = () => {
-  lightboxOpen.value = false;
-  document.body.style.overflow = "";
-};
+/*
+|--------------------------------------------------------------------------
+| Ordenamos gallery-1, gallery-2, gallery-3...
+| para evitar que gallery-10 aparezca antes de gallery-2.
+|--------------------------------------------------------------------------
+*/
 
-const nextImage = () => {
-  currentImage.value =
-    (currentImage.value + 1) % images.length;
-};
+const images = Object.entries(modules)
+  .sort(([pathA], [pathB]) => {
+    const numberA =
+      Number(pathA.match(/gallery-(\d+)/)?.[1]) || 0;
 
-const previousImage = () => {
-  currentImage.value =
-    (currentImage.value - 1 + images.length) % images.length;
-};
+    const numberB =
+      Number(pathB.match(/gallery-(\d+)/)?.[1]) || 0;
 
-const handleKeydown = (event) => {
-  if (!lightboxOpen.value) return;
+    return numberA - numberB;
+  })
+  .map(([, image]) => image);
 
-  if (event.key === "Escape") closeGallery();
-  if (event.key === "ArrowRight") nextImage();
-  if (event.key === "ArrowLeft") previousImage();
-};
 
-onMounted(() => {
-  window.addEventListener("keydown", handleKeydown);
+/*
+|--------------------------------------------------------------------------
+| Solo enseñamos 6 fotografías en la página.
+| Las 26 quedan disponibles dentro del lightbox.
+|--------------------------------------------------------------------------
+*/
+
+const visibleImages = computed(() => {
+  return images.slice(0, 6);
 });
 
+
+const isOpen = ref(false);
+const currentImage = ref(0);
+
+
+function openGallery(index = 0) {
+  currentImage.value = index;
+  isOpen.value = true;
+
+  document.body.style.overflow = "hidden";
+}
+
+
+function closeGallery() {
+  isOpen.value = false;
+
+  document.body.style.overflow = "";
+}
+
+
+function nextImage() {
+  currentImage.value =
+    (currentImage.value + 1) % images.length;
+}
+
+
+function previousImage() {
+  currentImage.value =
+    (currentImage.value - 1 + images.length) %
+    images.length;
+}
+
+
+function handleKeyboard(event) {
+  if (!isOpen.value) return;
+
+  if (event.key === "Escape") {
+    closeGallery();
+  }
+
+  if (event.key === "ArrowRight") {
+    nextImage();
+  }
+
+  if (event.key === "ArrowLeft") {
+    previousImage();
+  }
+}
+
+
+onMounted(() => {
+  window.addEventListener("keydown", handleKeyboard);
+});
+
+
 onBeforeUnmount(() => {
-  window.removeEventListener("keydown", handleKeydown);
+  window.removeEventListener("keydown", handleKeyboard);
+
   document.body.style.overflow = "";
 });
 </script>
 
+
 <style scoped>
 .gallery-section {
-  padding: 120px 0;
-  background: var(--arce-navy-950);
+  padding: 110px 0;
+  background: #1a2f44;
 }
 
 .gallery-container {
@@ -172,229 +237,430 @@ onBeforeUnmount(() => {
   margin: 0 auto;
 }
 
-.gallery-heading {
-  max-width: 760px;
+
+/* HEADER */
+
+.gallery-header {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  align-items: end;
+  gap: 70px;
+
   margin-bottom: 55px;
 }
 
 .gallery-eyebrow {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+
   color: var(--arce-gold-light);
+
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
-.gallery-heading h2 {
+.gallery-header h2 {
   color: var(--arce-white);
+
   font-family: var(--arce-heading);
-  font-size: clamp(48px, 6vw, 80px);
+  font-size: clamp(48px, 5vw, 76px);
   font-weight: 500;
   line-height: 0.95;
 }
 
-.gallery-heading h2 span {
+.gallery-header h2 span {
   display: block;
+
   color: var(--arce-gold-light);
+
   font-style: italic;
 }
 
 .gallery-description {
-  max-width: 620px;
-  margin-top: 24px;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.7);
+
   font-size: 15px;
   line-height: 1.8;
 }
 
+
+/* GRID */
+
 .gallery-grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr;
-  grid-template-rows: repeat(2, 260px);
-  gap: 12px;
+
+  grid-template-columns:
+    1.55fr
+    1fr
+    1fr;
+
+  grid-auto-rows: 250px;
+
+  gap: 14px;
 }
 
 .gallery-item {
   position: relative;
-  overflow: hidden;
+
   padding: 0;
+
+  overflow: hidden;
+
   border: 0;
-  border-radius: 15px;
+  border-radius: 18px;
+
   background: transparent;
+
   cursor: pointer;
 }
 
-.gallery-item--main {
-  grid-row: 1 / 3;
+.gallery-item--large {
+  grid-row: span 2;
 }
 
 .gallery-item img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
+
   transition: transform 0.5s ease;
 }
 
 .gallery-item:hover img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
+
+
+/* OVERLAY */
 
 .gallery-item__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    rgba(19, 40, 58, 0.03),
-    rgba(19, 40, 58, 0.25)
-  );
-}
 
-.gallery-item__more {
-  position: absolute;
-  right: 18px;
-  bottom: 18px;
-  z-index: 2;
-  padding: 10px 15px;
-  border-radius: 999px;
   display: flex;
+  align-items: flex-end;
+
+  padding: 20px;
+
+  opacity: 0;
+
+  background:
+    linear-gradient(
+      transparent 50%,
+      rgba(0, 0, 0, 0.55)
+    );
+
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-item__overlay {
+  opacity: 1;
+}
+
+.gallery-item__overlay span {
+  color: white;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+/* BOTÓN */
+
+.gallery-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.gallery-button {
+  display: inline-flex;
   align-items: center;
-  gap: 7px;
-  color: var(--arce-white);
-  background: rgba(19, 40, 58, 0.78);
-  font-size: 11px;
-  font-weight: 700;
-  backdrop-filter: blur(10px);
+
+  gap: 12px;
+
+  padding: 14px 22px;
+
+  color: white;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.28);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.04);
+
+  font-family: var(--arce-body);
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
 }
 
-.gallery-item__more span {
-  color: var(--arce-gold-light);
-  font-size: 17px;
+.gallery-button:hover {
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  border-color:
+    var(--arce-gold-light);
 }
 
-/* LIGHTBOX */
-
-.lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-  padding: 40px;
+.gallery-button span {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(3, 8, 13, 0.96);
+
+  min-width: 28px;
+  height: 28px;
+
+  padding: 0 7px;
+
+  color: #1a2f44;
+
+  border-radius: 999px;
+
+  background:
+    var(--arce-gold-light);
+
+  font-size: 11px;
 }
 
-.lightbox__content {
-  width: min(1100px, 80vw);
-  height: min(780px, 82vh);
-  display: flex;
-  flex-direction: column;
+.gallery-button__count {
+  display: inline-flex;
   align-items: center;
-}
+  justify-content: center;
 
-.lightbox__content img {
-  width: 100%;
-  height: calc(100% - 35px);
-  object-fit: contain;
-}
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
 
-.lightbox__content p {
-  margin-top: 12px;
-  color: rgba(255, 255, 255, 0.7);
-  font-family: var(--arce-body);
+  border-radius: 999px;
+
+  background: var(--arce-gold-light);
+  color: #1a2f44;
+
   font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
 }
 
-.lightbox__close {
+
+/* =========================================
+   LIGHTBOX
+========================================= */
+
+.gallery-lightbox {
+  position: fixed;
+  z-index: 99999;
+
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px 80px;
+
+  background:
+    rgba(6, 17, 28, 0.96);
+
+  backdrop-filter: blur(10px);
+}
+
+.gallery-lightbox__content {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 1200px;
+  max-height: 88vh;
+}
+
+.gallery-lightbox__content img {
+  display: block;
+
+  max-width: 100%;
+  max-height: 86vh;
+
+  object-fit: contain;
+
+  border-radius: 12px;
+}
+
+
+/* CONTADOR */
+
+.gallery-lightbox__counter {
   position: absolute;
-  top: 20px;
+
+  left: 50%;
+  bottom: -40px;
+
+  transform: translateX(-50%);
+
+  color:
+    rgba(255, 255, 255, 0.75);
+
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+
+/* CERRAR */
+
+.gallery-lightbox__close {
+  position: absolute;
+
+  top: 24px;
   right: 30px;
-  border: 0;
-  color: white;
-  background: transparent;
-  font-size: 42px;
-  cursor: pointer;
-}
 
-.lightbox__arrow {
-  position: absolute;
-  top: 50%;
-  width: 55px;
-  height: 55px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  width: 45px;
+  height: 45px;
+
+  color: white;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.2);
+
   border-radius: 50%;
-  color: white;
-  background: rgba(255, 255, 255, 0.07);
-  font-size: 38px;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  font-size: 28px;
+  line-height: 1;
+
   cursor: pointer;
+}
+
+
+/* FLECHAS */
+
+.gallery-lightbox__nav {
+  position: absolute;
+
+  top: 50%;
+
+  width: 52px;
+  height: 52px;
+
   transform: translateY(-50%);
+
+  color: white;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.22);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  font-size: 36px;
+
+  cursor: pointer;
+
+  transition: background 0.25s ease;
 }
 
-.lightbox__arrow--left {
-  left: 25px;
+.gallery-lightbox__nav:hover {
+  background:
+    rgba(255, 255, 255, 0.16);
 }
 
-.lightbox__arrow--right {
-  right: 25px;
+.gallery-lightbox__nav--prev {
+  left: 28px;
 }
+
+.gallery-lightbox__nav--next {
+  right: 28px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
 
 @media (max-width: 900px) {
-  .gallery-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 390px 230px 230px;
+
+  .gallery-header {
+    grid-template-columns: 1fr;
+    gap: 25px;
   }
 
-  .gallery-item--main {
-    grid-column: 1 / -1;
-    grid-row: auto;
+  .gallery-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    grid-auto-rows: 230px;
   }
+
+  .gallery-item--large {
+    grid-row: span 2;
+  }
+
 }
 
+
 @media (max-width: 600px) {
+
   .gallery-section {
-    padding: 85px 0;
+    padding: 80px 0;
   }
 
   .gallery-container {
-    width: min(100% - 28px, 1180px);
+    width:
+      min(100% - 28px, 1180px);
   }
 
   .gallery-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 310px 160px 160px;
-    gap: 7px;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 260px;
   }
 
-  .gallery-item {
-    border-radius: 10px;
+  .gallery-item--large {
+    grid-row: auto;
   }
 
-  .lightbox {
-    padding: 15px;
+  .gallery-item:nth-child(n + 5) {
+    display: none;
   }
 
-  .lightbox__content {
-    width: 100%;
-    height: 75vh;
+  .gallery-lightbox {
+    padding: 70px 15px;
   }
 
-  .lightbox__arrow {
+  .gallery-lightbox__nav {
     width: 42px;
     height: 42px;
-    font-size: 29px;
+
+    font-size: 28px;
   }
 
-  .lightbox__arrow--left {
-    left: 8px;
+  .gallery-lightbox__nav--prev {
+    left: 10px;
   }
 
-  .lightbox__arrow--right {
-    right: 8px;
+  .gallery-lightbox__nav--next {
+    right: 10px;
   }
 
-  .lightbox__close {
-    top: 10px;
+  .gallery-lightbox__close {
+    top: 15px;
     right: 15px;
   }
+
 }
 </style>

@@ -1,4 +1,5 @@
 import auralis from '@/assets/portafolio/universo-auralis.png'
+import auralisBanner from '@/assets/portafolio/auralis-banner.png'
 import casillas from '@/assets/portafolio/casillas.webp'
 import ale from '@/assets/portafolio/derma.webp'
 import erik from '@/assets/portafolio/erik.webp'
@@ -6,7 +7,8 @@ import limalum from '@/assets/portafolio/limalum.webp'
 import niticolor from '@/assets/portafolio/niticolor.webp'
 import nutricion from '@/assets/portafolio/nutricion.webp'
 import wlcapital from '@/assets/portafolio/wlcapital.webp'
-import arce from '@/assets/portafolio/arce.webp'
+import arce from '@/assets/portafolio/arce.jpg'
+import arceBanner from '@/assets/portafolio/arce-banner.png'
 import bear from '@/assets/portafolio/bear.webp'
 
 export const portafolio = [
@@ -17,6 +19,7 @@ export const portafolio = [
     client: 'Novela de ciencia ficción',
     category: 'Editorial · Ciencia ficción',
     image: auralis,
+    banner: auralisBanner,
 
     description:
       'Diseño y desarrollo del sitio web oficial de Universo Auralis, una novela de ciencia ficción presentada mediante una experiencia digital inmersiva. La plataforma permite conocer la historia, explorar personajes y planetas, leer capítulos gratuitos y acceder a la compra del libro.',
@@ -128,21 +131,49 @@ export const portafolio = [
     image: wlcapital,
 
     description:
-      'Página corporativa para una firma financiera, destacando servicios de crédito, soluciones para empresas y atención personalizada para instituciones financieras.'
+      'Página corporativa para una firma financiera, destacando servicios de crédito, soluciones para empresas y atención personalizada para instituciones financieras.',
   },
 
   {
-    id: 9,
-    title: 'Arce Cabañas Mazamitla',
-    slug: "arce",
-    client: 'Hospedaje turístico',
-    category: 'Turismo',
-    external:true,
-    image: arce,
+  id: 9,
+  title: 'Arce Cabañas Mazamitla',
+  slug: 'arce',
+  client: 'Hospedaje turístico',
+  category: 'Turismo',
 
-    description:
-      'Sitio web para renta de cabañas en una zona natural, con galería, información del hospedaje, tarifas y una experiencia visual orientada a generar reservaciones.'
-  },
+  // Imagen que aparece en el grid del portafolio
+  image: arce,
+
+  // Imagen horizontal que aparece al abrir la modal
+  banner: arceBanner,
+
+  description:
+    'Diseño y desarrollo de un sitio web para Arce Cabañas Mazamitla, enfocado en presentar el hospedaje, mostrar las instalaciones y facilitar solicitudes de reservación. El proyecto incluye galería fotográfica, información detallada de las cabañas, tarifas, formulario de disponibilidad, integración con WhatsApp, ubicación en Google Maps y reseñas reales de Google.',
+
+  technologies: [
+    'Vue 3',
+    'Vite',
+    'JavaScript',
+    'CSS',
+    'Responsive',
+    'Google Places API',
+    'Google Maps',
+    'WhatsApp'
+  ],
+
+  features: [
+    'Diseño web personalizado',
+    'Diseño responsive',
+    'Galería de 26 fotografías con lightbox',
+    'Integración de reseñas reales de Google',
+    'Mapa interactivo de Google',
+    'Formulario de solicitud de disponibilidad',
+    'Generación automática de mensaje para WhatsApp',
+    'Información detallada de cabañas y tarifas',
+    'Preguntas frecuentes',
+    'Optimización para dispositivos móviles'
+  ]
+},
 
   {
     id: 10,

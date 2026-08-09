@@ -27,9 +27,9 @@
           </div>
         </div>
 
-        <a
+       <a
           class="location-button"
-          href="#"
+          href="https://www.google.com/maps/search/?api=1&query=ARCE+CABA%C3%91AS+MAZAMITLA"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -38,17 +38,15 @@
         </a>
       </div>
 
-      <div class="location-map">
-        <div class="map-placeholder">
-          <span>⌖</span>
-
-          <strong>Google Maps</strong>
-
-          <p>
-            Aquí colocaremos la ubicación real de Arce Cabañas.
-          </p>
-        </div>
-      </div>
+    <div class="location-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.886938363972!2d-103.02960612477395!3d19.886995481491823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842f09f7405893bd%3A0xcdcc7868529d9790!2sARCE%20CABA%C3%91AS%20MAZAMITLA!5e0!3m2!1ses!2smx!4v1786249463277!5m2!1ses!2smx"
+        title="Ubicación de Arce Cabañas Mazamitla"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+    </div>
 
     </div>
   </section>
@@ -56,6 +54,7 @@
 
 <style scoped>
 .location-section {
+  scroll-margin-top: 90px;
   padding: 120px 0;
   background: var(--arce-navy-950);
 }
@@ -146,16 +145,27 @@
 }
 
 .location-map {
-  min-height: 500px;
+  width: 100%;
+  height: 500px;
+
   overflow: hidden;
+
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 22px;
-  background:
-    linear-gradient(
-      rgba(19, 40, 58, 0.45),
-      rgba(19, 40, 58, 0.45)
-    ),
-    #29475c;
+
+  background: var(--arce-navy-900);
+
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.18);
+}
+
+.location-map iframe {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
 }
 
 .map-placeholder {
@@ -191,9 +201,8 @@
     grid-template-columns: 1fr;
   }
 
-  .location-map,
-  .map-placeholder {
-    min-height: 390px;
+  .location-map {
+    height: 420px;
   }
 }
 
@@ -211,9 +220,10 @@
     grid-template-columns: 1fr;
   }
 
-  .location-map,
-  .map-placeholder {
-    min-height: 320px;
+  .location-map {
+    height: 330px;
+    border-radius: 16px;
   }
 }
+
 </style>

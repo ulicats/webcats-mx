@@ -107,7 +107,7 @@
 
 .arce-hero h1 span {
   display: block;
-  color: var(--arce-gold-light);
+  color: #d2bb67;
   font-style: italic;
 }
 
@@ -230,13 +230,24 @@
     background-position: 58% center;
   }
 
-  .arce-hero__overlay {
-    background:
-      linear-gradient(
-        rgba(19, 40, 58, 0.86),
-        rgba(19, 40, 58, 0.8)
-      );
-  }
+.arce-hero__overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 26, 39, 0.82) 0%,
+      rgba(10, 26, 39, 0.58) 40%,
+      rgba(10, 26, 39, 0.18) 72%,
+      rgba(10, 26, 39, 0.04) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(10, 26, 39, 0.32) 0%,
+      transparent 42%
+    );
+}
 
   .arce-hero__content {
     padding-top: 100px;

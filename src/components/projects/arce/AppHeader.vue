@@ -2,11 +2,12 @@
   <header class="arce-header" :class="{ 'arce-header--scrolled': isScrolled }">
     <div class="arce-header__inner">
       <a href="#inicio" class="arce-brand">
-        <div class="arce-brand__mark">A</div>
-
-        <div class="arce-brand__copy">
-          <strong>Arce</strong>
-          <span>Cabañas Mazamitla</span>
+        <div class="header-brand">
+          <img
+            src="../../../assets/projects/arce/logo/arce-logo.png"
+            alt="Arce Cabañas Mazamitla"
+            class="header-logo"
+          />
         </div>
       </a>
 
@@ -73,8 +74,21 @@ onBeforeUnmount(() => {
     backdrop-filter 0.3s ease;
 }
 
+.header-logo {
+  
+  width: 125px;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .header-logo {
+    width: 105px;
+  }
+}
+
 .arce-header--scrolled {
-  background: rgba(15, 36, 29, 0.94);
+  background: #1a2f44;
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(14px);
 }

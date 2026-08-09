@@ -51,7 +51,7 @@
         <!-- Imagen principal -->
         <div class="project-media">
           <img
-            :src="project.image"
+            :src="project.banner || project.image"
             :alt="project.title"
             class="project-image"
           />

@@ -47,27 +47,32 @@ const questions = [
   {
     question: "¿Cómo puedo reservar?",
     answer:
-      "Puedes consultar disponibilidad directamente por WhatsApp. Te confirmaremos fechas, tarifas y condiciones de reservación.",
+      "Puedes llenar nuestro formulario de reservas con la información. Te confirmaremos fechas, tarifas y condiciones de reservación.",
   },
   {
     question: "¿Dónde están ubicadas las cabañas?",
     answer:
-      "Arce Cabañas se encuentra en Mazamitla, Jalisco, rodeado de naturaleza y a corta distancia de los principales atractivos de la zona.",
+      "Arce Cabañas se encuentra en Mazamitla, Jalisco, Rodeado de naturaleza y a corta distancia de los principales atractivos de la zona. Estamos a 4 km del centro, 20 minutos en coche aproximadamente.",
   },
   {
     question: "¿Las cabañas cuentan con internet?",
     answer:
-      "Sí. Algunas instalaciones cuentan con conexión a internet. Confirmaremos los servicios específicos de cada cabaña antes de publicar la información definitiva.",
+      "Sí. Las instalaciones cuentan con conexión a internet satelital Starlink.",
   },
   {
-    question: "¿Cuál es la capacidad de las cabañas?",
+    question: "¿Aceptan más de 2 personas?",
     answer:
-      "La capacidad depende de la cabaña seleccionada. Dentro del sitio encontrarás la información correspondiente a cada opción.",
+      "Sí, con costo extra pueden ingresar dos personas más, ya que cada cábala cuenta con sofá cama.",
   },
   {
-    question: "¿Se permiten mascotas?",
+    question: "¿Hay tiendas y/o  restaurantes cerca?",
     answer:
-      "La política de mascotas será confirmada directamente al momento de consultar disponibilidad.",
+      "Hay una tienda de abarrotes dentro del fraccionamiento y una que tiene servicio a domicilio para tu mayor comodidad. Restaurantes, hay uno dentro del fraccionamiento que tiene servicio de desayunos y comidas, a 3 minutos de la cabaña hay un café. Y a 12 minutos de tu cabaña hay un restaurante con servicio todo el día.",
+  },
+  {
+    question: "¿Cuál es el horario de entrada y salida?",
+    answer:
+      " La entrada es a partir de las 3:00 pm y la salida es máximo a las 12:00 pm.",
   },
 ];
 
@@ -79,6 +84,7 @@ const toggle = (index) => {
 
 <style scoped>
 .faq-section {
+  scroll-margin-top: 90px;
   padding: 120px 0;
   background: var(--arce-white);
 }

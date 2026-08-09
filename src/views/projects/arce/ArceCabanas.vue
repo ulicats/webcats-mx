@@ -6,6 +6,7 @@
     <Gallery />
     <Reviews />
     <FAQ />
+    <Booking />
     <Location />
     <Footer />
     <WhatsAppButton />
@@ -19,6 +20,7 @@ import Cabins from "../../../components/projects/arce/Cabins.vue";
 import Gallery from "../../../components/projects/arce/Gallery.vue";
 import Reviews from "../../../components/projects/arce/Reviews.vue";
 import FAQ from "../../../components/projects/arce/FAQ.vue";
+import Booking from "../../../components/projects/arce/Booking.vue";
 import Location from "../../../components/projects/arce/Location.vue";
 import Footer from "../../../components/projects/arce/Footer.vue";
 import WhatsAppButton from "../../../components/projects/arce/WhatsAppButton.vue";
@@ -27,10 +29,14 @@ import WhatsAppButton from "../../../components/projects/arce/WhatsAppButton.vue
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@400;500;600;700&display=swap");
 
+html {
+  scroll-behavior: smooth;
+}
+
 .arce-page {
   /* ========= PALETA ========= */
   --arce-navy-950: #13283a;
-  --arce-navy-900: #193247;
+  --arce-navy-900: #1a2f44;;
   --arce-navy-800: #24445d;
 
   --arce-gold: #b59a3b;
