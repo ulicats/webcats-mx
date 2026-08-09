@@ -47,7 +47,7 @@
                 <span class="branch">├─</span>
                 <span class="hero-desc-text">
                   Soluciones web modernas, seguras y rápidas. Hosting, paneles admin,
-                  DevOps, servidores, seguridad web y desarrollo a la medida.
+                  servidores, seguridad web y desarrollo a la medida.
                 </span>
               </div>
 

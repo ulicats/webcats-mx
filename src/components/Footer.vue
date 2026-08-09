@@ -6,7 +6,7 @@
     <div class="footer-section footer-brand">
       <img src="/src/assets/logos/LOGOPRINCIPAL_WEBCATS.svg" alt="Webcats.mx" class="footer-logo" />
       <p class="footer-text">
-        Desarrollo Web · Administración de Servidores · SysAdmin & DevOps Jr
+        Desarrollo Web · Administración de Servidores · Soporte y mantenimiento web
       </p>
     </div>
 
@@ -30,7 +30,6 @@
         <li>Administración de Servidores</li>
         <li>Seguridad Web</li>
         <li>Correos Corporativos</li>
-        <li>DevOps Jr</li>
       </ul>
     </div>
 
