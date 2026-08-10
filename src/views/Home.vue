@@ -530,7 +530,7 @@
   </section>
 
   <ReviewsWebcats />
-  
+
 </template>
 
 <script setup>
@@ -1018,7 +1018,7 @@ section > div.grid > div.rounded-2xl:hover::before {
 
 /* Wrapper */
 .tree-desktop-wrapper {
-  height: 505px;
+  height: 550px;
   overflow: hidden;
   margin-top: -130px;
 }
@@ -1116,6 +1116,13 @@ section > div.grid > div.rounded-2xl:hover::before {
 }
 
 @media (max-width: 900px) {
+
+    .tree-desktop-wrapper {
+    height: 20px;
+    margin-top: 0;
+    overflow: hidden;
+  }
+
   .tree-mobile {
     display: flex;
     flex-direction: column;
