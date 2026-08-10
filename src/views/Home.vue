@@ -528,11 +528,16 @@
 
     </div>
   </section>
+
+  <ReviewsWebcats />
+  
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue"
+import { getWebcatsPlace } from "../services/webcatsPlaces.js"
 
+import ReviewsWebcats from "../components/ReviewsWebcats.vue"
 import desarrollo from "@/assets/webcats/desarrollo-web.webp"
 import servidores from "@/assets/webcats/servidores.webp"
 import devops from "@/assets/webcats/devops.webp"
@@ -650,6 +655,18 @@ function startAnimation() {
   setTimeout(() => (show.value.whm = true), 2900)
   setTimeout(() => (show.value.cpanel = true), 3400)
 }
+
+onMounted(async () => {
+  try {
+    const place = await getWebcatsPlace()
+
+    console.log("🔥 WEBCATS GOOGLE PLACE:")
+    console.log(place)
+  } catch (error) {
+    console.error("❌ Error cargando Google Places:", error)
+  }
+})
+
 </script>
 
 <style>

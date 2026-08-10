@@ -9,13 +9,12 @@
         </p>
 
         <h2>
-          ¿Listo para
-          <span>escaparte al bosque?</span>
+          Demostración 
+          <span>de funcionalidad</span>
         </h2>
 
         <p class="booking-description">
-          Cuéntanos cuándo quieres visitarnos y prepararemos automáticamente
-          tu solicitud para enviarla por WhatsApp.
+          Este formulario forma parte del proyecto demostrativo de Webcats.mx y no realiza una reservación directamente con Arce Cabañas.
         </p>
 
         <div class="booking-benefits">
@@ -342,7 +341,7 @@ import { computed, reactive, ref, watch } from "vue";
  * Ejemplo:
  * 523111234567
  */
-const whatsappNumber = "523312933171";
+const whatsappNumber = "523332341375";
 
 const errorMessage = ref("");
 

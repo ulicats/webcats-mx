@@ -3,12 +3,12 @@
 
     <div class="footer-cta">
       <p>
-        Tu próxima escapada comienza aquí
+        Proyecto demostrativo desarrollado por Webcats.mx.
       </p>
 
       <h2>
-        Desconéctate de todo.
-        <span>Conéctate con el bosque.</span>
+        Este sitio forma parte del portafolio de Webcats.mx
+        <span></span>
       </h2>
 
       <a
