@@ -7,8 +7,8 @@ import limalum from '@/assets/portafolio/limalum.webp'
 import niticolor from '@/assets/portafolio/niticolor.webp'
 import nutricion from '@/assets/portafolio/nutricion.webp'
 import wlcapital from '@/assets/portafolio/wlcapital.webp'
-import arce from '@/assets/portafolio/arce.jpg'
-import arceBanner from '@/assets/portafolio/arce-banner.png'
+import hospedajes from "../assets/portafolio/hospedajes.png";
+import hospedajesBanner from "../assets/portafolio/hospedajes-banner.png";
 import bear from '@/assets/portafolio/bear.webp'
 
 export const portafolio = [
@@ -51,15 +51,44 @@ export const portafolio = [
   },
 
   {
-    id: 2,
-    title: 'Casillas Abogados Penalistas',
-    slug: 'casillasabogados',
-    client: 'Despacho jurídico',
-    category: 'Legal',
-    image: casillas,
+  id: 2,
+  title: 'Demo Hospedajes',
+  slug: 'hospedajes',
+  client: 'Hospedaje turístico',
+  category: 'Turismo',
 
-    description:
-      'Página informativa para un despacho de abogados penalistas, mostrando especialidades, experiencia y medios de contacto para solicitar asesoría legal.'
+  // Imagen que aparece en el grid del portafolio
+  image: hospedajes,
+
+  // Imagen horizontal que aparece al abrir la modal
+  banner: hospedajesBanner,
+
+  description:
+    'Diseño y desarrollo de un sitio web demo para hospedaje, enfocado en presentar el hospedaje, mostrar las instalaciones y facilitar solicitudes de reservación. El proyecto incluye galería fotográfica, información detallada del local, casa, departamento, cabaña, tarifas, formulario de disponibilidad, integración con WhatsApp, ubicación en Google Maps y reseñas reales de Google.',
+
+  technologies: [
+    'Vue 3',
+    'Vite',
+    'JavaScript',
+    'CSS',
+    'Responsive',
+    'Google Places API',
+    'Google Maps',
+    'WhatsApp'
+  ],
+
+  features: [
+    'Diseño web personalizado',
+    'Diseño responsive',
+    'Galería de fotografías con lightbox',
+    'Integración de reseñas reales de Google',
+    'Mapa interactivo de Google',
+    'Formulario de solicitud de disponibilidad',
+    'Generación automática de mensaje para WhatsApp',
+    'Información detallada de cabañas y tarifas',
+    'Preguntas frecuentes',
+    'Optimización para dispositivos móviles'
+  ]
   },
 
   {
@@ -135,45 +164,17 @@ export const portafolio = [
   },
 
   {
-  id: 9,
-  title: 'Arce Cabañas Mazamitla',
-  slug: 'arce',
-  client: 'Hospedaje turístico',
-  category: 'Turismo',
+    id: 9,
+    title: 'Casillas Abogados Penalistas',
+    slug: 'casillasabogados',
+    client: 'Despacho jurídico',
+    category: 'Legal',
+    image: casillas,
 
-  // Imagen que aparece en el grid del portafolio
-  image: arce,
+    description:
+      'Página informativa para un despacho de abogados penalistas, mostrando especialidades, experiencia y medios de contacto para solicitar asesoría legal.'
+  },
 
-  // Imagen horizontal que aparece al abrir la modal
-  banner: arceBanner,
-
-  description:
-    'Diseño y desarrollo de un sitio web para Arce Cabañas Mazamitla, enfocado en presentar el hospedaje, mostrar las instalaciones y facilitar solicitudes de reservación. El proyecto incluye galería fotográfica, información detallada de las cabañas, tarifas, formulario de disponibilidad, integración con WhatsApp, ubicación en Google Maps y reseñas reales de Google.',
-
-  technologies: [
-    'Vue 3',
-    'Vite',
-    'JavaScript',
-    'CSS',
-    'Responsive',
-    'Google Places API',
-    'Google Maps',
-    'WhatsApp'
-  ],
-
-  features: [
-    'Diseño web personalizado',
-    'Diseño responsive',
-    'Galería de 26 fotografías con lightbox',
-    'Integración de reseñas reales de Google',
-    'Mapa interactivo de Google',
-    'Formulario de solicitud de disponibilidad',
-    'Generación automática de mensaje para WhatsApp',
-    'Información detallada de cabañas y tarifas',
-    'Preguntas frecuentes',
-    'Optimización para dispositivos móviles'
-  ]
-},
 
   {
     id: 10,

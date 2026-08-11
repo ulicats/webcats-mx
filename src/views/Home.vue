@@ -549,7 +549,7 @@ import logoDerma from "@/assets/logos/logo_derma.png"
 import logoGeo from "@/assets/logos/logo_geo.png"
 import logoNiticolor from "@/assets/logos/niticolor_mono.png"
 import logoWlc from "@/assets/logos/wlc_mono.png"
-import logoArce from "@/assets/logos/logo_arce.png"
+import logohospedaje from "@/assets/logos/logo_arce.png"
 
 const clientLogos = [
   logoLimalum,
@@ -560,7 +560,7 @@ const clientLogos = [
   logoGeo,
   logoNiticolor,
   logoWlc,
-  logoArce
+  logohospedaje
   
 ]
 

@@ -8,13 +8,13 @@ import { useRoute } from "vue-router";
 
 import ProjectMaintenance from "./ProjectMaintenance.vue";
 import CasillasAbogados from "./projects/casillas-abogados/CasillasAbogados.vue";
-import ArceCabanas from "./projects/arce/ArceCabanas.vue";
+import HospedajeDemo from "./projects/hospedajes/HospedajeDemo.vue";
 
 const route = useRoute();
 
 const map = {
   casillasabogados: CasillasAbogados,
-  arce: ArceCabanas,
+  hospedajes: HospedajeDemo,
 };
 
 const CurrentView = computed(() => {
