@@ -178,7 +178,7 @@ export const portafolio = [
   {
     id: 6,
     title: 'Demo Vidrio y Aluminio',
-    slug: 'vidrio-aluminio',
+    slug: 'vidriosaluminio',
     client: 'Empresa de vidrio y aluminio',
     category: 'Industria',
     image: aluminio,
