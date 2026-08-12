@@ -175,18 +175,41 @@ export const portafolio = [
     description: 'En construcción'
   },
 
-  {
-    id: 6,
-    title: 'Demo Vidrio y Aluminio',
-    slug: 'vidriosaluminio',
-    client: 'Empresa de vidrio y aluminio',
-    category: 'Industria',
-    image: aluminio,
-    banner: aluminioBanner,
-    status: 'demo',
+{
+  id: 3,
+  title: 'Demo Vidrio y Aluminio',
+  slug: 'vidriosaluminio',
+  client: 'Demo comercial',
+  category: 'Industria',
+  image: aluminio,
+  banner: aluminioBanner,
+  status: 'demo',
 
-    description: 'En construcción'
-  },
+  description:
+    'Demo web para empresas de vidrio y aluminio, diseñado con una estética arquitectónica inspirada en fachadas, ventanales y estructuras de cristal. Incluye catálogo de materiales, proceso de trabajo, galería de proyectos por categorías, cobertura de servicio, preguntas frecuentes y cotizador con envío directo a WhatsApp.',
+
+  technologies: [
+    'Vue 3',
+    'Vite',
+    'JavaScript',
+    'CSS',
+    'Responsive Design'
+  ],
+
+  features: [
+    'Diseño arquitectónico inspirado en vidrio y aluminio',
+    'Galería dinámica de proyectos',
+    'Filtrado de trabajos por categorías',
+    'Lightbox para visualizar proyectos',
+    'Catálogo interactivo de materiales y acabados',
+    'Proceso de trabajo',
+    'Cobertura de servicio',
+    'Cotizador interactivo',
+    'Solicitud de cotización por WhatsApp',
+    'Preguntas frecuentes',
+    'Diseño responsive'
+  ]
+},
 
   {
     id: 7,
