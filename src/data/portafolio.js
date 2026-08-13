@@ -176,7 +176,7 @@ export const portafolio = [
   },
 
 {
-  id: 3,
+  id: 6,
   title: 'Demo Vidrio y Aluminio',
   slug: 'vidriosaluminio',
   client: 'Demo comercial',
@@ -226,15 +226,41 @@ export const portafolio = [
 
   {
     id: 8,
-    title: 'Demo Nutriólogo',
-    slug: 'nutriologo',
+    title: 'Demo Nutrióloga',
+    slug: 'nutriologa',
     client: 'Consultorio de nutrición',
     category: 'Salud',
     image: nutriologo,
     banner: nutriologoBanner,
     status: 'demo',
 
-    description: 'En construcción'
+    description:
+      'Demo web profesional para nutriólogas y consultorios de nutrición, diseñado con una estética limpia, cálida y enfocada en bienestar. Incluye presentación profesional, servicios nutricionales, metodología de consulta, resultados, testimonios, preguntas frecuentes y sistema de contacto para facilitar la captación de nuevos pacientes.',
+
+    technologies: [
+      'Vue 3',
+      'Vite',
+      'JavaScript',
+      'CSS',
+      'Responsive Design'
+    ],
+
+    features: [
+      'Diseño profesional orientado a nutrición y bienestar',
+      'Presentación de la especialista',
+      'Sección de servicios nutricionales',
+      'Control de peso',
+      'Nutrición deportiva',
+      'Nutrición clínica',
+      'Consultas en línea',
+      'Proceso de atención paso a paso',
+      'Sección de resultados y experiencia',
+      'Testimonios de pacientes',
+      'Preguntas frecuentes',
+      'Sección para agendar consulta',
+      'Contacto directo por WhatsApp',
+      'Diseño responsive'
+    ]
   },
 
   {
