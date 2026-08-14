@@ -75,7 +75,19 @@
 
         <!-- CARD FLOTANTE -->
         <div class="nutri-hero__floating-card nutri-hero__floating-card--top">
-          <span class="nutri-hero__floating-icon">✦</span>
+          <span class="nutri-hero__floating-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 4c-7 0-12 3-14 8-1.5 3.5.5 7 4 8 4.5 1.2 8-2.5 10-16Z" />
+              <path d="M6 18c3-4 6-7 11-10" />
+            </svg>
+          </span>
 
           <div>
             <strong>Enfoque realista</strong>
@@ -163,6 +175,11 @@ import nutriologaHero from "../../../assets/projects/nutriologo/hero/nutriologa.
   font-weight: 700;
   letter-spacing: 1.4px;
   text-transform: uppercase;
+}
+
+.nutri-hero__floating-icon svg {
+  width: 22px;
+  height: 22px;
 }
 
 .nutri-hero h1 {
