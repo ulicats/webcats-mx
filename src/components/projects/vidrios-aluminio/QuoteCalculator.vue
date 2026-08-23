@@ -93,7 +93,7 @@
             <input
               v-model="form.location"
               type="text"
-              placeholder="Ej. Tepic, Nayarit"
+              placeholder="Ej. Guadalajara, Jalisco"
             />
           </label>
 
