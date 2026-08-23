@@ -103,32 +103,32 @@
 <script setup>
 const points = [
   {
-    name: 'Tepic',
+    name: 'Guadalajara',
     type: 'Zona principal',
     description:
       'Atención a proyectos residenciales y comerciales.',
-    className: 'coverage-point--tepic',
+    className: 'coverage-point--guadalajara',
   },
   {
-    name: 'Bahía de Banderas',
+    name: 'Zapopan',
     type: 'Cobertura',
     description:
       'Instalaciones y proyectos arquitectónicos.',
-    className: 'coverage-point--bahia',
+    className: 'coverage-point--zapopan',
   },
   {
-    name: 'Puerto Vallarta',
+    name: 'Tonalá',
     type: 'Cobertura',
     description:
-      'Servicio sujeto a evaluación del proyecto.',
-    className: 'coverage-point--vallarta',
+      'Atención a proyectos residenciales y comerciales.',
+    className: 'coverage-point--tonala',
   },
   {
-    name: 'Ixtlán del Río',
+    name: 'Tlaquepaque',
     type: 'Cobertura',
     description:
-      'Atención previa coordinación y disponibilidad.',
-    className: 'coverage-point--ixtlan',
+      'Instalaciones y proyectos arquitectónicos.',
+    className: 'coverage-point--tlaquepaque',
   },
 ]
 </script>
@@ -259,31 +259,25 @@ const points = [
 
   gap: 12px;
 }
+   .coverage-point--guadalajara {
+    left: 50%;
+    top: 50%;
+  }
 
-.coverage-point--tepic {
-  left: 42%;
+  .coverage-point--zapopan {
+    left: 40%;
+    top: 35%;
+  }
 
-  top: 35%;
-}
+  .coverage-point--tonala {
+    left: 10%;
+    top: 72%;
+  }
 
-.coverage-point--bahia {
-  left: 24%;
-
-  top: 59%;
-}
-
-.coverage-point--vallarta {
-  left: 14%;
-
-  top: 72%;
-}
-
-.coverage-point--ixtlan {
-  left: 66%;
-
-  top: 62%;
-}
-
+  .coverage-point--tlaquepaque {
+    left: 58%;
+    top: 65%;
+  }
 .coverage-point__marker {
   position: relative;
 
@@ -608,27 +602,23 @@ const points = [
       45px 45px;
   }
 
-  .coverage-point--tepic {
+   .coverage-point--guadalajara {
+    left: 50%;
+    top: 50%;
+  }
+
+  .coverage-point--zapopan {
     left: 40%;
-
-    top: 30%;
+    top: 35%;
   }
 
-  .coverage-point--bahia {
-    left: 17%;
-
-    top: 55%;
-  }
-
-  .coverage-point--vallarta {
+  .coverage-point--tonala {
     left: 10%;
-
     top: 72%;
   }
 
-  .coverage-point--ixtlan {
+  .coverage-point--tlaquepaque {
     left: 58%;
-
     top: 65%;
   }
 

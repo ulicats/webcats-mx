@@ -80,7 +80,7 @@ const items = [
     title: 'Acabados limpios',
     description:
       'Buscamos que cada elemento se integre visualmente con la arquitectura del espacio.',
-    icon: '✦',
+    icon: '└─',
   },
   {
     title: 'Atención personalizada',

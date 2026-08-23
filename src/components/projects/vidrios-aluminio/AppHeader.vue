@@ -10,15 +10,10 @@
         class="building-header__brand"
         aria-label="Inicio"
       >
-        <img
-          :src="logo"
-          alt="Vidrio y aluminio"
-          class="building-header__logo"
-        />
       </a>
 
       <!-- LOGO -->
-      <!--a
+      <a
         href="#inicio"
         class="building-header__brand"
         aria-label="Inicio"
@@ -33,7 +28,7 @@
           <strong>VIDRIO</strong>
           <small>+ ALUMINIO</small>
         </div>
-      </a-->
+      </a>
 
       <!-- NAVEGACIÓN ESCRITORIO -->
       <nav class="building-header__nav">

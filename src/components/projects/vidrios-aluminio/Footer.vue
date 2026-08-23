@@ -5,21 +5,13 @@
 
       <div class="building-footer__brand">
 
-        <div class="building-footer__brand">
-        <img
-            :src="logo"
-            alt="Vidrio y aluminio"
-            class="building-footer__logo"
-        />
+        <div class="building-footer__mark">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
 
-        <!--div class="building-footer__mark">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div-->
-
-        <!--div>
+        <div>
           <strong>
             VIDRIO
           </strong>
@@ -27,7 +19,7 @@
           <span>
             + ALUMINIO
           </span>
-        </div-->
+        </div>
 
       </div>
 
