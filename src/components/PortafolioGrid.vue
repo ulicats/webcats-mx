@@ -43,7 +43,13 @@
             class="project-status"
             :class="item.status"
           >
-            {{ item.status === 'production' ? 'Producción' : 'Demo' }}
+              {{
+                item.status === 'production'
+                  ? 'Producción'
+                  : item.status === 'local'
+                  ? 'Local'
+                  : 'Demo'
+              }}
           </span>
 
           <div class="play-overlay">
@@ -119,6 +125,10 @@ const filters = [
   {
     label: 'Todos',
     value: 'all'
+  },
+  {
+    label: 'Locales',
+    value: 'local'
   },
   {
     label: 'Demos',

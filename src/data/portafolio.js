@@ -31,6 +31,25 @@ import nutriologoBanner from '@/assets/portafolio/nutriologo-banner.png'
 import oncologo from '@/assets/portafolio/oncologo.png'
 import oncologoBanner from '@/assets/portafolio/oncologo-banner.png'
 
+import casillas from '@/assets/projects/casillas/1.jpg'
+import casillas1 from '@/assets/projects/casillas/1.jpg'
+import casillas2 from '@/assets/projects/casillas/2.jpg'
+import casillas3 from '@/assets/projects/casillas/3.jpg'
+import casillas4 from '@/assets/projects/casillas/4.jpg'
+import casillas5 from '@/assets/projects/casillas/5.jpg'
+import casillasBanner from '@/assets/projects/casillas/1.jpg'
+
+import limalum from '@/assets/projects/lima/1.jpg'
+import lima1 from '@/assets/projects/lima/1.jpg'
+import lima2 from '@/assets/projects/lima/2.jpg'
+import lima3 from '@/assets/projects/lima/3.jpg'
+import lima4 from '@/assets/projects/lima/4.jpg'
+import lima5 from '@/assets/projects/lima/5.jpg'
+import lima6 from '@/assets/projects/lima/6.jpg'
+import lima7 from '@/assets/projects/lima/7.jpg'
+import lima8 from '@/assets/projects/lima/8.jpg'
+import limalumBanner from '@/assets/projects/lima/1.jpg'
+
 
 export const portafolio = [
   {
@@ -300,5 +319,133 @@ export const portafolio = [
     status: 'demo',
 
     description: 'En construcción'
+  },
+
+  {
+  id: 12,
+  title: 'Casillas Abogados Penalistas',
+  slug: 'casillas-abogados-penalistas',
+  client: 'Despacho jurídico',
+  category: 'Legal · Tepic, Nayarit',
+  image: casillas,
+  banner: casillasBanner,
+  status: 'local',
+
+  location: 'Tepic, Nayarit',
+
+  description:
+    'Proyecto de desarrollo de página web en Tepic, Nayarit realizado para Casillas Abogados Penalistas, despacho especializado en servicios jurídicos y derecho penal. El sitio fue diseñado para presentar los servicios profesionales del despacho, sus áreas de atención y facilitar el contacto con potenciales clientes mediante una experiencia clara, profesional y adaptable a dispositivos móviles. Este proyecto forma parte de los trabajos de desarrollo web realizados por Webcats para negocios y profesionistas en Tepic, Nayarit.',
+
+  technologies: [
+    'Diseño web',
+    'Responsive Design',
+    'JavaScript',
+    'CSS',
+    'WhatsApp',
+    'SEO'
+  ],
+
+  features: [
+    'Diseño web orientado a servicios jurídicos',
+    'Presentación de áreas de práctica',
+    'Información del despacho',
+    'Diseño responsive',
+    'Integración de medios de contacto',
+    'Contacto mediante WhatsApp',
+    'Estructura optimizada para navegación',
+    'Proyecto desarrollado para cliente en Tepic, Nayarit'
+  ],
+
+  gallery: [
+  casillas1,
+  casillas2,
+  casillas3,
+  casillas4,
+  casillas5,
+],
+
+  seo: {
+    title:
+      'Casillas Abogados Penalistas | Desarrollo Web en Tepic, Nayarit | Webcats',
+
+    description:
+      'Proyecto de desarrollo de página web realizado por Webcats para Casillas Abogados Penalistas en Tepic, Nayarit. Diseño web profesional para despacho jurídico.',
+
+    keywords: [
+      'páginas web en Tepic Nayarit',
+      'desarrollo web Tepic',
+      'diseño web Tepic',
+      'páginas web Nayarit',
+      'desarrollo de páginas web para abogados',
+      'Webcats Tepic'
+    ]
+  },
+
+  featured: false
+},
+
+{
+  id: 13,
+  title: 'Limalum Vidrios y Aluminios',
+  slug: 'limalum-vidrios-aluminios',
+  client: 'Empresa de vidrios y aluminio',
+  category: 'Industria · Nayarit',
+  image: limalum,
+  banner: limalumBanner,
+  status: 'local',
+
+  location: 'Nayarit',
+
+  description:
+    'Proyecto de desarrollo de página web en Nayarit realizado para Limalum, empresa dedicada a soluciones de vidrio y aluminio. El sitio fue desarrollado para presentar sus servicios, trabajos realizados, materiales y acabados mediante una experiencia visual enfocada en facilitar la consulta de proyectos y la solicitud de cotizaciones. Este proyecto forma parte de los trabajos de diseño y desarrollo web realizados por Webcats para empresas de Nayarit.',
+
+  technologies: [
+    'Diseño web',
+    'JavaScript',
+    'CSS',
+    'Responsive Design',
+    'WhatsApp'
+  ],
+
+  features: [
+    'Diseño web orientado a vidrio y aluminio',
+    'Galería de trabajos realizados',
+    'Presentación de servicios',
+    'Catálogo de materiales y acabados',
+    'Diseño responsive',
+    'Solicitud de cotización',
+    'Integración con WhatsApp',
+    'Proyecto desarrollado para empresa de Nayarit'
+  ],
+
+  gallery: [
+  lima1,
+  lima2,
+  lima3,
+  lima4,
+  lima5,
+  lima6,
+  lima7,
+  lima8,
+],
+
+  seo: {
+    title:
+      'Limalum | Desarrollo de Página Web en Nayarit | Webcats',
+
+    description:
+      'Proyecto de desarrollo de página web realizado por Webcats para Limalum, empresa de vidrios y aluminio en Nayarit. Conoce el diseño y características del proyecto.',
+
+    keywords: [
+      'páginas web en Nayarit',
+      'desarrollo web Nayarit',
+      'diseño web Nayarit',
+      'páginas web para empresas en Nayarit',
+      'desarrollo web para vidrierías',
+      'Webcats Nayarit'
+    ]
+  },
+
+  featured: false
   }
 ]

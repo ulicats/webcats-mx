@@ -157,24 +157,40 @@
 
         <!-- Acciones -->
         <div class="modal-actions">
-          <a
-            :href="projectLink"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn primary"
-          >
-            <span class="button-icon">
-              ↗
-            </span>
+          <!-- Proyecto con galería -->
+        <button
+          v-if="hasGallery"
+          type="button"
+          class="btn primary"
+          @click="openGallery"
+        >
+          <span class="button-icon">
+            ▣
+          </span>
 
-            <span>
-              {{
-                isExternalProject
-                  ? 'Visitar sitio web'
-                  : 'Ver proyecto'
-              }}
-            </span>
-          </a>
+          <span>Ver galería</span>
+        </button>
+
+        <!-- Proyecto sin galería -->
+        <a
+          v-else
+          :href="projectLink"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn primary"
+        >
+          <span class="button-icon">
+            ↗
+          </span>
+
+          <span>
+            {{
+              isExternalProject
+                ? 'Visitar sitio web'
+                : 'Ver proyecto'
+            }}
+          </span>
+        </a>
 
           <button
             type="button"
@@ -186,6 +202,56 @@
         </div>
       </div>
     </article>
+      <!-- ================================= -->
+      <!--          GALERÍA PROYECTO         -->
+      <!-- ================================= -->
+
+      <div
+        v-if="showGallery"
+        class="gallery-overlay"
+        @click.self="closeGallery"
+      >
+        <div class="gallery-box">
+
+          <button
+            type="button"
+            class="gallery-close"
+            aria-label="Cerrar galería"
+            @click="closeGallery"
+          >
+            ×
+          </button>
+
+          <button
+            type="button"
+            class="gallery-nav gallery-prev"
+            aria-label="Imagen anterior"
+            @click.stop="prevImage"
+          >
+            ‹
+          </button>
+
+          <img
+            :src="project.gallery[galleryIndex]"
+            :alt="`${project.title} - captura ${galleryIndex + 1}`"
+            class="gallery-image"
+          />
+
+          <button
+            type="button"
+            class="gallery-nav gallery-next"
+            aria-label="Imagen siguiente"
+            @click.stop="nextImage"
+          >
+            ›
+          </button>
+
+          <div class="gallery-counter">
+            {{ galleryIndex + 1 }} / {{ project.gallery.length }}
+          </div>
+
+        </div>
+      </div>
   </div>
 </template>
 
@@ -250,6 +316,38 @@ const hasProjectDetails = computed(() => {
     props.project?.technologies?.length
   )
 })
+
+const hasGallery = computed(() => {
+  return Array.isArray(props.project?.gallery) &&
+    props.project.gallery.length > 0
+})
+
+const showGallery = ref(false)
+const galleryIndex = ref(0)
+
+function openGallery() {
+  galleryIndex.value = 0
+  showGallery.value = true
+}
+
+function closeGallery() {
+  showGallery.value = false
+}
+
+function nextImage() {
+  if (!hasGallery.value) return
+
+  galleryIndex.value =
+    (galleryIndex.value + 1) % props.project.gallery.length
+}
+
+function prevImage() {
+  if (!hasGallery.value) return
+
+  galleryIndex.value =
+    (galleryIndex.value - 1 + props.project.gallery.length) %
+    props.project.gallery.length
+}
 
 /* ================================= */
 /*             TOUCH SWIPE           */
@@ -1132,6 +1230,232 @@ onBeforeUnmount(() => {
 .btn.primary:hover .button-icon {
   transform:
     translate(2px, -2px);
+}
+
+/* ================================= */
+/*          GALERÍA OVERLAY          */
+/* ================================= */
+
+.gallery-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background: rgba(0, 0, 0, 0.94);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ================================= */
+/*           CONTENEDOR              */
+/* ================================= */
+
+.gallery-box {
+  position: relative;
+
+  width: min(1400px, 96vw);
+  height: min(900px, 92vh);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(250, 204, 21, 0.45);
+  border-radius: 18px;
+
+  background: #05070a;
+
+  box-shadow:
+    0 0 35px rgba(250, 204, 21, 0.12),
+    0 30px 90px rgba(0, 0, 0, 0.85);
+}
+
+/* ================================= */
+/*             IMAGEN                */
+/* ================================= */
+
+.gallery-image {
+  max-width: 100%;
+  max-height: 100%;
+
+  width: auto;
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+/* ================================= */
+/*              CERRAR               */
+/* ================================= */
+
+.gallery-close {
+  position: absolute;
+
+  top: 18px;
+  right: 18px;
+
+  z-index: 20;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--terminal-yellow);
+  border-radius: 50%;
+
+  background: rgba(5, 8, 14, 0.92);
+
+  color: #fff;
+
+  font-size: 1.5rem;
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 16px rgba(250, 204, 21, 0.3);
+}
+
+.gallery-close:hover {
+  background: var(--terminal-yellow);
+  color: #090909;
+}
+
+/* ================================= */
+/*             FLECHAS               */
+/* ================================= */
+
+.gallery-nav {
+  position: absolute;
+
+  top: 50%;
+
+  z-index: 20;
+
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(-50%);
+
+  border: 1px solid var(--terminal-yellow);
+  border-radius: 50%;
+
+  background: rgba(5, 8, 14, 0.92);
+
+  color: #fff;
+
+  font-size: 2rem;
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 18px rgba(250, 204, 21, 0.3);
+}
+
+.gallery-prev {
+  left: 20px;
+}
+
+.gallery-next {
+  right: 20px;
+}
+
+.gallery-nav:hover {
+  background: var(--terminal-yellow);
+  color: #090909;
+}
+
+/* ================================= */
+/*             CONTADOR              */
+/* ================================= */
+
+.gallery-counter {
+  position: absolute;
+
+  bottom: 18px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 20;
+
+  padding: 8px 14px;
+
+  border: 1px solid rgba(250, 204, 21, 0.5);
+  border-radius: 999px;
+
+  background: rgba(5, 8, 14, 0.9);
+
+  color: var(--terminal-yellow);
+
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+}
+
+/* ================================= */
+/*             MOBILE                */
+/* ================================= */
+
+@media (max-width: 600px) {
+
+  .gallery-overlay {
+    padding: 10px;
+  }
+
+  .gallery-box {
+    width: 100%;
+    height: 88vh;
+
+    border-radius: 14px;
+  }
+
+  .gallery-nav {
+    width: 44px;
+    height: 44px;
+
+    font-size: 1.6rem;
+  }
+
+  .gallery-prev {
+    left: 10px;
+  }
+
+  .gallery-next {
+    right: 10px;
+  }
+
+  .gallery-close {
+    top: 10px;
+    right: 10px;
+
+    width: 40px;
+    height: 40px;
+  }
+
+  .gallery-counter {
+    bottom: 12px;
+  }
 }
 
 /* ================================= */
