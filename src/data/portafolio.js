@@ -310,15 +310,37 @@ export const portafolio = [
 
   {
     id: 11,
-    title: 'Demo Gym',
-    slug: 'gym',
-    client: 'Gimnasio',
-    category: 'Deporte y fitness',
+    title: "Demo Gym",
+    slug: "gym",
+    client: "Iron Pulse Performance Club",
+    category: "Deporte y Fitness",
     image: gym,
     banner: gymBanner,
-    status: 'demo',
-
-    description: 'En construcción'
+    status: "demo",
+    description: "Sitio web conceptual desarrollado para un gimnasio de alto rendimiento. El proyecto presenta una identidad visual deportiva y moderna, enfocada en mostrar instalaciones, beneficios, entrenadores, membresías y canales de contacto de forma clara y atractiva.",
+    features: [
+      "Diseño deportivo y responsive",
+      "Hero de alto impacto",
+      "Sección de beneficios del gimnasio",
+      "Presentación de instalaciones y áreas de entrenamiento",
+      "Galería interactiva de instalaciones",
+      "Lightbox para visualizar fotografías",
+      "Presentación de entrenadores y especialidades",
+      "Planes y membresías",
+      "Preguntas frecuentes con acordeón",
+      "Llamadas a la acción para captar nuevos miembros",
+      "Ubicación integrada con Google Maps",
+      "Botón flotante de WhatsApp",
+      "Navegación interna por secciones"
+    ],
+    "technologies": [
+      "Vue.js",
+      "Vite",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "Responsive Design"
+    ]
   },
 
   {
