@@ -252,7 +252,6 @@ import nutriologaAbout from "../../../assets/projects/nutriologo/about/about-nut
 /* =========================
    RESPONSIVE
 ========================= */
-
 @media (max-width: 950px) {
   .nutri-about {
     padding: 90px 0;
@@ -282,24 +281,18 @@ import nutriologaAbout from "../../../assets/projects/nutriologo/about/about-nut
     width: calc(100% - 28px);
   }
 
-  .nutri-about__image {
-    height: 440px;
+  .nutri-about__visual {
+    display: none;
   }
 
-  .nutri-about__experience {
-    right: 15px;
-    bottom: 20px;
-
-    width: 120px;
-    height: 120px;
-  }
-
-  .nutri-about__experience strong {
-    font-size: 30px;
+  .nutri-about__content {
+    max-width: 100%;
   }
 
   .nutri-about__stats {
     grid-template-columns: 1fr;
   }
 }
+
+
 </style>
