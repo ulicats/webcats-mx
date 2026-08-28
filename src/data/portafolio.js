@@ -283,31 +283,84 @@ export const portafolio = [
   },
 
   {
-    id: 9,
-    title: 'Demo Firma Financiera',
-    slug: 'firma-financiera',
-    client: 'Firma financiera',
-    category: 'Finanzas',
-    image: firma,
-    banner: firmaBanner,
-    status: 'demo',
+  id: 9,
+  title: 'Demo Firma Financiera',
+  slug: 'financiera',
+  client: 'Firma financiera',
+  category: 'Finanzas',
+  image: firma,
+  banner: firmaBanner,
+  status: 'demo',
 
-    description: 'En construcción'
+  description:
+    'Demo web desarrollada para firmas financieras y consultores especializados en planeación, patrimonio e inversiones. El proyecto utiliza una identidad visual elegante y corporativa para presentar servicios financieros, metodología de trabajo, áreas de especialidad y canales de contacto de forma clara, profesional y orientada a generar confianza.',
+
+  technologies: [
+    'Vue 3',
+    'Vite',
+    'JavaScript',
+    'HTML5',
+    'CSS3',
+    'Responsive Design'
+  ],
+
+  features: [
+    'Diseño corporativo orientado al sector financiero',
+    'Presentación de servicios financieros',
+    'Planeación financiera y estrategia patrimonial',
+    'Sección de inversiones y gestión de riesgos',
+    'Presentación de finanzas empresariales',
+    'Metodología de asesoría financiera',
+    'Sección de estrategia y acompañamiento',
+    'Preguntas frecuentes',
+    'Llamadas a la acción para solicitar asesoría',
+    'Contacto directo por WhatsApp',
+    'Navegación interna por secciones',
+    'Diseño responsive para celulares y tablets'
+  ],
+
+  featured: false
+},
+
+{
+  id: 10,
+  title: 'Demo Despacho Jurídico',
+  slug: 'abogados',
+  client: 'Despacho jurídico',
+  category: 'Legal',
+  image: despacho,
+  banner: despachoBanner,
+  status: 'demo',
+
+  description:
+    'Demo web desarrollada para despachos jurídicos y abogados que buscan proyectar una imagen profesional, seria y confiable en internet. El diseño está inspirado en la estética de documentos y contratos legales, combinando una presentación editorial con secciones enfocadas en mostrar el despacho, áreas de práctica, equipo jurídico y medios de contacto.',
+
+  technologies: [
+    'Vue 3',
+    'Vite',
+    'JavaScript',
+    'HTML5',
+    'CSS3',
+    'Responsive Design'
+  ],
+
+  features: [
+    'Diseño editorial inspirado en documentos jurídicos',
+    'Presentación profesional del despacho',
+    'Sección de áreas de práctica',
+    'Presentación de abogados y perfiles profesionales',
+    'Sección para orientar al usuario según su situación legal',
+    'Presentación de experiencia y casos',
+    'Preguntas frecuentes',
+    'Formulario de contacto',
+    'Contacto directo por WhatsApp',
+    'Llamadas a la acción para solicitar consulta',
+    'Navegación interna por secciones',
+    'Diseño responsive para celulares y tablets'
+  ],
+
+  featured: false
   },
-
-  {
-    id: 10,
-    title: 'Demo Despacho Jurídico',
-    slug: 'despacho-juridico',
-    client: 'Despacho jurídico',
-    category: 'Legal',
-    image: despacho,
-    banner: despachoBanner,
-    status: 'demo',
-
-    description: 'En construcción'
-  },
-
   {
     id: 11,
     title: "Demo Gym",
