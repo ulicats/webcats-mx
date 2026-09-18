@@ -1,533 +1,1009 @@
 <template>
-  <!-- HERO / BANNER PRINCIPAL -->
-  <Transition name="hero" appear>
-    <section
-        :class="[
-          'relative min-h-screen flex flex-col justify-center hero-console items-center text-center px-6 bg-[#0d0d0f] text-white overflow-hidden',
-          { 'hero-animate': heroAnimate }
-        ]"
+<!-- ========================================= -->
+<!-- HERO WEBCATS / TERMINAL WORKSPACE         -->
+<!-- ========================================= -->
+
+<Transition name="hero" appear>
+  <section
+    :class="[
+      'webcats-hero',
+      { 'hero-animate': heroAnimate }
+    ]"
+  >
+
+    <!-- GRID MUY SUTIL DE FONDO -->
+    <div class="hero-grid-bg"></div>
+
+    <div class="hero-workspace">
+
+      <!-- ===================================== -->
+      <!-- IZQUIERDA / IDENTIDAD                -->
+      <!-- ===================================== -->
+
+      <div class="hero-main">
+
+        <div class="hero-path">
+          <span class="path-user">webcats@mx</span>
+          <span class="path-separator">:</span>
+          <span class="path-location">~/home</span>
+          <span class="path-symbol">$</span>
+        </div>
+
+        <div class="hero-brand-row">
+          <span class="tree-symbol">┌─</span>
+          <span class="hero-brand-new">Webcats.mx/</span>
+        </div>
+
+        <div class="hero-title-row">
+          <span class="tree-symbol tree-middle">├─</span>
+
+          <h1 class="hero-main-title">
+            Desarrollo Web
+            <span>
+              Profesional<span class="terminal-cursor">_</span>
+            </span>
+          </h1>
+        </div>
+
+        <!-- ÁRBOL DE SERVICIOS -->
+        <div class="hero-services-tree">
+
+          <div class="service-tree-line">
+            <span>├──</span>
+            <span class="folder">desarrollo-web/</span>
+          </div>
+
+          <div class="service-tree-line">
+            <span>├──</span>
+            <span class="folder">sistemas/</span>
+          </div>
+
+          <div class="service-tree-line">
+            <span>├──</span>
+            <span class="folder">e-commerce/</span>
+          </div>
+
+          <div class="service-tree-line">
+            <span>├──</span>
+            <span class="folder">hosting/</span>
+          </div>
+
+          <div class="service-tree-line">
+            <span>├──</span>
+            <span class="folder">servidores/</span>
+          </div>
+
+          <div class="service-tree-line">
+            <span>└──</span>
+            <span class="folder">seguridad/</span>
+          </div>
+
+        </div>
+
+        <!-- DESCRIPCIÓN -->
+        <div class="hero-description-row">
+
+          <span class="tree-symbol">└─</span>
+
+          <p>
+            Creamos sitios, sistemas y soluciones web
+            <strong>modernas, rápidas y seguras</strong>,
+            desde el desarrollo hasta su puesta en producción.
+          </p>
+
+        </div>
+
+        <!-- BOTONES -->
+        <div class="hero-actions-new">
+
+          <router-link
+            to="/contacto"
+            class="terminal-button terminal-button-primary"
           >
+            <span>$</span>
+            cotizar --proyecto
+          </router-link>
 
-          <!-- 🔲 ESQUINAS TIPO TERMINAL -->
+          <router-link
+            to="/portafolio"
+            class="terminal-button"
+          >
+            <span>$</span>
+            explorar --portafolio
+          </router-link>
 
+        </div>
 
-      <div class="absolute inset-0 w-full h-full opacity-20">
-        <transition-group name="fade">
-          <img
-            v-for="(img, index) in sliderImages"
-            :key="index"
-            v-if="index === currentSlide"
-            :src="img"
-            class="absolute inset-0 w-full h-full object-cover"
-          />
-        </transition-group>
-        <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/90"></div>
       </div>
 
-      <div class="relative z-10 max-w-4xl text-left"> 
-        
-        <div class="hero-trunk"></div>
-        
-          <div class="hero-tree">
-            <div class="hero-content">
 
-              <!-- RAÍZ -->
-              <div class="hero-line hero-root-line">
-                <span class="hero-brand">Webcats.mx/</span>
-              </div>
+      <!-- ===================================== -->
+      <!-- DERECHA / TERMINAL                   -->
+      <!-- ===================================== -->
 
-              <!-- RAMA 1 -->
-              <div class="hero-line hero-title .prompt">
-                <span class="branch">├─</span>
-                <span class="hero-title-text">Desarrollo Web Profesional</span>
-              </div>
-           
-              <!-- SUBRAMA DESCRIPCIÓN -->
-              <div class="hero-line hero-title .prompt">
-                <span class="branch">├─</span>
-                <span class="hero-desc-text">
-                  Soluciones web modernas, seguras y rápidas. Hosting, paneles admin,
-                  servidores, seguridad web y desarrollo a la medida.
-                </span>
-              </div>
+      <div class="hero-terminal">
 
-              <!-- SUBRAMA ACCIONES -->
-              <div class="hero-line">
-                <span class="branch hero-title .prompt">└─</span>
-                <div class="hero-actions">
-                  <a href="/contacto" class="cmd-btn primary">
-                    &gt; cotizar --proyecto
-                  </a>
-                  <a href="/portafolio" class="cmd-btn muted">
-                    &gt; ver --portafolio
-                  </a>
-                </div>
-              </div>
+        <!-- CABECERA -->
+        <div class="terminal-window-header">
+
+          <div class="terminal-window-tab">
+            <span class="terminal-mini-icon">&gt;_</span>
+            webcats@server
+          </div>
+
+          <div class="terminal-window-actions">
+            <span>−</span>
+            <span>□</span>
+            <span>×</span>
+          </div>
+
+        </div>
+
+
+        <!-- CUERPO -->
+        <div class="terminal-window-body">
+
+          <div class="terminal-command">
+            <div>
+              <span class="terminal-user">webcats@mx</span>
+              <span class="terminal-path">:~$</span>
+              whoami
+            </div>
+
+            <p class="terminal-result">
+              Agencia de desarrollo web y soluciones digitales.
+            </p>
+          </div>
+
+
+          <div class="terminal-command">
+            <div>
+              <span class="terminal-user">webcats@mx</span>
+              <span class="terminal-path">:~$</span>
+              stack --list
+            </div>
+
+            <div class="stack-list">
+              <span>
+                <b>01</b>
+                Vue.js
+              </span>
+
+              <span>
+                <b>02</b>
+                Laravel
+              </span>
+
+              <span>
+                <b>03</b>
+                PHP
+              </span>
+
+              <span>
+                <b>04</b>
+                MySQL
+              </span>
+
+              <span>
+                <b>05</b>
+                WHM / cPanel
+              </span>
+
+              <span>
+                <b>06</b>
+                Linux
+              </span>
             </div>
           </div>
-       </div>
 
-    </section>
-  </Transition>
 
-  <!-- SERVICIOS -->
-  <section class="py-10 px-6 bg-[#0d0d0f]">
-    <h2 class="text-4xl font-bold text-center text-white mb-4">
-      Servicios Webcats.mx
-    </h2>
+          <div class="terminal-command">
+            <div>
+              <span class="terminal-user">webcats@mx</span>
+              <span class="terminal-path">:~$</span>
+              status --production
+            </div>
 
-    <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">
-      Soluciones completas de diseño web, servidores, administración, seguridad y optimización.
-    </p>
+            <p class="terminal-status">
+              <span class="status-dot"></span>
+              SYSTEM ONLINE
+            </p>
+          </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-      <div class="rounded-2xl bg-[#18181b] border border-white/5 shadow-lg hover:shadow-xl transition-all overflow-hidden">
-        <div class="relative">
-          <img :src="desarrollo" class="w-full h-52 object-cover" />
-          <span class="absolute top-3 left-3 bg-[#ff8c00] text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
-            DESARROLLO WEB
-          </span>
+
+          <div class="terminal-current-line">
+            <span class="terminal-user">webcats@mx</span>
+            <span class="terminal-path">:~$</span>
+            <span class="terminal-cursor-block"></span>
+          </div>
+
         </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-white mb-3">Desarrollo Web Profesional</h3>
-          <p class="mb-5 text-sm service-desc">Sitios modernos, rápidos y optimizados.</p>
-          <a href="/servicios" class="font-semibold hover:underline service-link">Leer más >></a>
-        </div>
+
       </div>
 
-      <div class="rounded-2xl bg-[#18181b] border border-white/5 shadow-lg hover:shadow-xl transition-all overflow-hidden">
-        <div class="relative">
-          <img :src="servidores" class="w-full h-52 object-cover" />
-          <span class="absolute top-3 left-3 bg-[#0078ff] text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
-            SERVIDORES
-          </span>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-white mb-3">Administración de Servidores</h3>
-          <p class="mb-5 text-sm service-desc">WHM/cPanel, DNS, SSL, mantenimiento profesional, correo empresarial, sendgrid.</p>
-          <a href="/servicios" class="font-semibold hover:underline service-link">Leer más >></a>
-        </div>
-      </div>
-
-      <div class="rounded-2xl bg-[#18181b] border border-white/5 shadow-lg hover:shadow-xl transition-all overflow-hidden">
-        <div class="relative">
-          <img :src="devops" class="w-full h-52 object-cover" />
-          <span class="absolute top-3 left-3 bg-[#6a00ff] text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
-            SOPORTE WEB
-          </span>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-white mb-3">Soporte y Mantenimiento Web</h3>
-          <p class="mb-5 text-sm service-desc">WordPress, Laravel, errores, actualizaciones, seguridad y mantenimiento.</p>
-          <a href="/servicios" class="font-semibold hover:underline service-link">Leer más >></a>
-        </div>
-      </div>
     </div>
+
+
+    <!-- ===================================== -->
+    <!-- STATUS BAR                            -->
+    <!-- ===================================== -->
+
+    <div class="hero-status-bar">
+
+      <div class="status-left">
+        <span>⌘ main*</span>
+        <span>Webcats.mx</span>
+      </div>
+
+      <div class="status-right">
+        <span>Vue 3</span>
+        <span>Laravel</span>
+        <span>PHP</span>
+        <span>MySQL</span>
+
+        <span class="online">
+          <i></i>
+          ONLINE
+        </span>
+      </div>
+
+    </div>
+
+  </section>
+</Transition>
+
+  <!-- ====================================================== -->
+  <!-- SERVICIOS / TERMINAL MODULES                           -->
+  <!-- ====================================================== -->
+  <section class="webcats-services">
+
+    <div class="services-shell">
+
+      <!-- CABECERA -->
+      <div class="services-heading">
+
+        <div class="section-command">
+          <span class="command-user">webcats@mx</span>
+          <span class="command-path">:~/services$</span>
+          <span>ls -la</span>
+        </div>
+
+        <div class="services-heading-row">
+
+          <div>
+            <span class="section-eyebrow">
+              // SERVICIOS DISPONIBLES
+            </span>
+
+            <h2>
+              Soluciones para llevar tu proyecto
+              <span>de la idea a producción.</span>
+            </h2>
+          </div>
+
+          <p>
+            Desarrollo, infraestructura y soporte trabajando como
+            un mismo sistema. No solo construimos tu proyecto:
+            lo preparamos para funcionar en un entorno real.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================================================== -->
+      <!-- CARDS                                              -->
+      <!-- ================================================== -->
+      <div class="services-terminal-grid">
+
+        <!-- 01 DESARROLLO -->
+        <article class="service-terminal-card">
+
+          <div class="service-window-bar">
+            <div class="service-window-info">
+              <span class="service-number">01</span>
+              <span>desarrollo-web.exe</span>
+            </div>
+
+            <div class="window-controls">
+              <span>−</span>
+              <span>□</span>
+              <span>×</span>
+            </div>
+          </div>
+
+          <div class="service-visual">
+
+            <img
+              :src="desarrollo"
+              alt="Desarrollo Web Profesional"
+            />
+
+            <div class="service-visual-overlay"></div>
+
+            <span class="service-status">
+              <i></i>
+              ACTIVE
+            </span>
+
+          </div>
+
+          <div class="service-terminal-body">
+
+            <span class="service-path">
+              ~/services/desarrollo-web
+            </span>
+
+            <h3>
+              Desarrollo Web
+              <span>Profesional</span>
+            </h3>
+
+            <p>
+              Sitios y sistemas modernos, rápidos y preparados
+              para crecer junto con tu proyecto.
+            </p>
+
+            <div class="service-command-list">
+              <span><i>├─</i> Sitios corporativos</span>
+              <span><i>├─</i> Landing pages</span>
+              <span><i>├─</i> Sistemas web</span>
+              <span><i>└─</i> E-commerce</span>
+            </div>
+
+            <div class="service-techs">
+              <span>Vue.js</span>
+              <span>Laravel</span>
+              <span>PHP</span>
+            </div>
+
+            <router-link
+              to="/servicios"
+              class="service-terminal-link"
+            >
+              <span>$</span>
+              explorar --servicio
+              <b>→</b>
+            </router-link>
+
+          </div>
+
+        </article>
+
+
+        <!-- 02 SERVIDORES -->
+        <article class="service-terminal-card">
+
+          <div class="service-window-bar">
+            <div class="service-window-info">
+              <span class="service-number">02</span>
+              <span>server-admin.sh</span>
+            </div>
+
+            <div class="window-controls">
+              <span>−</span>
+              <span>□</span>
+              <span>×</span>
+            </div>
+          </div>
+
+          <div class="service-visual">
+
+            <img
+              :src="servidores"
+              alt="Administración de Servidores"
+            />
+
+            <div class="service-visual-overlay"></div>
+
+            <span class="service-status">
+              <i></i>
+              ONLINE
+            </span>
+
+          </div>
+
+          <div class="service-terminal-body">
+
+            <span class="service-path">
+              ~/services/server-admin
+            </span>
+
+            <h3>
+              Administración de
+              <span>Servidores</span>
+            </h3>
+
+            <p>
+              Administración de infraestructura para mantener
+              servicios estables, seguros y disponibles.
+            </p>
+
+            <div class="service-command-list">
+              <span><i>├─</i> WHM / cPanel</span>
+              <span><i>├─</i> DNS / SSL</span>
+              <span><i>├─</i> Correo empresarial</span>
+              <span><i>└─</i> Mantenimiento</span>
+            </div>
+
+            <div class="service-techs">
+              <span>Linux</span>
+              <span>WHM</span>
+              <span>cPanel</span>
+            </div>
+
+            <router-link
+              to="/servicios"
+              class="service-terminal-link"
+            >
+              <span>$</span>
+              explorar --servicio
+              <b>→</b>
+            </router-link>
+
+          </div>
+
+        </article>
+
+
+        <!-- 03 SOPORTE -->
+        <article class="service-terminal-card">
+
+          <div class="service-window-bar">
+            <div class="service-window-info">
+              <span class="service-number">03</span>
+              <span>support-web.log</span>
+            </div>
+
+            <div class="window-controls">
+              <span>−</span>
+              <span>□</span>
+              <span>×</span>
+            </div>
+          </div>
+
+          <div class="service-visual">
+
+            <img
+              :src="devops"
+              alt="Soporte y Mantenimiento Web"
+            />
+
+            <div class="service-visual-overlay"></div>
+
+            <span class="service-status">
+              <i></i>
+              RUNNING
+            </span>
+
+          </div>
+
+          <div class="service-terminal-body">
+
+            <span class="service-path">
+              ~/services/support
+            </span>
+
+            <h3>
+              Soporte y Mantenimiento
+              <span>Web</span>
+            </h3>
+
+            <p>
+              Diagnóstico, mantenimiento y solución de problemas
+              en proyectos que ya se encuentran en producción.
+            </p>
+
+            <div class="service-command-list">
+              <span><i>├─</i> WordPress</span>
+              <span><i>├─</i> Laravel</span>
+              <span><i>├─</i> Actualizaciones</span>
+              <span><i>└─</i> Seguridad</span>
+            </div>
+
+            <div class="service-techs">
+              <span>Support</span>
+              <span>Security</span>
+              <span>Deploy</span>
+            </div>
+
+            <router-link
+              to="/servicios"
+              class="service-terminal-link"
+            >
+              <span>$</span>
+              explorar --servicio
+              <b>→</b>
+            </router-link>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+
   </section>
 
-<!-- ============================ -->
-<!--     CLIENT LOGO RUNWAY       -->
-<!-- ============================ -->
-<section class="bg-[#0d0d0f] py-14 overflow-hidden">
-  <div class="max-w-6xl mx-auto px-6">
 
-    <p class="text-center text-sm mb-8 tracking-wide">
-      Sitios web desarrollados
-    </p>
+  <!-- ====================================================== -->
+  <!-- CLIENTES / PROJECT RUNWAY                              -->
+  <!-- ====================================================== -->
+  <section class="clients-section">
 
-    <div class="logo-runway">
-      <div class="logo-track">
-        <img
-          v-for="(logo, i) in clientLogos"
-          :key="`logo-a-${i}`"
-          :src="logo"
-          class="logo-item"
-          alt="Cliente Webcats"
-        />
-        <!-- duplicado para loop infinito -->
-        <img
-          v-for="(logo, i) in clientLogos"
-          :key="`logo-b-${i}`"
-          :src="logo"
-          class="logo-item"
-          alt="Cliente Webcats"
-        />
-      </div>
-    </div>
+    <div class="clients-shell">
 
-  </div>
-</section>
+      <!-- SEPARADOR -->
+      <div class="clients-command-line">
 
+        <span class="command-symbol">&gt;</span>
 
-  <!-- ============================ -->
-  <!--       TECH STACK TREE        -->
-  <!-- ============================ -->
+        <span>
+          trusted_by
+        </span>
 
-  <section
-    class="relative w-full text-black py-5 overflow-hidden"
-    ref="techStackRef"
-  >
-    <div class="relative z-10 max-w-5xl mx-auto text-center mb-20 px-4">
-      <h2 class="text-4xl font-bold mb-3 text-white">Mi Tech Stack</h2>
-      <p class="text-white">
-        Pipeline completo desde GitHub hasta el despliegue final.
-      </p>
-    </div>
+        <span class="command-option">
+          --clients
+        </span>
 
-    <!-- ========== DESKTOP / TABLET ========== -->
-    <div class="tree-desktop-wrapper">
-      <div
-        class="tree-desktop relative mx-auto hidden md:block"
-        style="width: 1200px; height: 650px;"
-      >
-        <!-- SVG líneas + puntos (igual que lo tenías) -->
-        <svg
-          class="absolute inset-0 w-full h-full pointer-events-none"
-          viewBox="0 0 1200 650"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <!-- GitHub → Vite -->
-           <circle
-            cx="215"
-            cy="300"
-            r="4"
-            class="connector-dot"
-            :class="{ 'connector-dot--active': animateLines }"
-          />
-          <line x1="215" y1="300" x2="285" y2="300"
-                stroke="#9AC7E8" stroke-width="3" stroke-linecap="round"
-                :class="{ draw: animateLines }" />
-            <circle
-              cx="285"
-              cy="300"
-              r="4"
-              class="connector-dot"
-              :class="{ 'connector-dot--active': animateLines }"
-            />
-          <!-- Vite → Vue -->
-          <circle
-            cx="415"
-            cy="300"
-            r="4"
-            class="connector-dot"
-            :class="{ 'connector-dot--active': animateLines }"
-          />
-          <line x1="415" y1="300" x2="535" y2="300"
-                stroke="#9AC7E8" stroke-width="3" stroke-linecap="round"
-                :class="{ draw: animateLines }" />
-          <circle
-            cx="535"
-            cy="300"
-            r="4"
-            class="connector-dot"
-            :class="{ 'connector-dot--active': animateLines }"
-          />
-          <!-- Vue → Laravel -->
-            <circle
-            cx="665"
-            cy="300"
-            r="4"
-            class="connector-dot"
-            :class="{ 'connector-dot--active': animateLines }"
-          />
-          <line x1="665" y1="300" x2="735" y2="300"
-                stroke="#9AC7E8" stroke-width="3" stroke-linecap="round"
-                :class="{ draw: animateLines }" />
-            <circle
-              cx="735"
-              cy="300"
-              r="4"
-              class="connector-dot"
-              :class="{ 'connector-dot--active': animateLines }"
-            />
-          <!-- Laravel → WHM -->
-            <circle
-            cx="865"
-            cy="300"
-            r="4"
-            class="connector-dot"
-            :class="{ 'connector-dot--active': animateLines }"
-          />
-          <line x1="865" y1="300" x2="935" y2="300"
-                stroke="#9AC7E8" stroke-width="3" stroke-linecap="round"
-                :class="{ draw: animateLines }" />
-            <circle
-              cx="935"
-              cy="300"
-              r="4"
-              class="connector-dot"
-              :class="{ 'connector-dot--active': animateLines }"
-            />
-          <!-- WHM → cPanel -->
-            <circle
-            cx="1065"
-            cy="300"
-            r="4"
-            class="connector-dot"
-            :class="{ 'connector-dot--active': animateLines }"
-          />
-          <line x1="1065" y1="300" x2="1085" y2="300"
-                stroke="#9AC7E8" stroke-width="3" stroke-linecap="round"
-                :class="{ draw: animateLines }" />
-          <circle
-            cx="1085"
-            cy="300"
-            r="4"
-            class="connector-dot"
-            :class="{ 'connector-dot--active': animateLines }"
-          />
+        <span class="command-result">
+          [{{ clientLogos.length }} resultados]
+        </span>
 
-          <!-- Subnodos Vue -->
-          <circle cx="600" cy="235" r="4"
-                class="connector-dot"
-                :class="{ 'connector-dot--active': animateSub }" />
-          <line x1="600" y1="235" x2="600" y2="205"
-                stroke="#9AC7E8" stroke-width="3" stroke-linecap="round"
-                :class="{ draw: animateSub }" />
-          <circle cx="600" cy="205" r="4"
-                class="connector-dot"
-                :class="{ 'connector-dot--active': animateSub }" />   
-                
-          <circle cx="657.7" cy="270" r="4"
-                class="connector-dot"
-                :class="{ 'connector-dot--active': animateSub }" />     
-          <line x1="657.7" y1="270" x2="676.2" y2="260.3"
-                stroke="#9AC7E8" stroke-width="3" stroke-linecap="round"
-                :class="{ draw: animateSub }" />
-          <circle cx="676.2" cy="260.3" r="4"
-                class="connector-dot"
-                :class="{ 'connector-dot--active': animateSub }" />
-
-          <circle cx="646.9" cy="345" r="4"
-                class="connector-dot"
-                :class="{ 'connector-dot--active': animateSub }" />    
-          <line x1="646.9" y1="345" x2="685.3" y2="381.9"
-                stroke="#9AC7E8" stroke-width="3" stroke-linecap="round"
-                :class="{ draw: animateSub }" />
-          <circle cx="685.3" cy="381.9" r="4"
-                class="connector-dot"
-                :class="{ 'connector-dot--active': animateSub }" />
-
-          <!-- Puntos ● (igual que tenías) -->
-          <!-- ... me los salto para no hacer esto kilométrico, pero son los mismos círculos ... -->
-        </svg>
-
-        <!-- NODOS PRINCIPALES DESKTOP -->
-        <div class="tech-node node-github" :class="{ active: show.github }">
-          <img src="/src/assets/icons/git/github.png" />
-        </div>
-
-        <div class="tech-node node-vite" :class="{ active: show.vite }">
-          <img src="/src/assets/icons/frameworks/vite.png" />
-        </div>
-
-        <div class="tech-node node-vue" :class="{ active: show.vue }">
-          <img src="/src/assets/icons/frameworks/vue.png" />
-        </div>
-
-        <div class="tech-node node-laravel" :class="{ active: show.laravel }">
-          <img src="/src/assets/icons/frameworks/laravel.png" />
-        </div>
-
-        <div class="tech-node node-whm" :class="{ active: show.whm }">
-          <img src="/src/assets/icons/servers/whm.png" />
-        </div>
-
-        <div class="tech-node node-cpanel" :class="{ active: show.cpanel }">
-          <img src="/src/assets/icons/servers/cpanel.png" />
-        </div>
-
-        <!-- Subnodos Vue desktop -->
-        <div class="tech-node subnode node-html" :class="{ active: show.html }">
-          <img src="/src/assets/icons/frameworks/html.png" />
-        </div>
-        <div class="tech-node subnode node-js" :class="{ active: show.js }">
-          <img src="/src/assets/icons/frameworks/js.png" />
-        </div>
-        <div class="tech-node subnode node-tailwind" :class="{ active: show.tailwind }">
-          <img src="/src/assets/icons/frameworks/tailwind.png" />
-        </div>
-      </div>
-    </div>
-
-<!-- ========== MOBILE / RESPONSIVE TECH TREE ========== -->
-<div
-  class="tree-mobile md:hidden flex flex-col items-center gap-3 px-8 max-w-xs mx-auto"
->
-  <!-- GitHub -->
-  <div class="mobile-node">
-    <div class="tech-node mobile-main" :class="{ active: show.github }">
-      <img src="/src/assets/icons/git/github.png" />
-    </div>
-  </div>
-
-  <div
-    class="mobile-connector"
-    :class="{ 'mobile-connector--active': show.github && show.vite }"
-  ></div>
-
-  <!-- Vite -->
-  <div class="mobile-node">
-    <div class="tech-node mobile-main" :class="{ active: show.vite }">
-      <img src="/src/assets/icons/frameworks/vite.png" />
-    </div>
-  </div>
-
-  <div
-    class="mobile-connector"
-    :class="{ 'mobile-connector--active': show.vite && show.vue }"
-  ></div>
-
-  <!-- Vue + Subnodos -->
-  <div class="mobile-node">
-    <div class="tech-node mobile-main" :class="{ active: show.vue }">
-      <img src="/src/assets/icons/frameworks/vue.png" />
-    </div>
-
-    <div class="relative vue-mobile-wrapper">
-      <!-- HTML -->
-      <div
-        class="tech-node subnode mobile-sub vue-sub vue-sub--html"
-        :class="{ 'vue-sub--visible': show.html }"
-      >
-        <img src="/src/assets/icons/frameworks/html.png" />
       </div>
 
-      <!-- JS -->
-      <div
-        class="tech-node subnode mobile-sub vue-sub vue-sub--js"
-        :class="{ 'vue-sub--visible': show.js }"
-      >
-        <img src="/src/assets/icons/frameworks/js.png" />
+
+      <!-- CABECERA -->
+      <div class="clients-heading">
+
+        <div>
+
+          <span class="section-eyebrow">
+            // PROYECTOS EN PRODUCCIÓN
+          </span>
+
+          <h2>
+            Proyectos desarrollados
+            <span>en Webcats.mx_</span>
+          </h2>
+
+        </div>
+
+        <div class="clients-heading-right">
+
+          <p>
+            Proyectos desarrollados para empresas y profesionales
+            de distintos sectores, desde el diseño hasta su
+            publicación en producción.
+          </p>
+
+          <router-link
+            to="/portafolio"
+            class="clients-portfolio-link"
+          >
+            <span>$</span>
+            ver --proyectos
+            <b>→</b>
+          </router-link>
+
+        </div>
+
       </div>
 
-      <!-- Tailwind -->
-      <div
-        class="tech-node subnode mobile-sub vue-sub vue-sub--tailwind"
-        :class="{ 'vue-sub--visible': show.tailwind }"
-      >
-        <img src="/src/assets/icons/frameworks/tailwind.png" />
+
+      <!-- VENTANA DE LOGOS -->
+      <div class="clients-terminal-window">
+
+        <div class="clients-window-header">
+
+          <div class="clients-window-title">
+            <span class="folder-icon">▣</span>
+            /webcats/clientes
+          </div>
+
+          <div class="clients-window-meta">
+            <span>{{ clientLogos.length }} clientes</span>
+            <span>production</span>
+            <span class="clients-online">
+              <i></i>
+              ONLINE
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="logo-runway-new">
+
+          <div class="runway-fade runway-fade-left"></div>
+          <div class="runway-fade runway-fade-right"></div>
+
+          <div class="logo-track-new">
+
+            <!-- PRIMER GRUPO -->
+            <div
+              v-for="(logo, i) in clientLogos"
+              :key="`client-a-${i}`"
+              class="client-logo-cell"
+            >
+              <span class="client-index">
+                {{ String(i + 1).padStart(2, '0') }}
+              </span>
+
+              <img
+                :src="logo"
+                alt="Cliente Webcats"
+              />
+            </div>
+
+            <!-- DUPLICADO PARA LOOP -->
+            <div
+              v-for="(logo, i) in clientLogos"
+              :key="`client-b-${i}`"
+              class="client-logo-cell"
+            >
+              <span class="client-index">
+                {{ String(i + 1).padStart(2, '0') }}
+              </span>
+
+              <img
+                :src="logo"
+                alt="Cliente Webcats"
+              />
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- STATUS INFERIOR -->
+        <div class="clients-window-footer">
+
+          <span>
+            webcats.mx / clientes
+          </span>
+
+          <span>
+            {{ clientLogos.length }} proyectos cargados
+          </span>
+
+        </div>
+
       </div>
 
-      <!-- Líneas -->
-      <span
-        class="vue-line vue-line-html"
-        :class="{ 'vue-lines-active': show.html }"
-      ></span>
-
-      <span
-        class="vue-line vue-line-js"
-        :class="{ 'vue-lines-active': show.js }"
-      ></span>
-
-      <span
-        class="vue-line vue-line-tailwind"
-        :class="{ 'vue-lines-active': show.tailwind }"
-      ></span>
     </div>
-  </div>
 
-  <!-- Vue → Laravel -->
-  <div
-    class="mobile-connector"
-    :class="{ 'mobile-connector--active': show.vue && show.laravel }"
-  ></div>
+  </section>
 
-  <!-- Laravel -->
-  <div class="mobile-node">
-    <div class="tech-node mobile-main" :class="{ active: show.laravel }">
-      <img src="/src/assets/icons/frameworks/laravel.png" />
+
+  <!-- ====================================================== -->
+  <!-- TECH STACK / TERMINAL ARCHITECTURE                     -->
+  <!-- ====================================================== -->
+  <section class="tech-stack-section" ref="techStackRef">
+    <div class="tech-shell">
+
+      <div class="tech-topbar">
+        <span><b>&gt;</b> ./tech-stack</span>
+        <span>[ Tecnologías principales ]</span>
+      </div>
+
+      <div class="tech-layout">
+
+        <!-- IZQUIERDA -->
+        <div class="tech-intro">
+          <span class="tech-eyebrow">MI TECH STACK</span>
+
+          <h2>
+            Tecnologías
+            <span>utilizadas</span>
+          </h2>
+
+          <p>
+            Un stack moderno y flexible para desarrollar sitios,
+            sistemas y soluciones escalables.
+          </p>
+
+          <div class="tech-principles">
+            <div>
+              <span class="principle-icon">ϟ</span>
+              <p><strong>Rendimiento</strong><small>Sitios rápidos<br>y optimizados</small></p>
+            </div>
+
+            <div>
+              <span class="principle-icon">◉</span>
+              <p><strong>Seguridad</strong><small>Buenas prácticas<br>desde producción</small></p>
+            </div>
+
+            <div>
+              <span class="principle-icon">⬡</span>
+              <p><strong>Escalabilidad</strong><small>Listo para crecer<br>con tu proyecto</small></p>
+            </div>
+          </div>
+
+          <div class="tech-command">
+            <span>&gt;</span>
+            <span>code better. build bigger.</span>
+            <small>// Webcats.mx</small>
+          </div>
+        </div>
+
+        <!-- DERECHA -->
+        <div class="tech-categories">
+
+          <article class="tech-category tech-category--frontend">
+            <div class="tech-category-info">
+              <span class="category-icon">▣</span>
+              <div>
+                <strong>Frontend</strong>
+                <small>Interfaces modernas<br>y responsivas</small>
+              </div>
+            </div>
+
+            <div class="tech-grid">
+              <div class="tech-item" :class="{ visible: show.vue }">
+                <img src="/src/assets/icons/frameworks/vue.png" alt="Vue.js">
+                <span>Vue.js</span>
+              </div>
+              <div class="tech-item" :class="{ visible: show.html }">
+                <img src="/src/assets/icons/frameworks/html.png" alt="HTML5">
+                <span>HTML5</span>
+              </div>
+              <div class="tech-item tech-css" :class="{ visible: show.html }">
+                <span class="tech-text-icon">CSS</span>
+                <span>CSS3</span>
+              </div>
+              <div class="tech-item" :class="{ visible: show.js }">
+                <img src="/src/assets/icons/frameworks/js.png" alt="JavaScript">
+                <span>JavaScript</span>
+              </div>
+              <div class="tech-item" :class="{ visible: show.vite }">
+                <img src="/src/assets/icons/frameworks/vite.png" alt="Vite">
+                <span>Vite</span>
+              </div>
+              <div class="tech-item" :class="{ visible: show.tailwind }">
+                <img src="/src/assets/icons/frameworks/tailwind.png" alt="Tailwind">
+                <span>Tailwind</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tech-category tech-category--backend">
+            <div class="tech-category-info">
+              <span class="category-icon">▣</span>
+              <div>
+                <strong>Backend</strong>
+                <small>Lógica, APIs<br>y sistemas robustos</small>
+              </div>
+            </div>
+
+            <div class="tech-grid">
+              <div class="tech-item" :class="{ visible: show.laravel }">
+                <img src="/src/assets/icons/frameworks/laravel.png" alt="Laravel">
+                <span>Laravel</span>
+              </div>
+              <div class="tech-item tech-php" :class="{ visible: show.laravel }">
+                <span class="tech-text-icon">php</span>
+                <span>PHP</span>
+              </div>
+              <div class="tech-item tech-mysql" :class="{ visible: show.laravel }">
+                <span class="tech-text-icon">SQL</span>
+                <span>MySQL</span>
+              </div>
+              <div class="tech-item tech-node" :class="{ visible: show.laravel }">
+                <span class="tech-text-icon">JS</span>
+                <span>Node.js</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tech-category tech-category--infra">
+            <div class="tech-category-info">
+              <span class="category-icon">▣</span>
+              <div>
+                <strong>Infraestructura</strong>
+                <small>Servidores, dominios<br>y seguridad</small>
+              </div>
+            </div>
+
+            <div class="tech-grid">
+              <div class="tech-item" :class="{ visible: show.github }">
+                <img src="/src/assets/icons/git/github.png" class="github-icon" alt="GitHub">
+                <span>GitHub</span>
+              </div>
+              <div class="tech-item tech-linux" :class="{ visible: show.whm }">
+                <span class="tech-text-icon">Linux</span>
+                <span>Linux</span>
+              </div>
+              <div class="tech-item tech-nginx" :class="{ visible: show.whm }">
+                <span class="tech-text-icon">NG</span>
+                <span>Nginx</span>
+              </div>
+              <div class="tech-item" :class="{ visible: show.cpanel }">
+                <img src="/src/assets/icons/servers/cpanel.png" alt="cPanel">
+                <span>cPanel</span>
+              </div>
+              <div class="tech-item" :class="{ visible: show.whm }">
+                <img src="/src/assets/icons/servers/whm.png" alt="WHM">
+                <span>WHM</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="tech-statusbar">
+        <span>webcats.mx / stack</span>
+        <span><i></i> production ready</span>
+      </div>
+
     </div>
-  </div>
-
-  <div
-    class="mobile-connector"
-    :class="{ 'mobile-connector--active': show.laravel && show.whm }"
-  ></div>
-
-  <!-- WHM -->
-  <div class="mobile-node">
-    <div class="tech-node mobile-main" :class="{ active: show.whm }">
-      <img src="/src/assets/icons/servers/whm.png" />
-    </div>
-  </div>
-
-  <div
-    class="mobile-connector"
-    :class="{ 'mobile-connector--active': show.whm && show.cpanel }"
-  ></div>
-
-  <!-- cPanel -->
-  <div class="mobile-node">
-    <div class="tech-node mobile-main" :class="{ active: show.cpanel }">
-      <img src="/src/assets/icons/servers/cpanel.png" />
-    </div>
-  </div>
-</div>
-
-
   </section>
 
   <!-- SECCIÓN QUIÉN SOY -->
-  <section
-    class="relative w-full min-h-[70vh] text-white py-10 px-6 overflow-hidden"
-    ref="quienSoyRef"
-  >
-    <div class="absolute inset-0 bg-cover bg-left opacity-40"
-         style="background-image: url('/assets/webcats/fondo-tech.webp');"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-[#0d0d0f]/95 to-[#0d0d0f]/70"></div>
+<!-- =========================================
+     ACERCA DE MÍ
+========================================== -->
+<section class="about-terminal">
 
-    <div
-      :class="[
-        'relative max-w-5xl mx-auto text-center transition-all duration-[900ms] ease-out',
-        quienSoyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      ]"
-    >
-      <h2 class="text-4xl font-bold mb-6">Acerca de mí</h2>
+  <div class="about-terminal__top">
+    <span class="terminal-path">
+      <span class="prompt">></span> ./about-me
+    </span>
 
-      <p class="text-lg leading-relaxed text-gray-300 mb-4">
-        Soy <strong>Ulises Guzmán</strong>, SysAdmin y Desarrollador Web con más de
-        <strong>8 años de experiencia</strong> trabajando con sitios web,
-        servidores y entornos reales en producción.
+    <span class="terminal-comment">
+      [ código con propósito ]
+    </span>
+  </div>
+
+  <div class="about-terminal__container">
+
+    <!-- ==============================
+         COLUMNA IZQUIERDA
+    =============================== -->
+    <div class="about-terminal__intro">
+
+      <span class="about-label">ACERCA DE MÍ</span>
+
+      <h2>
+        Más que código,
+        <span>soluciones reales._</span>
+      </h2>
+
+      <p>
+        Soy <strong>Ulises Guzmán</strong>, SysAdmin y Desarrollador Web
+        con más de <strong>8 años de experiencia</strong> trabajando con
+        sitios web, servidores y entornos reales en producción.
       </p>
 
-      <p class="text-lg leading-relaxed text-gray-300 mb-6">
-        Fundé <strong>Webcats.mx</strong> para crear soluciones web modernas y a la medida,
-        enfocadas en desarrollar sitios
-        <strong>rápidos, responsivos, funcionales y preparados para producción</strong>.
+      <p>
+        Fundé <strong class="webcats">Webcats.mx</strong> para desarrollar
+        soluciones web modernas, rápidas y seguras, combinando desarrollo,
+        infraestructura y soporte en un mismo lugar.
       </p>
 
-      <p class="text-lg leading-relaxed text-gray-300 mb-6">
-        Mi experiencia como SysAdmin me permite complementar el desarrollo con conocimientos en
-        <strong>hosting, dominios, DNS, SSL, correo y servidores web</strong>,
-        además de resolución de problemas en entornos reales de producción.
-      </p>
-
-      <p class="text-lg leading-relaxed text-gray-300 mb-6">
-        Actualmente enfoco <strong>Webcats</strong> en el
-        <strong>desarrollo de sitios web y aplicaciones</strong>,
-        desde páginas corporativas y landing pages hasta proyectos personalizados.
-      </p>
-
-      <p class="text-lg leading-relaxed text-gray-300">
-        Si buscas convertir una idea en un proyecto web
-        <strong>profesional, funcional y hecho a la medida</strong>, hablemos.
-      </p>
-      <div class="mt-10">
-        <a
-            href="/acerca"
-            class="inline-flex items-center gap-2 font-mono text-sm font-semibold
-                  text-green-400 border border-green-400/40
-                  px-6 py-3 rounded-xl
-                  hover:bg-green-400/10 hover:border-green-400
-                  transition-all duration-300"
-              >
-            &gt; leer --mas
-        </a>
-</div>
+      <router-link to="/acerca" class="about-button">
+        <span>></span>
+        Conoce más sobre mí
+        <span class="button-arrow">→</span>
+      </router-link>
 
     </div>
-  </section>
+
+
+    <!-- ==============================
+         COLUMNA DERECHA
+    =============================== -->
+    <div class="about-terminal__profile">
+
+      <div class="profile-title">
+        <span>// EXPERIENCIA EN NÚMEROS</span>
+      </div>
+
+      <!-- STATS -->
+      <div class="about-stats">
+
+        <div class="stat-card">
+          <span class="stat-icon">&lt;/&gt;</span>
+
+          <strong>+8 años</strong>
+
+          <small>
+            de experiencia
+          </small>
+        </div>
+
+
+        <div class="stat-card">
+          <span class="stat-icon">▣</span>
+
+          <strong>Web</strong>
+
+          <small>
+            desarrollo profesional
+          </small>
+        </div>
+
+
+        <div class="stat-card">
+          <span class="stat-icon">⌘</span>
+
+          <strong>SysAdmin</strong>
+
+          <small>
+            servidores y producción
+          </small>
+        </div>
+
+
+        <div class="stat-card">
+          <span class="stat-icon">↗</span>
+
+          <strong>Siempre</strong>
+
+          <small>
+            aprendiendo
+          </small>
+        </div>
+
+      </div>
+
+
+      <!-- TERMINAL / FILOSOFÍA -->
+      <div class="about-console">
+
+        <div class="console-header">
+          <span></span>
+          <span></span>
+          <span></span>
+
+          <small>webcats@mx: ~/about</small>
+        </div>
+
+        <div class="console-content">
+
+          <div class="console-command">
+            <span class="console-user">webcats@mx</span>
+            <span>:</span>
+            <span class="console-path">~/about</span>
+            <span>$</span>
+            cat enfoque.txt
+          </div>
+
+          <p>
+            “Mi enfoque es entender una necesidad, convertirla en una
+            solución sólida y acompañarla desde el desarrollo hasta su
+            funcionamiento en producción.”
+          </p>
+
+          <span class="console-signature">
+            — Ulises Guzmán
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- ÁREAS -->
+      <div class="about-skills">
+
+        <span>Desarrollo Web</span>
+        <span>Administración de Servidores</span>
+        <span>Hosting</span>
+        <span>Seguridad</span>
+        <span>Soporte</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
   <ReviewsWebcats />
 
@@ -535,8 +1011,6 @@
 
 <script setup>
 import { ref, onMounted } from "vue"
-import { getWebcatsPlace } from "../services/webcatsPlaces.js"
-
 import ReviewsWebcats from "../components/ReviewsWebcats.vue"
 import desarrollo from "@/assets/webcats/desarrollo-web.webp"
 import servidores from "@/assets/webcats/servidores.webp"
@@ -565,12 +1039,6 @@ const clientLogos = [
 ]
 
 
-const sliderImages = [
-  "/assets/slider/servers.jpg",
-  "/assets/slider/code.jpg",
-  "/assets/slider/devops.jpg",
-]
-
 const heroAnimate = ref(false)
 
 onMounted(() => {
@@ -579,30 +1047,6 @@ onMounted(() => {
   }, 100)
 })
 
-const currentSlide = ref(0)
-
-onMounted(() => {
-  if (sliderImages.length) {
-    setInterval(() => {
-      currentSlide.value =
-        (currentSlide.value + 1) % sliderImages.length
-    }, 500)
-  }
-})
-
-const quienSoyRef = ref(null)
-const quienSoyVisible = ref(false)
-
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    entries => {
-      quienSoyVisible.value = entries[0].isIntersecting
-    },
-    { threshold: 0.4 }
-  )
-
-  if (quienSoyRef.value) observer.observe(quienSoyRef.value)
-})
 
 const techStackRef = ref(null)
 
@@ -618,640 +1062,3135 @@ const show = ref({
   tailwind: false,
 })
 
-const animateLines = ref(false)
-const animateSub = ref(false)
-
 onMounted(() => {
   const observer = new IntersectionObserver(
     entries => {
       if (entries[0].isIntersecting) {
-        startAnimation()
+        startTechAnimation()
         observer.disconnect()
       }
     },
-    { threshold: 0.3 }
+    { threshold: 0.22 }
   )
 
   if (techStackRef.value) observer.observe(techStackRef.value)
 })
 
-function startAnimation() {
-  setTimeout(() => (show.value.github = true), 200)
-  setTimeout(() => (show.value.vite = true), 700)
-
+function startTechAnimation() {
+  setTimeout(() => (show.value.github = true), 150)
+  setTimeout(() => (show.value.vite = true), 300)
+  setTimeout(() => (show.value.vue = true), 450)
   setTimeout(() => {
-    animateLines.value = true
-    show.value.vue = true
-  }, 1300)
-
-  setTimeout(() => {
-    animateSub.value = true
     show.value.html = true
     show.value.js = true
     show.value.tailwind = true
-  }, 1900)
-
-  setTimeout(() => (show.value.laravel = true), 2400)
-  setTimeout(() => (show.value.whm = true), 2900)
-  setTimeout(() => (show.value.cpanel = true), 3400)
+  }, 650)
+  setTimeout(() => (show.value.laravel = true), 850)
+  setTimeout(() => (show.value.whm = true), 1050)
+  setTimeout(() => (show.value.cpanel = true), 1250)
 }
 
-onMounted(async () => {
-  try {
-    const place = await getWebcatsPlace()
-
-    console.log("🔥 WEBCATS GOOGLE PLACE:")
-    console.log(place)
-  } catch (error) {
-    console.error("❌ Error cargando Google Places:", error)
-  }
-})
 
 </script>
 
 <style>
-/* ========================================================= */
-/*                     HERO CONSOLE                          */
-/* ========================================================= */
 
-.hero-console {
-  position: relative;
-  padding: 80px 60px;
+/* =========================================================
+   WEBCATS / HOME — SISTEMA GENERAL
+   Un solo ancho para todas las secciones principales.
+========================================================= */
+:root {
+  --home-shell: 1550px;
+  --home-width: 92%;
+  --home-pad-y: 96px;
+  --home-pad-x: 4%;
+  --home-bg: #0b0b0d;
+  --home-panel: #0d0d0f;
+  --home-border: #2b2b2f;
+  --home-green: #22c55e;
+  --home-cyan: #22d3ee;
+  --home-blue: #7bc6ff;
+  --home-text: #f5f5f5;
+  --home-muted: #9b9ba0;
 }
 
-.hero-console::after {
-  content: '';
-  position: absolute;
-  bottom: 24px;
-  left: 0;
+.webcats-hero,
+.webcats-services,
+.clients-section,
+.tech-stack-section,
+.about-terminal {
   width: 100%;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.35);
+  box-sizing: border-box;
 }
 
-/* ========================================================= */
-/*                     HERO ENTRANCE                         */
-/* ========================================================= */
-
-.hero-enter-active {
-  transition: opacity 1.2s ease, transform 1.2s ease;
+.hero-workspace,
+.services-shell,
+.clients-shell,
+.tech-shell,
+.about-terminal__top,
+.about-terminal__container {
+  width: min(var(--home-width), var(--home-shell));
+  max-width: var(--home-shell);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
 }
 
-.hero-enter-from {
-  opacity: 0;
-  transform: translateY(40px);
+.tech-stack-section {
+  background: #0b0b0d;
+  color: #fff;
+  font-family: "JetBrains Mono", monospace;
 }
 
-.hero-enter-to {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ========================================================= */
-/*                     HERO TREE                             */
-/* ========================================================= */
-
-.hero-tree {
+.tech-shell {
   position: relative;
+  padding-top: 70px;
+  padding-bottom: 55px;
 }
 
-.hero-root-line {
+/* ========================= HERO ========================= */
+/* =========================================================
+   WEBCATS HERO / TERMINAL WORKSPACE
+========================================================= */
+
+.webcats-hero {
   position: relative;
-  padding-left: 24px;
-}
 
-.hero-root-line::before {
-  content: "";
-  position: absolute;
-  left: -140px;
-  top: 50%;
-  width: 90px;
-  height: 4px;
-  background: rgba(255,255,255,0.9);
-}
+  width: 100%;
+  min-height: calc(100vh - 64px);
 
-/* líneas */
-.hero-line {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-family: 'JetBrains Mono', monospace;
-  margin-bottom: 10px;
-  opacity: 0;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 80px 5% 60px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  background: #0b0b0d;
+  color: #ffffff;
+
+  font-family: "JetBrains Mono", monospace;
 }
 
-/* ========================================================= */
-/*                     HERO TRUNK                            */
-/* ========================================================= */
 
-.hero-trunk {
+/* =========================================================
+   GRID DE FONDO
+========================================================= */
+
+.hero-grid-bg {
   position: absolute;
-  left: -140px;
-  top: -120px;
-  width: 4px;
-  height: calc(100% + 120px);
-  background: linear-gradient(
-    to bottom,
-    rgba(255,255,255,0.9),
-    rgba(255,255,255,0.2)
-  );
-  border-radius: 4px;
+  inset: 0;
+
   pointer-events: none;
+
+  opacity: 0.11;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 45px 45px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 20%,
+      black 80%,
+      transparent
+    );
 }
 
-/* ========================================================= */
-/*                     HERO TEXT                             */
-/* ========================================================= */
 
-.hero-brand {
-  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
-  font-weight: 900;
-  color: #7bc6ff;
-  margin-left: -57px;
+/* =========================================================
+   WORKSPACE
+========================================================= */
+
+.hero-workspace {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(500px, 1.1fr)
+    minmax(470px, 0.9fr);
+
+  gap: clamp(70px, 7vw, 140px);
+
+  align-items: center;
 }
 
-.hero-title-text {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
+
+/* =========================================================
+   HERO IZQUIERDA
+========================================================= */
+
+.hero-main {
+  position: relative;
+}
+
+
+/* usuario/path */
+
+.hero-path {
+  margin-bottom: 25px;
+
+  display: flex;
+  gap: 6px;
+
+  font-size: 13px;
+
+  color: #8b8b8b;
+}
+
+
+.path-user {
   color: #22c55e;
 }
 
-.hero-desc-text {
-  font-size: 17px;
-  color: #d1d5db;
-  max-width: 680px;
-  line-height: 1.7;
+
+.path-location {
+  color: #7bc6ff;
 }
 
-.branch {
+
+.path-symbol {
   color: #ffffff;
 }
 
-/* ========================================================= */
-/*                     HERO ACTIONS                          */
-/* ========================================================= */
 
-.hero-actions {
+/* =========================================================
+   MARCA
+========================================================= */
+
+.hero-brand-row {
   display: flex;
+  align-items: center;
+
   gap: 16px;
+
+  margin-bottom: 18px;
+}
+
+
+.tree-symbol {
+  flex: 0 0 auto;
+
+  color: #727272;
+
+  font-size: 22px;
+}
+
+
+.hero-brand-new {
+  color: #7bc6ff;
+
+  font-size: clamp(28px, 2.5vw, 42px);
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: -0.04em;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.hero-title-row {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 16px;
+}
+
+
+.tree-middle {
   margin-top: 18px;
 }
 
-.cmd-btn {
-  font-family: 'JetBrains Mono', monospace;
-  padding: 12px 22px;
-  border-radius: 12px;
+
+.hero-main-title {
+  margin: 0;
+
+  font-size: clamp(48px, 5vw, 82px);
+
+  line-height: 0.98;
+
+  letter-spacing: -0.065em;
+
   font-weight: 700;
-  text-decoration: none;
-  transition: all 0.25s ease;
-}
 
-.cmd-btn.primary {
-  background: #008330;
-  color: #fff;
-}
-
-.cmd-btn.primary:hover {
-  background: #a0d8ff;
-}
-
-.cmd-btn.muted {
-  background: #2a2a2a;
-  border: 1px solid #555;
-  color: #fff;
-}
-
-.cmd-btn.muted:hover {
-  background: #3a3a3a;
-}
-
-/* ========================================================= */
-/*                     HERO ANIMATION                        */
-/* ========================================================= */
-
-.hero-animate .hero-line {
-  animation: showLine .4s ease forwards;
-}
-
-.hero-animate .hero-line:nth-child(1) { animation-delay: 1.5s; }
-.hero-animate .hero-line:nth-child(2) { animation-delay: 1.8s; }
-.hero-animate .hero-line:nth-child(3) { animation-delay: 2.1s; }
-.hero-animate .hero-line:nth-child(4) { animation-delay: 2.4s; }
-.hero-animate .hero-line:nth-child(5) { animation-delay: 2.7s; }
-
-.hero-animate .hero-actions {
-  animation: showLine .4s ease forwards;
-  animation-delay: 3s;
-  opacity: 0;
-}
-
-@keyframes showLine {
-  to { opacity: 1; }
-}
-
-/* ========================================================= */
-/*                     SERVICES                              */
-/* ========================================================= */
-
-.service-desc {
   color: #22c55e;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.95rem;
-  line-height: 1.6;
 }
 
-.service-link {
-  color: #facc15;
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600;
-  text-decoration: none;
+
+.hero-main-title > span {
+  display: block;
+
+  color: #ffffff;
 }
 
-.service-link:hover {
-  color: #fde047;
-}
-/* ========================================================= */
-/*        SERVICE CARDS – TERMINAL FULL BORDER               */
-/* ========================================================= */
 
-section > div.grid > div.rounded-2xl {
-  position: relative;
-  border: 1.5px solid rgba(255, 255, 255, 0.25);
-  background: linear-gradient(
-    180deg,
-    rgba(20, 20, 24, 0.95),
-    rgba(12, 12, 15, 0.95)
-  );
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.05),
-    0 18px 50px rgba(0,0,0,0.65);
+/* cursor */
+
+.terminal-cursor {
+  display: inline-block;
+
+  margin-left: 4px;
+
+  color: #22c55e;
+
+  animation: cursorBlink 1s steps(1) infinite;
+}
+
+
+@keyframes cursorBlink {
+
+  0%,
+  48% {
+    opacity: 1;
+  }
+
+  49%,
+  100% {
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================================
+   ÁRBOL SERVICIOS
+========================================================= */
+
+.hero-services-tree {
+  margin:
+    35px
+    0
+    32px
+    42px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(190px, 1fr));
+
+  gap: 10px 30px;
+
+  max-width: 600px;
+}
+
+
+.service-tree-line {
+  display: flex;
+
+  gap: 11px;
+
+  color: #656565;
+
+  font-size: 13px;
+}
+
+
+.folder {
+  color: #c4c4c4;
+
   transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.25s ease;
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
-/* Overlay tipo consola (muy sutil) */
-section > div.grid > div.rounded-2xl::before {
+
+.service-tree-line:hover .folder {
+  color: #22d3ee;
+
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+========================================================= */
+
+.hero-description-row {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 16px;
+}
+
+
+.hero-description-row p {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: #a9a9ad;
+
+  font-size: clamp(14px, 1vw, 17px);
+
+  line-height: 1.8;
+}
+
+
+.hero-description-row strong {
+  color: #e8e8e8;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.hero-actions-new {
+  margin:
+    35px
+    0
+    0
+    42px;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 14px;
+}
+
+
+.terminal-button {
+  min-height: 48px;
+
+  padding: 0 22px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 10px;
+
+  border: 1px solid #4a4a4a;
+
+  border-radius: 7px;
+
+  background: #272729;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.terminal-button span {
+  color: #22d3ee;
+}
+
+
+.terminal-button:hover {
+  transform: translateY(-2px);
+
+  background: #323234;
+
+  border-color: #686868;
+}
+
+
+.terminal-button-primary {
+  background: #008d35;
+
+  border-color: #00a33e;
+}
+
+
+.terminal-button-primary span {
+  color: #ffffff;
+}
+
+
+.terminal-button-primary:hover {
+  background: #00a33e;
+
+  border-color: #00bd48;
+}
+
+
+/* =========================================================
+   TERMINAL DERECHA
+========================================================= */
+
+.hero-terminal {
+  position: relative;
+
+  min-height: 500px;
+
+  overflow: hidden;
+
+  border: 1px solid #424242;
+
+  border-radius: 10px;
+
+  background: #0e0e10;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+
+/* pequeño glow detrás */
+
+.hero-terminal::before {
   content: "";
+
   position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0.06),
-    transparent 40%
-  );
-  opacity: 0.4;
+
+  width: 280px;
+  height: 280px;
+
+  right: -100px;
+  top: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(34, 211, 238, 0.06);
+
+  filter: blur(60px);
+
   pointer-events: none;
 }
 
-/* HOVER: encender card */
-section > div.grid > div.rounded-2xl:hover {
-  border-color: rgba(255, 255, 255, 0.55);
+
+/* =========================================================
+   CABECERA TERMINAL
+========================================================= */
+
+.terminal-window-header {
+  height: 52px;
+
+  padding: 0 15px 0 8px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  background: #303030;
+
+  border-bottom: 1px solid #444;
+}
+
+
+.terminal-window-tab {
+  height: 44px;
+
+  min-width: 220px;
+
+  padding: 0 17px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  border-radius: 8px 8px 0 0;
+
+  background: #0e0e10;
+
+  color: #f0f0f0;
+
+  font-size: 12px;
+}
+
+
+.terminal-mini-icon {
+  color: #22d3ee;
+}
+
+
+.terminal-window-actions {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 22px;
+
+  color: #a5a5a5;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   TERMINAL BODY
+========================================================= */
+
+.terminal-window-body {
+  position: relative;
+
+  padding: 32px;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+.terminal-command {
+  margin-bottom: 30px;
+
+  color: #e3e3e3;
+}
+
+
+.terminal-user {
+  color: #22c55e;
+
+  font-weight: 600;
+}
+
+
+.terminal-path {
+  margin-right: 9px;
+
+  color: #7bc6ff;
+}
+
+
+.terminal-result {
+  margin:
+    9px
+    0
+    0
+    0;
+
+  padding-left: 18px;
+
+  color: #8f8f93;
+}
+
+
+/* =========================================================
+   STACK
+========================================================= */
+
+.stack-list {
+  margin-top: 13px;
+
+  padding-left: 18px;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 7px 20px;
+}
+
+
+.stack-list span {
+  color: #b9b9bd;
+}
+
+
+.stack-list b {
+  display: inline-block;
+
+  width: 28px;
+
+  color: #555;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.terminal-status {
+  margin:
+    10px
+    0
+    0
+    18px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  color: #22c55e;
+
+  font-weight: 600;
+}
+
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
   box-shadow:
-    0 0 0 1px rgba(255,255,255,0.2),
-    0 0 22px rgba(255,255,255,0.18),
-    0 26px 65px rgba(0,0,0,0.75);
-  transform: translateY(-4px);
-}
-
-/* Hover refuerza overlay */
-section > div.grid > div.rounded-2xl:hover::before {
-  opacity: 0.7;
+    0 0 10px rgba(34, 197, 94, 0.7);
 }
 
 
-/* ========================================================= */
-/*                     LOGO RUNWAY                           */
-/* ========================================================= */
+/* cursor terminal */
 
-.logo-runway {
-  width: 100%;
-  overflow: hidden;
-}
-
-.logo-track {
+.terminal-current-line {
   display: flex;
   align-items: center;
-  gap: 120px;
-  width: max-content;
-  animation: runwayScroll 45s linear infinite;
-  padding: 20px 0;
-}
-
-.logo-item {
-  max-width: 160px;
-  height: 70px;
-  object-fit: contain;
-  opacity: 0.7;
-  filter: grayscale(100%) brightness(1.1);
-}
-
-.logo-item:hover {
-  opacity: 1;
-  transform: translateY(-3px);
-}
-
-@keyframes runwayScroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
 }
 
 
+.terminal-cursor-block {
+  width: 8px;
+  height: 16px;
 
-/* ========================================================= */
-/*                     TECH STACK                            */
-/* ========================================================= */
+  margin-left: 3px;
 
-.tech-node {
-  width: 90px;
-  height: 90px;
-  border-radius: 9999px;
-  border: 4px solid #9AC7E8;
-  background-color: #ffffff;
+  background: #cfcfcf;
+
+  animation: terminalBlockBlink 1s steps(1) infinite;
+}
+
+
+@keyframes terminalBlockBlink {
+
+  50% {
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================================
+   STATUS BAR INFERIOR
+========================================================= */
+
+.hero-status-bar {
   position: absolute;
-  transform: translate(-50%, -50%) scale(0.5);
-  opacity: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.18);
-  transition: opacity 0.45s ease, transform 0.45s ease, box-shadow 0.3s ease;
-}
 
-.tech-node.active {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-}
+  z-index: 5;
 
-.tech-node img {
-  width: 60%;
-  height: 60%;
-  object-fit: contain;
-}
-
-/* Posiciones desktop */
-.node-github { left: 150px; top: 300px; }
-.node-vite { left: 350px; top: 300px; }
-.node-vue { left: 600px; top: 300px; }
-.node-laravel { left: 800px; top: 300px; }
-.node-whm { left: 1000px; top: 300px; }
-.node-cpanel { left: 1150px; top: 300px; }
-
-/* Subnodos */
-.node-html { left: 600px; top: 150px; }
-.node-js { left: 725px; top: 235px; }
-.node-tailwind { left: 725px; top: 420px; }
-
-.tech-node.node-vue {
-  width: 120px;
-  height: 120px;
-  border-width: 5px;
-}
-
-.tech-node.node-vue img {
-  width: 65%;
-  height: 65%;
-}
-
-
-/* Wrapper */
-.tree-desktop-wrapper {
-  height: 550px;
-  overflow: hidden;
-  margin-top: -130px;
-}
-
-.tree-desktop {
-  transform: translateX(-60px);
-}
-
-/* ========================================================= */
-/*     FIX DEFINITIVO – DOTS DEL TECH TREE (DESKTOP)         */
-/* ========================================================= */
-
-/* Asegura que el SVG esté visible encima del fondo */
-.tree-desktop svg {
-  z-index: 2;
-}
-
-/* Los nodos encima del SVG */
-.tech-node {
-  z-index: 3;
-}
-
-/* DOTS SVG (circle) */
-.connector-dot {
-  fill: #9ac7e8;            /* 🔥 ESTO ES LO QUE FALTABA */
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-/* DOTS activos */
-.connector-dot--active {
-  opacity: 1;
-}
-
-
-
-/* ========================================================= */
-/* MOBILE TREE (BASE) */
-/* ========================================================= */
-
-.tree-mobile .mobile-node > .tech-node {
-  position: relative;
   left: 0;
-  top: 0;
-  transform: scale(1) translate(0, 0);
-  margin: 0 auto;
+  right: 0;
+  bottom: 0;
+
+  min-height: 34px;
+
+  padding: 0 4%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+
+  border-top: 1px solid #303033;
+
+  background: #151517;
+
+  color: #77777c;
+
+  font-size: 10px;
+
+  letter-spacing: 0.03em;
 }
 
-.tech-node.mobile-main {
-  width: 80px;
-  height: 80px;
+
+.status-left,
+.status-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 22px;
 }
 
-.tech-node.subnode.mobile-sub {
-  width: 100px;
-  height: 100px;
+
+.online {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: #22c55e;
 }
 
-/* Conectores verticales */
-.mobile-connector {
-  width: 2px;
-  height: 45px;
-  background: transparent;
-  position: relative;
+
+.online i {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+}
+
+
+/* =========================================================
+   ENTRADA
+========================================================= */
+
+.hero-enter-active {
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+
+.hero-enter-from {
   opacity: 0;
-  transform: scaleY(0.4);
-  transform-origin: top;
-  transition: opacity 0.35s ease, transform 0.35s ease;
+
+  transform: translateY(20px);
 }
 
-.mobile-connector::before,
-.mobile-connector::after {
+
+.hero-enter-to {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE 1200
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .webcats-hero {
+    padding:
+      80px
+      4%
+      70px;
+  }
+  .hero-workspace {
+
+    grid-template-columns:
+      minmax(420px, 1fr)
+      minmax(400px, 0.9fr);
+
+    gap: 50px;
+  }
+
+
+  .hero-main-title {
+    font-size: clamp(46px, 5vw, 68px);
+  }
+
+
+  .hero-terminal {
+    min-height: 460px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .webcats-hero {
+    min-height: auto;
+
+    padding:
+      90px
+      30px
+      80px;
+  }
+
+
+  .hero-workspace {
+    width: min(100%, var(--home-shell));
+
+    grid-template-columns: 1fr;
+
+    gap: 65px;
+  }
+
+
+  .hero-main-title {
+    font-size: clamp(48px, 8vw, 70px);
+  }
+
+
+  .hero-services-tree {
+    max-width: 650px;
+  }
+
+
+  .hero-terminal {
+    min-height: 440px;
+  }
+
+
+  .hero-status-bar {
+    position: absolute;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .webcats-hero {
+    padding:
+      65px
+      20px
+      70px;
+  }
+
+
+  .hero-workspace {
+    width: 100%;
+
+    gap: 45px;
+  }
+
+
+  .hero-path {
+    margin-bottom: 18px;
+
+    font-size: 11px;
+  }
+
+
+  .hero-brand-row,
+  .hero-title-row,
+  .hero-description-row {
+    gap: 9px;
+  }
+
+
+  .tree-symbol {
+    font-size: 15px;
+  }
+
+
+  .tree-middle {
+    margin-top: 8px;
+  }
+
+
+  .hero-brand-new {
+    font-size: clamp(25px, 8vw, 34px);
+  }
+
+
+  .hero-main-title {
+    font-size: clamp(38px, 11vw, 55px);
+
+    line-height: 1.02;
+  }
+
+
+  .hero-services-tree {
+    margin:
+      28px
+      0
+      28px
+      24px;
+
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+  }
+
+
+  .hero-description-row p {
+    font-size: 13px;
+
+    line-height: 1.7;
+  }
+
+
+  .hero-actions-new {
+    margin:
+      28px
+      0
+      0
+      24px;
+
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  .terminal-button {
+    width: 100%;
+
+    justify-content: center;
+
+    box-sizing: border-box;
+  }
+
+
+  /* terminal */
+
+  .hero-terminal {
+    min-height: 410px;
+
+    border-radius: 7px;
+  }
+
+
+  .terminal-window-header {
+    height: 47px;
+  }
+
+
+  .terminal-window-tab {
+    height: 40px;
+
+    min-width: 175px;
+
+    font-size: 10px;
+  }
+
+
+  .terminal-window-actions {
+    gap: 11px;
+
+    font-size: 11px;
+  }
+
+
+  .terminal-window-body {
+    padding: 24px 20px;
+
+    font-size: 11px;
+  }
+
+
+  .stack-list {
+    grid-template-columns: 1fr;
+
+    gap: 5px;
+  }
+
+
+  /* status bar */
+
+  .hero-status-bar {
+    padding: 0 15px;
+  }
+
+
+  .status-left span:nth-child(2) {
+    display: none;
+  }
+
+
+  .status-right span:not(.online) {
+    display: none;
+  }
+
+}
+/* ====================== TECH STACK ====================== */
+.tech-stack-section {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 35%, rgba(34, 211, 238, .055), transparent 28%),
+    #09090b;
+  color: #f5f5f5;
+  font-family: "JetBrains Mono", monospace;
+  border-top: 1px solid #1e1e22;
+  border-bottom: 1px solid #1e1e22;
+}
+
+.tech-shell {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #26262b;
+  background: rgba(10, 10, 12, .82);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, .25);
+}
+
+.tech-shell::before {
   content: "";
   position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .08;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 38px 38px;
+}
+
+.tech-topbar,
+.tech-statusbar {
+  position: relative;
+  z-index: 2;
+  min-height: 38px;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #74747b;
+  font-size: 13px;
+  letter-spacing: .04em;
+  background: #0e0e11;
+}
+
+.tech-topbar {
+  border-bottom: 1px solid #25252a;
+}
+
+.tech-topbar b {
+  color: #22d3ee;
+  font-weight: 400;
+}
+
+.tech-layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(360px, .72fr) minmax(650px, 1.28fr);
+  gap: clamp(60px, 6vw, 115px);
+  padding: clamp(60px, 5vw, 90px);
+  align-items: center;
+}
+
+.tech-eyebrow {
+  display: block;
+  margin-bottom: 16px;
+  color: #7b7b82;
+  font-size: 13px;
+  letter-spacing: .16em;
+}
+
+.tech-intro h2 {
+  max-width: 600px;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(38px, 3.5vw, 62px);
+  line-height: 1.02;
+  letter-spacing: -.055em;
+}
+
+.tech-intro h2 span {
+  display: block;
+  color: #22c55e;
+}
+
+.tech-intro > p {
+  max-width: 590px;
+  margin: 25px 0 0;
+  color: #98989f;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.tech-principles {
+  margin-top: 42px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.tech-principles > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.principle-icon {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #24333a;
+  border-radius: 50%;
+  color: #22d3ee;
+  background: #10161a;
+  font-size: 12px;
+}
+
+.tech-principles p {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tech-principles strong {
+  color: #dedee2;
+  font-size: 13px;
+}
+
+.tech-principles small {
+  color: #66666d;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.tech-command {
+  margin-top: 46px;
+  min-height: 42px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid #242429;
+  background: #0c0c0f;
+  color: #d4d4d7;
+  font-size: 13px;
+}
+
+.tech-command > span:first-child {
+  color: #22c55e;
+}
+
+.tech-command small {
+  margin-left: auto;
+  color: #55555b;
+  font-size: 10px;
+}
+
+.tech-categories {
+  display: grid;
+  gap: 14px;
+}
+
+.tech-category {
+  display: grid;
+  grid-template-columns: 165px 1fr;
+  gap: 22px;
+  min-height: 130px;
+  padding: 18px;
+  border: 1px solid #25252b;
+  background: rgba(13, 13, 16, .9);
+  transition: border-color .25s ease, transform .25s ease, background .25s ease;
+}
+
+.tech-category:hover {
+  transform: translateX(4px);
+  background: #0e1012;
+}
+
+.tech-category--frontend:hover {
+  border-color: rgba(34, 197, 94, .48);
+}
+
+.tech-category--backend:hover {
+  border-color: rgba(34, 211, 238, .4);
+}
+
+.tech-category--infra:hover {
+  border-color: rgba(167, 139, 250, .42);
+}
+
+.tech-category-info {
+  padding: 8px 18px 8px 5px;
+  display: flex;
+  gap: 10px;
+  border-right: 1px solid #242429;
+}
+
+.category-icon {
+  color: #22c55e;
+  font-size: 12px;
+}
+
+.tech-category--backend .category-icon {
+  color: #22d3ee;
+}
+
+.tech-category--infra .category-icon {
+  color: #a78bfa;
+}
+
+.tech-category-info div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.tech-category-info strong {
+  color: #ededf0;
+  font-size: 14px;
+}
+
+.tech-category-info small {
+  color: #626269;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(65px, 1fr));
+  gap: 9px;
+  align-items: stretch;
+}
+
+.tech-item {
+  min-height: 88px;
+  padding: 11px 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid #232329;
+  background: #0a0a0d;
+  opacity: 0;
+  transform: translateY(12px) scale(.96);
+  transition:
+    opacity .45s ease,
+    transform .45s ease,
+    border-color .2s ease,
+    background .2s ease;
+}
+
+.github-icon {
+  filter: brightness(0) invert(1);
+}
+
+.tech-item.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.tech-item:hover {
+  border-color: #3b3b43;
+  background: #111115;
+  transform: translateY(-3px) scale(1);
+}
+
+.tech-item img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.tech-item > span:last-child {
+  color: #8e8e95;
+  font-size: 10px;
+  text-align: center;
+}
+
+.tech-text-icon {
+  min-height: 34px;
+  display: grid;
+  place-items: center;
+  color: #22d3ee;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tech-css .tech-text-icon {
+  color: #60a5fa;
+}
+
+.tech-php .tech-text-icon {
+  color: #a5b4fc;
+}
+
+.tech-mysql .tech-text-icon {
+  color: #38bdf8;
+}
+
+.tech-node .tech-text-icon {
+  color: #22c55e;
+}
+
+.tech-python .tech-text-icon {
+  color: #facc15;
+}
+
+.tech-linux .tech-text-icon,
+.tech-nginx .tech-text-icon {
+  color: #e5e7eb;
+  font-size: 9px;
+}
+
+.tech-cloud .tech-text-icon {
+  color: #60a5fa;
+  font-size: 24px;
+}
+
+.tech-statusbar {
+  border-top: 1px solid #25252a;
+}
+
+.tech-statusbar span:last-child {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #22c55e;
+}
+
+.tech-statusbar i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px rgba(34, 197, 94, .6);
+}
+
+/* Laptop */
+@media (max-width: 1250px) {
+  .tech-layout {
+    grid-template-columns: minmax(300px, .65fr) minmax(580px, 1.35fr);
+    gap: 45px;
+    padding: 55px 45px;
+  }
+
+  .tech-category {
+    grid-template-columns: 135px 1fr;
+    gap: 15px;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tech-item {
+    min-height: 76px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 950px) {
+  .tech-stack-section {
+    padding: 70px 0;
+  }
+
+  .tech-layout {
+    grid-template-columns: 1fr;
+    gap: 55px;
+    padding: 55px 40px;
+  }
+
+  .tech-intro h2 {
+    max-width: 700px;
+  }
+
+  .tech-intro > p {
+    max-width: 680px;
+  }
+
+  .tech-category {
+    grid-template-columns: 150px 1fr;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .tech-stack-section {
+    padding: 45px 0;
+  }
+
+  .tech-topbar,
+  .tech-statusbar {
+    padding: 0 14px;
+    font-size: 8px;
+  }
+
+  .tech-topbar span:last-child {
+    display: none;
+  }
+
+  .tech-layout {
+    padding: 38px 20px;
+    gap: 42px;
+  }
+
+  .tech-intro h2 {
+    font-size: clamp(34px, 10vw, 46px);
+  }
+
+  .tech-intro > p {
+    font-size: 12px;
+  }
+
+  .tech-principles {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .tech-principles small br {
+    display: none;
+  }
+
+  .tech-command small {
+    display: none;
+  }
+
+  .tech-category {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 15px;
+  }
+
+  .tech-category-info {
+    border-right: 0;
+    border-bottom: 1px solid #242429;
+    padding: 4px 0 14px;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tech-item {
+    min-height: 82px;
+  }
+}
+
+@media (max-width: 390px) {
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ================= SERVICIOS / CLIENTES ================= */
+/* =========================================================
+   SERVICES / WEBCATS TERMINAL
+========================================================= */
+
+.webcats-services {
+  position: relative;
+  width: 100%;
+  padding: 100px 4% 75px;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    ),
+    #0d0d0f;
+
+  background-size: 42px 42px;
+
+  color: #fff;
+  font-family: "JetBrains Mono", monospace;
+}
+
+
+/* =========================================================
+   COMMAND
+========================================================= */
+
+.section-command {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+
+  margin-bottom: 30px;
+
+  color: #9b9ba0;
+  font-size: 13px;
+}
+
+.command-user {
+  color: #22c55e;
+}
+
+.command-path {
+  color: #7bc6ff;
+}
+
+
+/* =========================================================
+   SERVICES HEADING
+========================================================= */
+
+.services-heading {
+  margin-bottom: 55px;
+}
+
+.services-heading-row {
+  display: grid;
+  grid-template-columns: minmax(500px, 1.2fr) minmax(330px, 0.55fr);
+  align-items: end;
+  gap: clamp(60px, 8vw, 150px);
+}
+
+.section-eyebrow {
+  display: block;
+  margin-bottom: 17px;
+
+  color: #22c55e;
+
+  font-size: 11px;
+  letter-spacing: 0.16em;
+}
+
+.services-heading h2,
+.clients-heading h2 {
+  margin: 0;
+
+  font-size: clamp(36px, 3.1vw, 58px);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  font-weight: 700;
+}
+
+.services-heading h2 span,
+.clients-heading h2 span {
+  display: block;
+  color: #7bc6ff;
+}
+
+.services-heading-row > p,
+.clients-heading-right > p {
+  margin: 0;
+
+  color: #929297;
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   SERVICE GRID
+========================================================= */
+
+.services-terminal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: clamp(20px, 2vw, 32px);
+}
+
+
+/* =========================================================
+   SERVICE WINDOW
+========================================================= */
+
+.service-terminal-card {
+  position: relative;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  border: 1px solid #353538;
+  border-radius: 10px;
+
+  background: #101012;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.3);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.service-terminal-card:hover {
+  transform: translateY(-8px);
+
+  border-color: #58585d;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(34, 197, 94, 0.06);
+}
+
+
+/* =========================================================
+   WINDOW BAR
+========================================================= */
+
+.service-window-bar {
+  height: 48px;
+
+  padding: 0 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+
+  background: #29292b;
+
+  border-bottom: 1px solid #3c3c3f;
+}
+
+.service-window-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #c9c9cd;
+
+  font-size: 11px;
+}
+
+.service-number {
+  color: #22d3ee;
+}
+
+.window-controls {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  color: #838388;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   SERVICE IMAGE
+========================================================= */
+
+.service-visual {
+  position: relative;
+
+  height: clamp(230px, 17vw, 310px);
+
+  overflow: hidden;
+
+  background: #161619;
+}
+
+.service-visual img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.45s ease;
+}
+
+.service-terminal-card:hover .service-visual img {
+  transform: scale(1.025);
+}
+
+.service-visual-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 55%,
+      rgba(16, 16, 18, 0.75)
+    );
+
+  pointer-events: none;
+}
+
+.service-status {
+  position: absolute;
+
+  left: 17px;
+  bottom: 15px;
+
+  padding: 7px 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 5px;
+
+  background: rgba(10, 10, 12, 0.82);
+
+  backdrop-filter: blur(8px);
+
+  color: #d6d6da;
+
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+
+.service-status i {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
+}
+
+
+/* =========================================================
+   SERVICE CONTENT
+========================================================= */
+
+.service-terminal-body {
+  padding: clamp(25px, 2vw, 34px);
+}
+
+.service-path {
+  display: block;
+
+  margin-bottom: 17px;
+
+  color: #5e5e64;
+
+  font-size: 10px;
+}
+
+.service-terminal-body h3 {
+  margin: 0 0 18px;
+
+  color: #fff;
+
+  font-size: clamp(22px, 1.55vw, 29px);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+
+.service-terminal-body h3 span {
+  display: block;
+
+  color: #7bc6ff;
+}
+
+.service-terminal-body > p {
+  min-height: 72px;
+
+  margin: 0 0 24px;
+
+  color: #99999e;
+
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   COMMAND LIST
+========================================================= */
+
+.service-command-list {
+  margin-bottom: 25px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+
+  color: #d0d0d3;
+
+  font-size: 12px;
+}
+
+.service-command-list span {
+  display: flex;
+  gap: 10px;
+}
+
+.service-command-list i {
+  color: #5d5d61;
+  font-style: normal;
+}
+
+
+/* =========================================================
+   TECH TAGS
+========================================================= */
+
+.service-techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+
+  margin-bottom: 27px;
+}
+
+.service-techs span {
+  padding: 6px 9px;
+
+  border: 1px solid #343438;
+  border-radius: 4px;
+
+  background: #171719;
+
+  color: #8d8d92;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   SERVICE LINK
+========================================================= */
+
+.service-terminal-link {
+  min-height: 46px;
+
+  padding: 0 15px;
+
+  display: flex;
+  align-items: center;
+
+  border-top: 1px solid #2d2d31;
+
+  color: #d9d9dc;
+
+  text-decoration: none;
+
+  font-size: 11px;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.service-terminal-link span {
+  margin-right: 9px;
+  color: #22c55e;
+}
+
+.service-terminal-link b {
+  margin-left: auto;
+
+  color: #22d3ee;
+
+  font-weight: 400;
+
+  transition: transform 0.2s ease;
+}
+
+.service-terminal-link:hover {
+  color: #fff;
+  background: #161618;
+}
+
+.service-terminal-link:hover b {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   CLIENT SECTION
+========================================================= */
+
+.clients-section {
+  position: relative;
+
+  width: 100%;
+
+  padding: 55px 4% 110px;
+
+  box-sizing: border-box;
+
+  background: #0d0d0f;
+
+  color: #fff;
+
+  font-family: "JetBrains Mono", monospace;
+}
+
+
+/* =========================================================
+   CLIENT COMMAND
+========================================================= */
+
+.clients-command-line {
+  min-height: 48px;
+
+  padding: 0 17px;
+
+  margin-bottom: 70px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  box-sizing: border-box;
+
+  border-top: 1px solid #333337;
+  border-bottom: 1px solid #333337;
+
+  color: #c7c7cb;
+
+  font-size: 11px;
+}
+
+.command-symbol {
+  color: #22c55e;
+}
+
+.command-option {
+  color: #7bc6ff;
+}
+
+.command-result {
+  margin-left: auto;
+
+  color: #646469;
+}
+
+
+/* =========================================================
+   CLIENT HEADING
+========================================================= */
+
+.clients-heading {
+  display: grid;
+
+  grid-template-columns:
+    minmax(500px, 1.2fr)
+    minmax(350px, 0.55fr);
+
+  gap: clamp(60px, 8vw, 150px);
+
+  align-items: end;
+
+  margin-bottom: 50px;
+}
+
+.clients-heading-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.clients-portfolio-link {
+  min-height: 43px;
+
+  padding: 0 17px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  border: 1px solid #3c3c40;
+  border-radius: 5px;
+
+  background: #171719;
+
+  color: #dddde0;
+
+  text-decoration: none;
+
+  font-size: 11px;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.clients-portfolio-link span {
+  color: #22c55e;
+}
+
+.clients-portfolio-link b {
+  margin-left: 10px;
+
+  color: #22d3ee;
+
+  font-weight: 400;
+}
+
+.clients-portfolio-link:hover {
+  transform: translateY(-2px);
+
+  background: #202023;
+
+  border-color: #56565b;
+}
+
+
+/* =========================================================
+   CLIENT TERMINAL WINDOW
+========================================================= */
+
+.clients-terminal-window {
+  overflow: hidden;
+
+  border: 1px solid #343438;
+  border-radius: 9px;
+
+  background: #101012;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.35);
+}
+
+.clients-window-header {
+  min-height: 48px;
+
+  padding: 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid #343438;
+
+  background: #29292b;
+
+  color: #a9a9ae;
+
+  font-size: 10px;
+}
+
+.clients-window-title,
+.clients-window-meta {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.folder-icon {
+  color: #7bc6ff;
+}
+
+.clients-online {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #22c55e;
+}
+
+.clients-online i {
   width: 5px;
   height: 5px;
-  border-radius: 9999px;
-  background: #9ac7e8;
-  left: 50%;
-  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: #22c55e;
 }
 
-.mobile-connector::before {
-  top: -4px;
+
+/* =========================================================
+   RUNWAY
+========================================================= */
+
+.logo-runway-new {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  padding: 38px 0;
+
+  background:
+    linear-gradient(
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    ),
+    #111113;
+
+  background-size: 100% 70px;
 }
 
-.mobile-connector::after {
-  bottom: -4px;
+.logo-track-new {
+  width: max-content;
+
+  display: flex;
+  align-items: stretch;
+
+  animation: clientRunway 48s linear infinite;
 }
 
-.mobile-connector--active {
-  background: #9ac7e8;
+.logo-runway-new:hover .logo-track-new {
+  animation-play-state: paused;
+}
+
+.client-logo-cell {
+  position: relative;
+
+  width: 250px;
+  height: 135px;
+
+  flex: 0 0 250px;
+
+  padding: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  border-right: 1px solid #29292d;
+
+  transition:
+    background 0.25s ease;
+}
+
+.client-logo-cell:hover {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.client-index {
+  position: absolute;
+
+  top: 10px;
+  left: 12px;
+
+  color: #444449;
+
+  font-size: 8px;
+}
+
+.client-logo-cell img {
+  width: 100%;
+  max-width: 175px;
+  height: 75px;
+
+  object-fit: contain;
+
+  opacity: 0.58;
+
+  filter:
+    grayscale(100%)
+    brightness(1.25);
+
+  transition:
+    opacity 0.25s ease,
+    filter 0.25s ease,
+    transform 0.25s ease;
+}
+
+.client-logo-cell:hover img {
   opacity: 1;
-  transform: scaleY(1);
+
+  filter:
+    grayscale(0%)
+    brightness(1);
+
+  transform: scale(1.05);
 }
 
-@media (max-width: 900px) {
 
-    .tree-desktop-wrapper {
-    height: 20px;
-    margin-top: 0;
-    overflow: hidden;
+/* =========================================================
+   FADES
+========================================================= */
+
+.runway-fade {
+  position: absolute;
+
+  z-index: 4;
+
+  top: 0;
+  bottom: 0;
+
+  width: 100px;
+
+  pointer-events: none;
+}
+
+.runway-fade-left {
+  left: 0;
+
+  background:
+    linear-gradient(
+      to right,
+      #111113,
+      transparent
+    );
+}
+
+.runway-fade-right {
+  right: 0;
+
+  background:
+    linear-gradient(
+      to left,
+      #111113,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   CLIENT FOOTER
+========================================================= */
+
+.clients-window-footer {
+  min-height: 35px;
+
+  padding: 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+
+  border-top: 1px solid #2e2e32;
+
+  color: #5f5f64;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes clientRunway {
+
+  from {
+    transform: translateX(0);
   }
 
-  .tree-mobile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 45px;
+  to {
+    transform: translateX(-50%);
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE / LAPTOP
+========================================================= */
+
+@media (max-width: 1250px) {
+
+  .services-shell,
+  .clients-shell {
+    width: 94vw;
+  }
+
+  .services-heading-row,
+  .clients-heading {
+    gap: 60px;
+  }
+
+  .service-terminal-body {
+    padding: 25px;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE / TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .webcats-services {
+    padding:
+      80px
+      30px
+      60px;
+  }
+
+  .clients-section {
+    padding:
+      45px
+      30px
+      85px;
+  }
+
+  .services-shell,
+  .clients-shell {
     width: 100%;
-    padding-bottom: 40px;
   }
 
-  .vue-mobile-wrapper {
-    position: relative;
-    width: 260px;
-    margin: 0 auto;
+  .services-heading-row,
+  .clients-heading {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
   }
 
-  .vue-mobile-wrapper .tech-node.mobile-main {
-    z-index: 2;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+  .services-heading-row > p,
+  .clients-heading-right > p {
+    max-width: 650px;
   }
 
-  .vue-sub {
-    position: absolute;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  .services-terminal-grid {
+    grid-template-columns: 1fr;
   }
 
-  .vue-sub--visible {
-    opacity: 1;
+  .service-terminal-card {
+    display: grid;
+
+    grid-template-columns:
+      minmax(300px, 0.8fr)
+      minmax(350px, 1fr);
+
+    grid-template-rows: 48px auto;
   }
 
-  /* Posiciones subnodos */
-  .vue-sub--html {
-    left: 30px;
-    top: -35px;
+  .service-window-bar {
+    grid-column: 1 / -1;
   }
 
-  .vue-sub--js {
-    right: -55px;
-    top: 30px;
+  .service-visual {
+    height: 100%;
+    min-height: 430px;
   }
 
-  .vue-sub--tailwind {
-    right: -80px;
-    bottom: -15px;
+  .service-terminal-body > p {
+    min-height: auto;
   }
 
-  /* Líneas */
-  .vue-line {
-    position: absolute;
-    width: 2px;
-    background: #9ac7e8;
-    transform-origin: top;
-    transform: scaleY(0);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-
-  .vue-line::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 6px;
-    height: 6px;
-    background: #9ac7e8;
-    border-radius: 9999px;
-  }
-
-  .vue-lines-active {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-
-  .vue-line-html {
-    height: 30px;
-    left: 35%;
-    top: -35px;
-    transform: rotate(90deg);
-  }
-
-  .vue-line-js {
-    height: 40px;
-    left: 62%;
-    top: -19px;
-    transform: rotate(-45deg);
-  }
-
-  .vue-line-tailwind {
-    height: 47px;
-    left: 64%;
-    top: -48px;
-    transform: rotate(-115deg);
-  }
 }
 
 
+/* =========================================================
+   RESPONSIVE / MOBILE
+========================================================= */
 
-@media (max-width: 480px) {
-  .hero-console {
-    padding: 36px 16px;
+@media (max-width: 650px) {
+
+  .webcats-services {
+    padding:
+      65px
+      18px
+      45px;
   }
 
-  .hero-actions {
-    margin-top: 12px;
+  .clients-section {
+    padding:
+      35px
+      18px
+      70px;
   }
 
-  .hero-brand {
-    margin-left: -28px;
+  .section-command {
+    font-size: 10px;
   }
 
-  .hero-root-line::before {
-    left: -28px;
-    width: 20px;
-    height: 3px;
-    opacity: 0.6;
+  .services-heading {
+    margin-bottom: 35px;
   }
 
-  .cmd-btn {
-    font-size: 0.7rem;
+  .services-heading h2,
+  .clients-heading h2 {
+    font-size: clamp(30px, 9vw, 42px);
   }
 
-  .hero-desc-text {
+  .services-heading-row > p,
+  .clients-heading-right > p {
+    font-size: 12px;
+  }
+
+  .services-terminal-grid {
+    gap: 22px;
+  }
+
+  .service-terminal-card {
+    display: block;
+  }
+
+  .service-visual {
+    height: 220px;
+    min-height: 0;
+  }
+
+  .service-terminal-body {
+    padding: 24px 20px;
+  }
+
+  .service-terminal-body h3 {
+    font-size: 22px;
+  }
+
+  .service-terminal-body > p {
+    font-size: 12px;
+  }
+
+  .clients-command-line {
+    margin-bottom: 45px;
+  }
+
+  .command-result {
+    display: none;
+  }
+
+  .clients-window-meta span:not(.clients-online) {
+    display: none;
+  }
+
+  .client-logo-cell {
+    width: 190px;
+    height: 110px;
+
+    flex-basis: 190px;
+  }
+
+  .client-logo-cell img {
+    max-width: 135px;
+    height: 60px;
+  }
+
+  .runway-fade {
+    width: 40px;
+  }
+
+  .clients-window-footer {
+    justify-content: center;
+  }
+
+  .clients-window-footer span:first-child {
+    display: none;
+  }
+
+}
+
+/* ====================== ACERCA DE MÍ ==================== */
+/* =========================================================
+   ACERCA DE MÍ — TERMINAL PROFILE
+========================================================= */
+
+.about-terminal {
+  position: relative;
+  width: 100%;
+  padding: 34px clamp(28px, 5vw, 90px) 80px;
+  background:
+    linear-gradient(
+      rgba(13, 17, 23, 0.96),
+      rgba(8, 11, 15, 0.98)
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      rgba(255, 255, 255, 0.025) 40px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 39px,
+      rgba(255, 255, 255, 0.025) 40px
+    );
+
+  color: #e5e7eb;
+  font-family: "JetBrains Mono", monospace;
+  overflow: hidden;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   HEADER TIPO TERMINAL
+========================================================= */
+
+.about-terminal__top {
+  margin-top: 0;
+  margin-bottom: 45px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 13px;
+  color: #64748b;
+}
+
+.terminal-path {
+  display: flex;
+  gap: 10px;
+}
+
+.terminal-path .prompt {
+  color: #00e676;
+}
+
+.terminal-comment {
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.about-terminal__container {
+
+  display: grid;
+  grid-template-columns:
+    minmax(420px, 0.8fr)
+    minmax(650px, 1.2fr);
+
+  gap: clamp(60px, 7vw, 130px);
+  align-items: center;
+}
+
+
+/* =========================================================
+   COLUMNA IZQUIERDA
+========================================================= */
+
+.about-terminal__intro {
+  position: relative;
+  padding-left: 32px;
+}
+
+.about-terminal__intro::before {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 3px;
+  height: 100%;
+
+  background: linear-gradient(
+    to bottom,
+    #00e676,
+    #38bdf8
+  );
+
+  box-shadow:
+    0 0 15px rgba(0, 230, 118, 0.25);
+}
+
+
+.about-label {
+  display: block;
+  margin-bottom: 18px;
+
+  font-size: 14px;
+  letter-spacing: 0.12em;
+
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.about-terminal__intro h2 {
+  margin: 0 0 28px;
+
+  max-width: 720px;
+
+  font-size: clamp(38px, 3.3vw, 64px);
+  line-height: 1.05;
+
+  letter-spacing: -0.04em;
+
+  color: #f8fafc;
+}
+
+.about-terminal__intro h2 span {
+  display: block;
+  color: #38bdf8;
+}
+
+
+/* =========================================================
+   TEXTO
+========================================================= */
+
+.about-terminal__intro p {
+  max-width: 720px;
+
+  margin: 0 0 18px;
+
+  font-size: clamp(14px, 1vw, 17px);
+  line-height: 1.8;
+
+  color: #aeb8c6;
+}
+
+.about-terminal__intro strong {
+  color: #f1f5f9;
+  font-weight: 600;
+}
+
+.about-terminal__intro .webcats {
+  color: #22d3ee;
+}
+
+
+/* =========================================================
+   BOTÓN
+========================================================= */
+
+.about-button {
+  width: min(100%, 430px);
+
+  margin-top: 32px;
+  padding: 17px 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border: 1px solid rgba(0, 230, 118, 0.55);
+  border-radius: 6px;
+
+  color: #5eead4;
+  text-decoration: none;
+
+  font-size: 14px;
+
+  background: rgba(0, 230, 118, 0.035);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.about-button:hover {
+  background: rgba(0, 230, 118, 0.1);
+  border-color: #00e676;
+
+  transform: translateY(-2px);
+}
+
+.button-arrow {
+  margin-left: auto;
+  font-size: 21px;
+}
+
+
+/* =========================================================
+   COLUMNA DERECHA
+========================================================= */
+
+.about-terminal__profile {
+  min-width: 0;
+}
+
+.profile-title {
+  margin-bottom: 18px;
+
+  font-size: 13px;
+  letter-spacing: 0.08em;
+
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 14px;
+
+  margin-bottom: 18px;
+}
+
+.stat-card {
+  min-height: 145px;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+
+  border: 1px solid #263241;
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(16, 22, 30, 0.9),
+      rgba(8, 12, 17, 0.95)
+    );
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(56, 189, 248, 0.65);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 29, 39, 0.95),
+      rgba(8, 12, 17, 0.95)
+    );
+}
+
+.stat-icon {
+  margin-bottom: 8px;
+
+  font-size: 25px;
+
+  color: #38bdf8;
+}
+
+.stat-card strong {
+  font-size: 18px;
+  color: #f8fafc;
+}
+
+.stat-card small {
+  font-size: 11px;
+  line-height: 1.5;
+
+  color: #7f8da1;
+}
+
+
+/* =========================================================
+   CONSOLA
+========================================================= */
+
+.about-console {
+  overflow: hidden;
+
+  border: 1px solid #263241;
+  border-radius: 8px;
+
+  background: #080c11;
+
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.console-header {
+  min-height: 40px;
+
+  padding: 0 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  background: #141a22;
+
+  border-bottom: 1px solid #263241;
+}
+
+.console-header > span {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: #64748b;
+}
+
+.console-header > span:first-child {
+  background: #ef6a7a;
+}
+
+.console-header > span:nth-child(2) {
+  background: #eab94c;
+}
+
+.console-header > span:nth-child(3) {
+  background: #5cc98a;
+}
+
+.console-header small {
+  margin-left: 10px;
+
+  font-size: 10px;
+  color: #64748b;
+}
+
+
+/* =========================================================
+   CONTENIDO CONSOLA
+========================================================= */
+
+.console-content {
+  padding: 22px 24px;
+}
+
+.console-command {
+  margin-bottom: 18px;
+
+  font-size: 12px;
+
+  color: #aeb8c6;
+}
+
+.console-user {
+  color: #00e676;
+}
+
+.console-path {
+  color: #38bdf8;
+}
+
+.console-content p {
+  margin: 0;
+
+  font-size: clamp(13px, 0.9vw, 15px);
+  line-height: 1.8;
+
+  color: #cbd5e1;
+}
+
+.console-signature {
+  display: block;
+
+  margin-top: 14px;
+
+  text-align: right;
+
+  font-size: 12px;
+
+  color: #38bdf8;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.about-skills {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 18px;
+}
+
+.about-skills span {
+  padding: 10px 14px;
+
+  border: 1px solid #263241;
+  border-radius: 5px;
+
+  background: #0c1117;
+
+  font-size: 11px;
+
+  color: #aeb8c6;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.about-skills span:hover {
+  color: #f8fafc;
+  border-color: #38bdf8;
+}
+
+
+/* =========================================================
+   LAPTOP / PANTALLA MEDIANA
+========================================================= */
+
+@media (max-width: 1250px) {
+
+  .about-terminal {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .about-terminal__container {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 50px;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .about-terminal {
+    padding: 55px 30px 70px;
+  }
+
+  .about-terminal__container {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .about-terminal__intro {
+    max-width: 760px;
+  }
+
+  .about-terminal__intro h2 {
+    font-size: clamp(38px, 7vw, 55px);
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .about-terminal {
+    padding:
+      40px
+      20px
+      55px;
+  }
+
+  .about-terminal__top {
+    margin-bottom: 30px;
+  }
+
+  .terminal-comment {
+    display: none;
+  }
+
+  .about-terminal__intro {
+    padding-left: 20px;
+  }
+
+  .about-terminal__intro h2 {
+    font-size: clamp(34px, 10vw, 46px);
+  }
+
+  .about-terminal__intro p {
     font-size: 14px;
   }
 
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-card {
+    min-height: 125px;
+    padding: 16px;
+  }
+
+  .console-content {
+    padding: 18px;
+  }
+
 }
 
 
+/* =========================================================
+   MOBILE PEQUEÑO
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .about-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    min-height: auto;
+  }
+
+  .about-button {
+    width: 100%;
+  }
+
+}
+
+/* =========================================================
+   RESPONSIVE GLOBAL
+   Desktop/laptop conservan el mismo ancho visual.
+========================================================= */
+@media (max-width: 950px) {
+  :root {
+    --home-width: calc(100% - 60px);
+  }
+
+  .tech-shell {
+    padding-top: 55px;
+    padding-bottom: 45px;
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --home-width: calc(100% - 40px);
+  }
+
+  .tech-shell {
+    padding-top: 42px;
+    padding-bottom: 35px;
+  }
+}
+
+@media (max-width: 430px) {
+  :root {
+    --home-width: calc(100% - 32px);
+  }
+}
 
 </style>

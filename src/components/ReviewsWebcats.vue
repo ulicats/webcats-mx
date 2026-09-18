@@ -1,6 +1,6 @@
 <template>
   <section class="reviews-webcats">
-    <div class="reviews-container">
+    <div class="home-shell reviews-container">
 
       <!-- ENCABEZADO -->
       <div class="reviews-heading">
@@ -229,7 +229,7 @@ onMounted(async () => {
 
     reviews.value = (place.reviews || [])
       .filter(review => review.rating >= 4)
-      .slice(0, 4)
+      
 
   } catch (error) {
 
@@ -257,9 +257,7 @@ onMounted(async () => {
 .reviews-webcats {
   position: relative;
   width: 100%;
-
-  padding: 75px 24px;
-
+  padding: 0;
   overflow: hidden;
 
   background:
@@ -270,19 +268,17 @@ onMounted(async () => {
     ),
     #0d0d0f;
 
-  border-top:
-    1px solid rgba(255, 255, 255, 0.08);
-
-  border-bottom:
-    1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .reviews-container {
-  width: 100%;
-  max-width: 1180px;
+  width: min(1400px, calc(100% - 80px));
   margin: 0 auto;
-}
 
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
 
 /* =========================================================
    HEADER
@@ -834,6 +830,12 @@ onMounted(async () => {
    MOBILE
 ========================================================= */
 
+@media (max-width: 900px) {
+  .reviews-container {
+    width: min(100% - 40px, 1400px);
+  }
+}
+
 @media (max-width: 720px) {
 
   .reviews-grid {
@@ -845,9 +847,14 @@ onMounted(async () => {
 
 @media (max-width: 600px) {
 
-  .reviews-webcats {
-    padding:
-      60px 18px;
+ .reviews-webcats {
+    padding: 60px 0;
+  }
+
+    .reviews-container {
+    width: min(100% - 28px, 1400px);
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 
   .reviews-heading {

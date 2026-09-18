@@ -3,6 +3,7 @@ import { createHead } from "@vueuse/head"
 import App from "./App.vue";
 import router from "./router";
 
+import "./styles/arquitectura.css";
 import "./style.css"; // tailwind
 
 const app = createApp(App);

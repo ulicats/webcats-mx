@@ -31,6 +31,9 @@ import nutriologoBanner from '@/assets/portafolio/nutriologo-banner.png'
 import oncologo from '@/assets/portafolio/oncologo.png'
 import oncologoBanner from '@/assets/portafolio/oncologo-banner.png'
 
+import arch from '@/assets/portafolio/arch.png'
+import archBanner from '@/assets/portafolio/arch-banner.png'
+
 import casillas from '@/assets/projects/casillas/1.jpg'
 import casillas1 from '@/assets/projects/casillas/1.jpg'
 import casillas2 from '@/assets/projects/casillas/2.jpg'
@@ -322,8 +325,49 @@ export const portafolio = [
   featured: false
 },
 
+  {
+    id: 10,
+    title: "Arquitectura",
+    slug: "arquitectura",
+    client: "Estudio de Arquitectura",
+    category: "Arquitectura y Construcción",
+    image: arch,
+    banner: archBanner,
+    status: "demo",
+
+    description: "Sitio web conceptual desarrollado para un estudio de arquitectura. El proyecto propone una experiencia de navegación inspirada en un plano arquitectónico, donde el usuario recorre cada sección como si avanzara por los espacios de una vivienda, integrando muros, accesos, ejes y elementos técnicos dentro de una identidad visual moderna y minimalista.",
+
+    features: [
+        "Diseño arquitectónico y responsive",
+        "Experiencia de navegación inspirada en un plano arquitectónico",
+        "Recorrido visual desde el acceso hasta el patio",
+        "Hero conceptual integrado como acceso de la vivienda",
+        "Secciones delimitadas mediante muros y espacios arquitectónicos",
+        "Transiciones entre secciones mediante puertas y vanos",
+        "Indicador vertical de recorrido arquitectónico",
+        "Presentación del estudio y filosofía de diseño",
+        "Sección de servicios arquitectónicos",
+        "Galería de proyectos destacados",
+        "Presentación del proceso de diseño y construcción",
+        "Animaciones de trazado inspiradas en planos técnicos",
+        "Llamadas a la acción para captar nuevos proyectos",
+        "Sección de contacto",
+        "Botón flotante de WhatsApp",
+        "Navegación interna por secciones"
+    ],
+
+    technologies: [
+        "Vue.js",
+        "Vite",
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "Responsive Design"
+    ]
+},
+
 {
-  id: 10,
+  id: 11,
   title: 'Demo Despacho Jurídico',
   slug: 'abogados',
   client: 'Despacho jurídico',
@@ -362,7 +406,7 @@ export const portafolio = [
   featured: false
   },
   {
-    id: 11,
+    id: 12,
     title: "Demo Gym",
     slug: "gym",
     client: "Iron Pulse Performance Club",
@@ -397,7 +441,7 @@ export const portafolio = [
   },
 
   {
-  id: 12,
+  id: 13,
   title: 'Casillas Abogados Penalistas',
   slug: 'casillas-abogados-penalistas',
   client: 'Despacho jurídico',
@@ -460,7 +504,7 @@ export const portafolio = [
 },
 
 {
-  id: 13,
+  id: 14,
   title: 'Limalum Vidrios y Aluminios',
   slug: 'limalum-vidrios-aluminios',
   client: 'Empresa de vidrios y aluminio',
@@ -522,5 +566,7 @@ export const portafolio = [
   },
 
   featured: false
-  }
+  },
+
+
 ]

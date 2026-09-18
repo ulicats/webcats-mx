@@ -1,0 +1,232 @@
+/* ==========================================================
+   ARQUITECTURA — SISTEMA GLOBAL
+   ========================================================== */
+
+.architecture-page,
+.arch-projects-page,
+.project-detail {
+
+  /* COLORES */
+  --arch-paper: #f3f1eb;
+  --arch-black: #151515;
+  --arch-gray: #74736f;
+  --arch-line: #b9b7b0;
+
+
+  /* ========================================================
+     ESCALA TIPOGRÁFICA
+     ======================================================== */
+
+  /* Cotas, códigos y referencias puramente técnicas */
+  --arch-xs: 11px;
+
+  /* Etiquetas, navegación y metadatos */
+  --arch-sm: 13px;
+
+  /* Información secundaria */
+  --arch-md: 15px;
+
+  /* Texto normal */
+  --arch-body: 17px;
+
+  /* Texto destacado */
+  --arch-lead: 19px;
+
+  /* Subtítulos */
+  --arch-subtitle: clamp(30px, 2.3vw, 44px);
+
+  /* Títulos de sección */
+  --arch-title: clamp(48px, 4.2vw, 60px);
+
+  /* Títulos principales */
+  --arch-display: clamp(64px, 6vw, 60px);
+
+
+  background: var(--arch-paper);
+  color: var(--arch-black);
+}
+
+
+/* ==========================================================
+   TEXTO GENERAL
+   ========================================================== */
+
+.architecture-page p,
+.arch-projects-page p,
+.project-detail p {
+  font-size: var(--arch-body);
+  line-height: 1.7;
+}
+
+
+/* ==========================================================
+   TÍTULOS
+   ========================================================== */
+
+/*
+ * Evitamos los monstruos de 100-160px que teníamos.
+ */
+
+.architecture-page h1,
+.arch-projects-page h1,
+.project-detail h1 {
+  font-size: var(--arch-display);
+}
+
+.architecture-page h2,
+.arch-projects-page h2,
+.project-detail h2 {
+  font-size: var(--arch-title);
+}
+
+.architecture-page h3,
+.arch-projects-page h3,
+.project-detail h3 {
+  font-size: var(--arch-subtitle);
+}
+
+
+/* ==========================================================
+   REFERENCIAS TÉCNICAS
+   ========================================================== */
+
+.architecture-page .section-tag,
+.architecture-page .street-label,
+.architecture-page .room-label,
+.architecture-page .door-label,
+.architecture-page .caption,
+.architecture-page .image-title,
+.architecture-page .image-reference,
+.architecture-page .technical-data span,
+
+.arch-projects-page .section-tag,
+.arch-projects-page .project-code,
+.arch-projects-page .project-reference,
+.arch-projects-page .image-reference,
+
+.project-detail .section-number small,
+.project-detail .image-reference,
+.project-detail .plan-reference,
+.project-detail .project-category,
+.project-detail .related-heading > span {
+
+  font-size: var(--arch-xs);
+  line-height: 1.4;
+}
+
+
+/* ==========================================================
+   METADATOS
+   ========================================================== */
+
+.architecture-page .technical-data strong,
+.architecture-page .studio-stats span,
+.architecture-page .navigation a,
+
+.arch-projects-page .project-meta,
+.arch-projects-page .catalog-reference span,
+.arch-projects-page .catalog-reference small,
+.arch-projects-page .heading-description > span,
+
+.project-detail .hero-data span,
+.project-detail .hero-data strong,
+.project-detail .concept-list span,
+.project-detail .plan-concepts span,
+.project-detail .catalog-return-reference span,
+.project-detail .catalog-return-reference small {
+
+  font-size: var(--arch-sm);
+  line-height: 1.5;
+}
+
+
+/* ==========================================================
+   TEXTOS DESCRIPTIVOS
+   ========================================================== */
+
+.architecture-page .description,
+.architecture-page .heading-description p,
+
+.arch-projects-page .heading-description p,
+
+.project-detail .description-copy > p,
+.project-detail .plan-heading p {
+
+  font-size: var(--arch-body);
+  line-height: 1.75;
+}
+
+
+/* TEXTO DESTACADO */
+
+.architecture-page .lead {
+  font-size: var(--arch-lead);
+  line-height: 1.65;
+}
+
+
+/* ==========================================================
+   LISTAS / CARACTERÍSTICAS
+   ========================================================== */
+
+.project-detail .concept-list strong,
+.project-detail .plan-concepts strong {
+
+  font-size: var(--arch-md);
+  line-height: 1.5;
+}
+
+
+/* ==========================================================
+   BOTONES Y ACCIONES
+   ========================================================== */
+
+.architecture-page .hero-link,
+.architecture-page .catalog-button,
+.architecture-page .project-detail-button,
+
+.arch-projects-page .back-link,
+
+.project-detail .back-link,
+.project-detail .catalog-return-button,
+.project-detail .related-arrow {
+
+  font-size: var(--arch-sm);
+  line-height: 1;
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+@media (max-width: 900px) {
+  .architecture-page,
+  .arch-projects-page,
+  .project-detail {
+    --arch-xs: 10px;
+    --arch-sm: 12px;
+    --arch-md: 14px;
+    --arch-body: 16px;
+    --arch-lead: 18px;
+
+    --arch-subtitle: clamp(24px, 4vw, 30px);
+    --arch-title: clamp(34px, 6vw, 46px);
+    --arch-display: clamp(44px, 9vw, 62px);
+  }
+}
+
+@media (max-width: 600px) {
+  .architecture-page,
+  .arch-projects-page,
+  .project-detail {
+    --arch-xs: 10px;
+    --arch-sm: 12px;
+    --arch-md: 14px;
+    --arch-body: 16px;
+    --arch-lead: 17px;
+
+    --arch-subtitle: 24px;
+    --arch-title: clamp(32px, 9vw, 42px);
+    --arch-display: clamp(40px, 12vw, 54px);
+  }
+}

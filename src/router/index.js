@@ -11,31 +11,87 @@ import Contacto from "../views/Contacto.vue";
 
 import ProjectRouter from "../views/ProjectRouter.vue";
 
+// VISTAS INTERNAS DE ARQUITECTURA
+import ArchProjectView from "../views/projects/arquitectura/ArchProjectView.vue";
+import ArchProjectDetail from "../views/projects/arquitectura/ArchProjectDetail.vue";
+
+
 const routes = [
+
   {
     path: "/",
+
     component: MainLayout,
+
     children: [
-      { path: "", name: "Home", component: Home },
-      { path: "acerca", name: "Acerca", component: Acerca },
-      { path: "servicios", name: "Servicios", component: Servicios },
-      { path: "portafolio", name: "Portafolio", component: Portafolio },
-      { path: "contacto", name: "Contacto", component: Contacto },
+      {
+        path: "",
+        name: "Home",
+        component: Home
+      },
+
+      {
+        path: "acerca",
+        name: "Acerca",
+        component: Acerca
+      },
+
+      {
+        path: "servicios",
+        name: "Servicios",
+        component: Servicios
+      },
+
+      {
+        path: "portafolio",
+        name: "Portafolio",
+        component: Portafolio
+      },
+
+      {
+        path: "contacto",
+        name: "Contacto",
+        component: Contacto
+      },
     ],
   },
 
+
   {
     path: "/projects",
+
     component: ProjectLayout,
+
     children: [
-      { path: ":slug", name: "Project", component: ProjectRouter },
+
+      {
+        path: "arquitectura/proyectos",
+        name: "arch-projects",
+        component: ArchProjectView,
+      },
+
+      {
+        path: "arquitectura/proyectos/:slug",
+        name: "arch-project-detail",
+        component: ArchProjectDetail,
+      },
+
+      {
+        path: ":slug",
+        name: "Project",
+        component: ProjectRouter,
+      },
+
     ],
   },
+
 ];
+
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+
 
 export default router;
