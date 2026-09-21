@@ -6,7 +6,7 @@
       <span></span>
 
       <div class="entrance">
-        <span>ACCESO AL PATIO</span>
+        <span>ACCESO AL FORMULARIO</span>
         <strong>↓</strong>
       </div>
 
@@ -37,8 +37,7 @@
     <!-- IDENTIFICACIÓN -->
     <div class="room-label">
       <span class="room-number">06</span>
-      <strong>PATIO / CONTACTO</strong>
-      <small>ÁREA ABIERTA</small>
+      <strong>CONTACTO</strong>
     </div>
 
     <!-- CONTENIDO -->
@@ -47,9 +46,7 @@
       <!-- MENSAJE -->
       <div class="contact-copy">
 
-        <span class="section-reference">
-          CONTACTO / 06
-        </span>
+        <span class="section-reference"></span>
 
         <h2>
           Construyamos
@@ -62,6 +59,7 @@
           o imaginar.
         </p>
 
+        <!-- WHATSAPP -->
         <a
           href="https://wa.me/"
           target="_blank"
@@ -70,7 +68,7 @@
         >
           <span>INICIAR PROYECTO</span>
           <span class="button-line"></span>
-          <span>→</span>
+          <span class="button-arrow">→</span>
         </a>
 
       </div>
@@ -85,55 +83,82 @@
 
         <form class="contact-form" @submit.prevent>
 
+          <!-- NOMBRE -->
           <div class="field">
-            <label for="name">01 / NOMBRE</label>
+            <label for="name">
+              01 / NOMBRE
+            </label>
 
             <input
               id="name"
               type="text"
+              autocomplete="name"
               placeholder="Tu nombre"
             />
           </div>
 
+          <!-- CORREO -->
           <div class="field">
-            <label for="email">02 / CORREO</label>
+            <label for="email">
+              02 / CORREO
+            </label>
 
             <input
               id="email"
               type="email"
+              autocomplete="email"
               placeholder="correo@ejemplo.com"
             />
           </div>
 
+          <!-- TELÉFONO -->
           <div class="field">
-            <label for="project">03 / TIPO DE PROYECTO</label>
+            <label for="phone">
+              03 / TELÉFONO
+            </label>
+
+            <input
+              id="phone"
+              type="tel"
+              inputmode="tel"
+              autocomplete="tel"
+              placeholder="+52 000 000 0000"
+            />
+          </div>
+
+          <!-- TIPO DE PROYECTO -->
+          <div class="field">
+            <label for="project">
+              04 / TIPO DE PROYECTO
+            </label>
 
             <select id="project">
               <option value="">
                 Selecciona una opción
               </option>
 
-              <option>
+              <option value="arquitectonico">
                 Proyecto arquitectónico
               </option>
 
-              <option>
+              <option value="interiores">
                 Diseño de interiores
               </option>
 
-              <option>
+              <option value="remodelacion">
                 Remodelación
               </option>
 
-              <option>
+              <option value="supervision">
                 Supervisión de obra
               </option>
             </select>
           </div>
 
+          <!-- DESCRIPCIÓN -->
           <div class="field field-full">
             <label for="message">
-              04 / DESCRIPCIÓN
+              05 / DESCRIPCIÓN
             </label>
 
             <textarea
@@ -143,6 +168,7 @@
             ></textarea>
           </div>
 
+          <!-- BOTÓN -->
           <button type="submit">
             <span>ENVIAR SOLICITUD</span>
             <span>→</span>
@@ -184,7 +210,7 @@
       <span></span>
 
       <div class="final-opening">
-        <span>FIN DEL RECORRIDO</span>
+        <span>FOOTER</span>
         <strong>↓</strong>
       </div>
 
@@ -198,6 +224,11 @@
 </script>
 
 <style scoped>
+
+/* ========================================
+   SECCIÓN
+======================================== */
+
 .contact-section {
   position: relative;
 
@@ -425,21 +456,31 @@
 
 
 /* ========================================
-   GRID
+   GRID PRINCIPAL
 ======================================== */
 
 .contact-grid {
+  width: 100%;
+  min-width: 0;
+
   min-height: 510px;
 
   display: grid;
 
   grid-template-columns:
-    0.9fr
-    1.1fr;
+    minmax(0, 0.9fr)
+    minmax(0, 1.1fr);
 
   align-items: center;
 
   gap: clamp(70px, 7vw, 140px);
+
+  box-sizing: border-box;
+}
+
+.contact-copy,
+.contact-form-wrapper {
+  min-width: 0;
 }
 
 
@@ -464,8 +505,7 @@
 
   max-width: 700px;
 
-  font-size:
-    clamp(58px, 5vw, 94px);
+  font-size: clamp(46px, 4vw, 57px);
 
   line-height: 0.91;
 
@@ -496,37 +536,70 @@
 
 
 /* ========================================
-   CTA
+   CTA WHATSAPP
 ======================================== */
 
 .contact-button {
-  display: flex;
+  width: fit-content;
+  min-height: 48px;
+
+  padding: 0 22px;
+
+  display: inline-flex;
   align-items: center;
 
-  gap: 15px;
+  gap: 18px;
 
-  width: fit-content;
+  box-sizing: border-box;
+
+  background: #d8d6d0;
+
+  border: 1px solid #b9b7b0;
 
   color: #151515;
 
   text-decoration: none;
 
-  font-size: 8px;
+  font-size: 10px;
+  font-weight: 500;
 
-  letter-spacing: 0.19em;
+  letter-spacing: 0.18em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .button-line {
-  width: 80px;
+  width: 55px;
   height: 1px;
 
+  flex-shrink: 0;
+
+  background: currentColor;
+
+  transition: width 0.25s ease;
+}
+
+.button-arrow {
+  font-size: 13px;
+
+  line-height: 1;
+}
+
+.contact-button:hover {
   background: #151515;
 
-  transition: width 0.3s ease;
+  color: #f3f1eb;
+
+  transform: translateX(3px);
 }
 
 .contact-button:hover .button-line {
-  width: 120px;
+  width: 70px;
 }
 
 
@@ -535,12 +608,19 @@
 ======================================== */
 
 .contact-form-wrapper {
+  width: 100%;
+  min-width: 0;
+
   border: 4px solid #151515;
 
   padding: 35px;
+
+  box-sizing: border-box;
 }
 
 .form-header {
+  width: 100%;
+
   padding-bottom: 17px;
 
   display: flex;
@@ -553,20 +633,30 @@
   font-size: 7px;
 
   letter-spacing: 0.16em;
+
+  box-sizing: border-box;
 }
 
 .contact-form {
+  width: 100%;
+  min-width: 0;
+
   margin-top: 35px;
 
   display: grid;
 
   grid-template-columns:
-    repeat(2, 1fr);
+    repeat(2, minmax(0, 1fr));
 
   gap: 30px;
+
+  box-sizing: border-box;
 }
 
 .field {
+  width: 100%;
+  min-width: 0;
+
   display: flex;
 
   flex-direction: column;
@@ -590,6 +680,8 @@
 .field select,
 .field textarea {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
 
   padding: 11px 0;
 
@@ -607,6 +699,8 @@
   font-family: inherit;
 
   font-size: 12px;
+
+  box-sizing: border-box;
 }
 
 .field textarea {
@@ -616,12 +710,15 @@
 .contact-form button {
   grid-column: 1 / -1;
 
+  width: 100%;
+
   margin-top: 10px;
 
   padding: 18px 20px;
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   border: 0;
 
@@ -631,9 +728,13 @@
 
   cursor: pointer;
 
+  font-family: inherit;
+
   font-size: 8px;
 
   letter-spacing: 0.18em;
+
+  box-sizing: border-box;
 }
 
 
@@ -649,7 +750,7 @@
   display: grid;
 
   grid-template-columns:
-    repeat(4, 1fr);
+    repeat(4, minmax(0, 1fr));
 
   gap: 30px;
 
@@ -657,6 +758,8 @@
 }
 
 .contact-data div {
+  min-width: 0;
+
   display: flex;
 
   flex-direction: column;
@@ -667,32 +770,34 @@
 .contact-data span {
   color: #74736f;
 
-  font-size: 6px;
+  font-size: 13px;
 
   letter-spacing: 0.17em;
 }
 
 .contact-data strong {
-  font-size: 8px;
+  font-size: 11px;
 
   font-weight: 500;
 
   letter-spacing: 0.13em;
+
+  overflow-wrap: anywhere;
 }
 
 
 /* ========================================
-   RESPONSIVE
+   RESPONSIVE — LAPTOP / TABLET GRANDE
 ======================================== */
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
 
   .contact-section {
-    width: calc(100% - 60px);
+    width: calc(100% - 70px);
 
     padding:
-      105px
-      60px
+      110px
+      70px
       125px;
   }
 
@@ -702,42 +807,224 @@
 
 }
 
+
+/* ========================================
+   RESPONSIVE — TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+
+  .contact-section {
+    width: calc(100% - 60px);
+
+    padding:
+      105px
+      50px
+      125px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+
+    gap: 70px;
+  }
+
+  .contact-copy {
+    max-width: 650px;
+  }
+
+  .contact-form-wrapper {
+    max-width: 100%;
+  }
+
+}
+
+
+/* ========================================
+   RESPONSIVE — CELULAR
+======================================== */
+
 @media (max-width: 760px) {
 
   .contact-section {
     width: calc(100% - 30px);
 
+    min-height: auto;
+
     padding:
       100px
-      28px
+      20px
       120px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
   }
 
+
+  /* ---------- GRID ---------- */
+
   .contact-grid {
-    grid-template-columns: 1fr;
+    width: 100%;
+    min-width: 0;
+
+    grid-template-columns: minmax(0, 1fr);
+
+    gap: 60px;
+  }
+
+
+  /* ---------- COPY ---------- */
+
+  .contact-copy {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .section-reference {
+    font-size: 7px;
+  }
+
+  .contact-copy h2 {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: clamp(36px, 11vw, 48px);
+
+    line-height: 0.95;
+  }
+
+  .contact-copy p {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 25px 0;
+
+    font-size: 12px;
+  }
+
+  .contact-button {
+    max-width: 100%;
+
+    padding: 0 18px;
+
+    gap: 12px;
+
+    font-size: 9px;
+  }
+
+  .button-line {
+    width: 40px;
+  }
+
+  .contact-button:hover .button-line {
+    width: 50px;
+  }
+
+
+  /* ---------- FORMULARIO ---------- */
+
+  .contact-form-wrapper {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    padding: 26px 20px;
+
+    border-width: 3px;
+
+    box-sizing: border-box;
+  }
+
+  .form-header {
+    width: 100%;
+
+    font-size: 6px;
+
+    box-sizing: border-box;
   }
 
   .contact-form {
-    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin-top: 30px;
+
+    grid-template-columns: minmax(0, 1fr);
+
+    gap: 28px;
+
+    box-sizing: border-box;
   }
 
-  .field-full,
-  .contact-form button {
+  .field {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .field-full {
     grid-column: auto;
   }
 
-  .contact-data {
-    grid-template-columns:
-      repeat(2, 1fr);
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    font-size: 12px;
+
+    box-sizing: border-box;
   }
 
+  .field textarea {
+    resize: vertical;
+  }
+
+  .contact-form button {
+    grid-column: auto;
+
+    width: 100%;
+    max-width: 100%;
+
+    box-sizing: border-box;
+  }
+
+
+  /* ---------- DATOS ---------- */
+
+  .contact-data {
+    width: 100%;
+
+    margin-top: 55px;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap:
+      30px
+      20px;
+  }
+
+
+  /* ---------- IDENTIFICACIÓN ---------- */
+
   .room-label {
+    top: 48px;
     left: 25px;
+
+    gap: 8px;
   }
 
   .room-label small {
     display: none;
   }
+
+
+  /* ---------- MUROS ---------- */
 
   .side-wall {
     display: block;
@@ -756,5 +1043,100 @@
       100px
       1fr;
   }
+
+}
+
+
+/* ========================================
+   RESPONSIVE — CELULAR PEQUEÑO
+======================================== */
+
+@media (max-width: 480px) {
+
+  .contact-section {
+    width: calc(100% - 20px);
+
+    padding:
+      95px
+      16px
+      115px;
+  }
+
+  .room-label {
+    left: 20px;
+  }
+
+  .room-number {
+    width: 27px;
+    height: 27px;
+
+    font-size: 7px;
+  }
+
+  .room-label strong {
+    font-size: 7px;
+  }
+
+  .contact-copy h2 {
+    font-size: clamp(34px, 10.5vw, 43px);
+  }
+
+  .contact-button {
+    min-height: 46px;
+
+    padding: 0 14px;
+
+    gap: 10px;
+
+    font-size: 8px;
+  }
+
+  .button-line {
+    width: 30px;
+  }
+
+  .contact-button:hover .button-line {
+    width: 38px;
+  }
+
+  .contact-form-wrapper {
+    padding:
+      24px
+      16px;
+  }
+
+  .form-header {
+    font-size: 5.5px;
+  }
+
+  .field label {
+    font-size: 6px;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    font-size: 11px;
+  }
+
+  .contact-data {
+    grid-template-columns: 1fr;
+
+    gap: 24px;
+  }
+
+  .top-wall,
+  .bottom-wall {
+    grid-template-columns:
+      1fr
+      85px
+      1fr;
+  }
+
+  .entrance span,
+  .final-opening span {
+    font-size: 6px;
+  }
+
 }
 </style>

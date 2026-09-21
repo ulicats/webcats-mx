@@ -17,7 +17,11 @@
 
     <div class="footer-content">
 
-      <div class="footer-brand">
+      <!-- BRAND -->
+      <RouterLink
+        :to="{ name: 'Project', params: { slug: 'arquitectura' } }"
+        class="footer-brand"
+      >
         <div class="brand-symbol">
           A
         </div>
@@ -26,16 +30,64 @@
           <strong>ARQUITECTURA</strong>
           <span>ESTUDIO / 2026</span>
         </div>
-      </div>
+      </RouterLink>
 
-      <div class="footer-nav">
-        <a href="#inicio">INICIO</a>
-        <a href="#estudio">ESTUDIO</a>
-        <a href="#servicios">SERVICIOS</a>
-        <a href="#proyectos">PROYECTOS</a>
-        <a href="#contacto">CONTACTO</a>
-      </div>
+      <!-- NAVEGACIÓN -->
+      <nav class="footer-nav">
 
+        <RouterLink
+          :to="{
+            name: 'Project',
+            params: { slug: 'arquitectura' },
+            hash: '#inicio'
+          }"
+        >
+          INICIO
+        </RouterLink>
+
+        <RouterLink
+          :to="{
+            name: 'Project',
+            params: { slug: 'arquitectura' },
+            hash: '#estudio'
+          }"
+        >
+          ESTUDIO
+        </RouterLink>
+
+        <RouterLink
+          :to="{
+            name: 'Project',
+            params: { slug: 'arquitectura' },
+            hash: '#servicios'
+          }"
+        >
+          SERVICIOS
+        </RouterLink>
+
+        <RouterLink
+          :to="{
+            name: 'Project',
+            params: { slug: 'arquitectura' },
+            hash: '#proyectos'
+          }"
+        >
+          PROYECTOS
+        </RouterLink>
+
+        <RouterLink
+          :to="{
+            name: 'Project',
+            params: { slug: 'arquitectura' },
+            hash: '#contacto'
+          }"
+        >
+          CONTACTO
+        </RouterLink>
+
+      </nav>
+
+      <!-- META -->
       <div class="footer-meta">
         <span>PROYECTO CONCEPTUAL</span>
         <span>INTERFAZ / ARQ — 001</span>
@@ -154,6 +206,11 @@
   align-items: center;
 
   gap: 15px;
+
+  width: fit-content;
+
+  color: #151515;
+  text-decoration: none;
 }
 
 .brand-symbol {
@@ -206,13 +263,35 @@
 }
 
 .footer-nav a {
+  position: relative;
+
   color: #151515;
 
   text-decoration: none;
 
-  font-size: 7px;
+  font-size: 12px;
 
   letter-spacing: 0.16em;
+}
+
+.footer-nav a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -7px;
+
+  width: 0;
+  height: 1px;
+
+  background: #151515;
+
+  transition: width 0.25s ease;
+}
+
+.footer-nav a:hover::after {
+  width: 100%;
 }
 
 

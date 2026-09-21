@@ -6,7 +6,7 @@
       <span></span>
 
       <div class="entrance">
-        <span>ACCESO DESDE ESTUDIO</span>
+        <span>ACCESO A SERVICIOS</span>
         <strong>↓</strong>
       </div>
 
@@ -33,13 +33,12 @@
     <!-- IDENTIFICACIÓN -->
     <div class="room-label">
       <span class="room-number">03</span>
-      <strong>HABITACIONES / SERVICIOS</strong>
-      <small>ZONA PRIVADA</small>
+      <strong>SERVICIOS</strong>
+     
     </div>
 
     <!-- INTRO -->
     <div class="services-heading">
-      <span>SERVICIOS / 03</span>
 
       <h2>
         Cada proyecto requiere
@@ -349,7 +348,7 @@
 .services-heading h2 {
   margin: 0;
 
-  font-size: clamp(48px, 4.5vw, 82px);
+  font-size: clamp(48px, 4.5vw, 57px);
 
   line-height: 0.95;
 
@@ -632,6 +631,12 @@
     display: none;
   }
 
+}
+
+@media (max-width: 760px) {
+  .services-title {
+    font-size: clamp(32px, 8vw, 44px);
+  }
 }
 
 @media (max-width: 700px) {

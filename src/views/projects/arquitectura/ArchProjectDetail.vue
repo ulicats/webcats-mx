@@ -415,12 +415,14 @@
       </RouterLink>
 
     </main>
-
+    <ArchFooter />
   </div>
 </template>
 
 
 <script setup>
+import ArchFooter from "../../../components/projects/arquitectura/ArchFooter.vue";
+
 import {
   computed,
   ref,

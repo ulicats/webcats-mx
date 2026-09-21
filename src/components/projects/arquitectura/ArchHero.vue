@@ -460,7 +460,7 @@ import heroImg from "../../../assets/projects/arquitectura/hero.png";
 .hero-copy h1 {
   margin: 0;
 
-  font-size: clamp(64px, 5.3vw, 104px);
+  font-size: clamp(64px, 5.3vw, 82px);
 
   line-height: 0.9;
   font-weight: 400;
@@ -687,7 +687,7 @@ import heroImg from "../../../assets/projects/arquitectura/hero.png";
   }
 
   .hero-copy h1 {
-    font-size: clamp(48px, 14vw, 72px);
+    font-size: clamp(48px, 14vw, 46px);
   }
 
   .hero-copy p {

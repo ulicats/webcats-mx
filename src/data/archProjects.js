@@ -1,5 +1,11 @@
 import heroImg from "../assets/projects/arquitectura/hero.png";
 import studioImg from "../assets/projects/arquitectura/studio.png";
+import alamedaBanner from "../assets/projects/arquitectura/alameda-banner.png";
+import alamedaInterior from "../assets/projects/arquitectura/alameda-interior.png";
+import hospitalBanner from "../assets/projects/arquitectura/hospital-banner.png";
+import hospitalInterior from "../assets/projects/arquitectura/hospital-interior.png";
+import torreBanner from "../assets/projects/arquitectura/torre-banner.png";
+import torreInterior from "../assets/projects/arquitectura/torre-interior.png";
 
 export const archProjects = [
   {
@@ -24,8 +30,6 @@ export const archProjects = [
     gallery: [
       heroImg,
       studioImg,
-      heroImg,
-      studioImg
     ],
 
     plans: [
@@ -58,22 +62,21 @@ export const archProjects = [
     year: "2025",
     status: "Construido",
 
-    cover: studioImg,
+    cover: hospitalBanner,
 
     description:
       "Hospital Norte propone una arquitectura funcional y clara orientada a optimizar recorridos, iluminación, operación médica y experiencia de pacientes y personal.",
 
     gallery: [
-      studioImg,
-      heroImg,
-      studioImg
+      hospitalInterior,
+      hospitalBanner
     ],
 
     plans: [
       {
         id: 1,
         title: "Planta General",
-        image: studioImg
+        image: hospitalInterior
       }
     ],
 
@@ -99,22 +102,21 @@ export const archProjects = [
     year: "2026",
     status: "En desarrollo",
 
-    cover: heroImg,
+    cover: torreBanner,
 
     description:
       "Torre Vértice desarrolla un programa vertical de usos mixtos mediante una fachada modular y una organización estructural que permite flexibilidad interior.",
 
     gallery: [
-      heroImg,
-      studioImg,
-      heroImg
+      torreInterior,
+      torreBanner
     ],
 
     plans: [
       {
         id: 1,
         title: "Planta Tipo",
-        image: studioImg
+        image: torreInterior
       }
     ],
 
@@ -140,22 +142,21 @@ export const archProjects = [
     year: "2026",
     status: "En desarrollo",
 
-    cover: studioImg,
+    cover: alamedaBanner,
 
     description:
       "Alameda Residencial plantea un desarrollo habitacional organizado alrededor de áreas verdes, recorridos peatonales y espacios comunitarios.",
 
     gallery: [
-      studioImg,
-      heroImg,
-      studioImg
+      alamedaInterior,
+      alamedaBanner
     ],
 
     plans: [
       {
         id: 1,
         title: "Plan Maestro",
-        image: studioImg
+        image: alamedaInterior
       }
     ],
 

@@ -91,6 +91,29 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+
+  scrollBehavior(to, from, savedPosition) {
+
+    // ATRÁS / ADELANTE DEL NAVEGADOR
+    if (savedPosition) {
+      return savedPosition;
+    }
+
+    // NAVEGACIÓN INTERNA CON HASH
+    // Ejemplo: /projects/arquitectura#servicios
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: "smooth",
+      };
+    }
+
+    // NUEVA VISTA = COMENZAR ARRIBA
+    return {
+      top: 0,
+      left: 0,
+    };
+  },
 });
 
 

@@ -8,7 +8,7 @@
       <span></span>
 
       <div class="entrance">
-        <span>VESTÍBULO</span>
+        <span>SECCIÓN ESTUDIO</span>
         <strong>↓</strong>
       </div>
 
@@ -74,9 +74,9 @@
     <div class="room-label">
       <span class="room-number">02</span>
 
-      <strong>EL ESTUDIO</strong>
+      <strong>ESTUDIO</strong>
 
-      <small>NIVEL +0.15</small>
+     
     </div>
 
     <!-- =====================================
@@ -109,7 +109,6 @@
       <div class="studio-copy">
 
         <span class="section-reference">
-          EL ESTUDIO / 02
         </span>
 
         <h2>
@@ -567,7 +566,7 @@ import studioImg from "../../../assets/projects/arquitectura/studio.png";
 
   align-items: center;
 
-  gap: clamp(50px, 5vw, 95px);
+  gap: clamp(50px, 5vw, 57px);
 }
 
 
@@ -636,7 +635,7 @@ import studioImg from "../../../assets/projects/arquitectura/studio.png";
 
   max-width: 620px;
 
-  font-size: clamp(55px, 4.7vw, 86px);
+  font-size: clamp(55px, 4.7vw, 57px);
 
   line-height: 0.92;
 
@@ -928,7 +927,7 @@ import studioImg from "../../../assets/projects/arquitectura/studio.png";
 
   .studio-copy h2 {
     font-size:
-      clamp(47px, 13vw, 70px);
+      clamp(47px, 13vw, 44px);
   }
 
   .image-frame {

@@ -7,7 +7,7 @@
       <span></span>
 
       <div class="entrance">
-        <span>PASILLO</span>
+        <span>ENTRADA A PROCESOS</span>
         <strong>↓</strong>
       </div>
 
@@ -22,14 +22,13 @@
     <!-- ETIQUETA -->
     <div class="room-label">
       <span class="room-number">05</span>
-      <strong>PASILLO / PROCESO</strong>
-      <small>RECORRIDO</small>
+      <strong>PROCESO</strong>
     </div>
 
     <!-- TITULAR -->
     <div class="process-heading">
 
-      <span>PROCESO / 05</span>
+      <span></span>
 
       <h2>
         De una idea
@@ -321,7 +320,7 @@
 .process-heading h2 {
   margin: 0;
 
-  font-size: clamp(50px, 4.7vw, 84px);
+  font-size: clamp(50px, 4.7vw, 57px);
 
   line-height: 0.94;
 

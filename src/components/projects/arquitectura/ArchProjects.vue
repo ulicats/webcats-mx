@@ -17,6 +17,19 @@
       <span>VENTANAL / 02</span>
     </div>
 
+        <!-- =====================================
+         IDENTIFICACIÓN
+    ====================================== -->
+
+    <div class="room-label">
+      <span class="room-number">04</span>
+
+      <strong>PROYECTOS</strong>
+
+     
+    </div>
+
+
 
     <!-- =====================================
          ENCABEZADO
@@ -26,7 +39,7 @@
 
       <div>
         <span class="section-tag">
-          PROYECTOS / 04
+       
         </span>
 
         <h2>
@@ -449,6 +462,49 @@ const previousProject = () => {
   left: 20px;
 }
 
+/* LABEL */
+
+.room-label {
+  position: absolute;
+
+  top: 48px;
+  left: 65px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.room-number {
+  width: 30px;
+  height: 30px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #151515;
+
+  border-radius: 50%;
+
+  font-size: 8px;
+}
+
+.room-label strong {
+  font-size: 8px;
+  font-weight: 500;
+
+  letter-spacing: 0.17em;
+}
+
+.room-label small {
+  color: #74736f;
+
+  font-size: 6px;
+
+  letter-spacing: 0.17em;
+}
+
 
 /* ========================================
    ENCABEZADO
@@ -487,7 +543,7 @@ const previousProject = () => {
   margin: 0;
 
   font-size:
-    clamp(62px, 5.5vw, 105px);
+    clamp(62px, 5.5vw, 57px);
 
   line-height: 0.9;
 
