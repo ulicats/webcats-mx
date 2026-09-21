@@ -5,7 +5,9 @@
 
       <div class="terminal-bar">
 
-        <!-- WEBCATS -->
+        <!-- =========================================
+             LOGO WEBCATS
+        ========================================== -->
         <router-link
           to="/"
           class="logo"
@@ -23,45 +25,75 @@
         </router-link>
 
 
-        <!-- TABS -->
-        <ul class="nav-links" :class="{ open: menuOpen }">
+        <!-- =========================================
+             NAVEGACIÓN DESKTOP / MOBILE
+        ========================================== -->
+        <ul
+          class="nav-links"
+          :class="{ open: menuOpen }"
+        >
 
           <li>
-            <router-link to="/" @click="closeMenu">
+            <router-link
+              to="/"
+              @click="closeMenu"
+            >
               <span class="terminal-icon">&gt;_</span>
+
               Inicio
+
               <span class="tab-close">×</span>
             </router-link>
           </li>
 
           <li>
-            <router-link to="/acerca" @click="closeMenu">
+            <router-link
+              to="/acerca"
+              @click="closeMenu"
+            >
               <span class="terminal-icon">&gt;_</span>
+
               Acerca
+
               <span class="tab-close">×</span>
             </router-link>
           </li>
 
           <li>
-            <router-link to="/servicios" @click="closeMenu">
+            <router-link
+              to="/servicios"
+              @click="closeMenu"
+            >
               <span class="terminal-icon">&gt;_</span>
+
               Servicios
+
               <span class="tab-close">×</span>
             </router-link>
           </li>
 
           <li>
-            <router-link to="/portafolio" @click="closeMenu">
+            <router-link
+              to="/portafolio"
+              @click="closeMenu"
+            >
               <span class="terminal-icon">&gt;_</span>
+
               Portafolio
+
               <span class="tab-close">×</span>
             </router-link>
           </li>
 
           <li>
-            <router-link to="/contacto" @click="closeMenu">
+            <router-link
+              to="/contacto"
+              @click="closeMenu"
+            >
               <span class="terminal-icon">&gt;_</span>
+
               Contacto
+
               <span class="tab-close">×</span>
             </router-link>
           </li>
@@ -69,23 +101,38 @@
         </ul>
 
 
-        <!-- ACCIONES -->
+        <!-- =========================================
+             ACCIONES DESKTOP
+        ========================================== -->
         <div class="terminal-actions">
-          <button class="new-tab" type="button">
+
+          <button
+            class="new-tab"
+            type="button"
+          >
             +
           </button>
 
-          <button class="tab-menu" type="button">
-           ⌄
+          <button
+            class="tab-menu"
+            type="button"
+          >
+            ⌄
           </button>
+
         </div>
 
 
-        <!-- MOBILE -->
+        <!-- =========================================
+             HAMBURGUESA MOBILE
+        ========================================== -->
         <button
           class="hamburger"
-          @click="toggleMenu"
+          type="button"
+          aria-label="Abrir menú"
+          :aria-expanded="menuOpen"
           :class="{ open: menuOpen }"
+          @click="toggleMenu"
         >
           <span></span>
           <span></span>
@@ -99,6 +146,7 @@
   </nav>
 </template>
 
+
 <script>
 import { ref } from "vue";
 
@@ -106,25 +154,34 @@ export default {
   name: "Navbar",
 
   setup() {
+
     const menuOpen = ref(false);
 
     const toggleMenu = () => {
+
       menuOpen.value = !menuOpen.value;
 
       document.body.style.overflow =
         menuOpen.value ? "hidden" : "auto";
+
     };
 
+
     const closeMenu = () => {
+
       menuOpen.value = false;
+
       document.body.style.overflow = "auto";
+
     };
+
 
     return {
       menuOpen,
       toggleMenu,
       closeMenu
     };
+
   }
 };
 </script>
@@ -137,7 +194,7 @@ export default {
 
 
 /* =========================================================
-   WINDOWS TERMINAL STYLE
+   NAVBAR
 ========================================================= */
 
 .navbar {
@@ -145,6 +202,7 @@ export default {
 
   position: sticky;
   top: 0;
+
   z-index: 1000;
 
   background: #2f2f2f;
@@ -157,7 +215,7 @@ export default {
 
 
 /* =========================================================
-   CONTENEDOR
+   WRAPPER
 ========================================================= */
 
 .terminal-bar-wrapper {
@@ -168,12 +226,22 @@ export default {
 }
 
 
+/* =========================================================
+   BARRA TERMINAL
+========================================================= */
+
 .terminal-bar {
   width: min(94%, 1650px);
 
   height: 64px;
 
   display: flex;
+
+  /*
+   * IMPORTANTE:
+   * Desktop conserva la alineación inferior
+   * para simular las pestañas de terminal.
+   */
   align-items: flex-end;
 
   padding-top: 8px;
@@ -227,7 +295,7 @@ export default {
 
 
 /* =========================================================
-   CONTENEDOR DE PESTAÑAS
+   PESTAÑAS
 ========================================================= */
 
 .nav-links {
@@ -293,13 +361,14 @@ export default {
 
 
 /* =========================================================
-   HOVER — LA PESTAÑA SE LEVANTA
+   HOVER
 ========================================================= */
 
 .nav-links a:hover {
   height: 54px;
 
   background: #0b0b0d;
+
   color: #ffffff;
 
   transform: translateY(0);
@@ -309,9 +378,9 @@ export default {
   z-index: 4;
 }
 
+
 .nav-links:has(a:hover)
 a.router-link-exact-active:not(:hover) {
-
   background: transparent;
 
   color: #d0d0d0;
@@ -343,8 +412,6 @@ a.router-link-exact-active:not(:hover) {
 }
 
 
-/* Ya NO usamos línea cyan debajo */
-
 .nav-links a.router-link-exact-active::after {
   display: none;
 }
@@ -371,16 +438,12 @@ a.router-link-exact-active:not(:hover) {
 }
 
 
-/* Activa */
-
 .nav-links a.router-link-exact-active .terminal-icon {
   width: 22px;
 
   opacity: 1;
 }
 
-
-/* Hover */
 
 .nav-links a:hover .terminal-icon {
   width: 22px;
@@ -390,7 +453,7 @@ a.router-link-exact-active:not(:hover) {
 
 
 /* =========================================================
-   X DE CADA PESTAÑA
+   X DE PESTAÑAS
 ========================================================= */
 
 .tab-close {
@@ -416,14 +479,10 @@ a.router-link-exact-active:not(:hover) {
 }
 
 
-/* X visible en activa */
-
 .router-link-exact-active .tab-close {
   opacity: 1;
 }
 
-
-/* X visible al pasar mouse */
 
 .nav-links a:hover .tab-close {
   opacity: 1;
@@ -438,7 +497,7 @@ a.router-link-exact-active:not(:hover) {
 
 
 /* =========================================================
-   + Y FLECHA
+   BOTONES + / FLECHA
 ========================================================= */
 
 .terminal-actions {
@@ -494,37 +553,31 @@ a.router-link-exact-active:not(:hover) {
 
 
 /* =========================================================
-   HAMBURGER
+   HAMBURGUESA
 ========================================================= */
 
 .hamburger {
   display: none;
 
-  margin-left: auto;
-
   border: 0;
 
   background: transparent;
-
-  flex-direction: column;
-
-  justify-content: center;
-
-  gap: 5px;
-
-  padding: 0 18px;
 
   cursor: pointer;
 }
 
 
 .hamburger span {
-  width: 25px;
+  display: block;
+
+  width: 28px;
   height: 2px;
 
-  background: #ddd;
+  background: #dddddd;
 
-  transition: 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 
@@ -551,13 +604,16 @@ a.router-link-exact-active:not(:hover) {
 
   .terminal-bar {
     width: 100%;
+
     padding-left: 15px;
     padding-right: 15px;
   }
 
+
   .logo {
     min-width: 185px;
   }
+
 
   .nav-links a {
     min-width: 120px;
@@ -571,30 +627,59 @@ a.router-link-exact-active:not(:hover) {
 
 
 /* =========================================================
-   MOBILE
+   MOBILE / TABLET PEQUEÑA
 ========================================================= */
 
 @media (max-width: 850px) {
 
+  /*
+   * AQUÍ está la corrección importante.
+   *
+   * Eliminamos por completo la lógica de
+   * align-items:flex-end del desktop.
+   */
+
   .terminal-bar {
     width: 100%;
 
-    height: 60px;
+    height: 76px;
 
-    padding: 4px 10px 0;
+    padding: 0 20px;
+
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      56px;
+
+    align-items: center;
+
+    box-sizing: border-box;
   }
 
 
+  /* =====================================
+     LOGO MOBILE
+  ===================================== */
+
   .logo {
-    height: 56px;
+    width: fit-content;
 
-    min-width: auto;
+    height: auto;
+    min-width: 0;
 
-    padding: 0 14px;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
 
     border-right: 0;
 
     font-size: 16px;
+
+    align-self: center;
   }
 
 
@@ -604,26 +689,77 @@ a.router-link-exact-active:not(:hover) {
   }
 
 
+  /* =====================================
+     OCULTAR ACCIONES DESKTOP
+  ===================================== */
+
   .terminal-actions {
     display: none;
   }
 
 
+  /* =====================================
+     HAMBURGUESA
+  ===================================== */
+
   .hamburger {
+    /*
+     * Ya NO depende del flex del padre.
+     * Tiene su propia celda del grid.
+     */
+
     display: flex;
+
+    width: 56px;
+    height: 56px;
+
+    margin: 0;
+    padding: 0;
+
+    justify-self: end;
+    align-self: center;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    box-sizing: border-box;
   }
 
+
+  .hamburger span {
+    width: 28px;
+    height: 2px;
+
+    flex: 0 0 2px;
+
+    background: #dddddd;
+  }
+
+
+  /* =====================================
+     MENÚ MOBILE
+  ===================================== */
 
   .nav-links {
     position: fixed;
 
-    top: 60px;
+    top: 76px;
     right: 0;
 
     width: min(360px, 88%);
-    height: calc(100vh - 60px);
+
+    height: calc(100vh - 76px);
+    height: calc(100dvh - 76px);
+
+    margin: 0;
 
     padding: 15px;
+
+    display: flex;
 
     flex-direction: column;
     align-items: stretch;
@@ -632,9 +768,15 @@ a.router-link-exact-active:not(:hover) {
 
     border-left: 1px solid #484848;
 
+    box-sizing: border-box;
+
     transform: translateX(100%);
 
     transition: transform 0.3s ease;
+
+    overflow-y: auto;
+
+    z-index: 999;
   }
 
 
@@ -646,6 +788,8 @@ a.router-link-exact-active:not(:hover) {
   .nav-links li {
     width: 100%;
     height: auto;
+
+    display: block;
   }
 
 
@@ -658,6 +802,9 @@ a.router-link-exact-active:not(:hover) {
     height: 54px;
 
     padding: 0 16px;
+
+    display: flex;
+    align-items: center;
 
     transform: none;
 
@@ -672,7 +819,61 @@ a.router-link-exact-active:not(:hover) {
 
   .terminal-icon {
     width: 22px;
+
     opacity: 1;
+  }
+
+}
+
+
+/* =========================================================
+   CELULAR PEQUEÑO
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .terminal-bar {
+    height: 72px;
+
+    padding: 0 16px;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      52px;
+  }
+
+
+  .logo {
+    font-size: 15px;
+
+    gap: 10px;
+  }
+
+
+  .logo-img {
+    width: 29px;
+    height: 29px;
+  }
+
+
+  .hamburger {
+    width: 52px;
+    height: 52px;
+  }
+
+
+  .hamburger span {
+    width: 27px;
+  }
+
+
+  .nav-links {
+    top: 72px;
+
+    width: 88%;
+
+    height: calc(100vh - 72px);
+    height: calc(100dvh - 72px);
   }
 
 }
