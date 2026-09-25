@@ -29,34 +29,73 @@ const carritoAbierto = ref(false)
 const precioMaximo = ref(1500)
 const busqueda = ref('')
 
+/* =========================================
+   SINCRONIZAR FILTROS DESDE LA URL
+========================================= */
+
 const sincronizarDesdeRuta = () => {
-  busqueda.value = typeof route.query.search === 'string' ? route.query.search : ''
-  categoriaActiva.value = typeof route.query.category === 'string' && route.query.category ? route.query.category : 'todo'
+  busqueda.value =
+    typeof route.query.search === 'string'
+      ? route.query.search
+      : ''
+
+  categoriaActiva.value =
+    typeof route.query.category === 'string' &&
+    route.query.category
+      ? route.query.category
+      : 'todo'
+
   soloNuevos.value = route.query.new === 'true'
   soloMasVendidos.value = route.query.bestseller === 'true'
-  coleccionActiva.value = typeof route.query.collection === 'string' ? route.query.collection : ''
+
+  coleccionActiva.value =
+    typeof route.query.collection === 'string'
+      ? route.query.collection
+      : ''
 }
 
 watch(
   () => route.query,
   sincronizarDesdeRuta,
-  { immediate: true, deep: true }
+  {
+    immediate: true,
+    deep: true
+  }
 )
 
+/* =========================================
+   CARRITO
+========================================= */
+
 const cantidadCarrito = computed(() => {
-  return carrito.value.reduce((total, item) => total + item.quantity, 0)
+  return carrito.value.reduce(
+    (total, item) => total + item.quantity,
+    0
+  )
 })
 
+/* =========================================
+   FORMATO DE PRECIO
+========================================= */
+
 const formatPrice = (price) => {
-  return new Intl.NumberFormat(catalogConfig.currency.locale, {
-    style: 'currency',
-    currency: catalogConfig.currency.code,
-    maximumFractionDigits: 0
-  }).format(price)
+  return new Intl.NumberFormat(
+    catalogConfig.currency.locale,
+    {
+      style: 'currency',
+      currency: catalogConfig.currency.code,
+      maximumFractionDigits: 0
+    }
+  ).format(price)
 }
+
+/* =========================================
+   BÚSQUEDA
+========================================= */
 
 const actualizarBusqueda = (value) => {
   const termino = value.trim()
+
   busqueda.value = value
 
   router.replace({
@@ -68,16 +107,27 @@ const actualizarBusqueda = (value) => {
   })
 }
 
+/* =========================================
+   CAMBIAR CATEGORÍA
+
+   IMPORTANTE:
+   Ya NO usamos router.replace aquí.
+
+   De esta manera cambiar entre:
+   Todo / Ropa / Calzado / Bolsas / etc.
+
+   solamente actualiza los productos y NO
+   provoca navegación ni scroll hacia arriba.
+========================================= */
+
 const cambiarCategoria = (categoria) => {
-  router.replace({
-    name: 'catalogo-productos',
-    query: {
-      ...route.query,
-      category: categoria === 'todo' ? undefined : categoria,
-      collection: undefined
-    }
-  })
+  categoriaActiva.value = categoria
+  coleccionActiva.value = ''
 }
+
+/* =========================================
+   MODAL PRODUCTO
+========================================= */
 
 const abrirProducto = (producto) => {
   productoSeleccionado.value = producto
@@ -88,28 +138,63 @@ const cerrarProducto = () => {
   modalProductoAbierto.value = false
 }
 
-const obtenerPrecioPorCantidad = (producto, cantidad) => {
+/* =========================================
+   PRECIOS POR CANTIDAD
+========================================= */
+
+const obtenerPrecioPorCantidad = (
+  producto,
+  cantidad
+) => {
   let precio = producto.price
+
   const tiers = producto.wholesale?.tiers || []
 
-  tiers.forEach(tier => {
-    if (cantidad >= tier.min) precio = tier.price
+  tiers.forEach((tier) => {
+    if (cantidad >= tier.min) {
+      precio = tier.price
+    }
   })
 
   return precio
 }
 
+/* =========================================
+   AGREGAR AL CARRITO
+========================================= */
+
 const agregarAlCarrito = (item) => {
   const producto = item.product
-  const key = [producto.id, item.color || 'sin-color', item.size || 'sin-talla'].join('-')
-  const existente = carrito.value.find(productoCarrito => productoCarrito.key === key)
+
+  const key = [
+    producto.id,
+    item.color || 'sin-color',
+    item.size || 'sin-talla'
+  ].join('-')
+
+  const existente = carrito.value.find(
+    (productoCarrito) =>
+      productoCarrito.key === key
+  )
 
   if (existente) {
     existente.quantity += item.quantity
-    existente.unitPrice = obtenerPrecioPorCantidad(producto, existente.quantity)
-    existente.subtotal = existente.unitPrice * existente.quantity
+
+    existente.unitPrice =
+      obtenerPrecioPorCantidad(
+        producto,
+        existente.quantity
+      )
+
+    existente.subtotal =
+      existente.unitPrice *
+      existente.quantity
   } else {
-    const unitPrice = obtenerPrecioPorCantidad(producto, item.quantity)
+    const unitPrice =
+      obtenerPrecioPorCantidad(
+        producto,
+        item.quantity
+      )
 
     carrito.value.push({
       key,
@@ -123,7 +208,8 @@ const agregarAlCarrito = (item) => {
       quantity: item.quantity,
       originalPrice: producto.price,
       unitPrice,
-      subtotal: unitPrice * item.quantity
+      subtotal:
+        unitPrice * item.quantity
     })
   }
 
@@ -131,17 +217,34 @@ const agregarAlCarrito = (item) => {
   carritoAbierto.value = true
 }
 
+/* =========================================
+   MODIFICAR CANTIDADES
+========================================= */
+
 const aumentarCantidadCarrito = (key) => {
-  const item = carrito.value.find(item => item.key === key)
+  const item = carrito.value.find(
+    (item) => item.key === key
+  )
+
   if (!item) return
 
   item.quantity++
-  item.unitPrice = obtenerPrecioPorCantidad(item.product, item.quantity)
-  item.subtotal = item.unitPrice * item.quantity
+
+  item.unitPrice =
+    obtenerPrecioPorCantidad(
+      item.product,
+      item.quantity
+    )
+
+  item.subtotal =
+    item.unitPrice * item.quantity
 }
 
 const disminuirCantidadCarrito = (key) => {
-  const item = carrito.value.find(item => item.key === key)
+  const item = carrito.value.find(
+    (item) => item.key === key
+  )
+
   if (!item) return
 
   if (item.quantity <= 1) {
@@ -150,74 +253,110 @@ const disminuirCantidadCarrito = (key) => {
   }
 
   item.quantity--
-  item.unitPrice = obtenerPrecioPorCantidad(item.product, item.quantity)
-  item.subtotal = item.unitPrice * item.quantity
+
+  item.unitPrice =
+    obtenerPrecioPorCantidad(
+      item.product,
+      item.quantity
+    )
+
+  item.subtotal =
+    item.unitPrice * item.quantity
 }
 
 const eliminarDelCarrito = (key) => {
-  carrito.value = carrito.value.filter(item => item.key !== key)
+  carrito.value =
+    carrito.value.filter(
+      (item) => item.key !== key
+    )
 }
 
 const cerrarCarrito = () => {
   carritoAbierto.value = false
 }
 
+/* =========================================
+   PEDIDO WHATSAPP
+========================================= */
+
 const continuarPedido = () => {
   if (!carrito.value.length) return
 
   const total = carrito.value.reduce(
-    (sum, item) => sum + item.subtotal,
+    (sum, item) =>
+      sum + item.subtotal,
     0
   )
 
-  const lineasProductos = carrito.value.map((item) => {
-    const lineas = [
-      `🛍️ *${item.name}*`
-    ]
+  const lineasProductos =
+    carrito.value.map((item) => {
+      const lineas = [
+        `🛍️ *${item.name}*`
+      ]
 
-    if (item.color) {
-      lineas.push(`Color: ${item.color}`)
-    }
+      if (item.color) {
+        lineas.push(
+          `Color: ${item.color}`
+        )
+      }
 
-    if (item.size) {
-      lineas.push(`Talla: ${item.size}`)
-    }
+      if (item.size) {
+        lineas.push(
+          `Talla: ${item.size}`
+        )
+      }
 
-    lineas.push(`Cantidad: ${item.quantity}`)
-
-    if (item.unitPrice < item.originalPrice) {
       lineas.push(
-        `Precio mayoreo: ${formatPrice(item.unitPrice)} c/u`
+        `Cantidad: ${item.quantity}`
       )
-    } else {
+
+      if (
+        item.unitPrice <
+        item.originalPrice
+      ) {
+        lineas.push(
+          `Precio mayoreo: ${formatPrice(
+            item.unitPrice
+          )} c/u`
+        )
+      } else {
+        lineas.push(
+          `Precio: ${formatPrice(
+            item.unitPrice
+          )} c/u`
+        )
+      }
+
       lineas.push(
-        `Precio: ${formatPrice(item.unitPrice)} c/u`
+        `Subtotal: ${formatPrice(
+          item.subtotal
+        )}`
       )
-    }
 
-    lineas.push(
-      `Subtotal: ${formatPrice(item.subtotal)}`
-    )
-
-    return lineas.join('\n')
-  })
+      return lineas.join('\n')
+    })
 
   const mensaje = [
     catalogConfig.cart.whatsappMessage,
     '',
-    ...lineasProductos.flatMap(producto => [
-      producto,
-      ''
-    ]),
+    ...lineasProductos.flatMap(
+      (producto) => [
+        producto,
+        ''
+      ]
+    ),
     `*TOTAL: ${formatPrice(total)}*`,
     '',
     'Quedo pendiente para confirmar disponibilidad, envío y forma de pago.'
   ].join('\n')
 
-  const numero = catalogConfig.contact.whatsapp
+  const numero =
+    catalogConfig.contact.whatsapp
 
   const urlWhatsApp =
-    `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`
+    `https://wa.me/${numero}?text=${encodeURIComponent(
+      mensaje
+    )}`
 
   window.open(
     urlWhatsApp,
@@ -226,87 +365,280 @@ const continuarPedido = () => {
   )
 }
 
-const normalizarTexto = (texto = '') => {
+/* =========================================
+   BÚSQUEDA INTELIGENTE
+========================================= */
+
+const normalizarTexto = (
+  texto = ''
+) => {
   return texto
     .toString()
     .toLowerCase()
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(
+      /[\u0300-\u036f]/g,
+      ''
+    )
     .trim()
 }
 
-const obtenerTerminosBusqueda = (texto = '') => {
-  const termino = normalizarTexto(texto)
+const obtenerTerminosBusqueda = (
+  texto = ''
+) => {
+  const termino =
+    normalizarTexto(texto)
+
   if (!termino) return []
 
   const alias = {
-    bolsa: ['bolsa', 'bolsas'],
-    bolsas: ['bolsa', 'bolsas'],
-    accesorio: ['accesorio', 'accesorios'],
-    accesorios: ['accesorio', 'accesorios'],
-    tenis: ['tenis', 'calzado'],
-    zapato: ['zapato', 'zapatos', 'calzado'],
-    zapatos: ['zapato', 'zapatos', 'calzado'],
-    calzado: ['calzado', 'tenis', 'zapato'],
-    ropa: ['ropa'],
-    belleza: ['belleza'],
-    gorra: ['gorra', 'gorras'],
-    gorras: ['gorra', 'gorras'],
-    reloj: ['reloj', 'relojes'],
-    relojes: ['reloj', 'relojes']
+    bolsa: [
+      'bolsa',
+      'bolsas'
+    ],
+
+    bolsas: [
+      'bolsa',
+      'bolsas'
+    ],
+
+    accesorio: [
+      'accesorio',
+      'accesorios'
+    ],
+
+    accesorios: [
+      'accesorio',
+      'accesorios'
+    ],
+
+    tenis: [
+      'tenis',
+      'calzado'
+    ],
+
+    zapato: [
+      'zapato',
+      'zapatos',
+      'calzado'
+    ],
+
+    zapatos: [
+      'zapato',
+      'zapatos',
+      'calzado'
+    ],
+
+    calzado: [
+      'calzado',
+      'tenis',
+      'zapato'
+    ],
+
+    ropa: [
+      'ropa'
+    ],
+
+    belleza: [
+      'belleza'
+    ],
+
+    gorra: [
+      'gorra',
+      'gorras'
+    ],
+
+    gorras: [
+      'gorra',
+      'gorras'
+    ],
+
+    reloj: [
+      'reloj',
+      'relojes'
+    ],
+
+    relojes: [
+      'reloj',
+      'relojes'
+    ]
   }
 
-  return alias[termino] || [termino]
+  return (
+    alias[termino] ||
+    [termino]
+  )
 }
 
-const productosFiltrados = computed(() => {
-  let resultado = [...productos]
+/* =========================================
+   PRODUCTOS FILTRADOS
+========================================= */
 
-  if (coleccionActiva.value) {
-    const coleccion = collections.find(item => item.slug === coleccionActiva.value)
-    if (coleccion) {
-      resultado = resultado.filter(producto => coleccion.products.includes(producto.id))
+const productosFiltrados =
+  computed(() => {
+    let resultado = [
+      ...productos
+    ]
+
+    /* COLECCIÓN */
+
+    if (
+      coleccionActiva.value
+    ) {
+      const coleccion =
+        collections.find(
+          (item) =>
+            item.slug ===
+            coleccionActiva.value
+        )
+
+      if (coleccion) {
+        resultado =
+          resultado.filter(
+            (producto) =>
+              coleccion.products.includes(
+                producto.id
+              )
+          )
+      }
     }
-  }
 
-  if (categoriaActiva.value !== 'todo') {
-    resultado = resultado.filter(producto => producto.category === categoriaActiva.value)
-  }
+    /* CATEGORÍA */
 
-  const terminos = obtenerTerminosBusqueda(busqueda.value)
-  if (terminos.length) {
-    resultado = resultado.filter(producto => {
-      const textoProducto = normalizarTexto([
-        producto.name,
-        producto.category,
-        producto.description,
-        ...(producto.tags || [])
-      ].filter(Boolean).join(' '))
+    if (
+      categoriaActiva.value !==
+      'todo'
+    ) {
+      resultado =
+        resultado.filter(
+          (producto) =>
+            producto.category ===
+            categoriaActiva.value
+        )
+    }
 
-      return terminos.some(termino => textoProducto.includes(termino))
-    })
-  }
+    /* BÚSQUEDA */
 
-  resultado = resultado.filter(producto => producto.price <= precioMaximo.value)
+    const terminos =
+      obtenerTerminosBusqueda(
+        busqueda.value
+      )
 
-  if (soloMayoreo.value) {
-    resultado = resultado.filter(producto => producto.wholesale?.enabled)
-  }
+    if (terminos.length) {
+      resultado =
+        resultado.filter(
+          (producto) => {
+            const textoProducto =
+              normalizarTexto(
+                [
+                  producto.name,
+                  producto.category,
+                  producto.description,
+                  ...(
+                    producto.tags ||
+                    []
+                  )
+                ]
+                  .filter(Boolean)
+                  .join(' ')
+              )
 
-  if (soloNuevos.value) {
-    resultado = resultado.filter(producto => producto.isNew)
-  }
+            return terminos.some(
+              (termino) =>
+                textoProducto.includes(
+                  termino
+                )
+            )
+          }
+        )
+    }
 
-  if (soloMasVendidos.value) {
-    resultado = resultado.filter(producto => producto.bestseller)
-  }
+    /* PRECIO */
 
-  if (orden.value === 'price-low') resultado.sort((a, b) => a.price - b.price)
-  if (orden.value === 'price-high') resultado.sort((a, b) => b.price - a.price)
-  if (orden.value === 'name') resultado.sort((a, b) => a.name.localeCompare(b.name))
+    resultado =
+      resultado.filter(
+        (producto) =>
+          producto.price <=
+          precioMaximo.value
+      )
 
-  return resultado
-})
+    /* MAYOREO */
+
+    if (
+      soloMayoreo.value
+    ) {
+      resultado =
+        resultado.filter(
+          (producto) =>
+            producto.wholesale
+              ?.enabled
+        )
+    }
+
+    /* NUEVOS */
+
+    if (
+      soloNuevos.value
+    ) {
+      resultado =
+        resultado.filter(
+          (producto) =>
+            producto.isNew
+        )
+    }
+
+    /* MÁS VENDIDOS */
+
+    if (
+      soloMasVendidos.value
+    ) {
+      resultado =
+        resultado.filter(
+          (producto) =>
+            producto.bestseller
+        )
+    }
+
+    /* ORDEN */
+
+    if (
+      orden.value ===
+      'price-low'
+    ) {
+      resultado.sort(
+        (a, b) =>
+          a.price - b.price
+      )
+    }
+
+    if (
+      orden.value ===
+      'price-high'
+    ) {
+      resultado.sort(
+        (a, b) =>
+          b.price - a.price
+      )
+    }
+
+    if (
+      orden.value ===
+      'name'
+    ) {
+      resultado.sort(
+        (a, b) =>
+          a.name.localeCompare(
+            b.name
+          )
+      )
+    }
+
+    return resultado
+  })
+
+/* =========================================
+   LIMPIAR FILTROS
+========================================= */
 
 const limpiarFiltros = () => {
   orden.value = 'featured'
@@ -320,21 +652,35 @@ const limpiarFiltros = () => {
   })
 }
 
-const nombreCategoria = (category) => {
-  const categoria = categories.find(item => item.slug === category)
-  return categoria?.name || category
+/* =========================================
+   NOMBRE CATEGORÍA
+========================================= */
+
+const nombreCategoria = (
+  category
+) => {
+  const categoria =
+    categories.find(
+      (item) =>
+        item.slug === category
+    )
+
+  return (
+    categoria?.name ||
+    category
+  )
 }
 </script>
 
 <template>
   <div class="catalogo-page">
 
-<CatalogoHeader
-  :cart-count="cantidadCarrito"
-  :search-value="busqueda"
-  @open-cart="carritoAbierto = true"
-  @search="actualizarBusqueda"
-/>
+    <CatalogoHeader
+      :cart-count="cantidadCarrito"
+      :search-value="busqueda"
+      @open-cart="carritoAbierto = true"
+      @search="actualizarBusqueda"
+    />
 
     <main>
 
@@ -368,7 +714,6 @@ const nombreCategoria = (category) => {
         </div>
       </section>
 
-
       <!-- CATEGORÍAS -->
 
       <section class="category-navigation">
@@ -377,20 +722,31 @@ const nombreCategoria = (category) => {
 
           <button
             type="button"
-            :class="{ active: categoriaActiva === 'todo' }"
+            :class="{
+              active:
+                categoriaActiva === 'todo'
+            }"
             @click="cambiarCategoria('todo')"
           >
             Todo
           </button>
 
           <button
-            v-for="categoria in categories.filter(item => item.active)"
+            v-for="categoria in categories.filter(
+              item => item.active
+            )"
             :key="categoria.id"
             type="button"
             :class="{
-              active: categoriaActiva === categoria.slug
+              active:
+                categoriaActiva ===
+                categoria.slug
             }"
-            @click="cambiarCategoria(categoria.slug)"
+            @click="
+              cambiarCategoria(
+                categoria.slug
+              )
+            "
           >
             {{ categoria.name }}
           </button>
@@ -398,7 +754,6 @@ const nombreCategoria = (category) => {
         </div>
 
       </section>
-
 
       <!-- TOOLBAR -->
 
@@ -414,8 +769,15 @@ const nombreCategoria = (category) => {
               stroke="currentColor"
               stroke-width="1.5"
             >
-              <circle cx="11" cy="11" r="7" />
-              <path d="m20 20-4-4" />
+              <circle
+                cx="11"
+                cy="11"
+                r="7"
+              />
+
+              <path
+                d="m20 20-4-4"
+              />
             </svg>
 
             <input
@@ -426,14 +788,17 @@ const nombreCategoria = (category) => {
 
           </div>
 
-
           <div class="toolbar-actions">
 
             <button
               class="filter-button"
               type="button"
-              @click="filtroAbierto = !filtroAbierto"
+              @click="
+                filtroAbierto =
+                  !filtroAbierto
+              "
             >
+
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -448,32 +813,50 @@ const nombreCategoria = (category) => {
               Filtrar
 
               <span
-                v-if="soloMayoreo || soloNuevos || precioMaximo < 1500"
+                v-if="
+                  soloMayoreo ||
+                  soloNuevos ||
+                  precioMaximo < 1500
+                "
                 class="filter-dot"
               ></span>
-            </button>
 
+            </button>
 
             <div class="sort-box">
 
-              <span>Ordenar:</span>
+              <span>
+                Ordenar:
+              </span>
 
-              <select v-model="orden">
-                <option value="featured">
+              <select
+                v-model="orden"
+              >
+
+                <option
+                  value="featured"
+                >
                   Destacados
                 </option>
 
-                <option value="price-low">
+                <option
+                  value="price-low"
+                >
                   Precio: menor a mayor
                 </option>
 
-                <option value="price-high">
+                <option
+                  value="price-high"
+                >
                   Precio: mayor a menor
                 </option>
 
-                <option value="name">
+                <option
+                  value="name"
+                >
                   Nombre
                 </option>
+
               </select>
 
             </div>
@@ -481,7 +864,6 @@ const nombreCategoria = (category) => {
           </div>
 
         </div>
-
 
         <!-- FILTROS EXPANDIBLES -->
 
@@ -506,10 +888,12 @@ const nombreCategoria = (category) => {
                     type="checkbox"
                   >
 
-                  <span>Novedades</span>
+                  <span>
+                    Novedades
+                  </span>
                 </label>
 
-               <label>
+                <label>
                   <input
                     v-model="soloMayoreo"
                     type="checkbox"
@@ -522,21 +906,33 @@ const nombreCategoria = (category) => {
 
               </div>
 
-
-              <div class="filter-group price-filter">
+              <div
+                class="
+                  filter-group
+                  price-filter
+                "
+              >
 
                 <div class="price-heading">
+
                   <span class="filter-title">
                     Precio máximo
                   </span>
 
                   <strong>
-                    {{ formatPrice(precioMaximo) }}
+                    {{
+                      formatPrice(
+                        precioMaximo
+                      )
+                    }}
                   </strong>
+
                 </div>
 
                 <input
-                  v-model.number="precioMaximo"
+                  v-model.number="
+                    precioMaximo
+                  "
                   type="range"
                   min="300"
                   max="1500"
@@ -549,7 +945,6 @@ const nombreCategoria = (category) => {
                 </div>
 
               </div>
-
 
               <button
                 class="clear-filters"
@@ -567,7 +962,6 @@ const nombreCategoria = (category) => {
 
       </section>
 
-
       <!-- RESULTADOS -->
 
       <section class="products-section">
@@ -575,36 +969,57 @@ const nombreCategoria = (category) => {
         <div class="results-heading">
 
           <span>
-            {{ productosFiltrados.length }}
-            {{ productosFiltrados.length === 1 ? 'producto' : 'productos' }}
+            {{
+              productosFiltrados.length
+            }}
+
+            {{
+              productosFiltrados.length === 1
+                ? 'producto'
+                : 'productos'
+            }}
           </span>
 
           <span
-            v-if="categoriaActiva !== 'todo'"
+            v-if="
+              categoriaActiva !== 'todo'
+            "
             class="current-category"
           >
-            {{ nombreCategoria(categoriaActiva) }}
+            {{
+              nombreCategoria(
+                categoriaActiva
+              )
+            }}
           </span>
 
         </div>
 
-
         <!-- GRID -->
 
         <div
-          v-if="productosFiltrados.length"
+          v-if="
+            productosFiltrados.length
+          "
           class="products-grid"
         >
 
           <article
-            v-for="producto in productosFiltrados"
+            v-for="
+              producto in
+              productosFiltrados
+            "
             :key="producto.id"
             class="product-card"
           >
 
             <div
               class="product-image"
-              @click="abrirProducto(producto)"
+              @click="
+                abrirProducto(
+                  producto
+                )
+              "
             >
 
               <img
@@ -619,24 +1034,35 @@ const nombreCategoria = (category) => {
                 Nuevo
               </span>
 
-             <button
+              <button
                 type="button"
                 class="quick-view"
-                @click.stop="abrirProducto(producto)"
+                @click.stop="
+                  abrirProducto(
+                    producto
+                  )
+                "
               >
                 Ver producto
                 <span>→</span>
-             </button>
+              </button>
 
             </div>
-
 
             <div class="product-info">
 
               <div>
 
-                <span class="product-category">
-                  {{ nombreCategoria(producto.category) }}
+                <span
+                  class="
+                    product-category
+                  "
+                >
+                  {{
+                    nombreCategoria(
+                      producto.category
+                    )
+                  }}
                 </span>
 
                 <h3>
@@ -646,15 +1072,23 @@ const nombreCategoria = (category) => {
               </div>
 
               <strong>
-                {{ formatPrice(producto.price) }}
+                {{
+                  formatPrice(
+                    producto.price
+                  )
+                }}
               </strong>
 
             </div>
 
-
             <span
-              v-if="producto.wholesale?.enabled"
-              class="wholesale-label"
+              v-if="
+                producto.wholesale
+                  ?.enabled
+              "
+              class="
+                wholesale-label
+              "
             >
               Mayoreo disponible
             </span>
@@ -663,7 +1097,6 @@ const nombreCategoria = (category) => {
 
         </div>
 
-
         <!-- SIN RESULTADOS -->
 
         <div
@@ -671,10 +1104,13 @@ const nombreCategoria = (category) => {
           class="empty-results"
         >
 
-          <span>No encontramos productos.</span>
+          <span>
+            No encontramos productos.
+          </span>
 
           <p>
-            Intenta cambiar la búsqueda o los filtros.
+            Intenta cambiar la búsqueda
+            o los filtros.
           </p>
 
           <button
@@ -690,26 +1126,46 @@ const nombreCategoria = (category) => {
 
     </main>
 
-   <CatalogoFooter />
+    <CatalogoFooter />
 
-<ProductModal
-  :product="productoSeleccionado"
-  :open="modalProductoAbierto"
-  @close="cerrarProducto"
-  @add-to-cart="agregarAlCarrito"
-/>
+    <ProductModal
+      :product="
+        productoSeleccionado
+      "
+      :open="
+        modalProductoAbierto
+      "
+      @close="
+        cerrarProducto
+      "
+      @add-to-cart="
+        agregarAlCarrito
+      "
+    />
 
-<CartDrawer
-  :open="carritoAbierto"
-  :items="carrito"
-  @close="cerrarCarrito"
-  @increase="aumentarCantidadCarrito"
-  @decrease="disminuirCantidadCarrito"
-  @remove="eliminarDelCarrito"
-  @checkout="continuarPedido"
-/>
-
-
+    <CartDrawer
+      :open="
+        carritoAbierto
+      "
+      :items="
+        carrito
+      "
+      @close="
+        cerrarCarrito
+      "
+      @increase="
+        aumentarCantidadCarrito
+      "
+      @decrease="
+        disminuirCantidadCarrito
+      "
+      @remove="
+        eliminarDelCarrito
+      "
+      @checkout="
+        continuarPedido
+      "
+    />
 
   </div>
 </template>
@@ -720,7 +1176,6 @@ const nombreCategoria = (category) => {
   background: #fff;
   color: #24211f;
 }
-
 
 /* ==============================
    HEADER DEL CATÁLOGO
@@ -801,7 +1256,6 @@ const nombreCategoria = (category) => {
   text-transform: uppercase;
 }
 
-
 /* ==============================
    CATEGORÍAS
 ================================ */
@@ -818,7 +1272,9 @@ const nombreCategoria = (category) => {
   align-items: center;
   gap: 40px;
 
-  padding: 0 max(40px, calc((100vw - 1500px) / 2));
+  padding:
+    0
+    max(40px, calc((100vw - 1500px) / 2));
 
   overflow-x: auto;
 }
@@ -863,7 +1319,8 @@ const nombreCategoria = (category) => {
 
   transform: scaleX(0);
 
-  transition: transform .25s ease;
+  transition:
+    transform .25s ease;
 }
 
 .category-inner button:hover,
@@ -874,7 +1331,6 @@ const nombreCategoria = (category) => {
 .category-inner button.active::after {
   transform: scaleX(1);
 }
-
 
 /* ==============================
    TOOLBAR
@@ -893,11 +1349,10 @@ const nombreCategoria = (category) => {
   justify-content: space-between;
   gap: 30px;
 
-  padding: 0 max(40px, calc((100vw - 1500px) / 2));
+  padding:
+    0
+    max(40px, calc((100vw - 1500px) / 2));
 }
-
-
-/* BUSCADOR */
 
 .search-box {
   width: min(420px, 100%);
@@ -936,9 +1391,6 @@ const nombreCategoria = (category) => {
 .search-box input::placeholder {
   color: #aaa19c;
 }
-
-
-/* ACCIONES */
 
 .toolbar-actions {
   display: flex;
@@ -1013,7 +1465,6 @@ const nombreCategoria = (category) => {
   cursor: pointer;
 }
 
-
 /* ==============================
    PANEL FILTROS
 ================================ */
@@ -1025,7 +1476,11 @@ const nombreCategoria = (category) => {
 
 .filters-inner {
   display: grid;
-  grid-template-columns: 1fr 1.5fr auto;
+  grid-template-columns:
+    1fr
+    1.5fr
+    auto;
+
   align-items: center;
   gap: 70px;
 
@@ -1079,7 +1534,6 @@ const nombreCategoria = (category) => {
 
 .price-filter input[type="range"] {
   width: 100%;
-
   accent-color: #aebfae;
 }
 
@@ -1096,7 +1550,8 @@ const nombreCategoria = (category) => {
   padding-bottom: 5px;
 
   border: 0;
-  border-bottom: 1px solid #24211f;
+  border-bottom:
+    1px solid #24211f;
 
   background: transparent;
   color: #24211f;
@@ -1110,7 +1565,6 @@ const nombreCategoria = (category) => {
   cursor: pointer;
 }
 
-
 /* TRANSICIÓN */
 
 .filter-enter-active,
@@ -1123,9 +1577,9 @@ const nombreCategoria = (category) => {
 .filter-enter-from,
 .filter-leave-to {
   opacity: 0;
-  transform: translateY(-8px);
+  transform:
+    translateY(-8px);
 }
-
 
 /* ==============================
    PRODUCTOS
@@ -1144,7 +1598,8 @@ const nombreCategoria = (category) => {
   min-height: 35px;
 
   display: flex;
-  justify-content: space-between;
+  justify-content:
+    space-between;
 
   margin-bottom: 18px;
 
@@ -1160,15 +1615,15 @@ const nombreCategoria = (category) => {
   color: #a97d87;
 }
 
-
 /* GRID */
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns:
+    repeat(4, 1fr);
+
   gap: 45px 14px;
 }
-
 
 /* CARD */
 
@@ -1197,15 +1652,14 @@ const nombreCategoria = (category) => {
 
   object-fit: cover;
 
-  transition: transform .55s ease;
+  transition:
+    transform .55s ease;
 }
 
-.product-card:hover .product-image > img {
+.product-card:hover
+.product-image > img {
   transform: scale(1.035);
 }
-
-
-/* BADGE */
 
 .product-badge {
   position: absolute;
@@ -1224,9 +1678,6 @@ const nombreCategoria = (category) => {
   text-transform: uppercase;
 }
 
-
-/* VER PRODUCTO */
-
 .quick-view {
   position: absolute;
 
@@ -1238,13 +1689,16 @@ const nombreCategoria = (category) => {
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content:
+    space-between;
 
   padding: 0 17px;
 
   border: 0;
 
-  background: rgba(36,33,31,.94);
+  background:
+    rgba(36,33,31,.94);
+
   color: #fff;
 
   font-family: inherit;
@@ -1256,7 +1710,8 @@ const nombreCategoria = (category) => {
   cursor: pointer;
 
   opacity: 0;
-  transform: translateY(8px);
+  transform:
+    translateY(8px);
 
   transition:
     opacity .25s ease,
@@ -1272,20 +1727,20 @@ const nombreCategoria = (category) => {
   background: #a97d87;
 }
 
-.product-card:hover .quick-view {
+.product-card:hover
+.quick-view {
   opacity: 1;
   transform: translateY(0);
 }
-
-
-/* INFO */
 
 .product-info {
   padding-top: 14px;
 
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content:
+    space-between;
+
   gap: 15px;
 }
 
@@ -1332,7 +1787,6 @@ const nombreCategoria = (category) => {
   text-transform: uppercase;
 }
 
-
 /* ==============================
    VACÍO
 ================================ */
@@ -1349,7 +1803,11 @@ const nombreCategoria = (category) => {
 }
 
 .empty-results > span {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
   font-size: 35px;
   font-style: italic;
 }
@@ -1381,22 +1839,25 @@ const nombreCategoria = (category) => {
   cursor: pointer;
 }
 
-
 /* ==============================
    RESPONSIVE
 ================================ */
 
 @media (max-width: 1100px) {
+
   .products-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+      repeat(3, 1fr);
   }
 
   .filters-inner {
     gap: 35px;
   }
+
 }
 
 @media (max-width: 800px) {
+
   .catalog-header-inner {
     align-items: flex-start;
     flex-direction: column;
@@ -1420,26 +1881,34 @@ const nombreCategoria = (category) => {
   }
 
   .toolbar-actions {
-    justify-content: space-between;
+    justify-content:
+      space-between;
   }
 
   .filters-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
   }
 
   .products-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+      repeat(2, 1fr);
   }
 
   .quick-view {
     opacity: 1;
     transform: none;
   }
+
 }
 
 @media (max-width: 600px) {
+
   .catalog-header {
-    padding: 70px 20px 55px;
+    padding:
+      70px
+      20px
+      55px;
   }
 
   .category-inner {
@@ -1461,7 +1930,10 @@ const nombreCategoria = (category) => {
   }
 
   .products-section {
-    padding: 40px 20px 80px;
+    padding:
+      40px
+      20px
+      80px;
   }
 
   .products-grid {
@@ -1472,12 +1944,15 @@ const nombreCategoria = (category) => {
     flex-direction: column;
     gap: 5px;
   }
+
 }
 
 @media (max-width: 400px) {
+
   .toolbar-actions {
     align-items: flex-start;
     flex-direction: column;
   }
+
 }
 </style>
