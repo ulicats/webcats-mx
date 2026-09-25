@@ -14,6 +14,7 @@ import GymDemo from "./projects/gym/GymDemo.vue";
 import AbogadosDemo from "./projects/abogados/LawDemo.vue";
 import FinDemo from "./projects/financiera/FinDemo.vue";
 import ArchDemo from "./projects/arquitectura/ArchDemo.vue";
+import CatalogoDemo from "./projects/catalogo/CatalogoDemo.vue";
 
 const route = useRoute();
 
@@ -25,6 +26,7 @@ const map = {
   abogados: AbogadosDemo,
   financiera: FinDemo,
   arquitectura: ArchDemo,
+  catalogo: CatalogoDemo,
 
 };
 

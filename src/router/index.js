@@ -15,6 +15,9 @@ import ProjectRouter from "../views/ProjectRouter.vue";
 import ArchProjectView from "../views/projects/arquitectura/ArchProjectView.vue";
 import ArchProjectDetail from "../views/projects/arquitectura/ArchProjectDetail.vue";
 
+// VISTAS INTERNAS DE CATALOGO
+import CatalogoProductos from "../views/projects/catalogo/CatalogoProductos.vue";
+
 
 const routes = [
 
@@ -57,33 +60,48 @@ const routes = [
   },
 
 
-  {
-    path: "/projects",
+{
+  path: "/projects",
 
-    component: ProjectLayout,
+  component: ProjectLayout,
 
-    children: [
+  children: [
 
-      {
-        path: "arquitectura/proyectos",
-        name: "arch-projects",
-        component: ArchProjectView,
-      },
+    // ARQUITECTURA
 
-      {
-        path: "arquitectura/proyectos/:slug",
-        name: "arch-project-detail",
-        component: ArchProjectDetail,
-      },
+    {
+      path: "arquitectura/proyectos",
+      name: "arch-projects",
+      component: ArchProjectView,
+    },
 
-      {
-        path: ":slug",
-        name: "Project",
-        component: ProjectRouter,
-      },
+    {
+      path: "arquitectura/proyectos/:slug",
+      name: "arch-project-detail",
+      component: ArchProjectDetail,
+    },
 
-    ],
-  },
+
+    // AURALYN / CATÁLOGO
+
+    {
+      path: "catalogo/productos",
+      name: "catalogo-productos",
+      component: CatalogoProductos,
+    },
+
+
+    // PROYECTOS GENERALES
+    // Mantener al final porque :slug es dinámico
+
+    {
+      path: ":slug",
+      name: "Project",
+      component: ProjectRouter,
+    },
+
+  ],
+},
 
 ];
 

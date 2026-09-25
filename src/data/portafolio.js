@@ -136,10 +136,15 @@ export const portafolio = [
 
  {
   id: 3,
+
   title: 'Demo Catálogo de Productos',
-  slug: 'catalogo-productos',
+
+  slug: 'catalogo',
+
   client: 'Catálogo comercial',
-  category: 'Comercio · Productos',
+
+  category: 'E-commerce · Catálogo digital',
+
   status: 'demo',
 
   // Imagen cuadrada que aparece en el grid del portafolio
@@ -149,23 +154,31 @@ export const portafolio = [
   banner: catalogoBanner,
 
   description:
-    'En construcción',
+    'Catálogo digital diseñado para tiendas de ropa, calzado, accesorios, belleza y otros negocios que buscan exhibir y vender sus productos en línea sin necesidad de una pasarela de pago. Incluye catálogo organizado, búsqueda inteligente, filtros, variantes de producto, precios por volumen, carrito de compras y generación de pedidos directamente por WhatsApp.',
 
   technologies: [
     'Vue 3',
+    'Vue Router',
     'Vite',
     'JavaScript',
     'CSS',
-    'Responsive'
+    'Responsive Design'
   ],
 
   features: [
-    'Catálogo visual de productos',
-    'Organización por categorías',
-    'Vista detallada de productos',
-    'Diseño adaptable a diferentes tipos de negocio',
-    'Interfaz responsive para celulares y tablets',
-    'Integración con WhatsApp para solicitar información o cotizaciones'
+    'Landing page comercial con productos destacados, novedades y colecciones',
+    'Catálogo general organizado por categorías',
+    'Buscador inteligente de productos por nombre, categoría y términos relacionados',
+    'Filtros por categoría, precio, novedades y disponibilidad para mayoreo',
+    'Ordenamiento de productos por precio y nombre',
+    'Vista detallada de cada producto mediante modal interactiva',
+    'Selección de variantes como color y talla',
+    'Control de cantidades antes de agregar productos al carrito',
+    'Precios escalonados y descuentos automáticos por volumen',
+    'Carrito de compras con actualización de cantidades y cálculo automático del total',
+    'Generación del pedido completo para enviarlo directamente por WhatsApp',
+    'Diseño adaptable para ropa, calzado, accesorios, belleza y diferentes tipos de comercio',
+    'Navegación optimizada para escritorio, tablet y dispositivos móviles'
   ],
 
   featured: false
@@ -173,29 +186,85 @@ export const portafolio = [
 
   {
     id: 4,
-    title: 'Demo Dermatología',
-    slug: 'dermatologia',
-    client: 'Consultorio dermatológico',
-    category: 'Salud',
-    image: dermatologia,
-    banner: dermatologiaBanner,
-    status: 'demo',
+    title: "Arquitectura",
+    slug: "arquitectura",
+    client: "Estudio de Arquitectura",
+    category: "Arquitectura y Construcción",
+    image: arch,
+    banner: archBanner,
+    status: "demo",
 
-    description: 'En construcción'
+    description: "Sitio web conceptual desarrollado para un estudio de arquitectura. El proyecto propone una experiencia de navegación inspirada en un plano arquitectónico, donde el usuario recorre cada sección como si avanzara por los espacios de una vivienda, integrando muros, accesos, ejes y elementos técnicos dentro de una identidad visual moderna y minimalista.",
+
+    features: [
+        "Diseño arquitectónico y responsive",
+        "Experiencia de navegación inspirada en un plano arquitectónico",
+        "Recorrido visual desde el acceso hasta el patio",
+        "Hero conceptual integrado como acceso de la vivienda",
+        "Secciones delimitadas mediante muros y espacios arquitectónicos",
+        "Transiciones entre secciones mediante puertas y vanos",
+        "Indicador vertical de recorrido arquitectónico",
+        "Presentación del estudio y filosofía de diseño",
+        "Sección de servicios arquitectónicos",
+        "Galería de proyectos destacados",
+        "Presentación del proceso de diseño y construcción",
+        "Animaciones de trazado inspiradas en planos técnicos",
+        "Llamadas a la acción para captar nuevos proyectos",
+        "Sección de contacto",
+        "Botón flotante de WhatsApp",
+        "Navegación interna por secciones"
+    ],
+
+    technologies: [
+        "Vue.js",
+        "Vite",
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "Responsive Design"
+    ]
+},
+
+{
+  id: 5,
+  title: 'Demo Despacho Jurídico',
+  slug: 'abogados',
+  client: 'Despacho jurídico',
+  category: 'Legal',
+  image: despacho,
+  banner: despachoBanner,
+  status: 'demo',
+
+  description:
+    'Demo web desarrollada para despachos jurídicos y abogados que buscan proyectar una imagen profesional, seria y confiable en internet. El diseño está inspirado en la estética de documentos y contratos legales, combinando una presentación editorial con secciones enfocadas en mostrar el despacho, áreas de práctica, equipo jurídico y medios de contacto.',
+
+  technologies: [
+    'Vue 3',
+    'Vite',
+    'JavaScript',
+    'HTML5',
+    'CSS3',
+    'Responsive Design'
+  ],
+
+  features: [
+    'Diseño editorial inspirado en documentos jurídicos',
+    'Presentación profesional del despacho',
+    'Sección de áreas de práctica',
+    'Presentación de abogados y perfiles profesionales',
+    'Sección para orientar al usuario según su situación legal',
+    'Presentación de experiencia y casos',
+    'Preguntas frecuentes',
+    'Formulario de contacto',
+    'Contacto directo por WhatsApp',
+    'Llamadas a la acción para solicitar consulta',
+    'Navegación interna por secciones',
+    'Diseño responsive para celulares y tablets'
+  ],
+
+  featured: false
   },
 
-  {
-    id: 5,
-    title: 'Demo Oncología',
-    slug: 'oncologia',
-    client: 'Consultorio de oncología',
-    category: 'Salud',
-    image: oncologo,
-    banner: oncologoBanner,
-    status: 'demo',
-
-    description: 'En construcción'
-  },
 
 {
   id: 6,
@@ -233,17 +302,40 @@ export const portafolio = [
   ]
 },
 
-  {
-    id: 7,
-    title: 'Demo Cosmetología',
-    slug: 'cosmetologia',
-    client: 'Centro de cosmetología',
-    category: 'Belleza',
-    image: cosmetologia,
-    banner: cosmetologiaBanner,
-    status: 'demo',
 
-    description: 'En construcción'
+  {
+    id: 12,
+    title: "Demo Gym",
+    slug: "gym",
+    client: "Iron Pulse Performance Club",
+    category: "Deporte y Fitness",
+    image: gym,
+    banner: gymBanner,
+    status: "demo",
+    description: "Sitio web conceptual desarrollado para un gimnasio de alto rendimiento. El proyecto presenta una identidad visual deportiva y moderna, enfocada en mostrar instalaciones, beneficios, entrenadores, membresías y canales de contacto de forma clara y atractiva.",
+    features: [
+      "Diseño deportivo y responsive",
+      "Hero de alto impacto",
+      "Sección de beneficios del gimnasio",
+      "Presentación de instalaciones y áreas de entrenamiento",
+      "Galería interactiva de instalaciones",
+      "Lightbox para visualizar fotografías",
+      "Presentación de entrenadores y especialidades",
+      "Planes y membresías",
+      "Preguntas frecuentes con acordeón",
+      "Llamadas a la acción para captar nuevos miembros",
+      "Ubicación integrada con Google Maps",
+      "Botón flotante de WhatsApp",
+      "Navegación interna por secciones"
+    ],
+    "technologies": [
+      "Vue.js",
+      "Vite",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "Responsive Design"
+    ]
   },
 
   {
@@ -327,118 +419,43 @@ export const portafolio = [
 
   {
     id: 10,
-    title: "Arquitectura",
-    slug: "arquitectura",
-    client: "Estudio de Arquitectura",
-    category: "Arquitectura y Construcción",
-    image: arch,
-    banner: archBanner,
-    status: "demo",
+    title: 'Demo Dermatología',
+    slug: 'dermatologia',
+    client: 'Consultorio dermatológico',
+    category: 'Salud',
+    image: dermatologia,
+    banner: dermatologiaBanner,
+    status: 'demo',
 
-    description: "Sitio web conceptual desarrollado para un estudio de arquitectura. El proyecto propone una experiencia de navegación inspirada en un plano arquitectónico, donde el usuario recorre cada sección como si avanzara por los espacios de una vivienda, integrando muros, accesos, ejes y elementos técnicos dentro de una identidad visual moderna y minimalista.",
+    description: 'En construcción'
+  },  
 
-    features: [
-        "Diseño arquitectónico y responsive",
-        "Experiencia de navegación inspirada en un plano arquitectónico",
-        "Recorrido visual desde el acceso hasta el patio",
-        "Hero conceptual integrado como acceso de la vivienda",
-        "Secciones delimitadas mediante muros y espacios arquitectónicos",
-        "Transiciones entre secciones mediante puertas y vanos",
-        "Indicador vertical de recorrido arquitectónico",
-        "Presentación del estudio y filosofía de diseño",
-        "Sección de servicios arquitectónicos",
-        "Galería de proyectos destacados",
-        "Presentación del proceso de diseño y construcción",
-        "Animaciones de trazado inspiradas en planos técnicos",
-        "Llamadas a la acción para captar nuevos proyectos",
-        "Sección de contacto",
-        "Botón flotante de WhatsApp",
-        "Navegación interna por secciones"
-    ],
+    {
+    id: 11,
+    title: 'Demo Oncología',
+    slug: 'oncologia',
+    client: 'Consultorio de oncología',
+    category: 'Salud',
+    image: oncologo,
+    banner: oncologoBanner,
+    status: 'demo',
 
-    technologies: [
-        "Vue.js",
-        "Vite",
-        "JavaScript",
-        "HTML5",
-        "CSS3",
-        "Responsive Design"
-    ]
-},
-
-{
-  id: 11,
-  title: 'Demo Despacho Jurídico',
-  slug: 'abogados',
-  client: 'Despacho jurídico',
-  category: 'Legal',
-  image: despacho,
-  banner: despachoBanner,
-  status: 'demo',
-
-  description:
-    'Demo web desarrollada para despachos jurídicos y abogados que buscan proyectar una imagen profesional, seria y confiable en internet. El diseño está inspirado en la estética de documentos y contratos legales, combinando una presentación editorial con secciones enfocadas en mostrar el despacho, áreas de práctica, equipo jurídico y medios de contacto.',
-
-  technologies: [
-    'Vue 3',
-    'Vite',
-    'JavaScript',
-    'HTML5',
-    'CSS3',
-    'Responsive Design'
-  ],
-
-  features: [
-    'Diseño editorial inspirado en documentos jurídicos',
-    'Presentación profesional del despacho',
-    'Sección de áreas de práctica',
-    'Presentación de abogados y perfiles profesionales',
-    'Sección para orientar al usuario según su situación legal',
-    'Presentación de experiencia y casos',
-    'Preguntas frecuentes',
-    'Formulario de contacto',
-    'Contacto directo por WhatsApp',
-    'Llamadas a la acción para solicitar consulta',
-    'Navegación interna por secciones',
-    'Diseño responsive para celulares y tablets'
-  ],
-
-  featured: false
+    description: 'En construcción'
   },
-  {
+
+    {
     id: 12,
-    title: "Demo Gym",
-    slug: "gym",
-    client: "Iron Pulse Performance Club",
-    category: "Deporte y Fitness",
-    image: gym,
-    banner: gymBanner,
-    status: "demo",
-    description: "Sitio web conceptual desarrollado para un gimnasio de alto rendimiento. El proyecto presenta una identidad visual deportiva y moderna, enfocada en mostrar instalaciones, beneficios, entrenadores, membresías y canales de contacto de forma clara y atractiva.",
-    features: [
-      "Diseño deportivo y responsive",
-      "Hero de alto impacto",
-      "Sección de beneficios del gimnasio",
-      "Presentación de instalaciones y áreas de entrenamiento",
-      "Galería interactiva de instalaciones",
-      "Lightbox para visualizar fotografías",
-      "Presentación de entrenadores y especialidades",
-      "Planes y membresías",
-      "Preguntas frecuentes con acordeón",
-      "Llamadas a la acción para captar nuevos miembros",
-      "Ubicación integrada con Google Maps",
-      "Botón flotante de WhatsApp",
-      "Navegación interna por secciones"
-    ],
-    "technologies": [
-      "Vue.js",
-      "Vite",
-      "JavaScript",
-      "HTML5",
-      "CSS3",
-      "Responsive Design"
-    ]
+    title: 'Demo Cosmetología',
+    slug: 'cosmetologia',
+    client: 'Centro de cosmetología',
+    category: 'Belleza',
+    image: cosmetologia,
+    banner: cosmetologiaBanner,
+    status: 'demo',
+
+    description: 'En construcción'
   },
+
 
   {
   id: 13,
