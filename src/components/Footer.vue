@@ -4,7 +4,7 @@
 
     <!-- Logo + descripción -->
     <div class="footer-section footer-brand">
-      <img src="/src/assets/logos/LOGOPRINCIPAL_WEBCATS.svg" alt="Webcats.mx" class="footer-logo" />
+      <img src="/src/assets/logos/webcats-logo.svg" alt="Webcats.mx" class="footer-logo" />
       <p class="footer-text">
         Desarrollo Web · Administración de Servidores · Soporte y mantenimiento web
       </p>

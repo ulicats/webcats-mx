@@ -165,39 +165,65 @@ const cerrarCarrito = () => {
 const continuarPedido = () => {
   if (!carrito.value.length) return
 
-  const total = carrito.value.reduce((sum, item) => sum + item.subtotal, 0)
+  const total = carrito.value.reduce(
+    (sum, item) => sum + item.subtotal,
+    0
+  )
 
-  const lineasProductos = carrito.value.map((item, index) => {
-    const lineas = [`${index + 1}. ${item.name}`]
+  const lineasProductos = carrito.value.map((item) => {
+    const lineas = [
+      `🛍️ *${item.name}*`
+    ]
 
-    if (item.color) lineas.push(`Color: ${item.color}`)
-    if (item.size) lineas.push(`Talla: ${item.size}`)
+    if (item.color) {
+      lineas.push(`Color: ${item.color}`)
+    }
+
+    if (item.size) {
+      lineas.push(`Talla: ${item.size}`)
+    }
 
     lineas.push(`Cantidad: ${item.quantity}`)
 
     if (item.unitPrice < item.originalPrice) {
-      lineas.push(`Precio mayoreo: ${formatPrice(item.unitPrice)} c/u`)
+      lineas.push(
+        `Precio mayoreo: ${formatPrice(item.unitPrice)} c/u`
+      )
     } else {
-      lineas.push(`Precio: ${formatPrice(item.unitPrice)} c/u`)
+      lineas.push(
+        `Precio: ${formatPrice(item.unitPrice)} c/u`
+      )
     }
 
-    lineas.push(`Subtotal: ${formatPrice(item.subtotal)}`)
+    lineas.push(
+      `Subtotal: ${formatPrice(item.subtotal)}`
+    )
+
     return lineas.join('\n')
   })
 
   const mensaje = [
     catalogConfig.cart.whatsappMessage,
     '',
-    ...lineasProductos.flatMap(producto => [producto, '']),
-    `TOTAL: ${formatPrice(total)}`,
+    ...lineasProductos.flatMap(producto => [
+      producto,
+      ''
+    ]),
+    `*TOTAL: ${formatPrice(total)}*`,
     '',
     'Quedo pendiente para confirmar disponibilidad, envío y forma de pago.'
   ].join('\n')
 
   const numero = catalogConfig.contact.whatsapp
-  const urlWhatsApp = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`
 
-  window.open(urlWhatsApp, '_blank', 'noopener,noreferrer')
+  const urlWhatsApp =
+    `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`
+
+  window.open(
+    urlWhatsApp,
+    '_blank',
+    'noopener,noreferrer'
+  )
 }
 
 const normalizarTexto = (texto = '') => {

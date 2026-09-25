@@ -2,7 +2,7 @@
   <div v-if="visible" class="loader">
     <div class="logo-wrapper">
       <img
-        src="@/assets/logos/LOGOPRINCIPAL_WEBCATS.svg"
+        src="@/assets/logos/webcats-logo.svg"
         alt="Webcats Loader"
         class="logo"
       />

@@ -14,7 +14,7 @@
           @click="closeMenu"
         >
           <img
-            src="/src/assets/logos/LOGOPRINCIPAL_WEBCATS.svg"
+            src="/src/assets/logos/webcats-logo.svg"
             class="logo-img"
             alt="Webcats"
           />
