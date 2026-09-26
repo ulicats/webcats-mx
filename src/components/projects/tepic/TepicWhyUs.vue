@@ -150,7 +150,7 @@ const features = [
 ]
 
 const whatsappUrl =
-  'https://wa.me/521XXXXXXXXXX?text=Hola%2C%20vi%20su%20servicio%20de%20dise%C3%B1o%20web%20en%20Tepic%20y%20quiero%20cotizar%20un%20proyecto.'
+  'https://wa.me/523332341375?text=Hola%2C%20vi%20su%20servicio%20de%20dise%C3%B1o%20web%20en%20Tepic%20y%20quiero%20cotizar%20un%20proyecto.'
 </script>
 
 <style scoped>

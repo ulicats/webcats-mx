@@ -128,7 +128,7 @@ const services = [
 ]
 
 const whatsappUrl =
-  'https://wa.me/521XXXXXXXXXX?text=Hola%2C%20vi%20sus%20servicios%20web%20en%20Tepic%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto.'
+  'https://wa.me/523332341375?text=Hola%2C%20vi%20sus%20servicios%20web%20en%20Tepic%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto.'
 </script>
 
 <style scoped>

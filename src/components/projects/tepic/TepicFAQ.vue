@@ -150,7 +150,7 @@ const toggleFaq = (index) => {
 }
 
 const whatsappUrl =
-  'https://wa.me/521XXXXXXXXXX?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20el%20desarrollo%20de%20una%20p%C3%A1gina%20web.'
+  'https://wa.me/523332341375?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20el%20desarrollo%20de%20una%20p%C3%A1gina%20web.'
 </script>
 
 <style scoped>

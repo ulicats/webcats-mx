@@ -326,7 +326,7 @@ const filteredProjects = computed(() => {
 })
 
 const whatsappUrl =
-  'https://wa.me/521XXXXXXXXXX?text=Hola%2C%20vi%20sus%20proyectos%20de%20dise%C3%B1o%20web%20y%20quiero%20cotizar%20una%20p%C3%A1gina%20para%20mi%20negocio.'
+  'https://wa.me/523332341375?text=Hola%2C%20vi%20sus%20proyectos%20de%20dise%C3%B1o%20web%20y%20quiero%20cotizar%20una%20p%C3%A1gina%20para%20mi%20negocio.'
 </script>
 
 <style scoped>

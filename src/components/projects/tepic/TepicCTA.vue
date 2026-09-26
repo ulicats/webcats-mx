@@ -103,7 +103,7 @@ const benefits = [
 ]
 
 const whatsappUrl =
-  'https://wa.me/521XXXXXXXXXX?text=Hola%2C%20vi%20su%20p%C3%A1gina%20de%20desarrollo%20web%20en%20Tepic%20y%20quiero%20cotizar%20un%20proyecto.'
+  'https://wa.me/523332341375?text=Hola%2C%20vi%20su%20p%C3%A1gina%20de%20desarrollo%20web%20en%20Tepic%20y%20quiero%20cotizar%20un%20proyecto.'
 </script>
 
 <style scoped>
