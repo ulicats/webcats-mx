@@ -34,6 +34,9 @@ import oncologoBanner from '@/assets/portafolio/oncologo-banner.png'
 import arch from '@/assets/portafolio/arch.png'
 import archBanner from '@/assets/portafolio/arch-banner.png'
 
+import agencia from '@/assets/portafolio/agencia.png'
+import agenciaBanner from '@/assets/portafolio/agencia-banner.png'
+
 import casillas from '@/assets/projects/casillas/1.jpg'
 import casillas1 from '@/assets/projects/casillas/1.jpg'
 import casillas2 from '@/assets/projects/casillas/2.jpg'
@@ -418,7 +421,51 @@ export const portafolio = [
 },
 
   {
-    id: 10,
+      id: 10,
+      title: 'Diseño Web Tepic',
+      slug: 'diseno-paginas-web-tepic',
+      client: 'Webcats.mx',
+      category: 'Desarrollo Web',
+      image: agencia,
+      banner: agenciaBanner,
+      status: 'demo',
+
+      description:
+        'Landing page desarrollada para Webcats.mx enfocada en servicios de diseño y desarrollo de páginas web en Tepic, Nayarit. El proyecto presenta servicios digitales, proyectos realizados, soluciones para distintos tipos de negocio, proceso de trabajo y contenido orientado a búsquedas locales, con una experiencia moderna, profesional y enfocada en facilitar el contacto de empresas, negocios y profesionistas que buscan desarrollar su presencia en internet.',
+
+      technologies: [
+        'Vue 3',
+        'Vite',
+        'JavaScript',
+        'HTML5',
+        'CSS3',
+        'Responsive Design',
+        'SEO On-Page'
+      ],
+
+      features: [
+        'Landing page enfocada en diseño web en Tepic, Nayarit',
+        'Diseño profesional para agencia de desarrollo web',
+        'Presentación de servicios de diseño y desarrollo web',
+        'Portafolio de proyectos con filtros por categoría',
+        'Enlaces directos a proyectos desarrollados por Webcats',
+        'Sección de soluciones para distintos tipos de negocio',
+        'Presentación del proceso de desarrollo',
+        'Contenido orientado a búsquedas locales',
+        'Estructura de contenido preparada para SEO',
+        'Sección de presencia local en Tepic, Nayarit',
+        'Preguntas frecuentes',
+        'Llamadas a la acción para solicitar cotización',
+        'Contacto directo por WhatsApp',
+        'Navegación interna por secciones',
+        'Diseño responsive para celulares y tablets'
+      ],
+
+        featured: false
+  },
+
+  {
+    id: 11,
     title: 'Demo Dermatología',
     slug: 'dermatologia',
     client: 'Consultorio dermatológico',
@@ -431,7 +478,7 @@ export const portafolio = [
   },  
 
     {
-    id: 11,
+    id: 12,
     title: 'Demo Oncología',
     slug: 'oncologia',
     client: 'Consultorio de oncología',
@@ -444,7 +491,7 @@ export const portafolio = [
   },
 
     {
-    id: 12,
+    id: 13,
     title: 'Demo Cosmetología',
     slug: 'cosmetologia',
     client: 'Centro de cosmetología',
@@ -458,7 +505,7 @@ export const portafolio = [
 
 
   {
-  id: 13,
+  id: 14,
   title: 'Casillas Abogados Penalistas',
   slug: 'casillas-abogados-penalistas',
   client: 'Despacho jurídico',
@@ -521,7 +568,7 @@ export const portafolio = [
 },
 
 {
-  id: 14,
+  id: 15,
   title: 'Limalum Vidrios y Aluminios',
   slug: 'limalum-vidrios-aluminios',
   client: 'Empresa de vidrios y aluminio',
