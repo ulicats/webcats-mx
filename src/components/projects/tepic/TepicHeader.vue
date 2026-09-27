@@ -73,7 +73,7 @@ import { ref } from 'vue'
 const menuOpen = ref(false)
 
 /*
- * Sustituye 521XXXXXXXXXX por el número real.
+ * 
  */
 const whatsappUrl =
   'https://wa.me/523332341375?text=Hola%2C%20vi%20su%20servicio%20de%20dise%C3%B1o%20web%20en%20Tepic%20y%20me%20gustar%C3%ADa%20cotizar%20una%20p%C3%A1gina%20web.'
