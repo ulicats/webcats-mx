@@ -45,9 +45,6 @@
     <!-- FOOTER -->
     <TepicFooter />
 
-    <!-- BOTÓN FLOTANTE -->
-    <TepicWhatsApp />
-
   </div>
 </template>
 
@@ -65,12 +62,14 @@ import TepicLocal from '../../../components/projects/tepic/TepicLocal.vue'
 import TepicFAQ from '../../../components/projects/tepic/TepicFAQ.vue'
 import TepicCTA from '../../../components/projects/tepic/TepicCTA.vue'
 import TepicFooter from '../../../components/projects/tepic/TepicFooter.vue'
-import TepicWhatsApp from '../../../components/projects/tepic/TepicWhatsApp.vue'
+
 </script>
 
 <style scoped>
+
 .tepic-page {
   width: 100%;
   min-height: 100vh;
 }
+
 </style>
