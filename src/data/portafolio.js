@@ -37,6 +37,9 @@ import archBanner from '@/assets/portafolio/arch-banner.png'
 import agencia from '@/assets/portafolio/agencia.png'
 import agenciaBanner from '@/assets/portafolio/agencia-banner.png'
 
+import multiservicios from '../assets/portafolio/multiservicios.png'
+import multiserviciosBanner from '../assets/portafolio/multiservicios-banner.png'
+
 import casillas from '@/assets/projects/casillas/1.jpg'
 import casillas1 from '@/assets/projects/casillas/1.jpg'
 import casillas2 from '@/assets/projects/casillas/2.jpg'
@@ -307,7 +310,7 @@ export const portafolio = [
 
 
   {
-    id: 12,
+    id: 7,
     title: "Demo Gym",
     slug: "gym",
     client: "Iron Pulse Performance Club",
@@ -342,7 +345,51 @@ export const portafolio = [
   },
 
   {
-    id: 8,
+  id: 8,
+  title: 'Multiservicios Web',
+  slug: 'multiservicios',
+  client: 'Empresa de multiservicios',
+  category: 'Servicios',
+  image: multiservicios,
+  banner: multiserviciosBanner,
+  status: 'demo',
+
+  description:
+    'Demo web desarrollada para empresas de multiservicios, mantenimiento y reparaciones para hogares y negocios. El proyecto presenta servicios de fontanería, electricidad, albañilería, pintura y mantenimiento general mediante una interfaz profesional, moderna y orientada a facilitar la solicitud de cotizaciones y el contacto directo por WhatsApp.',
+
+  technologies: [
+    'Vue 3',
+    'Vite',
+    'JavaScript',
+    'HTML5',
+    'CSS3',
+    'Responsive Design'
+  ],
+
+  features: [
+    'Diseño profesional orientado a empresas de servicios',
+    'Presentación de servicios de fontanería',
+    'Presentación de servicios de electricidad',
+    'Servicios de albañilería y remodelación',
+    'Servicios de pintura e impermeabilización',
+    'Mantenimiento general para hogares y negocios',
+    'Sección de servicios de emergencia',
+    'Galería de trabajos realizados',
+    'Proceso de solicitud y atención de servicios',
+    'Presentación de zonas de cobertura',
+    'Sección de reseñas de clientes',
+    'Preguntas frecuentes',
+    'Llamadas a la acción para solicitar cotización',
+    'Contacto directo por WhatsApp',
+    'Navegación interna por secciones',
+    'Diseño responsive para celulares y tablets'
+  ],
+
+  featured: false
+},
+
+  {
+    id: 9,
     title: 'Demo Nutrióloga',
     slug: 'nutriologa',
     client: 'Consultorio de nutrición',
@@ -381,7 +428,7 @@ export const portafolio = [
   },
 
   {
-  id: 9,
+  id: 10,
   title: 'Demo Firma Financiera',
   slug: 'financiera',
   client: 'Firma financiera',
@@ -421,7 +468,7 @@ export const portafolio = [
 },
 
   {
-      id: 10,
+      id: 11,
       title: 'Diseño Web Tepic',
       slug: 'diseno-paginas-web-tepic',
       client: 'Webcats.mx',
@@ -465,7 +512,7 @@ export const portafolio = [
   },
 
   {
-    id: 11,
+    id: 12,
     title: 'Demo Dermatología',
     slug: 'dermatologia',
     client: 'Consultorio dermatológico',
@@ -478,7 +525,7 @@ export const portafolio = [
   },  
 
     {
-    id: 12,
+    id: 13,
     title: 'Demo Oncología',
     slug: 'oncologia',
     client: 'Consultorio de oncología',
@@ -491,7 +538,7 @@ export const portafolio = [
   },
 
     {
-    id: 13,
+    id: 14,
     title: 'Demo Cosmetología',
     slug: 'cosmetologia',
     client: 'Centro de cosmetología',
@@ -505,7 +552,7 @@ export const portafolio = [
 
 
   {
-  id: 14,
+  id: 15,
   title: 'Casillas Abogados Penalistas',
   slug: 'casillas-abogados-penalistas',
   client: 'Despacho jurídico',
@@ -568,7 +615,7 @@ export const portafolio = [
 },
 
 {
-  id: 15,
+  id: 16,
   title: 'Limalum Vidrios y Aluminios',
   slug: 'limalum-vidrios-aluminios',
   client: 'Empresa de vidrios y aluminio',

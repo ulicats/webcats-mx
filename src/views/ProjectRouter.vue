@@ -16,6 +16,7 @@ import FinDemo from "./projects/financiera/FinDemo.vue";
 import ArchDemo from "./projects/arquitectura/ArchDemo.vue";
 import CatalogoDemo from "./projects/catalogo/CatalogoDemo.vue";
 import DesarrolloWebTepic from "./projects/tepic/DesarrolloWebTepic.vue";
+import MultiServiciosDemo from "./projects/multiservicios/MultiServiciosDemo.vue";
 
 const route = useRoute();
 
@@ -29,6 +30,7 @@ const map = {
   arquitectura: ArchDemo,
   catalogo: CatalogoDemo,
   'diseno-paginas-web-tepic': DesarrolloWebTepic,
+  multiservicios: MultiServiciosDemo,
 
 };
 
