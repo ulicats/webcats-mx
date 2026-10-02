@@ -38,7 +38,7 @@ import agencia from '@/assets/portafolio/agencia.png'
 import agenciaBanner from '@/assets/portafolio/agencia-banner.png'
 
 import multiservicios from '../assets/portafolio/multiservicios.png'
-import multiserviciosBanner from '../assets/portafolio/multiservicios-banner.png'
+import multiserviciosBanner from '../assets/portafolio/multiservicios-Banner.png'
 
 import casillas from '@/assets/projects/casillas/1.jpg'
 import casillas1 from '@/assets/projects/casillas/1.jpg'
